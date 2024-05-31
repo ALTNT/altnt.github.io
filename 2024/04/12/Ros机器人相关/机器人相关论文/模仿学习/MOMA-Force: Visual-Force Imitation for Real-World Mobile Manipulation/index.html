@@ -1,0 +1,189 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>MOMA-Force: Visual-Force Imitation for Real-World Mobile Manipulation | ALTNT's Hexo Blog</title><meta name="author" content="ALTNT"><meta name="copyright" content="ALTNT"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="MOMA-Force: Visual-Force Imitation for Real-World Mobile Manipulation项目地址:https:&#x2F;&#x2F;visual-force-imitation.github.io&#x2F; 摘要训练神经网络能够以端到端的方式生成动作，但由于动作精度和对噪声响应的低鲁棒性，导致难以应用于真实物理世界。 另一方面，基于经典控制的方法可以增强系统的鲁棒性，但需要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MOMA-Force: Visual-Force Imitation for Real-World Mobile Manipulation">
+<meta property="og:url" content="http://blog.705553939.xyz/2024/04/12/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/MOMA-Force:%20Visual-Force%20Imitation%20for%20Real-World%20Mobile%20Manipulation/index.html">
+<meta property="og:site_name" content="ALTNT&#39;s Hexo Blog">
+<meta property="og:description" content="MOMA-Force: Visual-Force Imitation for Real-World Mobile Manipulation项目地址:https:&#x2F;&#x2F;visual-force-imitation.github.io&#x2F; 摘要训练神经网络能够以端到端的方式生成动作，但由于动作精度和对噪声响应的低鲁棒性，导致难以应用于真实物理世界。 另一方面，基于经典控制的方法可以增强系统的鲁棒性，但需要">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.705553939.xyz/img/altnt.jpeg">
+<meta property="article:published_time" content="2024-04-12T06:54:22.712Z">
+<meta property="article:modified_time" content="2024-05-31T16:19:39.359Z">
+<meta property="article:author" content="ALTNT">
+<meta property="article:tag" content="Ros机器人">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.705553939.xyz/img/altnt.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://blog.705553939.xyz/2024/04/12/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/MOMA-Force:%20Visual-Force%20Imitation%20for%20Real-World%20Mobile%20Manipulation/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'MOMA-Force: Visual-Force Imitation for Real-World Mobile Manipulation',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-06-01 00:19:39'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/altnt.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ALTNT's Hexo Blog"><span class="site-name">ALTNT's Hexo Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">MOMA-Force: Visual-Force Imitation for Real-World Mobile Manipulation</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-04-12T06:54:22.712Z" title="Created 2024-04-12 14:54:22">2024-04-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-05-31T16:19:39.359Z" title="Updated 2024-06-01 00:19:39">2024-06-01</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="MOMA-Force: Visual-Force Imitation for Real-World Mobile Manipulation"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="MOMA-Force-Visual-Force-Imitation-for-Real-World-Mobile-Manipulation"><a href="#MOMA-Force-Visual-Force-Imitation-for-Real-World-Mobile-Manipulation" class="headerlink" title="MOMA-Force: Visual-Force Imitation for Real-World Mobile Manipulation"></a>MOMA-Force: Visual-Force Imitation for Real-World Mobile Manipulation</h1><p>项目地址:<a target="_blank" rel="noopener" href="https://visual-force-imitation.github.io/">https://visual-force-imitation.github.io/</a></p>
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p><strong>训练神经网络</strong>能够以端到端的方式生成动作，但由于动作精度和对噪声响应的低鲁棒性，导致难以应用于真实物理世界。</p>
+<p>另一方面，<strong>基于经典控制的方法</strong>可以增强系统的鲁棒性，但需要进行大量繁琐的参数调校。———-基于经典控制的方法是什么?</p>
+<p>为了解决这些挑战， <strong>MOMA-Force 融合了用于视觉感知的表示学习（Representation Learning）、复杂运动轨迹生成的 模仿学习（Imitation Learning）以及阻抗全身控制（Admittance Whole Body Control）</strong> ，以实现系统的鲁棒性和可控性。</p>
+<p>为了应对这些挑战，我们提出了 MOMA-Force，这是一种视觉力模仿方法，它结合了用于感知的表示学习、用于复杂运动生成的模仿学习以及用于系统鲁棒性的导纳全身控制和<br>  可控性。 MOMA-Force 使移动机械手能够以高成功率和小接触力学习多个复杂的接触丰富的任务。 在真实的家庭环境中，我们的方法在任务成功率方面优于基线方法。 此外，与没有力模拟的基线方法相比，我们的方法实现了更小的接触力和更小的力方差。 总的来说，我们为现实世界中高效、稳健的移动操作提供了一种有前景的方法。</p>
+<p>为了应对这些挑战，我们提出了MOMA-Force，一种视觉力模仿方法，它无缝结合了<strong>感知的表征学习</strong>、<strong>复杂运动生成的模仿学习</strong>，以及用于<strong>系统鲁棒性和可控性的全身顺应性控制</strong>。(什么意思?)</p>
+<p>MOMA-Force使得移动操作器能够学习多个复杂的接触丰富的任务，并且具有高成功率和小接触力。在真实的家庭环境中，我们的方法在任务成功率方面超越了基线方法。</p>
+<p>此外，与没有力模仿的基线方法相比，我们的方法实现了更小的接触力和更小的力变化。总的来说，我们提供了一种在现实世界中进行高效和鲁棒的移动操作的有前途的方法。</p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍:"></a>介绍:</h2><p>移动操纵结合了机器人的两种基本功能：移动性和操纵性</p>
+<p>这两种能力相比于静态操控，在现实世界中大大扩展了机器人的应用范围[1]。例如，移动操控使得机器人能够完成涉及大工作空间的操控任务（例如，打开壁橱门）。然而，移动操控在处理现实世界任务时带来了重大挑战。</p>
+<p>这些挑战主要有两方面。首先，由<strong>定位和控制引起的不确定性</strong>可能导致潜在的安全问题，尤其是在接触丰富的任务中。其次，**高维配置空间(high-dimensional configuration space)**使得运动生成和控制变得复杂。———-高维配置空间(high-dimensional configuration)是个什么概念?</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">高维配置空间（High-dimensional configuration space），在机器人学和运动规划中，是指描述机器人所有可能姿态的空间，其中“维度”代表了机器人可以独立控制的自由度数量。对于一个简单的机器人，比如一个只有两个关节的机械臂，它的配置空间可能只有两个维度，每个维度对应一个关节的角度。但是，对于更复杂的机器人，比如具有多个关节和可移动部件的移动操作机器人，配置空间的维度会大幅增加。在高维配置空间中，每个维度代表机器人的一个自由度，比如关节角度、机器人的位置坐标或者朝向。随着自由度的增加，配置空间的复杂性呈指数级增长，这使得在这个空间中搜索最优或者可行的路径变得非常具有挑战性。这种复杂性不仅影响运动规划算法的效率，也影响到机器人执行任务时的精确性和可靠性。在移动操作任务中，机器人需要在其高维配置空间中规划路径，同时考虑到避免障碍物、维持平衡和执行特定的操作任务。因此，高维配置空间是一个关键概念，它直接关系到机器人能否成功地在复杂环境中执行任务。</span><br></pre></td></tr></table></figure>
+
+<p><strong>早期的工作</strong>假定了<strong>对场景的先验知识</strong>，并探讨了<strong>路径规划</strong>[2]以及<strong>任务与运动规划（task and motion planning TAMP）</strong>[3]。</p>
+<p><strong>全身控制算法</strong>已经被研究用来解决高维优化问题[4]、[5]、[6]。</p>
+<p>然而，环境也被简化了，以减轻优化的复杂性。</p>
+<p>**数据驱动的方法，如模仿学习[7]、[8]和强化学习[9]**，因为它们使得机器人能够直接从视觉观察中学习而变得流行。</p>
+<p>最近的工作将计算机视觉和自然语言处理中的大规模预训练范式扩展到**静态操控[7]、[8]、[10]和导航[11]**。</p>
+<p>它们在各种真实机器人任务中展现了有希望的结果。与仅从昂贵的机器人数据中学习相比，这种范式利用现有的大规模数据集[12]、[13]来预训练视觉表征模型，该模型能够学习世界的有用视觉属性，从而高效地进行策略学习。然而，<strong>这些方法很少为接触丰富的移动操作任务而设计。</strong></p>
+<p><strong>视觉模仿学习通常遭受“最后一厘米”的误差[14]。</strong></p>
+<p>在许多接触丰富的现实世界任务中，这个问题变得不可忽视，因为它可能导致对环境和机器人的严重机械损害。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">移动操作任务是指机器人在移动的同时执行的物理操控任务。这类任务通常要求机器人在空间中移动到特定位置，并使用其操控装置（如机械臂或抓手）来执行任务，如拾取、搬运、组装或操作物体。</span><br><span class="line"></span><br><span class="line">例如，一个移动操作任务可能是家用服务机器人在家中导航到餐桌旁，然后使用其机械臂拿起餐具并放置在餐桌上。这个任务结合了移动（机器人移动到餐桌旁）和操控（机器人拿起并放置餐具）两个方面。</span><br><span class="line"></span><br><span class="line">其他移动操作任务的例子包括：</span><br><span class="line">- 仓库机器人在货架间移动并拾取货物。</span><br><span class="line">- 清洁机器人移动到房间里的不同位置进行打扫。</span><br><span class="line">- 救援机器人在灾难现场中导航并移除障碍物。</span><br><span class="line">- 医疗辅助机器人在医院中运送药品和设备。</span><br><span class="line"></span><br><span class="line">这些任务通常涉及到复杂的环境交互，并且要求机器人有很高的自主性和适应性。</span><br></pre></td></tr></table></figure>
+
+<p>在本文中，我们认为<strong>扭矩F &#x3D; [m, f] ∈ R^6（m是扭矩，f是力）</strong>在任务完成和安全性方面至关重要。</p>
+<p>为此，我们提出了一种新颖的<strong>视觉-力模仿方法</strong>，用于解决现实世界中接触丰富的移动操作任务。</p>
+<p>与之前仅模仿运动学动作的工作不同，我们扩展了一种最先进的视觉模仿方法[15]，以支持运动学动作和<strong>力的模仿</strong>。这使我们能够解决移动操作中由定位和控制引起的不确定性，从而确保更安全的机器人执行。此外，我们利用<strong>全身控制（WBC</strong>）[6]、[16]来解决移动操控器的高维控制问题。这允许机器人在模仿<strong>专家扭矩</strong>的<strong>同时</strong>，<strong>跟踪预测动作生成的轨迹</strong>。</p>
+<p>———–<strong>力的模仿?????</strong></p>
+<p>我们对六个家庭接触丰富的任务进行了多任务学习（见图1）。结果显示，我们的方法在任务成功率上超过了几个没有力模仿的基线方法。特别是，我们的方法在六个任务上平均成功率达到73.3%，而最好的基线方法达到45.0%。此外，通过力的模仿，平均绝对接触扭矩和平均扭矩方差都减小了，表明机器人与物体之间的接触更安全、更稳定。</p>
+<p>主要贡献总结如下：</p>
+<p>• 我们在模仿学习的背景下，解决了现实世界移动操作任务中由不确定性和高维运动学引起的挑战性问题，并提出了一个有效的视觉-力模仿方法来解决现实世界的移动操作任务。</p>
+<p>• 我们在六个接触丰富的移动操作任务上进行了系统的真实机器人实验，并展示了所提出系统在这些具有挑战性的任务上的性能。</p>
+<h2 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h2><p>A. 移动操控</p>
+<p>先前的研究探讨了使用任务和运动规划（TAMP）来规划和控制移动操控器[3]。另一种方法利用了移动-行动管道[17]。然而，由于机器人和&#x2F;或环境的限制，通常难以找到可行的运动学解决方案。作为替代，全身控制[18]、[19]能够处理由机械限制、可操控性或动态障碍物避让需求引起的复杂约束。在移动操控中采用了基于学习的方法，以使机器人具有视觉反馈。特别是，模仿学习方法试图模仿人类示范的动作[20]、[21]、[22]。此外，力信息必须仔细处理。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz">ALTNT</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz/2024/04/12/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/MOMA-Force:%20Visual-Force%20Imitation%20for%20Real-World%20Mobile%20Manipulation/">http://blog.705553939.xyz/2024/04/12/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/MOMA-Force:%20Visual-Force%20Imitation%20for%20Real-World%20Mobile%20Manipulation/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA/">Ros机器人</a></div><div class="post_share"><div class="social-share" data-image="/img/altnt.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/04/15/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E4%BA%91%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="云操作系统"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">云操作系统</div></div></a></div><div class="next-post pull-right"><a href="/2024/04/12/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/ros%E9%80%9A%E4%BF%A1%E6%9C%BA%E5%88%B6/2.1%E8%AF%9D%E9%A2%98%E9%80%9A%E4%BF%A1/00%20%E6%A6%82%E5%BF%B5/" title=""><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info"></div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2024/04/12/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/" title="模仿学习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-12</div><div class="title">模仿学习</div></div></a></div><div><a href="/2024/04/12/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/ros%E9%80%9A%E4%BF%A1%E6%9C%BA%E5%88%B6/ROS%20%E9%80%9A%E4%BF%A1%E6%9C%BA%E5%88%B6/" title="ROS通信机制"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-12</div><div class="title">ROS通信机制</div></div></a></div><div><a href="/2024/04/18/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/Generative%20Skill%20Chaining%20Long-Horizon%20Skill%20Planning%20with%20Diffusion%20Models%20copy/" title="Generative Skill Chaining: Long-Horizon Skill Planning with Diffusion Models"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-18</div><div class="title">Generative Skill Chaining: Long-Horizon Skill Planning with Diffusion Models</div></div></a></div><div><a href="/2024/04/26/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E6%8E%A5%E4%B8%8B%E6%9D%A5%E5%8F%AF%E8%83%BD%E7%9C%8B%E7%9A%84%E8%AE%BA%E6%96%87/" title="接下来可能看的论文"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-26</div><div class="title">接下来可能看的论文</div></div></a></div><div><a href="/2024/04/25/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/diffusion%20policy/" title="Diffusion Policy"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-25</div><div class="title">Diffusion Policy</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/altnt.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ALTNT</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">13</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ALTNT"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MOMA-Force-Visual-Force-Imitation-for-Real-World-Mobile-Manipulation"><span class="toc-number">1.</span> <span class="toc-text">MOMA-Force: Visual-Force Imitation for Real-World Mobile Manipulation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">1.1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.2.</span> <span class="toc-text">介绍:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.3.</span> <span class="toc-text">相关工作</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/31/Youtube%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/Learning1/" title="Youtube English Learning1">Youtube English Learning1</a><time datetime="2024-05-31T10:31:31.000Z" title="Created 2024-05-31 18:31:31">2024-05-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/31/hello-world/" title="Hello World">Hello World</a><time datetime="2024-05-31T10:09:03.254Z" title="Created 2024-05-31 18:09:03">2024-05-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/04/26/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E6%8E%A5%E4%B8%8B%E6%9D%A5%E5%8F%AF%E8%83%BD%E7%9C%8B%E7%9A%84%E8%AE%BA%E6%96%87/" title="接下来可能看的论文">接下来可能看的论文</a><time datetime="2024-04-26T03:15:44.000Z" title="Created 2024-04-26 11:15:44">2024-04-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/04/25/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/diffusion%20policy/" title="Diffusion Policy">Diffusion Policy</a><time datetime="2024-04-24T16:47:38.000Z" title="Created 2024-04-25 00:47:38">2024-04-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/04/18/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/Generative%20Skill%20Chaining%20Long-Horizon%20Skill%20Planning%20with%20Diffusion%20Models%20copy/" title="Generative Skill Chaining: Long-Horizon Skill Planning with Diffusion Models">Generative Skill Chaining: Long-Horizon Skill Planning with Diffusion Models</a><time datetime="2024-04-18T09:41:48.000Z" title="Created 2024-04-18 17:41:48">2024-04-18</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By ALTNT</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
