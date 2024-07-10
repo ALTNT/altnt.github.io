@@ -1,0 +1,323 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>云机器人 | ALTNT's Hexo Blog</title><meta name="author" content="ALTNT"><meta name="copyright" content="ALTNT"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="云机器人的概念与发展                在5G网络建设全面铺开的大背景下，未来云机器人在中国将会得到飞跃式发展。本文引自《智能制造概论》，作者李培根、高亮。**    传统工业机器人在面对复杂生产环境时该如何解决以下需求？** **    （1）大量数据存储与处理；（2）高计算能力；（3）强学习能力。** 传统机器人在执行即时定位和地图构建、物品抓取、定位导航等复杂任务时，大量数据的获">
+<meta property="og:type" content="article">
+<meta property="og:title" content="云机器人">
+<meta property="og:url" content="http://blog.705553939.xyz/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E4%BA%91%E6%9C%BA%E5%99%A8%E4%BA%BA/index.html">
+<meta property="og:site_name" content="ALTNT&#39;s Hexo Blog">
+<meta property="og:description" content="云机器人的概念与发展                在5G网络建设全面铺开的大背景下，未来云机器人在中国将会得到飞跃式发展。本文引自《智能制造概论》，作者李培根、高亮。**    传统工业机器人在面对复杂生产环境时该如何解决以下需求？** **    （1）大量数据存储与处理；（2）高计算能力；（3）强学习能力。** 传统机器人在执行即时定位和地图构建、物品抓取、定位导航等复杂任务时，大量数据的获">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.705553939.xyz/img/altnt.jpeg">
+<meta property="article:published_time" content="2024-06-05T15:46:21.573Z">
+<meta property="article:modified_time" content="2024-06-05T15:46:21.574Z">
+<meta property="article:author" content="ALTNT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.705553939.xyz/img/altnt.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://blog.705553939.xyz/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E4%BA%91%E6%9C%BA%E5%99%A8%E4%BA%BA/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '云机器人',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-06-05 23:46:21'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/altnt.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ALTNT's Hexo Blog"><span class="site-name">ALTNT's Hexo Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">云机器人</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-06-05T15:46:21.573Z" title="Created 2024-06-05 23:46:21">2024-06-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-06-05T15:46:21.574Z" title="Updated 2024-06-05 23:46:21">2024-06-05</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="云机器人"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="云机器人的概念与发展-在5G网络建设全面铺开的大背景下，未来云机器人在中国将会得到飞跃式发展。本文引自《智能制造概论》，作者李培根、高亮。"><a href="#云机器人的概念与发展-在5G网络建设全面铺开的大背景下，未来云机器人在中国将会得到飞跃式发展。本文引自《智能制造概论》，作者李培根、高亮。" class="headerlink" title="云机器人的概念与发展                在5G网络建设全面铺开的大背景下，未来云机器人在中国将会得到飞跃式发展。本文引自《智能制造概论》，作者李培根、高亮。"></a><strong>云机器人的概念与发展                在5G网络建设全面铺开的大背景下，未来云机器人在中国将会得到飞跃式发展。本文引自《智能制造概论》，作者李培根、高亮。</strong></h2><p>**    传统工业机器人在面对复杂生产环境时该如何解决以下需求？**</p>
+<p>**    （1）大量数据存储与处理；（2）高计算能力；（3）强学习能力。**</p>
+<p>传统机器人在执行即时定位和地图构建、物品抓取、定位导航等复杂任务时，大量数据的获取和处理会给机器人本身带来巨大的储存和计算压力，即使能够完成任务，实时性也并不理想。云机器人借助于5G网络，云计算与人工智能技术，达到了 <strong>感知智能层级</strong> 。</p>
+<p><strong>云机器人特点：</strong></p>
+<p><strong>知识共享、业务协同和人机协同</strong></p>
+<p><strong>知识共享：加速机器人智能化、协同化的发展，拓展智能机器人的应用边际。（机器人功能升级，机器人训练等）</strong></p>
+<p><strong>业务协同：多机器人群体协作</strong></p>
+<p><img src="https://pic3.zhimg.com/80/v2-d513995adfa250d2aa4df85028b17ce2_720w.webp"></p>
+<p><img src="https://pic3.zhimg.com/80/v2-b472ad56a8b86c051d75e3b840738fd2_720w.webp"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-8c57b7ecd7fc1ae0837a05b9ee08eadd_720w.webp"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-552161e0f2cc6d98d2ddb0e289a50de4_720w.webp"></p>
+<p>云机器人的基本特征是由云上的“大脑”进行控制。位于云端数据中心具有强大存储能力和运算能力的“大脑”，利用人工智能算法和其他先进的软件技术，通过5G通信网络来控制本地机器人，使云机器人能全面感知环境、相互学习、共享知识，不仅能够降低成本，还会帮助机器人提高自学能力、适应能力，推动其更快更大规模普及.</p>
+<p>云机器人是机器人借助云计算而发展起来的一种新兴技术，整体处于初级发展阶段，但很多国家和地区已对云机器人开展相关研究并取得了一定成果。</p>
+<p>在国外，2010年，卡耐基梅隆大学的James Kuffner教授首次将机器人与云计算相结合，<strong>提出了“云机器人”的概念</strong>。当时云机器人作为机器人学术领域的新概念，其意义在于利用互联网与云计算，<strong>采集大量云机器人运行数据，进行存储与分析，使云机器人能够快速学习与分享知识，提高智能化水平</strong>。</p>
+<p>同年，新加坡的ASORO实验室研究了<strong>在Hadoop 平台中运行Fast Slam算法的框架Davichi</strong>，结合<strong>机器人操作系统（ROS）</strong>作为<strong>机器人生态系统的消息传递框架</strong>，将平台作为机器人的<strong>“大脑”</strong>，利用云计算为服务机器人提供可扩展性和并行性，可视为云机器人服务平台的雏形。</p>
+<p>2011—2014年欧洲开展了<strong>RoboEarth项目</strong>，RoboEarth已经发展成为一个基于云的数据库，各种机器人可以在其中分享信息、相互学习。</p>
+<p>2013年，加州伯克利大学<strong>将机器人与云端谷歌目标识别引擎</strong>结合，<strong>完成机器人抓取任务</strong>。</p>
+<p>2014年美国康奈尔大学研制出了一款“机器人大脑”<strong>RoboBrain</strong>，使机器人能够学习解决从未遇到的问题。RoboBrain是机器人的“云大脑”，<strong>大量</strong>机器人通过高速无线网络技术链接这个“大脑”。RoboBrain可以向面临未知情况“迷茫”的机器人提供可以识别的命令和建议。</p>
+<p>2015年，Zeynep Dogmus<strong>将云计算与医疗机器人相结合</strong>，研制了一种<strong>模块化</strong>的云康复机器人系统。</p>
+<p>2018 年 Amazon向公众提供了一个<strong>ROS云机器人开发平台——AWS Robo Maker</strong>，能够协助用户轻松完成开发、测试和部署机器人应用程序的工作。</p>
+<p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E4%BA%91%E6%9C%BA%E5%99%A8%E4%BA%BA/1713141224451.png" alt="1713141224451"></p>
+<p>在国内，2012年南开大学开始研究云计算与机器人系统的结合，历时多年研制出以家庭服务机器人“小南”为硬件平台的<strong>云架构家庭服务机器人系统</strong>，中国云机器人的发展也在逐步加快进程。</p>
+<p>2017年，中国企业<strong>达闼科技</strong>发布<strong>全球智能机器人云平台</strong>，并与中国移动、软银、华为无线应用场景实验室共同发布《GTI 5G和云机器人白皮书》，分析了5G网络带给云机器人的巨大价值与商业机会。研究发展云机器人也得到了国家层面的支持，<strong>《“智能机器人”重点专项2017 年度项目申报指南》</strong>中就明确提出<strong>要构建云机器人服务平台</strong>。在2020年5G网络建设全面铺开的大背景下，未来云机器人在中国将会得到飞跃式发展。</p>
+<h2 id="将机器人模型部署到云上通常涉及以下几个步骤："><a href="#将机器人模型部署到云上通常涉及以下几个步骤：" class="headerlink" title="将机器人模型部署到云上通常涉及以下几个步骤："></a>将机器人模型部署到云上通常涉及以下几个步骤：</h2><ol>
+<li><strong>选择云服务提供商</strong> ：首先，需要选择一个云服务提供商，如Amazon Web Services (AWS), Google Cloud Platform (GCP), Microsoft Azure等。</li>
+<li><strong>设置云服务器</strong> ：在云服务提供商处创建一个虚拟机或容器实例。选择合适的操作系统，配置网络和安全性设置。</li>
+<li><strong>安装依赖</strong> ：在云服务器上安装所需的软件和库，例如ROS (Robot Operating System)、Python、C++编译器等，以及任何特定的机器人模型需要的依赖。</li>
+<li><strong>上传机器人模型</strong> ：将机器人模型文件和代码上传到云服务器上。可以使用FTP、SSH或者云服务提供商提供的文件传输服务。</li>
+<li><strong>配置环境</strong> ：设置环境变量，配置机器人模型运行所需的参数。</li>
+<li><strong>测试运行</strong> ：在云服务器上运行机器人模型，确保一切正常工作。</li>
+<li><strong>接口和API</strong> ：如果需要远程控制或监控，可能需要开发或使用现有的API来与机器人模型通信。</li>
+<li><strong>安全性</strong> ：确保所有通信都是加密的，实现适当的认证和授权机制，保护机器人模型不受未经授权的访问。</li>
+<li><strong>持续集成和部署</strong> ：可以设置持续集成&#x2F;持续部署（CI&#x2F;CD）流程，以便机器人模型的更新可以自动部署到云服务器上。</li>
+<li><strong>监控和维护</strong> ：一旦部署完成，需要监控云服务器和机器人模型的性能，并定期进行维护更新。</li>
+</ol>
+<p>此外，对于特定的机器人应用，可能还需要考虑实时性能、数据存储、分析和处理等其他因素。在实际操作中，可能还需要依据具体的机器人模型和应用场景做出更详细的计划和调整。</p>
+<h2 id="开发或使用现有的API来与机器人模型通信可以通过以下几个思路或例子来实现："><a href="#开发或使用现有的API来与机器人模型通信可以通过以下几个思路或例子来实现：" class="headerlink" title="开发或使用现有的API来与机器人模型通信可以通过以下几个思路或例子来实现："></a>开发或使用现有的API来与机器人模型通信可以通过以下几个思路或例子来实现：</h2><ol>
+<li><strong>使用RESTful API</strong> ：</li>
+</ol>
+<p>**   **- 创建一个RESTful API，允许通过HTTP请求来控制机器人模型。</p>
+<p>**   **- 使用标准的HTTP方法（GET, POST, PUT, DELETE）来查询状态、发送命令或更新配置。</p>
+<p>**   **- 例如，可以创建一个端点 <strong>&#x2F;robot&#x2F;move</strong> 来接受POST请求，从而控制机器人移动。</p>
+<ol start="2">
+<li><strong>使用WebSocket</strong> ：</li>
+</ol>
+<p>**   **- 对于需要实时通信的应用，WebSocket提供了一种在客户端和服务器之间建立持久连接的方法。</p>
+<p>**   **- 可以通过WebSocket发送控制命令，并实时接收机器人的反馈。</p>
+<ol start="3">
+<li><strong>使用ROS桥接</strong> ：</li>
+</ol>
+<p>**   <strong>- 如果机器人模型是基于ROS的，可以使用如</strong>rosbridge_suite**来提供一个JSON API，允许非ROS程序通过WebSocket或其他网络协议与ROS通信。</p>
+<ol start="4">
+<li><strong>使用MQTT</strong> ：</li>
+</ol>
+<p>**   **- MQTT是一个轻量级的消息协议，适用于物联网设备和机器人通信。</p>
+<p>**   **- 可以在机器人和云之间设置一个MQTT代理，实现命令的发布和状态的订阅。</p>
+<ol start="5">
+<li><strong>使用gRPC</strong> ：</li>
+</ol>
+<p>**   **- gRPC是一个高性能、开源和通用的RPC框架，它可以跨语言运行。</p>
+<p>**   **- 通过定义服务端和客户端的接口来实现与机器人模型的通信。</p>
+<p>具体例子：</p>
+<ul>
+<li>假设你有一个云端机器人模型需要接收移动命令，你可以定义一个RESTful API端点 <strong>&#x2F;api&#x2F;move</strong>，客户端通过发送POST请求到这个端点，并在请求体中包含移动参数，如方向和距离。</li>
+<li>如果你的机器人需要执行复杂的任务序列，你可以使用gRPC来定义一个服务，其中包含一个 <strong>ExecuteTaskSequence</strong> 方法，该方法接受一系列任务并返回执行结果。</li>
+</ul>
+<p>在实现API时，需要考虑以下因素：</p>
+<ul>
+<li><strong>安全性</strong> ：使用HTTPS、API密钥、OAuth等机制来保护API。</li>
+<li><strong>文档</strong> ：提供清晰的API文档，方便开发者了解如何使用API。</li>
+<li><strong>版本控制</strong> ：确保API的向后兼容性，或者在更新时提供版本控制。</li>
+<li><strong>错误处理</strong> ：定义清晰的错误响应，以便客户端能够正确处理异常情况。</li>
+</ul>
+<p>通过这些方法和例子，你可以创建一个强大的API，允许开发者和服务有效地与你的机器人模型通信。</p>
+<h2 id="推荐的云服务提供商适合机器人模型"><a href="#推荐的云服务提供商适合机器人模型" class="headerlink" title="推荐的云服务提供商适合机器人模型"></a>推荐的云服务提供商适合机器人模型</h2><p>对于机器人模型的部署，选择一个云服务提供商会涉及到对实时性、计算能力、数据传输速度和成本效益的考量。以下是一些流行的云服务提供商，它们能够支持机器人模型的部署：</p>
+<ol>
+<li><strong>Amazon Web Services (AWS)</strong> - AWS 提供了广泛的服务，包括强大的计算能力、灵活的物联网(IoT)服务和机器学习平台。AWS RoboMaker 是特别为机器人应用设计的服务，提供了开发、测试和部署 ROS 应用程序的全套工具。</li>
+<li><strong>Google Cloud Platform (GCP)</strong> - GCP 以其高性能计算服务和强大的数据分析能力而闻名。Google 的AI和机器学习工具对于处理复杂的机器人模型特别有帮助。</li>
+<li><strong>Microsoft Azure</strong> - Azure 提供了一系列的机器人服务，包括 Azure Robotics 和 IoT 工具，以及用于机器学习的 Azure AI。</li>
+<li><strong>IBM Cloud</strong> - IBM Cloud 结合了Watson AI以及强大的云计算服务，适合需要强大智能分析能力的机器人模型。</li>
+<li><strong>阿里云（Alibaba Cloud）</strong> - 阿里云为机器人相关的应用提供了可靠的计算资源、物联网服务和人工智能能力，尤其是在亚太区域。</li>
+<li><strong>DigitalOcean</strong> - 适合初创公司或者小型项目的服务商，提供了简易的部署方式与管理界面。</li>
+<li><strong>Oracle Cloud</strong> - 提供了一整套的云服务，包括深度机</li>
+</ol>
+<h2 id="云机器人的特点与功能"><a href="#云机器人的特点与功能" class="headerlink" title="云机器人的特点与功能"></a><strong>云机器人的特点与功能</strong></h2><p>**    云机器人在云端管理与多机器人协作，自主运行能力，数据共享与分析方面有极大优势。**</p>
+<p>云机器人依靠云端计算机集群强大运算和存储能力，能够给机器人提供具有<strong>感知智能</strong>的“大脑”。将机器人与云计算相结合，可以增强单个机器人的能力，执行复杂功能任务和服务，同时，使得分布在世界各地、具有不同能力的机器人通过开展合作、共享信息资源，完成更大、更复杂的任务。这将广泛扩展机器人的应用领域，加速和简化机器人系统的开发过程，有效降低机器人的制造和使用成本。这对于家庭机器人、工业机器人和医疗机器人的大规模应用，具有极其深远的意义。比如，在云端可以建立机器人的“大脑”，包含增强学习、深度学习、视觉识别和语音识别、移动机器人未知环境导航（如街道点云数据3D重构、SLAM、路线导航）、大规模多机器人协作、复杂任务规划等功能。</p>
+<p><strong>1）云端管理与多机器人协作</strong></p>
+<pre><code>在工厂或仓库中使用大量工业机器人时，需要机器人具有多种拓展功能。为保障整个现场各设备的协同运行，需要利用统一的软件平台进行管理，需要与各种自动化设备通信，例如传送带、行吊、机床和扫描仪等。
+
+采用本地方式管理机器人和自动化设备可能需要更多的服务器，而云端技术能够提供更强大的处理能力而不需要在本地部署成本高昂的服务器。在云端面对海量机器人，都能实现数据的处理和调度管理。在工厂生产线上，机器人将与许多自动化设备进行协同工作，那么信息交互和共享将变得极为重要。不同的机器人与云端软件进行通信，云端“大脑”对环境信息进行分析，能更好地将任务分配给正确类型的机器人，系统实时掌握每一个机器人的工作状态，指定距离最近的机器人去执行任务。管理者不需要到现场进行监控，通过云端可以在远方进行操作和管理，提升工作效率。
+</code></pre>
+<p>**    2）自主运行的能力**</p>
+<pre><code>传统的机器人都是由管理者进行示教后，根据程序，完成指定的任务，但传统机器人在面对具有高数据密度的场景，如语音视觉识别、环境感知与运动规划时，由于搭载的处理器性能较低，无法有效应对复杂任务。因此，在工作过程中可能会遇到障碍而停机，甚至发生事故，破环生产计划。
+
+结合云端计算能力，机器人将可以拥有智能和自主性的同时有效降低机器人功耗与硬件要求，使云机器人更轻、更小、更便宜。一个很好的例子就是机器人的导航能力，移动机器人在仓库、物流中心和工厂生产线之间运输货物，他们可以避开人员、叉车和其他设备。通过安装在机器人上的激光雷达，可以对周围环境进行扫描，并将大量数据推送到云端进行处理和构建地图，规划线路，然后向下传输给本地机器人进行导航。同时这些地图和信息可以传输给其它的机器人，实现多机器人之间的协作，提高货物的搬运效率。
+</code></pre>
+<p>**    3）数据共享和分析**</p>
+<pre><code>大数据分析是云计算赋予机器人的额外能力，机器人在执行任务过程中会收集大量的运行数据，包括环境信息、机器的状态和生产需求等等，这些数据经过整理和分析，可以得出最佳的决策方案。
+
+机器人每天可能产生几十GB的数据，这些数据需要在云端进行存储和管理，机器人产生的数据存放在云端将非常有价值。因为，通过历史数据的分析，系统可以预先判断下一步会发生什么，并做出相应的响应处理。
+
+从存储到分析，再到任务的下发，对于机器人整个过程的控制有着巨大的意义。还有，云端可以实现人工智能的服务，包括语音指令，可以进一步拉近了人与机器的距离，实现更加便利的控制。
+
+云端的数据服务可以连接到每一个机器人和自动化设备，数据共享令机器之间更有默契。系统可以掌握机器设备的状态，给每个机器人下达不同的任务指令，让机器之间互相协作，高效地完成生产任务。
+</code></pre>
+<p>**    总的来说，云端技术将让机器人效率更高、性能更好，人与机器之间的交互会更轻松。**</p>
+<h2 id="3-云机器人的关键技术"><a href="#3-云机器人的关键技术" class="headerlink" title="3. 云机器人的关键技术"></a><strong>3. 云机器人的关键技术</strong></h2><pre><code>云机器人不同于传统的机器人架构，其通过网络连接到云端的控制核心，获取了人工智能、大数据和超高计算能力的支持，降低了机器人本身的成本和功耗。与传统机器人相比：
+</code></pre>
+<p>**    具有“感知”与“互联”能力的5G通信技术，能进行庞大“记忆”与“计算”的云计算技术以及能够自主“控制”、“识别”、“学习”的人工智能技术是云机器人的关键技术。**</p>
+<p>** 1）5G通信技术**</p>
+<pre><code>云端机器人的架构来源于人类多层级控制结构，人类大脑发出指令，通过脊髓传导至肢体肌肉，驱动骨骼进行运动，平均信息延迟在100ms以上。5G通信技术作为下一代移动通信技术，如图1所示5G具有灵活、可移动、高带宽、低时延和高可靠的特点。其峰值速度将超过10G/s，端对端的延迟将低于1毫秒，并允许每平方公里超过100万台机器人终端设备进行网络连接和处理要求。
+</code></pre>
+<p><img src="https://www.e-works.net.cn/articles/articleimage/20224/132954129612253403_new.png" alt="5G机器人控制"></p>
+<p>图1 5G机器人控制</p>
+<pre><code>eMBB（3D/超高清视频等大流量移动宽带业务）、mMTC（大规模物联网业务）、和 URLLC（如无人驾驶、工业自动化等需要低时延、高可靠连接的业务）是5G网络的三大主要应用场景。以上三大应用场景使5G通信网络成为云机器人理想的数据通道，是云机器人实用化的关键。5G网络强大的网络性能能够从容应对机器人对带宽和时延的挑战，而5G网络切片和MEC能够为机器人应用提供端到端定制化的支持。
+
+未来5G网络将成为一个无所不在的虚拟化基础设施，可以通过云端的超强处理和监控能力，将大量的云机器人整合在一起，从而深度渗透进工业、商业、家庭的每个角落，全方位改变社会的面貌。5G技术将不断为机器人赋能，使其具备真正的认知和行动能力。
+</code></pre>
+<p>** 2）云计算技术**</p>
+<pre><code>云计算是一种计算模型，可以随时随地的按需访问共享的、可配置的计算资源池（如网络、服务器、存储、应用程序和服务），只需最少的管理工作就可以快速配置和分发。云计算将硬件资源虚拟化、动态地扩展，并在 Internet 上作为服务提供，它还允许提供者为用户提供几乎无限资源的访问。它汇集了所有技术（Web服务、虚拟化、面向服务的架构、网格计算等）和用于提供 IT 功能（软件、平台、硬件）的可扩展、弹性的业务模型作为服务请求。云计算为高性能算法的部署提供了物质基础。
+
+2007 年，Google在其内部网络数据规模十分强大的基础上，提出一整套基于分布式、并行集群方式的云计算架构。随着网络的快速发展，使得所有主要的行业参与者都积极提供云解决方案，特别是 Amazon EC2、Microsoft Azure、谷歌应用程序和 IBM blue cloud。国内的浪潮、阿里、腾讯和华为等企业也开始提供相应的云计算服务。云计算为用户提供三种级别的效劳：基础设施即服务（IaaS）是以虚拟机的形式为客户提供硬件资源，客户自己维护应用程序、数据库和服务器软件，而供应商维护云虚拟化、硬件服务器、存储和网络。平台即服务（PaaS）把开发环境作为一种服务来提供给用户，用户在平台上开发自己的应用程序并开源给其他用户。软件即服务（SaaS）是用户可以远程地接入网络即可使用服务提供商在云上部署的服务，包括 B/S 或 C/S 两种架构。
+</code></pre>
+<p>**  3）人工智能技术**</p>
+<pre><code>基于云计算的超强运算能力和5G的强大通信能力，使得人工智能技术在机器人上的应用成为可能。机器学习，尤其是深度学习，可以更广泛的应用于各个领域，云机器人将比传统机器人更有能力、更加智能。
+
+通过5G通信网络和云计算平台可实现多台机器人联网，逐步应用蚁群算法、免疫算法等多种智能算法，使机器人不断进行学习，以适应生产环境的多样性，组成高度和谐的复杂生产系统，一体化生产解决方案将成为可能。人工智能的算法和数据在人工介入下，将得到不断自我增强和优化，实现人机协同的增益模式。机器人本身甚至还可以通过自我学习，成为活跃的移动大数据收集器，用以储存信息，并将数据上传到服务器端，从而不断强化云端的数据库，方便其他机器人使用学习。人工智能技术使得云机器人具备在陌生环境下识别周围环境和事物并实现自主运行的能力。目前计算机视觉、图像识别等技术已相对成熟，随着深度学习算法和物联网的发展和应用，云端智能技术将在所有智能机器人的应用领域不断提升。
+</code></pre>
+<h2 id="4-云机器人在智能制造中的应用"><a href="#4-云机器人在智能制造中的应用" class="headerlink" title="&#96; 4. 云机器人在智能制造中的应用"></a>&#96; 4. 云机器人在智能制造中的应用</h2><p>云机器人在汽车工厂的应用</p>
+<p>图2 云机器人在汽车工厂的应用</p>
+<pre><code>如图2所示，云机器人作为智能工厂中感知与执行层，直接关系智能制造的高效、高品质、低能耗和安全性。云机器人在智能制造中有如下应用：
+
+（1）通过敏捷物联网网管与周边各种自动化设备以及其他机器人互联协同；
+
+（2）通过IoT平台以及多种传感器完成数据收集，上传云端平台；
+
+（3）在后台云计算的支持下，适应复杂环境，支持复杂行为，完成作业任务的敏捷切换与管控；
+
+（4）借助云平台的大数据分析功能，实现智能维护与故障预诊断功能，同时具备进化功能。
+
+目前云机器人开始逐步应用于智能工厂，尤其是汽车制造领域。如宝马公司基于微软的Azure云计算服务研发的物联网平台，目前连接了3000多台机器、云机器人和自动传输系统。云机器人通过云计算平台与各类设备深度协同，提高工厂生产效率与品质。世界最大的汽车制造商大众汽车（Volkswagen）也表示，它将利用亚马逊网络服务（AWS）的计算机和IoT技术来采集与分析大量云机器人数据，来高效管理其制造工厂中的各类机器人，甚至优化整个产品供应链。`
+</code></pre>
+<h2 id="5-云机器人未来发展趋势"><a href="#5-云机器人未来发展趋势" class="headerlink" title="**  5. 云机器人未来发展趋势**"></a>**  5. 云机器人未来发展趋势**</h2><pre><code>通过关键技术的不断迭代，提升云机器人的智能化、信息化水平，使云机器人接近认知智能层级。不断增强机器人的拟人化和交互沟通能力，学会推理决策，最终实现人机共融，扩大应用范围是未来重要的发展趋势。总体来看在第四次工业革命浪潮的推动下，人机共融将成为新一代机器人的发力点，也是世界机器人领域研发创新的主要方向。
+
+一方面，云机器人必须具备内部进化能力，而单一的计算平台是不可能实现的，其需要机器人在云端的计算平台之间交互。云机器人上传采集的环境信息，由云端“大脑”进行存储和分析，借助新一代移动通信网络和云计算技术，实现机器人间的相互学习与知识共享；另一方面云机器人还要具备外部进化的交互。在智能制造中，需要机器助人、工厂要人、智能学人。人同时操控多个机器人协同工作，可以提高效率、增加灵活性。人与机器人协调互动，不仅将提高机器人的工作效率和质量，还能增强机器人的自学习功能提升认知能力，逐步实现人机共融。云机器人的大规模应用，最终会实现人与机器人的关系从“主仆关系”到“伙伴关系”的转换。
+</code></pre>
+<h1 id="论文-CLOUD-ROBOTICS-MODEL"><a href="#论文-CLOUD-ROBOTICS-MODEL" class="headerlink" title="论文:CLOUD ROBOTICS MODEL"></a>论文:CLOUD ROBOTICS MODEL</h1><p><a target="_blank" rel="noopener" href="https://hrcak.srce.hr/133677">https://hrcak.srce.hr/133677</a></p>
+<p><a target="_blank" rel="noopener" href="https://hrcak.srce.hr/file/197338">https://hrcak.srce.hr/file/197338</a></p>
+<p>机器人学校和云机器人<br>机器人学校与云机器人相辅相成。 越来越多拥有最新知识的机器人将成为人类真正的帮手。 云机器人技术是利用云计算通过互联网在机器人之间共享资源和学习[6]。 机器人云需要机器人学校提供标准的编码体系、知识结构和资源，以及机器人可以在各个领域服务的认证方法[7, 8]。<br>机器人学校是具有高级智能的机器人的数据池、资源池和服务集群的集合，它也有机器人的知识编码标准和认证标准。</p>
+<p>机器人学校是基于机器人云的概念； 它也是构建机器人云的关键要素。 机器人学校的概念主要包括三个方面：<br>• 准入，<br>• 教学、学习、<br>• 测试和毕业。<br>硬件功能必须满足特定活动领域的硬件要求<br>无需在软件中进行太多编码。 机器人学校的模型如图 2 所示。</p>
+<p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E4%BA%91%E6%9C%BA%E5%99%A8%E4%BA%BA/1713151093401.png" alt="1713151093401"></p>
+<p>ROBOT WEB TOOLS</p>
+<p>Robot Web Tools 旨在使 Web 开发人员、机器人专家甚至学生能够快速开始构建机器人 Web 应用程序 [9-13]。 有多种途径可用于构建机器人 Web 应用程序。 一个常见的途径是在<br>现有的机器人框架。</p>
+<p>机器人操作系统（ROS）是最流行的机器人中间件之一。 当前可用的教程包括用于四旋翼飞行器导航的界面（图 3）。</p>
+<p>ROS（机器人操作系统）提供库和工具来帮助软件开发人员创建机器人应用程序。 它提供硬件抽象、设备驱动程序、库、可视化工具、消息传递、包管理等。 ROS 根据开源 BSD 许可证获得许可 [9-10]。</p>
+<p>四旋翼GPS导航</p>
+<p>四旋翼飞行机器人——四旋翼是四旋翼直升机。 四旋翼直升机通过改变旋翼速度来控制，从而改变升力。 它是一种欠驱动动态车辆，具有四个输入力和六个输出坐标。<br>使用多旋翼直升机的优点之一是增加有效负载能力。 四旋翼飞行器具有高度机动性，可以垂直起飞&#x2F;着陆，以及飞入难以到达的区域[14-17]。 四旋翼安装有 GPS 传感器，用于检测当前位置。 要求四旋翼飞行器以令人满意的精度跟踪特定点（j &#x3D; 1，…，n）之间的强制轨迹，并保持所需的飞行姿态和高度。 四旋翼飞行器使用 GPS 传感器和&#x2F;或电子罗盘检查当前位置（X 和 Y）。 通过GPS坐标可以引入四旋翼飞行轨迹，<br>例如 PGPS(j)如图4所示。</p>
+<p>四旋翼飞行器使用 GPS 传感器和&#x2F;或电子罗盘检查当前位置（X 和 Y）。 此外，高度是通过气压传感器测量的。 机载微控制器计算与由连续GPS位置PGPS(j)给出的强加轨迹的实际位置偏差。 它相对于最近的轨迹段进行自身定位（通过计算距离 δ1 或 δ2）。 使用陀螺仪，四旋翼确定所需的飞行方位角 α（图 4）并保持所需的飞行方向。 飞行高度也受到控制，以能够执行规定的任务（任务）。 利用相应的 Google Earth 地图来提供四旋翼飞行轨迹的相应 GPS 坐标，如图 5 所示。 GPS 坐标：经度、纬度和高度，在地图中定义并在图 6 中给出，用于计算四旋翼飞行轨迹。 转子在地球坐标系中的轨迹。</p>
+<p>云机器人项目<br>最后讨论了一些云机器人项目。 借助 RoboEarth 数据库及其云引擎，RoboEarth 提供了一个开源云机器人框架，允许机器人通过 www 式数据库共享知识并访问强大的机器人云服务 [5]。 源代码和文档可通过 RoboEarth 的软件组件页面获取。</p>
+<p><a target="_blank" rel="noopener" href="https://www.roboearth.ethz.ch/software-components/index.html">https://www.roboearth.ethz.ch/software-components/index.html</a></p>
+<p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E4%BA%91%E6%9C%BA%E5%99%A8%E4%BA%BA/1713153967646.png" alt="1713153967646"></p>
+<p> Rosbridge 专注于在机器人和云中的单个 ROS 环境之间架起通信桥梁。 可通过 [18] 开源。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/RobotWebTools/rosbridge_suite">https://github.com/RobotWebTools/rosbridge_suite</a></p>
+<p> RosJava 库允许在 Android 手机上运行 ROS。 虽然严格来说不是一个云机器人项目，但它允许 ROS 开发人员使用 Android 设备连接到（人类）云服务，例如 Google Goggles。 可通过 [19] 开源。</p>
+<p>DAvinCi 项目通过使用 Hadoop 集群并行化 SLAM 算法，展示了云计算的优势 [20]。 基于云的机器人抓取项目使用谷歌的对象识别引擎来识别和抓取常见的家用物品。</p>
+<p><strong>GostaiNet 可以在云中的兼容机器人上执行视觉和语音算法等机器人行为。 GostaiNet 使用网络浏览器从世界任何地方提供对任何机器人的无缝控制。 Gostai 可以在 GostaiNet 机器人云上托管服务 [21-23]。</strong></p>
+<h2 id="Development-of-Cloud-Autonomous-System-for-Enhancing-the-Performance-of-Robots’-Path"><a href="#Development-of-Cloud-Autonomous-System-for-Enhancing-the-Performance-of-Robots’-Path" class="headerlink" title="Development of Cloud Autonomous System for Enhancing the Performance of Robots’ Path"></a>Development of Cloud Autonomous System for Enhancing the Performance of Robots’ Path</h2><p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E4%BA%91%E6%9C%BA%E5%99%A8%E4%BA%BA/1714062694610.png" alt="1714062694610"></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2303.06614">https://arxiv.org/abs/2303.06614</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz">ALTNT</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E4%BA%91%E6%9C%BA%E5%99%A8%E4%BA%BA/">http://blog.705553939.xyz/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E4%BA%91%E6%9C%BA%E5%99%A8%E4%BA%BA/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/altnt.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E6%8E%A5%E4%B8%8B%E6%9D%A5%E5%8F%AF%E8%83%BD%E7%9C%8B%E7%9A%84%E8%AE%BA%E6%96%87/" title="接下来可能看的论文"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">接下来可能看的论文</div></div></a></div><div class="next-post pull-right"><a href="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/diffusionpolicy/" title="Diffusion Policy"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">Diffusion Policy</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/altnt.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ALTNT</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ALTNT"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%91%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%8F%91%E5%B1%95-%E5%9C%A85G%E7%BD%91%E7%BB%9C%E5%BB%BA%E8%AE%BE%E5%85%A8%E9%9D%A2%E9%93%BA%E5%BC%80%E7%9A%84%E5%A4%A7%E8%83%8C%E6%99%AF%E4%B8%8B%EF%BC%8C%E6%9C%AA%E6%9D%A5%E4%BA%91%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%9C%A8%E4%B8%AD%E5%9B%BD%E5%B0%86%E4%BC%9A%E5%BE%97%E5%88%B0%E9%A3%9E%E8%B7%83%E5%BC%8F%E5%8F%91%E5%B1%95%E3%80%82%E6%9C%AC%E6%96%87%E5%BC%95%E8%87%AA%E3%80%8A%E6%99%BA%E8%83%BD%E5%88%B6%E9%80%A0%E6%A6%82%E8%AE%BA%E3%80%8B%EF%BC%8C%E4%BD%9C%E8%80%85%E6%9D%8E%E5%9F%B9%E6%A0%B9%E3%80%81%E9%AB%98%E4%BA%AE%E3%80%82"><span class="toc-number">1.</span> <span class="toc-text">云机器人的概念与发展                在5G网络建设全面铺开的大背景下，未来云机器人在中国将会得到飞跃式发展。本文引自《智能制造概论》，作者李培根、高亮。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E5%88%B0%E4%BA%91%E4%B8%8A%E9%80%9A%E5%B8%B8%E6%B6%89%E5%8F%8A%E4%BB%A5%E4%B8%8B%E5%87%A0%E4%B8%AA%E6%AD%A5%E9%AA%A4%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">将机器人模型部署到云上通常涉及以下几个步骤：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E6%88%96%E4%BD%BF%E7%94%A8%E7%8E%B0%E6%9C%89%E7%9A%84API%E6%9D%A5%E4%B8%8E%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%A8%A1%E5%9E%8B%E9%80%9A%E4%BF%A1%E5%8F%AF%E4%BB%A5%E9%80%9A%E8%BF%87%E4%BB%A5%E4%B8%8B%E5%87%A0%E4%B8%AA%E6%80%9D%E8%B7%AF%E6%88%96%E4%BE%8B%E5%AD%90%E6%9D%A5%E5%AE%9E%E7%8E%B0%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">开发或使用现有的API来与机器人模型通信可以通过以下几个思路或例子来实现：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E8%8D%90%E7%9A%84%E4%BA%91%E6%9C%8D%E5%8A%A1%E6%8F%90%E4%BE%9B%E5%95%86%E9%80%82%E5%90%88%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">推荐的云服务提供商适合机器人模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%91%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E7%89%B9%E7%82%B9%E4%B8%8E%E5%8A%9F%E8%83%BD"><span class="toc-number">5.</span> <span class="toc-text">云机器人的特点与功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BA%91%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF"><span class="toc-number">6.</span> <span class="toc-text">3. 云机器人的关键技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%BA%91%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%9C%A8%E6%99%BA%E8%83%BD%E5%88%B6%E9%80%A0%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">7.</span> <span class="toc-text">&#96; 4. 云机器人在智能制造中的应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%BA%91%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%9C%AA%E6%9D%A5%E5%8F%91%E5%B1%95%E8%B6%8B%E5%8A%BF"><span class="toc-number">8.</span> <span class="toc-text">**  5. 云机器人未来发展趋势**</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BA%E6%96%87-CLOUD-ROBOTICS-MODEL"><span class="toc-number"></span> <span class="toc-text">论文:CLOUD ROBOTICS MODEL</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Development-of-Cloud-Autonomous-System-for-Enhancing-the-Performance-of-Robots%E2%80%99-Path"><span class="toc-number">1.</span> <span class="toc-text">Development of Cloud Autonomous System for Enhancing the Performance of Robots’ Path</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/28/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" title="vscode插件开发">vscode插件开发</a><time datetime="2024-06-28T06:47:30.251Z" title="Created 2024-06-28 14:47:30">2024-06-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/" title="强化学习相关概念">强化学习相关概念</a><time datetime="2024-06-28T04:03:18.846Z" title="Created 2024-06-28 12:03:18">2024-06-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/" title="机器学习相关概念">机器学习相关概念</a><time datetime="2024-06-26T09:09:56.000Z" title="Created 2024-06-26 17:09:56">2024-06-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/22/%E8%B5%84%E6%96%99/%E5%91%BD%E4%BB%A4/" title="命令">命令</a><time datetime="2024-06-22T03:44:40.000Z" title="Created 2024-06-22 11:44:40">2024-06-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/" title="数据库系统概论笔记">数据库系统概论笔记</a><time datetime="2024-06-05T15:46:23.990Z" title="Created 2024-06-05 23:46:23">2024-06-05</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By ALTNT</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
