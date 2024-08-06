@@ -163,12 +163,12 @@
 <p>生成模型已被广泛用于高斯过程[31]和对抗网络[32,33]的规划中。</p>
 <p>与本工作最相关的是Diffuser [39]，Decision Diffuser [40]和Diffusion Policy [37]。</p>
 <p><strong>生成模型</strong>已被广泛用于高斯过程[31]和对抗网络[32,33]的规划中。</p>
-<p>随着最近在机器人学领域基于<strong>扩散模型</strong>的生成策略规划的进步，这样的方法(<strong>基于扩散模型等生成模型</strong>)已被用于**模仿学习[34-38]和离线强化学习[39, 40]**设置中。</p>
+<p>随着最近在机器人学领域基于<strong>扩散模型</strong>的生成策略规划的进步，这样的方法(<strong>基于扩散模型等生成模型</strong>)已被用于<strong>模仿学习[34-38]和离线强化学习[39, 40]</strong>设置中。</p>
 <p>与本工作最相关的是Diffuser [39]，Decision Diffuser [40]和Diffusion Policy [37]。</p>
-<p>虽然它们可以合成“状态”（和&#x2F;或“动作”）序列作为<strong>计划</strong>，并且可以选择计入<strong>约束</strong>[40]，但这样的方法仍然专注于<strong>捕捉训练任务解决方案的分布</strong>，并且<strong>不容易解决未见的新任务</strong>。</p>
+<p>虽然它们可以合成“状态”（和/或“动作”）序列作为<strong>计划</strong>，并且可以选择计入<strong>约束</strong>[40]，但这样的方法仍然专注于<strong>捕捉训练任务解决方案的分布</strong>，并且<strong>不容易解决未见的新任务</strong>。</p>
 <p>在本工作中，我们引入了一种<strong>组合性[41, 42]生成规划方法</strong>，可以灵活<strong>组合技能层面的生成模型</strong>，并在<strong>推理时引入新任务和约束上进行泛化</strong>。</p>
 <p>所提出的框架受到了最近在使用<strong>并行扩散</strong>生成<strong>高质量扩展图像链</strong>[43]和<strong>可扩展的带变换器的扩散模型</strong>[44]的工作的<strong>启发</strong>。</p>
-<h3 id="创新点"><a href="#创新点" class="headerlink" title="创新点:"></a>创新点:</h3><p>在本文中，我们提出了一个生成的和组合的框架，**允许在给定计划框架的情况下直接采样有效的技能链(如何理解?)**。</p>
+<h3 id="创新点"><a href="#创新点" class="headerlink" title="创新点:"></a>创新点:</h3><p>在本文中，我们提出了一个生成的和组合的框架，<strong>允许在给定计划框架的情况下直接采样有效的技能链(如何理解?)</strong>。</p>
 <p>(技术关键)我们的方法的<strong>关键</strong>是<strong>技能水平概率生成模型</strong>，该模型捕捉每个技能的前提条件-技能参数-效果的联合分布。</p>
 <h2 id="1、摘要"><a href="#1、摘要" class="headerlink" title="1、摘要"></a>1、摘要</h2><p>Long-horizon tasks, usually characterized by complex subtask dependencies, present a significant challenge in manipulation planning. Skill chaining is a practical approach to solving unseen tasks by combining learned skill priors. However, such methods are myopic if sequenced greedily and face scalability issues with search-based planning strategy. To address these challenges, we introduce Generative Skill Chaining (GSC), a probabilistic framework that learns skill-centric diffusion models and composes their learned distributions to generate long-horizon plans during inference. GSC samples from all skill models in parallel to efficiently solve unseen tasks while enforcing geometric constraints. We evaluate the method on various long-horizon tasks and demonstrate its capability in reasoning about action dependencies, constraint handling, and generalization, along with its ability to replan in the face of perturbations. We show results in simulation and on real robot to validate the efficiency and scalability of GSC, highlighting its potential for advancingLong-horizon task planning. More details are available at: <a target="_blank" rel="noopener" href="https://generative-skill-chaining.github.io/">https://generative-skill-chaining.github.io/</a></p>
 <p>摘要：长时程任务通常具有复杂的子任务依赖关系，这在操作规划中是一个重大挑战。技能链是一种通过组合已学习的技能先验来解决未知任务的实用方法。然而，如果贪婪地进行排序，此类方法目光短浅，并且基于搜索的规划策略面临可扩展性问题。为了应对这些挑战，我们引入了生成式技能链（Generative Skill Chaining，GSC），这是一个概率框架，它学习以技能为中心的扩散模型，并组合其学习到的分布，以便在推理过程中生成长时程计划。GSC 并行从所有技能模型中采样，以有效地解决未知任务，同时执行几何约束。我们在各种长时程任务上评估了该方法，并展示了其在动作依赖推理、约束处理和泛化方面的能力，以及在面对扰动时重新规划的能力。我们在模拟和真实机器人上展示了结果，以验证 GSC 的效率和可扩展性，突出了其在推进长时程任务规划方面的潜力。更多细节可在：<a target="_blank" rel="noopener" href="https://generative-skill-chaining.github.io/">https://generative-skill-chaining.github.io/</a> 查看</p>
@@ -178,28 +178,24 @@
 <li><p><strong>长期任务</strong>通常以复杂的子任务依赖性为特征，对操作规划提出了重大挑战。</p>
 <p>——————————<strong>长时间范围任务</strong>包含一连串的相互依赖的子任务，每个步骤对后续步骤的成功至关重要。在机器人操控（manipulation）领域，设计一个能够理顺这些复杂依赖关系的计划是非常具有挑战的。</p>
 </li>
-<li><p><strong>技能链</strong>是一种通过结合学到的技能先验来解决看不见的任务的实用方法。(如何理解?)</p>
-</li>
+<li><strong>技能链</strong>是一种通过结合学到的技能先验来解决看不见的任务的实用方法。(如何理解?)</li>
 </ul>
 <p>———————————<strong>技能链</strong>是解决未知任务的常用方法，通过组合已学习的技能先验来形成针对新任务的解决方案。也就是说，它利用先前学到的技能知识来处理新的、未见过的任务。</p>
-<p>**<br>    技能先验**指的是机器人之前学习过的动作或者行为模式。</p>
+<p><strong><br>    技能先验</strong>指的是机器人之前学习过的动作或者行为模式。</p>
 <ul>
-<li>然而，如果贪婪地排序，这样的方法是短视的，并且会面临基于搜索的规划策略的可扩展性问题   (如何理解?)————(这指出了传统技能链方法在规划时可能存在的缺陷。)</li>
+<li>然而，如果贪婪地排序，这样的方法是短视的，并且会面临基于搜索的规划策略的可扩展性问题   (如何理解?)——————(这指出了传统技能链方法在规划时可能存在的缺陷。)</li>
 </ul>
 <p>———————————<strong>贪婪序列化与搜索挑战</strong> ：</p>
-<pre><code>**   **- 若技能链中的技能是基于贪婪算法（即总是选择当前看起来最佳的选项）进行序列化，可能会变得短视（myopic），因为这种策略不考虑更长远的					任务目标。此外，基于搜索的规划策略在面对规模更大的任务时可扩展性差。
-</code></pre>
-<p> <strong>大概就是说: 贪婪序列化是指类似贪心算法,总是找当前最佳的选项,此种方法有短视的特点,不考虑长远的任务目标.</strong></p>
+<pre><code>**   **- 若技能链中的技能是基于贪婪算法（即总是选择当前看起来最佳的选项）进行序列化，可能会变得短视（myopic），因为这种策略不考虑更长远的                    任务目标。此外，基于搜索的规划策略在面对规模更大的任务时可扩展性差。
+</code></pre><p> <strong>大概就是说: 贪婪序列化是指类似贪心算法,总是找当前最佳的选项,此种方法有短视的特点,不考虑长远的任务目标.</strong></p>
 <p> <strong>基于搜索的规划策略面对规模越来越复杂的任务可能在性能上无法扩展</strong></p>
 <ul>
 <li><p>为了应对这些挑战，我们引入<strong>生成技能链（GSC）</strong>，这是一种概率框架，用于学习以技能为中心的扩散模型并组合其学习的分布以在推理过程中生成长期计划。GSC 从所有技能模型中<strong>并行采样</strong>，以有效解决看不见的任务，同时<strong>强制实施几何约束</strong>。(对论文提出模型的介绍)</p>
 <p>——————————首先,GSC是一种概率框架(什么是概率框架?),它使用技能为中心的扩散模型学习技能，并在推理阶段组合这些技能的分布来生成长时间范围计划。（啊，扩散模型还能这么用？应该是指每个技能单独训练？不理解）</p>
 <p>———————————在解决未见任务时，GSC能够并行地从所有技能模型中采样，提高了效率，并且能够强制执行几何约束。(什么意思?并行采样如何理解?)</p>
 </li>
-<li><p>我们该方法在不同的长时间范围任务上进行了评估，并展示其<strong>推理动作依赖性、约束处理和泛化</strong>的能力，以及<strong>面对扰动时重新计划</strong>的能力。 (测试)</p>
-</li>
-<li><p>我们展示了仿真和真实机器人的结果，以验证 GSC 的效率和可扩展性，强调其推进长期任务规划的潜力。 (结果)</p>
-</li>
+<li>我们该方法在不同的长时间范围任务上进行了评估，并展示其<strong>推理动作依赖性、约束处理和泛化</strong>的能力，以及<strong>面对扰动时重新计划</strong>的能力。 (测试)</li>
+<li>我们展示了仿真和真实机器人的结果，以验证 GSC 的效率和可扩展性，强调其推进长期任务规划的潜力。 (结果)</li>
 </ul>
 <p>更多详细信息请访问：<a target="_blank" rel="noopener" href="https://generative-skill-chaining.github.io/">https://generative-skill-chaining.github.io/</a></p>
 <hr>
@@ -208,11 +204,10 @@
 <p><strong>长期推理</strong>在解决涉及复杂的步骤间依赖关系的现实世界的操作任务中是<strong>至关重要</strong>的.</p>
 <p>一个说明性的示例如图1（底部,bottom,不是上面那张），<strong>机器人必须推理每个行动选择的长期影响</strong>，如物体的放置姿势和如何掌握和使用工具，以便制定一个能满足各种环境约束和最终任务目标（将物体放置在架子下）的计划。</p>
 <p>(难点)</p>
-<p>然而，寻找一个有效的解决方案通常需要在一个非常大的<strong>规划空间</strong>中搜索，该<strong>空间</strong>随着任务长度呈<em><strong>指数级扩展</strong>.</em>  这指出了寻找有效方案的困难所在，即规划空间的巨大和复杂性。</p>
+<p>然而，寻找一个有效的解决方案通常需要在一个非常大的<strong>规划空间</strong>中搜索，该<strong>空间</strong>随着任务长度呈<strong>*指数级扩展</strong>.*  这指出了寻找有效方案的困难所在，即规划空间的巨大和复杂性。</p>
 <p>(传统非学习的方法)</p>
 <p>任务和运动规划（TAMP）方法通过联合搜索一系列原始技能（例如，选择、放置和推）及其低级控制参数来解决这些问题。(如何理解?不会是遍历动作和参数吧?)</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">任务与运动规划（TAMP）方法是为了解决长时程任务中复杂的子任务依赖关系而提出的一种规划方法。</span><br><span class="line"></span><br><span class="line">其主要思路是将规划问题分解为一系列符号上可行的子任务序列，并通过基本动作或技能来描述这些子任务的解决方案。具体来说，TAMP 方法依赖于对完全可观测条件的制定和对系统动力学的准确预测，以实现技能应用的前置条件（可负担性）及其效果。</span><br><span class="line"></span><br><span class="line">在这个方向上，逻辑几何规划和分层框架等方法已经解决了从初始状态到目标状态的技能序列的符号可行性问题。</span><br><span class="line"></span><br><span class="line">然而，TAMP 方法也存在一些局限性。它们通常需要知道底层系统状态和环境的运动动力学模型，这在实际应用中可能不太容易获取，从而限制了其实际应用和可扩展性。</span><br><span class="line"></span><br><span class="line">为了克服这些局限性，本文提出了一种基于学习的框架，即生成式技能链（GSC）方法，它通过训练技能扩散模型并结合概率线性链来解决长时程任务规划问题，无需依赖于对具体任务的强假设和复杂的动力学模型。</span><br></pre></td></tr></table></figure>
-
 <p>(缺陷):这些方法虽然有效，但它们需要了解底层的系统状态和环境的运动动力学模型，这使得它们在实际应用中不太实用。</p>
 <p>(本论文的目标)这项工作寻求开发一种<strong>基于学习</strong>的技能规划方法，以解决长期的操作问题。(<strong>所以本文中还是基于学习的方法</strong>)</p>
 <p>( 传统基于学习方法)</p>
@@ -229,20 +224,17 @@
 <p>(关键的挑战)</p>
 <p><strong>关键的技术挑战</strong>是关键的技术挑战在于要确保技能参数的序列从初始状态是可以实现的（正向流程），从而能够满足长期目标（反向流程），同时还要考虑到其他额外的约束条件。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">比如说，假设我们有一个建造房屋的计划框架，这个框架包含了诸如打地基、砌墙、盖屋顶等技能。作者提出的框架可以直接采样出有效的技能链，比如确定打地基的具体方式和参数、以及打完地基后的状态要能满足砌墙的前置条件。而技能水平的概率生成模型会考虑到打地基这个技能的各种前置条件（如土地条件）、具体参数（如地基的深度和宽度）以及产生的效果（如地基的稳固程度）的联合分布情况。在这个过程中，关键的技术难题在于要保证从初始的土地状态开始，按照生成的技能参数序列能够最终建成符合要求的房屋（长期目标），还要考虑到像建筑法规等额外的约束。</span><br></pre></td></tr></table></figure>
-
 <p>  .</p>
 <p> (怎么做?或者说创新点)</p>
-<p>为此，我们引入了生成技能链（GSC），这是一个<strong>训练个人技能扩散模型的框架(一个用于训练单个技能扩散模型的框架)<strong>，并在</strong>测试时</strong>根据   <strong>给定的具有任意约束的看不见的任务框架</strong>   将其组合。</p>
+<p>为此，我们引入了生成技能链（GSC），这是一个<strong>训练个人技能扩散模型的框架(一个用于训练单个技能扩散模型的框架)</strong>，并在<strong>测试时</strong>根据   <strong>给定的具有任意约束的看不见的任务框架</strong>   将其组合。</p>
 <p><strong>每种技能都被训练成一个无条件的扩散模型</strong>，学习到的分布被<strong>线性链接</strong>，以在评估过程中解决一个看不见的长期目标。此外，我们使用基于分类器的引导来满足任何指定的约束。GSC使迄今为止用于解决TAMP问题的方法发生了范式转变，并使用概率模型来建立复合性和长期依赖性的推理，而无需接受任何此类任务的培训。</p>
 <p>(结果)我们在三个具有挑战性的操作任务领域展示了 GSC 的效率，探索了其处理约束的优势，并在物理机器人硬件上部署了一个闭环版本，以展示其泛化能力和鲁棒性。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">比如说，假设我们的目标是高效地解决一系列复杂的操作任务。为了实现这个目标，就有了 GSC 这个框架。就像训练不同的运动员（单个技能），每个运动员都按照特定方式训练（无条件扩散模型），然后在比赛（评估）时把他们的表现（学到的分布）合理连接起来，去争取从未获得过的冠军（解决未知的长期目标）。同时，还有裁判（基于分类器的引导）来保证比赛符合规则（满足约束）。</span><br><span class="line">GSC 彻底改变了以前解决 TAMP 问题的方法，就像找到了新的战术，不用提前针对特定比赛训练，却能应对各种情况。而且，通过在三个困难的比赛项目（操作任务领域）中的表现，展示了它有多厉害，探索了它处理规则限制的长处，还在实际的机器人硬件上用闭环版本证明了它的通用性和稳定性。</span><br></pre></td></tr></table></figure>
-
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713454898608.png" alt="1713454898608"></p>
 <p>图1：（上图）Generative Skill Chaining（GSC）旨在通过使用线性概率链并行地从多个技能特定转换的联合分布 qπ(s, a, s′) 采样来解决给定技能序列的长期任务，这些转换是使用扩散模型学习得到的。该框架在展示灵活的约束处理能力的同时，隐式地考虑了转换的可行性和随后技能的可获得性。</p>
 <p>（下图）一个由多项技能组成的长期任务与运动规划（TAMP）问题的例子。这样的任务需要对动作之间的相互依赖性进行推理。</p>
 <p><strong>Figure 1 解释</strong>：<br>（上部）生成式技能链（GSC）旨在为给定的一系列技能解决长期任务，它通过使用线性概率链，从使用扩散模型学习到的多个特定技能转换的联合分布 $q_{\pi}(s, a, s’)$ 中并行采样。该框架在展示灵活的约束处理能力的同时，隐性地考虑了转换的可行性和后续技能的可承受性。<br>（下部）一个由多个技能组成的长期 TAMP 问题的示例。这样的任务需要对动作之间的相互依赖关系进行推理。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">比如说，想象一个复杂的机器人组装任务（长期 TAMP 问题），它由多个步骤（技能）组成，如抓取零件、安装零件等。GSC 就像一个聪明的策略制定者，它不是盲目地执行每个步骤，而是通过从学到的联合分布中采样，来判断每个步骤是否可行，能否承担得起后续步骤的需求，并且能够灵活处理各种限制条件。而下部展示的示例就是告诉我们，在这样复杂的任务中，每个步骤（动作）之间不是孤立的，而是相互依赖的，需要综合考虑。</span><br></pre></td></tr></table></figure>
-
 <p> .</p>
 <p> 注:</p>
 <p>生成式技能链（GSC）框架的训练过程大致如下：</p>
@@ -254,7 +246,7 @@
 <p>整个训练过程是一个反复迭代优化的过程，直到模型达到较好的性能和泛化能力，能够在未见过的场景中有效地生成和组合技能，以解决长期任务。</p>
 <h2 id="3、相关工作"><a href="#3、相关工作" class="headerlink" title="3、相关工作"></a>3、相关工作</h2><h3 id="Task-and-Motion-Planning"><a href="#Task-and-Motion-Planning" class="headerlink" title="Task and Motion Planning"></a>Task and Motion Planning</h3><p>任务与运动规划</p>
 <p><strong>理解顺序动作之间的相互依赖性</strong>是解决长期问题的一个基本挑战。</p>
-<p>解决这些问题的<strong>关键思路</strong>是<strong>将规划问题分解为一系列符号上可行的较小子任务[1-3, 7, 8]<strong>，并</strong>以基本动作或技能[4-6]来描述它们的解决方案</strong>。</p>
+<p>解决这些问题的<strong>关键思路</strong>是<strong>将规划问题分解为一系列符号上可行的较小子任务[1-3, 7, 8]</strong>，并<strong>以基本动作或技能[4-6]来描述它们的解决方案</strong>。</p>
 <p>这样的方法<strong>依赖于</strong>制定完全可观察的<strong>条件</strong>和准确的<strong>系统动态预测</strong>[16, 17]，以<strong>实现</strong>   应用技能（可获得性）及其相应效果的     <strong>前提条件</strong>[18-24]。</p>
 <p>在这个方向上，逻辑几何编程[25, 26]和层次化框架[27]**已经解决了一系列技能的符号上的可行性[18, 28, 29]，这些技能足以从初始状态达到目标条件。</p>
 <p>(缺点)尽管这类方法很全面，但它们强大的假设限制了它们的实际应用和可扩展性。</p>
@@ -279,100 +271,95 @@
 <ol>
 <li><strong>技能链方法的基本思想</strong> ：</li>
 </ol>
-<p>**   <strong>技能链方法是在自动规划系统中的一种技术，它侧重于</strong>模拟技能的前提条件（pre-conditions）和结束条件（post-conditions）**。</p>
+<p><strong>   </strong>技能链方法是在自动规划系统中的一种技术，它侧重于<strong>模拟技能的前提条件（pre-conditions）和结束条件（post-conditions）</strong>。</p>
 <p>这意味着它<strong>定义了</strong>在一项<strong>技能可以开始之前必须满足的条件</strong>，以及<strong>技能完成后所达成的状态</strong>。</p>
 <p>系统利用这些信息来搜索一个计划，<strong>这个计划会将目标分解成一系列可以实际执行的技能</strong>。</p>
-<ol start="2">
+<ol>
 <li><strong>目前研究的局限</strong> ：</li>
 </ol>
-<p>**   <strong>目前大多数技能链方法</strong>着重研究的是单一任务**，即系统被训练来解决一种特定的问题或一连串固定的任务9-15。</p>
-<ol start="3">
+<p><strong>   </strong>目前大多数技能链方法<strong>着重研究的是单一任务</strong>，即系统被训练来解决一种特定的问题或一连串固定的任务9-15。</p>
+<ol>
 <li><strong>多任务规划器</strong> ：</li>
 </ol>
-<p>**   <strong>近期的研究</strong>转向探究可组合的技能模型<strong>，</strong>目的<strong>是为了</strong>学习<strong>可以处理多种任务的</strong>规划器**11, 27, 30。</p>
+<p><strong>   </strong>近期的研究<strong>转向探究可组合的技能模型</strong>，<strong>目的</strong>是为了<strong>学习</strong>可以处理多种任务的<strong>规划器</strong>11, 27, 30。</p>
 <p>这表示<strong>所提出的系统</strong>可以<strong>根据不同的任务需求适当地组合技能，以制定新的计划</strong>。</p>
-<ol start="4">
+<ol>
 <li><strong>方法的问题</strong> ：</li>
 </ol>
-<p>**   <strong>不过，这些先进的技能链方法常常是</strong>判别式的（discriminative）**，意味着它们试图直接从数据中区分不同的任务，而不是生成新的任务实例。这些方法通常依赖于详尽搜索，这可能非常耗时且在实际中效率低下。随着任务的增长，它们自回归的特性可能会导致错误累积和庞大的探索空间，这使得难度增加。</p>
-<ol start="5">
+<p><strong>   </strong>不过，这些先进的技能链方法常常是<strong>判别式的（discriminative）</strong>，意味着它们试图直接从数据中区分不同的任务，而不是生成新的任务实例。这些方法通常依赖于详尽搜索，这可能非常耗时且在实际中效率低下。随着任务的增长，它们自回归的特性可能会导致错误累积和庞大的探索空间，这使得难度增加。</p>
+<ol>
 <li><strong>最新的策略</strong> ：</li>
 </ol>
-<p>**   <strong>最近，Agia等人[11]提出了一种基于CEM的技能链策略，其</strong>主要目标<strong>是</strong>通过作为强化学习代理分别训练各个技能，以最大化序列中单个动作的成功率**。</p>
+<p><strong>   </strong>最近，Agia等人[11]提出了一种基于CEM的技能链策略，其<strong>主要目标</strong>是<strong>通过作为强化学习代理分别训练各个技能，以最大化序列中单个动作的成功率</strong>。</p>
 <p>然而，这种方法仍然受限于已训练的策略。这些策略可能是<strong>确定性的</strong>，它们<strong>缺乏解决问题的多模式能力（即找到多种可能的解决方案）</strong>，并且<strong>不能处理规划中可能出现的额外约束。</strong></p>
 <p>简而言之，这段话在说明尽管技能链方法在单任务规划上取得了一定进展，但在多任务和能够自适应复杂环境的长期任务规划上仍然存在诸多挑战。当前的方法在扩展性和柔性方面仍有限，而且难以适应新的、未见过的约束条件。</p>
 <h3 id="Generative-models-for-planning"><a href="#Generative-models-for-planning" class="headerlink" title="Generative models for planning."></a>Generative models for planning.</h3><p>规划的生成模型</p>
 <p><strong>生成模型</strong>已被广泛用于高斯过程[31]和对抗网络[32,33]的规划中。</p>
-<p>随着最近在机器人学领域基于<strong>扩散模型</strong>的生成策略规划的进步，这样的方法(<strong>基于扩散模型等生成模型</strong>)已被用于**模仿学习[34-38]和离线强化学习[39, 40]**设置中。</p>
+<p>随着最近在机器人学领域基于<strong>扩散模型</strong>的生成策略规划的进步，这样的方法(<strong>基于扩散模型等生成模型</strong>)已被用于<strong>模仿学习[34-38]和离线强化学习[39, 40]</strong>设置中。</p>
 <p>与本工作最相关的是Diffuser [39]，Decision Diffuser [40]和Diffusion Policy [37]。</p>
-<p>虽然它们可以合成“状态”（和&#x2F;或“动作”）序列作为<strong>计划</strong>，并且可以选择计入<strong>约束</strong>[40]，但这样的方法仍然专注于<strong>捕捉训练任务解决方案的分布</strong>，并且<strong>不容易解决未见的新任务</strong>。</p>
+<p>虽然它们可以合成“状态”（和/或“动作”）序列作为<strong>计划</strong>，并且可以选择计入<strong>约束</strong>[40]，但这样的方法仍然专注于<strong>捕捉训练任务解决方案的分布</strong>，并且<strong>不容易解决未见的新任务</strong>。</p>
 <p>在本工作中，我们引入了一种<strong>组合性[41, 42]生成规划方法</strong>，可以灵活<strong>组合技能层面的生成模型</strong>，并在<strong>推理时引入新任务和约束上进行泛化</strong>。</p>
 <p>所提出的框架受到了最近在使用<strong>并行扩散</strong>生成<strong>高质量扩展图像链</strong>[43]和<strong>可扩展的带变换器的扩散模型</strong>[44]的工作的<strong>启发</strong>。</p>
 <h6 id="解释-2"><a href="#解释-2" class="headerlink" title="解释:"></a>解释:</h6><p>这段话涉及到<strong>生成模型</strong>在<strong>规划任务中的</strong>应用，特别是在自动规划和机器人学领域。下面是对该文本内容的解释：</p>
 <ol>
 <li><strong>生成模型在规划中的广泛应用</strong> :</li>
 </ol>
-<p>**   **<strong>生成模型</strong>是一类能够创建数据分布模型的算法，它们在规划任务中的应用很广。(如何理解?)</p>
+<p><strong>   **</strong>生成模型**是一类能够创建数据分布模型的算法，它们在规划任务中的应用很广。(如何理解?)</p>
 <p>高斯过程（Gaussian processes）和对抗网络（adversarial networks）是其中两种常用的生成模型方法。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据分布模型 :数据分布模型是一个数学模型，它描述了一组数据点在某些维度上的分布。例如，在自然界中，很多事物的大小、重量、速度等可以用正态分布（高斯分布）来描述，即大多数事物都围绕一个中心值（均值）分布，而远离中心值的事物较少。</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">生成模型 ：生成模型是机器学习中的一种模型，它的目标是学习到一个数据集的分布，并能够基于这个分布生成新的数据点。换句话说，生成模型尝试去「理解」数据是如何产生的，这样它就能自己「创造」看起来与真实数据相似的新数据。</span><br><span class="line">生成模型工作的方式通常涉及以下步骤：</span><br><span class="line">观察现实世界数据 ：这可能涉及到自然语言文本、图像、音频等。</span><br><span class="line">学习数据分布 ：模型通过分析这些数据来了解其分布特征。这经常涉及到发现数据中的模式（例如，通过深度学习网络的层来发掘这些模式）。</span><br><span class="line">数据生成 ：一旦模型「学习」了数据的分布，它就可以生成新的数据实例，这些实例应该与实际观察到的数据具有相同或类似的特性。</span><br><span class="line">所以，当说到生成模型是创建数据分布模型的算法时，意思是这种类型的算法能根据已有的数据样本学习其潜在分布，并基于这个学习到的概念来生成新的数据样本。在规划任务中，这意味着生成模型可以用来预测一系列可能的未来状态或动作，这些状态或动作可以作为到达某个目标状态的潜在路径。</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
+<ol>
 <li><strong>扩散模型的最新进展</strong> :</li>
 </ol>
-<p>**   <strong>最近，在机器人学规划中，基于</strong>扩散模型（一个计算过程，模拟如何从一个随机噪声分布生成或重构数据样本的过程）<strong>的生成策略得到了很大的发展，这些方法已经被采用在</strong>模仿学习和离线强化学习**等领域。(什么是扩散模型?)</p>
-<ol start="3">
+<p><strong>   </strong>最近，在机器人学规划中，基于<strong>扩散模型（一个计算过程，模拟如何从一个随机噪声分布生成或重构数据样本的过程）</strong>的生成策略得到了很大的发展，这些方法已经被采用在<strong>模仿学习和离线强化学习</strong>等领域。(什么是扩散模型?)</p>
+<ol>
 <li><strong>相关的工作</strong> :</li>
 </ol>
-<p>**   **针对此领域，文中提到了几个相关的工作：Diffuser、Decision Diffuser和Diffusion Policy，它们用于在规划问题中生成状态和动作序列，同时也可以考虑约束。</p>
-<ol start="4">
+<p><strong>   </strong>针对此领域，文中提到了几个相关的工作：Diffuser、Decision Diffuser和Diffusion Policy，它们用于在规划问题中生成状态和动作序列，同时也可以考虑约束。</p>
+<ol>
 <li><strong>存在的限制</strong> :</li>
 </ol>
-<p>**   <strong>尽管当前的方法能够生成规划序列，并选择性地考虑约束，但它们</strong>仍然集中在捕捉训练任务解决方案的分布上，并且通常不能轻易地解决新的、未见过的任务**。</p>
-<ol start="5">
+<p><strong>   </strong>尽管当前的方法能够生成规划序列，并选择性地考虑约束，但它们<strong>仍然集中在捕捉训练任务解决方案的分布上，并且通常不能轻易地解决新的、未见过的任务</strong>。</p>
+<ol>
 <li><strong>本工作的贡献</strong> :</li>
 </ol>
-<p>**   <strong>为了解决上述限制，作者引入了</strong>一种新的*<em>组合性生成规划方法</em>***。这种方法能够灵活地将技能层面的生成模型结合起来，并且能够泛化到在推理时新引入的任务和约束。</p>
-<ol start="6">
+<p><strong>   </strong>为了解决上述限制，作者引入了<strong>一种新的</strong>组合性生成规划方法<em>**</em>。这种方法能够灵活地将技能层面的生成模型结合起来，并且能够泛化到在推理时新引入的任务和约束。</p>
+<ol>
 <li><strong>灵感来源</strong> :</li>
 </ol>
-<p>**   <strong>提出的框架受到了最近的工作启发，这些工作包括使用</strong>并行扩散生成高质量的图像链<strong>以及开发能够和</strong>Transformers模型一起工作的扩散模型**。</p>
+<p><strong>   </strong>提出的框架受到了最近的工作启发，这些工作包括使用<strong>并行扩散生成高质量的图像链</strong>以及开发能够和<strong>Transformers模型一起工作的扩散模型</strong>。</p>
 <p>综上所述，作者在这段话中提到了一种新的规划方法，该方法结合了最新的生成模型技术，以期望在自动规划和机器人学领域得到更有效、更灵活的结果，尤其是在处理新任务和新约束方面。</p>
-<h2 id="4、预备知识"><a href="#4、预备知识" class="headerlink" title="4、预备知识"></a>4、预备知识</h2><h3 id="问题公式化"><a href="#问题公式化" class="headerlink" title="问题公式化"></a>问题公式化</h3><p>我们通过考虑从预定义的<strong>技能库</strong>$\pi_{1:K} \in \Pi$中给定的符号上可行的<strong>技能框架</strong>$\Phi_K &#x3D; {(\pi_1, o_1), (\pi_2, o_2), \ldots, (\pi_K, o_K)}$以及技能所操作的**对象集合$o$**来制定技能链问题。</p>
+<h2 id="4、预备知识"><a href="#4、预备知识" class="headerlink" title="4、预备知识"></a>4、预备知识</h2><h3 id="问题公式化"><a href="#问题公式化" class="headerlink" title="问题公式化"></a>问题公式化</h3><p>我们通过考虑从预定义的<strong>技能库</strong>$\pi_{1:K} \in \Pi$中给定的符号上可行的<strong>技能框架</strong>$\Phi_K = \{(\pi_1, o_1), (\pi_2, o_2), \ldots, (\pi_K, o_K)\}$以及技能所操作的<strong>对象集合$o$</strong>来制定技能链问题。</p>
 <p>每个技能$\pi \in \Pi$由<strong>一组连续的可行技能参数$a \in A_{\pi}$参数化</strong>，这些参数在从状态空间$S$中的状态$s$执行技能时控制所需的动作。</p>
 <p><strong>目标</strong>是<strong>找到最优的技能参数</strong>，使得框架<strong>在几何上可行</strong>，并且<strong>每个技能的效果满足后续技能的前置条件，同时满足目标条件</strong>。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">比如说，假设有一个机器人操作任务，预定义的技能库中有“抓取”“移动”“放置”等技能。技能框架可能是先“抓取物体 o1”，然后“移动到位置 o2”，最后“放置在 o2”。每个技能都有其对应的参数，如抓取的力度、移动的速度和方向等。我们的任务就是找到这些最优的参数，让整个操作在实际中能够顺利进行，每个步骤之间衔接良好，最终达到期望的目标。</span><br></pre></td></tr></table></figure>
-
-<h3 id="环境设置"><a href="#环境设置" class="headerlink" title="环境设置"></a>环境设置</h3><p>我们<strong>使用专家策略来解决单个技能</strong>，并收集当前状态（$s \in S$）和下一状态（$s’ \in S$）之间由于使用参数为$a_{\pi} \in A_{\pi}$执行技能$\pi$而产生的<strong>状态 - 动作 - 状态转换</strong>，遵循<strong>转换模型$T_{\pi}: S \times A_{\pi} \to S$。</strong></p>
+<h3 id="环境设置"><a href="#环境设置" class="headerlink" title="环境设置"></a>环境设置</h3><p>我们<strong>使用专家策略来解决单个技能</strong>，并收集当前状态（$s \in S$）和下一状态（$s’ \in S$）之间由于使用参数为$a<em>{\pi} \in A</em>{\pi}$执行技能$\pi$而产生的<strong>状态 - 动作 - 状态转换</strong>，遵循<strong>转换模型$T<em>{\pi}: S \times A</em>{\pi} \to S$。</strong></p>
 <p>此外，按照之前的工作[11]，我们考虑选择一些基本对象，如钩子、架子和各种尺寸的盒子来构建环境设置。</p>
 <p>环境的状态由每个当前对象的完全可观测的姿势和尺寸组成。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">比如说，在一个机器人搬运货物的场景中，专家策略可以指导机器人如何准确地抓取、移动和放置货物等单个技能。在执行这些技能时，我们会记录从当前状态到下一状态的变化。</span><br><span class="line">为了构建环境，我们选择了像钩子、不同尺寸的架子和盒子这样的基本物品。</span><br><span class="line">环境的状态就包括了这些物品的具体位置、姿态和尺寸等完全可观测的信息。</span><br></pre></td></tr></table></figure>
-
 <h3 id="扩散模型"><a href="#扩散模型" class="headerlink" title="扩散模型:"></a>扩散模型:</h3><p>扩散模型是一个参数化模型$p_{\theta}(x_0)$，它使用样本$x_0 \sim q_0(x_0)$来估计一个未知分布$q(x_0)$。(即旨在通过观察样本来估计一个未知的数据分布 $q(x_0)$,模型使用从分布$q_0(x_0)$中抽取的样本$x_0$来估计原始分布。)</p>
 <p>它由两个扩散过程组成：一个前向加噪过程和一个反向去噪过程。</p>
-<p><strong>前向过程</strong>逐步向来自$q_0(x_0)$的样本注入<strong>独立同分布的高斯噪声</strong>，从而产生一系列**加噪分布$q_t(x_t)$**。(即这个过程将独立同分布的高斯噪声逐步加入到原始数据样本中，这会导致一系列被噪声影响的分布$q_t(x_t)$)</p>
-<p>在干净数据$x_0$的条件下，$x_t$的分布也是一个高斯分布：$q_{0t}(x_t|x_0) &#x3D; N(x_t; x_0, \sigma^2_t I)$，其<strong>中$\sigma_t$定义了一个固定的噪声水平序列，相对于前向扩散$t$单调递增</strong>。</p>
+<p><strong>前向过程</strong>逐步向来自$q_0(x_0)$的样本注入<strong>独立同分布的高斯噪声</strong>，从而产生一系列<strong>加噪分布$q_t(x_t)$</strong>。(即这个过程将独立同分布的高斯噪声逐步加入到原始数据样本中，这会导致一系列被噪声影响的分布$q_t(x_t)$)</p>
+<p>在干净数据$x<em>0$的条件下，$x_t$的分布也是一个高斯分布：$q</em>{0t}(x_t|x_0) = N(x_t; x_0, \sigma^2_t I)$，其<strong>中$\sigma_t$定义了一个固定的噪声水平序列，相对于前向扩散$t$单调递增</strong>。</p>
 <p><strong>反向去噪过程</strong>通过迭代去除添加的噪声来恢复干净数据，这个过程由以下随机微分方程（SDE）[45–47]表示：</p>
-<p>$dx &#x3D; -2\dot{\sigma}<em>{t}\sigma</em>{t}\nabla_{x} \log q_{t}(x_{t}) dt + \sqrt{2\dot{\sigma}<em>{t}\sigma</em>{t}} dw$    (1)</p>
-<p>其中$\nabla_{x} \log q_{t}(x_{t})$被称为加噪分布的得分函数，$w_t$是一个标准的维纳过程。</p>
+<p>$dx = -2\dot{\sigma}<em>{t}\sigma</em>{t}\nabla<em>{x} \log q</em>{t}(x<em>{t}) dt + \sqrt{2\dot{\sigma}</em>{t}\sigma_{t}} dw$    (1)</p>
+<p>其中$\nabla<em>{x} \log q</em>{t}(x_{t})$被称为加噪分布的得分函数，$w_t$是一个标准的维纳过程。</p>
 <p>比如说，想象我们要从一张模糊的图片（加噪后的$x_t$）恢复出清晰的原始图片（$x_0$）。扩散模型的前向过程就像是不断给清晰图片添加模糊效果，产生越来越模糊的图片。反向过程则是努力去除这些模糊，逐渐恢复出清晰的样子。</p>
 <p>得分函数就像是一个指南，告诉我们如何更准确地去除噪声，从而更好地恢复原始清晰的图片。</p>
 <p>我们在连续设置中遵循 DDPM [48] 采样策略 [49]。得分函数允许在给定$x_t$的情况下恢复$x_0$的最小均方误差估计器：</p>
-<p>$\tilde{x}<em>{0}:&#x3D;\mathbb{E}[x</em>{0} | x_{t}] &#x3D; x_{t} + \sigma_{t}^{2} \nabla_{x_{t}} \log q_{t}(x_{t})$   (2)</p>
-<p>这里，我们可以将$\tilde{x}<em>0$视为在时间步$t$时$x_t$的“去噪”版本。在实际应用中，未知的得分函数通过使用神经网络$\epsilon</em>{\theta}(x_t, t)$进行估计，通过最小化去噪得分匹配[49]目标$E_{t,x_0}[\lambda(t) | \sigma_t \nabla_{x_t} \log q_{0t}(x_t|x_0) - \epsilon_{\theta}(x_t, t) |^2]$，其中$\lambda(t)$是一个与时间相关的权重。</p>
+<p>$\tilde{x}<em>{0}:=\mathbb{E}[x</em>{0} | x<em>{t}] = x</em>{t} + \sigma<em>{t}^{2} \nabla</em>{x<em>{t}} \log q</em>{t}(x_{t})$   (2)</p>
+<p>这里，我们可以将$\tilde{x}<em>0$视为在时间步$t$时$x_t$的“去噪”版本。在实际应用中，未知的得分函数通过使用神经网络$\epsilon</em>{\theta}(x<em>t, t)$进行估计，通过最小化去噪得分匹配[49]目标$E</em>{t,x<em>0}[\lambda(t) | \sigma_t \nabla</em>{x<em>t} \log q</em>{0t}(x<em>t|x_0) - \epsilon</em>{\theta}(x_t, t) |^2]$，其中$\lambda(t)$是一个与时间相关的权重。</p>
 <p>扩散模型具有可扩展性，并且学习到的分布表示满足分布启发式的所有正样本，因此是多模态的。此外，它们简单的概率表示允许结合约束处理能力[40, 54 - 56]的各种灵活采样策略[47, 48, 52, 53]。</p>
 <p>例如，在图像生成任务中，我们可以将经过一定处理的模糊图像（$x_t$）通过上述过程得到相对清晰一些的版本（$\tilde{x}_0$）。通过不断优化神经网络来估计得分函数，使得生成的结果越来越好。扩散模型能够处理大规模的数据，并且可以生成多种可能的结果（多模态）。比如生成不同风格的艺术图像。而且，由于其灵活的概率表示，能够方便地结合各种约束条件，比如生成特定主题或特定颜色分布的图像。</p>
 <p><strong>简单的概率表示</strong> ：</p>
-<p>**   **- 扩散模型具有简单的概率表示（即在扩散模型中，系统的状态变化遵循一定的概率规则，这些规则通常相对简单并且明确定义），这使得它们能够采用多种灵活的采样策略（多种灵活的采样策略指的是，研究者可以根据需要选择不同的方法来生成模型的状态序列，这些方法可能包括不同的随机行走策略、蒙特卡洛方法或其他采样算法。简单的概率表示意味着这些策略可以相对容易地应用于模型，因为状态转移的概率规则不复杂，便于计算和模拟）。</p>
+<p><strong>   </strong>- 扩散模型具有简单的概率表示（即在扩散模型中，系统的状态变化遵循一定的概率规则，这些规则通常相对简单并且明确定义），这使得它们能够采用多种灵活的采样策略（多种灵活的采样策略指的是，研究者可以根据需要选择不同的方法来生成模型的状态序列，这些方法可能包括不同的随机行走策略、蒙特卡洛方法或其他采样算法。简单的概率表示意味着这些策略可以相对容易地应用于模型，因为状态转移的概率规则不复杂，便于计算和模拟）。</p>
 <p><strong>约束处理能力</strong> ：</p>
-<p>**   **- 扩散模型还具有处理约束的能力，这意味着它们可以被用来生成满足特定条件或限制的数据样本。</p>
+<p><strong>   </strong>- 扩散模型还具有处理约束的能力，这意味着它们可以被用来生成满足特定条件或限制的数据样本。</p>
 <p>总的来说，扩散模型通过正向过程将噪声注入到数据中，然后通过反向过程尝试恢复出原始的干净数据。这个过程依赖于对噪声分布和干净数据之间关系的学习，以及能够逆转噪声影响的能力。<strong>扩散模型在生成模型领域，尤其是在图像和音频生成中，已经显示出了很高的潜力。</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">注:&quot;独立同分布的高斯噪声&quot;（i.i.d. Gaussian noise）是一个统计学中的概念，用于描述随机变量的某种特定分布。让我们分解这个短语来更好地理解它：高斯噪声（Gaussian noise） ：**   **- 高斯噪声，也称为正态噪声，是一种概率分布遵循正态分布（高斯分布）的随机变量。高斯分布是一个对称的钟形曲线，由两个参数决定：均值（mean）和方差（variance）。在自然界和工程应用中，许多随机过程可以用高斯分布来建模。独立同分布（i.i.d.） ：**   **- 独立同分布是指一组随机变量具有两个属性：**     **-  独立性（Independence） ：每个随机变量的取值不受其他变量的影响。即一个变量的结果不会影响到另一个变量的结果。**     **-  同分布性（Identically distributed） ：这些随机变量有相同的概率分布。即它们都遵循同一种分布规律，具有相同的均值和方差。将这些概念放在一起，&quot;独立同分布的高斯噪声&quot;意味着每次加入到数据中的噪声都是一个随机抽取的值，这些值互相之间没有关联（独立），并且每次抽取的噪声值都来自于相同的高斯分布（同分布）。这种噪声模型在很多统计和机器学习算法中都很常见，因为它简化了分析过程，并且很多实际现象都可以用这种模型来近似描述。</span><br><span class="line"></span><br><span class="line">扩散模型通过正向过程将噪声注入数据中，然后通过反向过程恢复出原始干净数据的做法，其核心思想是将复杂的数据生成问题转化为一系列简单的问题。这样做的数学意义和动机可以从以下几个方面理解：</span><br><span class="line">1. 数据分布的学习：</span><br><span class="line">   - 扩散模型的目标是学习复杂数据的分布，这通常很难直接做到。通过逐步引入噪声，我们可以将原始数据分布转化为一系列更简单、更易于建模的分布。</span><br><span class="line"></span><br><span class="line">2. 简化学习过程：</span><br><span class="line">   - 通过正向过程，我们可以逐渐将数据变得更加随机和均匀分布，最终接近简单的高斯分布。在这个过程中，数据的复杂结构和相关性被逐渐“抹平”。</span><br><span class="line"></span><br><span class="line">3. 逆向过程的引导：</span><br><span class="line">   - 一旦数据被转化为高斯分布，反向过程就可以逐步移除噪声，恢复数据的原始结构。在这个过程中，模型学习如何从简单的高斯分布中重建复杂的数据分布。</span><br><span class="line"></span><br><span class="line">4. 生成新的数据样本：</span><br><span class="line">   - 通过掌握从高斯噪声到原始数据的映射，扩散模型可以生成新的数据样本，这些样本看起来和训练数据类似，但却是全新的实例。</span><br><span class="line"></span><br><span class="line">5. 最小均方误差（MMSE）估计：</span><br><span class="line">   - 在反向过程中，扩散模型使用得分函数来指导每一步的去噪。得分函数是关于数据分布的梯度，它可以用来估计最小均方误差，这意味着模型试图找到最接近原始数据的恢复数据。</span><br><span class="line"></span><br><span class="line">6. 控制生成过程：</span><br><span class="line">   - 正向和反向过程的设计允许模型控制生成数据的过程。通过调整噪声的注入和去除，可以精细调整数据样本的生成。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <h4 id="解释-3"><a href="#解释-3" class="headerlink" title="解释"></a>解释</h4><p>视频1：</p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV14c411J7f2/?p=2&spm_id_from=333.1007.top_right_bar_window_history.content.click&vd_source=69d49a91e3d96bad6e2f1ea1eb1f6c22">https://www.bilibili.com/video/BV14c411J7f2/?p=2&amp;spm_id_from=333.1007.top_right_bar_window_history.content.click&amp;vd_source=69d49a91e3d96bad6e2f1ea1eb1f6c22</a></p>
-<p>原视频：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ifCDXFdeaaM&t=210s">https://www.youtube.com/watch?v=ifCDXFdeaaM&amp;t=210s</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV14c411J7f2/?p=2&amp;spm_id_from=333.1007.top_right_bar_window_history.content.click&amp;vd_source=69d49a91e3d96bad6e2f1ea1eb1f6c22">https://www.bilibili.com/video/BV14c411J7f2/?p=2&amp;spm_id_from=333.1007.top_right_bar_window_history.content.click&amp;vd_source=69d49a91e3d96bad6e2f1ea1eb1f6c22</a></p>
+<p>原视频：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ifCDXFdeaaM&amp;t=210s">https://www.youtube.com/watch?v=ifCDXFdeaaM&amp;t=210s</a></p>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713513330422.png" alt="1713513330422"></p>
 <p>Denoise模组内部</p>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713513462296.png" alt="1713513462296"></p>
@@ -389,12 +376,12 @@
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713514340852.png" alt="1713514340852"></p>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713514357606.png" alt="1713514357606"></p>
 <p>DDPM的完整公式:</p>
-<p>（有关ddpm的过程这篇文章也讲的不错，但是有些细节没讲，可以结合下一起看<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/624851115%EF%BC%89">https://zhuanlan.zhihu.com/p/624851115）</a></p>
+<p>（有关ddpm的过程这篇文章也讲的不错，但是有些细节没讲，可以结合下一起看<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/624851115）">https://zhuanlan.zhihu.com/p/624851115）</a></p>
 <p>这篇文章有ddpm的pytorch代码实现<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/563661713">https://zhuanlan.zhihu.com/p/563661713</a></p>
 <ul>
-<li><a href="https://link.zhihu.com/?target=https://github.com/hojonathanho/diffusion">GitHub - hojonathanho&#x2F;diffusion: Denoising Diffusion Probabilistic Models</a>（官方TensorFlow实现）</li>
-<li><a href="https://link.zhihu.com/?target=https://github.com/openai/improved-diffusion">GitHub - openai&#x2F;improved-diffusion: Release for Improved Denoising Diffusion Probabilistic Models</a> （OpenAI基于PyTorch实现的DDPM+）</li>
-<li><a href="https://link.zhihu.com/?target=https://github.com/lucidrains/denoising-diffusion-pytorch">GitHub - lucidrains&#x2F;denoising-diffusion-pytorch: Implementation of Denoising Diffusion Probabilistic Model in Pytorch</a></li>
+<li><a href="https://link.zhihu.com/?target=https%3A//github.com/hojonathanho/diffusion">GitHub - hojonathanho/diffusion: Denoising Diffusion Probabilistic Models</a>（官方TensorFlow实现）</li>
+<li><a href="https://link.zhihu.com/?target=https%3A//github.com/openai/improved-diffusion">GitHub - openai/improved-diffusion: Release for Improved Denoising Diffusion Probabilistic Models</a> （OpenAI基于PyTorch实现的DDPM+）</li>
+<li><a href="https://link.zhihu.com/?target=https%3A//github.com/lucidrains/denoising-diffusion-pytorch">GitHub - lucidrains/denoising-diffusion-pytorch: Implementation of Denoising Diffusion Probabilistic Model in Pytorch</a></li>
 </ul>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713514379493.png" alt="1713514379493"></p>
 <p>视频2：</p>
@@ -461,8 +448,7 @@
 通常的设计是递减的，显然上面的红框可以看出，t越大，alpha t越小，原图x0占的比例越少，噪音影响越大，
 
 ![1713630066640](GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713630066640.png)
-</code></pre>
-<p>即可以理解为如下：</p>
+</code></pre><p>即可以理解为如下：</p>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713630592081.png" alt="1713630592081"></p>
 <p>注：</p>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713630781931.png" alt="1713630781931"></p>
@@ -486,7 +472,7 @@
 <p>其中下面的是Noise Predictor生成的Noise图，然后用x t去减去它：</p>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713664702693.png" alt="1713664702693"></p>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713664779864.png" alt="1713664779864">是常数</p>
-<p>注意z在t&gt;1时都时sample出来的噪声，当t&#x3D;1时z&#x3D;0</p>
+<p>注意z在t&gt;1时都时sample出来的噪声，当t=1时z=0</p>
 <p>总的过程如下：</p>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713665009881.png" alt="1713665009881"></p>
 <p>视频3：</p>
@@ -543,15 +529,14 @@
 <p>注：</p>
 <p>马尔科夫链是一种随机过程，它具有马尔科夫性质，即系统的下一个状态只依赖于当前状态，而与之前的状态无关。这种特性被称为“无记忆性”或“马尔科夫性”。马尔科夫链可以是离散的，也可以是连续的，这里我们主要讨论离散时间的马尔科夫链。</p>
 <p>在离散时间的马尔科夫链中，每一步的状态转移都遵循一个固定的概率规则，这些规则通常用状态转移矩阵来表示。状态转移矩阵的每个元素( P_{ij} )代表了系统从状态i转移到状态j的概率。对于任何状态i，从i出发到所有可能状态的转移概率之和必须等于1。</p>
-<p>[ sum{j} P{ij} &#x3D; 1 ]</p>
+<p>[ sum{j} P{ij} = 1 ]</p>
 <p>马尔科夫链可以用来模拟各种随机系统，如排队理论中的顾客服务过程、物理学中的粒子运动、经济学中的股票价格变动、语言学中的文字生成等等。马尔科夫链的一个关键概念是稳态分布，如果存在，稳态分布是一个特殊的概率分布，在这个分布下，系统随时间的演化将保持不变。</p>
 <p>马尔科夫链的研究有助于我们理解和预测随机过程的长期行为，例如预测某个状态最终会以多大概率出现，或者系统是否会收敛到一个稳定的分布。马尔科夫链是现代概率论和统计学的一个重要工具，在机器学习和数据科学中也有广泛的应用。</p>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713686148164.png" alt="1713686148164"></p>
 <p>视频5</p>
 <p>如何求<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713686496785.png" alt="1713686496785">？：（我看了下其实就是在推导前面为什么Noise image是公式<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713710175554.png" alt="1713710175554">的推导过程）</p>
 <pre><code>![1713630342101](GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713630342101.png)
-</code></pre>
-<p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713686462821.png" alt="1713686462821"></p>
+</code></pre><p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713686462821.png" alt="1713686462821"></p>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713686425450.png" alt="1713686425450"></p>
 <p>可简化，不需要两个sample噪声，只用一个sample噪声：</p>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713686615613.png" alt="1713686615613"></p>
@@ -588,11 +573,10 @@
 <p>此外，<strong>该框架在推理时组合单个技能，以形成序列级的轨迹分布</strong>，这可以通过<strong>并行扩散</strong>进行采样，以生成可行的技能参数序列作为规划解决方案。</p>
 <p>这与先前工作[11, 30]中广泛使用的基于自回归启发式搜索的方法[17, 57 - 59]不同。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">比如说，假设要规划一个机器人在复杂环境中的长期操作任务，如完成一系列物品的搬运和组装。GSC 不是像传统方法那样逐步进行启发式搜索，而是通过概率链和扩散模型，综合考虑每个技能的各种因素，一次性生成一系列可能的可行技能参数序列。这样可以更全面、更高效地找到满足长期目标和约束的规划方案。</span><br></pre></td></tr></table></figure>
-
 <p><strong>回忆前面：</strong></p>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713748545655.png" alt="1713748545655">技能链骨架</p>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713748418413.png" alt="1713748418413">为技能，或者说<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713748523132.png" alt="1713748523132">，o为技能操作的对象集</p>
-<p>每个技能π ∈ Π由<strong>一组连续的可行技能参数a ∈ Aπ参数化，所以a为参数，这些</strong>参数<strong>控制着在</strong>状态空间S<strong>中的某个状态s执行技能时所需的</strong>期望运动****</p>
+<p>每个技能π ∈ Π由<strong>一组连续的可行技能参数a ∈ Aπ参数化，所以a为参数，这些</strong>参数<strong>控制着在</strong>状态空间S<strong>中的某个状态s执行技能时所需的</strong>期望运动<em>**</em></p>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713748638757.png" alt="1713748638757">为当前状态，<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713748663784.png" alt="1713748663784">为经过技能π得到后的下一个参数，而这个技能派对应的参数为<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713748729021.png" alt="1713748729021">，这些转换遵循<strong>转换模型<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713748765988.png" alt="1713748765988"></strong></p>
 <p>附加约束<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713757095834.png" alt="1713757095834"></p>
 <p><strong>掩蔽采样得分模型</strong>（masked sampling score model）为<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713754193297.png" alt="1713754193297">和<strong>扩散模型得分函数</strong><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713753195186.png" alt="1713753195186"></p>
@@ -602,15 +586,14 @@
 <p><strong>主要目标</strong>是生成状态和技能参数的序列（如图 2(a)所示），使得最终状态（这里$s_f \equiv s^{(2)}$）满足目标条件，并导致最后一个技能的成功执行。</p>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713499932581.png" alt="1713499932581"></p>
 <h3 id="动作原语作为扩散模型"><a href="#动作原语作为扩散模型" class="headerlink" title="动作原语作为扩散模型"></a>动作原语作为扩散模型</h3><p>我们通过在环境中执行时观察到的状态 - 动作 - 状态转换的性质来描述单个技能。</p>
-<p>每个技能π的操作随后可以由无条件分布$q_{\pi}(s_t, a_t, s’<em>t)$来表示。这种表示同时捕获了技能策略$P</em>{\pi}$和转换动态分布$T_{\pi}$，并确保它们的一致性。</p>
+<p>每个技能π的操作随后可以由无条件分布$q<em>{\pi}(s_t, a_t, s’_t)$来表示。这种表示同时捕获了技能策略$P</em>{\pi}$和转换动态分布$T_{\pi}$，并确保它们的一致性。</p>
 <p> .</p>
 <p>对于技能库中的每个技能π，我们使用提供的每个技能的演示数据训练一个具有transformer骨干的<strong>扩散模型得分函数</strong>$\epsilon_{\pi}(s_t, a_t, s’_t, t)$，如图 3（右）所示。</p>
 <p><strong>扩散模型得分函数</strong>$\epsilon_{\pi}(s_t, a_t, s’_t, t)$:（注意就是下面的<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713754932647.png" alt="1713754932647">，因为图下面有解释<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713754961006.png" alt="1713754961006">）</p>
 <pre><code>![1713753499604](GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713753499604.png)
-</code></pre>
-<p>图 ：基于 transformer的技能扩散模型。我们在采样期间使用扩散步骤 t 时的有噪状态 - 动作 - 状态分布 $x_t \sim {s_t, a_t, s’<em>t}$ 来获得相应的 $\epsilon</em>{\theta}$ （上面讲的扩散模型得分函数 $\epsilon_{\pi}(s_t, a_t, s’_t, t)$）。技能对象顺序取决于感兴趣的对象，并表示为one-hot vectors的集合。</p>
+</code></pre><p>图 ：基于 transformer的技能扩散模型。我们在采样期间使用扩散步骤 t 时的有噪状态 - 动作 - 状态分布 $x<em>t \sim \{s_t, a_t, s’_t\}$ 来获得相应的 $\epsilon</em>{\theta}$ （上面讲的扩散模型得分函数 $\epsilon_{\pi}(s_t, a_t, s’_t, t)$）。技能对象顺序取决于感兴趣的对象，并表示为one-hot vectors的集合。</p>
 <p>我们通过一个顺序来表示感兴趣的对象集，该顺序表示场景中对象相对$^1$(<strong>w.r.t：with respect to的缩写，意思是关于、谈到、涉及等</strong>) [11]的相关性(<strong>例如，环境中有一个钩子(1)、一个盒子(2)和一个架子(3)，则任务对应的对象顺序为:(a)取盒子:[2,1,3]，(b)将盒子放在架子上:[2,3,1]</strong>)。</p>
-<p>我们还<strong>分别</strong>将状态和动作的***掩码采样得分模型（masked sampling score model)***表示为$\epsilon_{\pi}(s_t, t)$、$\epsilon_{\pi}(s’<em>t, t)$和$\epsilon</em>{\pi}(a_t, t)$。</p>
+<p>我们还<strong>分别</strong>将状态和动作的<strong><em>掩码采样得分模型（masked sampling score model)</em></strong>表示为$\epsilon<em>{\pi}(s_t, t)$、$\epsilon</em>{\pi}(s’<em>t, t)$和$\epsilon</em>{\pi}(a_t, t)$。</p>
 <p>比如说，在一个机器人操作任务中，“拿起物体”这个技能。我们观察机器人在执行这个动作时的状态变化（比如手臂的位置、物体的位置）、动作（比如抓取的力度和方向）以及后续的状态（物体被拿起后的位置等）。用 $q_{\pi}(s_t, a_t, s’_t)$这个分布来描述这个技能。然后为了更好地训练和理解这个技能，我们训练一个特定的扩散模型得分函数。对于场景中的各种物体，我们按照它们与这个技能的相关程度排个序。掩码采样得分模型则分别针对状态和动作给出特定的评估。</p>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713500021852.png" alt="1713500021852"></p>
 <h3 id="Sequencing-skill-diffusion-models对技能扩散模型进行排序"><a href="#Sequencing-skill-diffusion-models对技能扩散模型进行排序" class="headerlink" title="Sequencing skill diffusion models对技能扩散模型进行排序"></a>Sequencing skill diffusion models对技能扩散模型进行排序</h3><p>以前的工作：为了解决我们寻找满足Φ（<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713748545655.png" alt="1713748545655">技能链框架)  的合适技能转换序列的目标，在以前的工作中主要使用的自回归方法如下:</p>
@@ -620,7 +603,7 @@
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713798487777.png" alt="1713798487777">表示在策略π1下，给定初始状态 (s{(0)}) 时，选择动作 (a_{(0)}) 的概率。这是一个条件概率，它描述了代理在某个特定状态下根据其策略采取某个动作的可能性。</p>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713798555236.png" alt="1713798555236">表示在执行了动作 (a{(0)}) 之后，从状态 (s{(0)}) 转移到状态 (s{(1)}) 的概率。这个转移概率是由策略 (pi1) 和动作 (a{(0)}) 共同决定的。它反映了环境对代理的动作响应的动态特性。</p>
 <p>)</p>
-<p>(以前工作的缺陷)然而，这样的公式是短视的，只能在没有来自最终任务目标的反馈的情况下向前推进。这限制了long-horizon推理，并且先前的方法利用随机[30]或CEM-based rollouts[11]从这种分布中抽样。（传统的自回归方法，如前面提到的 $ p_\Phi(s_{(0:2)}, a_{(0:1)}|s_{(0)}) $，通常只考虑当前状态和下一步动作，而不是整个决策序列直到最终目标。这种方法可能不足以捕捉到在整个决策序列中可能出现的复杂依赖关系）</p>
+<p>(以前工作的缺陷)然而，这样的公式是短视的，只能在没有来自最终任务目标的反馈的情况下向前推进。这限制了long-horizon推理，并且先前的方法利用随机[30]或CEM-based rollouts[11]从这种分布中抽样。（传统的自回归方法，如前面提到的 $ p<em>\Phi(s</em>{(0:2)}, a<em>{(0:1)}|s</em>{(0)}) $，通常只考虑当前状态和下一步动作，而不是整个决策序列直到最终目标。这种方法可能不足以捕捉到在整个决策序列中可能出现的复杂依赖关系）</p>
 <p>为了克服上述限制，我们将<strong>无条件技能扩散模型（unconditional skill diffusion models）</strong>转化为<strong>正向和反向条件</strong>分布（这样做是为了能够同时考虑到达达成最终任务目标的反馈，并使得模型能够在更长的时间范围内进行推理。）：</p>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713755514406.png" alt="1713755514406"></p>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713755974362.png" alt="1713755974362"></p>
@@ -652,7 +635,7 @@
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713756278903.png" alt="1713756278903"></p>
 <p>这里，γ∈[0,1]是一个决策变量，它平衡了技能转换过程中状态对后续技能和目标条件的影响。这是一个重要的方面，它操作着序列中的技能行为和它们各自参数的选择。</p>
 <p>通过调整γ 的值，我们可以调节技能之间的依赖关系，从而影响整个序列的行为。如果γ接近 1，那么 ( pi1 ) 的影响更大；如果γ 接近 0，那么 ( pi2 ) 的影响更大。这种调整使得模型能够在执行技能序列时更灵活地适应不同的情况和目标。</p>
-<h3 id="基于分类器的约束满足指导"><a href="#基于分类器的约束满足指导" class="headerlink" title="基于分类器的约束满足指导"></a>基于分类器的约束满足指导</h3><p>除了最终任务目标之外，<strong>约束constraints</strong> 在控制环境中动作的可行性和指定任务特定条件方面也起着重要作用，例如在中间或最终状态下最大化&#x2F;最小化两个物体之间的距离。</p>
+<h3 id="基于分类器的约束满足指导"><a href="#基于分类器的约束满足指导" class="headerlink" title="基于分类器的约束满足指导"></a>基于分类器的约束满足指导</h3><p>除了最终任务目标之外，<strong>约束constraints</strong> 在控制环境中动作的可行性和指定任务特定条件方面也起着重要作用，例如在中间或最终状态下最大化/最小化两个物体之间的距离。</p>
 <p>我们基于扩散模型的结构<strong>允许GSC轻松地将附加约束作为隐式(绘制)或显式(基于分类器)指导合并</strong>。</p>
 <p>在这里，我们提出了一个灵活的采样策略，在几个规划约束的存在。原则上，附加约束<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713757095834.png" alt="1713757095834">可以作为附加项附加到<strong>目标抽样分布</strong>中:</p>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713757253506.png" alt="1713757253506"></p>
@@ -662,9 +645,9 @@
 <p>其中<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713757548776.png" alt="1713757548776"></p>
 <p>考虑图2(b)所示的示例，其中约束取决于节点<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713757699764.png" alt="1713757699764">。</p>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713757666548.png" alt="1713757666548"></p>
-<p>假设选择<strong>约束</strong>作为满意度的二进制指标(例如 success &#x3D; 1)，并在t &#x3D; 0时为去噪样本<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713757797687.png" alt="1713757797687">和<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713757813543.png" alt="1713757813543">)定义约束。在这种情况下，<strong>可能性likelihood</strong> 被定义为约束满足的指数，使得</p>
+<p>假设选择<strong>约束</strong>作为满意度的二进制指标(例如 success = 1)，并在t = 0时为去噪样本<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713757797687.png" alt="1713757797687">和<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713757813543.png" alt="1713757813543">)定义约束。在这种情况下，<strong>可能性likelihood</strong> 被定义为约束满足的指数，使得</p>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713757892217.png" alt="1713757892217"></p>
-<p>值得注意的是，虽然约束是去噪样本（denoised samples）的函数，但梯度必须在加噪样本（noised samples）的基础上计算。我们首先从*<em>方程（2）</em>***中获得 扩散步骤t 的去噪样本<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713758641241.png" alt="1713758641241">，<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713758603785.png" alt="1713758603785"></p>
+<p>值得注意的是，虽然约束是去噪样本（denoised samples）的函数，但梯度必须在加噪样本（noised samples）的基础上计算。我们首先从<strong>方程（2）**</strong>中获得 扩散步骤t 的去噪样本<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713758641241.png" alt="1713758641241">，<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713758603785.png" alt="1713758603785"></p>
 <p>然后根据权重因子α修改<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713758717440.png" alt="1713758717440">中的相应节点：</p>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713758783100.png" alt="1713758783100"></p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>总而言之，所提出的框架GSC分为三个部分:</p>
@@ -673,7 +656,7 @@
 <p>(3)incorporate classifier-based guidance结合基于分类器的指导，     在推理过程中添加任何看不见的规划约束时，结合基于分类器的指导。</p>
 <p>遵循标准的反向去噪，我们考虑从所有个体模型而不是一个模型中并行采样，因此我们提出的方法既与任务骨架无关，也与骨架长度无关。</p>
 <p>此外，依赖性因素（dependency factor）有助于做出灵活的设计选择，以满足期望的目标条件。</p>
-<p>虽然γ &#x3D; 0.5的恒定值是足够的，但它可以对每个技能进行微调。</p>
+<p>虽然γ = 0.5的恒定值是足够的，但它可以对每个技能进行微调。</p>
 <p>除此之外，我们还收集失败数据，为每个技能训练成功概率预测模块<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713759171719.png" alt="1713759171719">，这是在当前和过渡状态下衡量技能成功执行的指标。</p>
 <p>该模型用于从采样的候选解中考虑最佳参数序列。我们在附录A中说明了整个算法。</p>
 <h2 id="5、结果"><a href="#5、结果" class="headerlink" title="5、结果"></a>5、结果</h2><p>我们通过实验验证了GSC在以下方面的有效性:</p>
@@ -691,7 +674,7 @@
 <p>二维域由点样本的<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713777096263.png" alt="1713777096263">位置的状态和单位向量(u, v)的方向和幅度(a)的作用<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713777114544.png" alt="1713777114544">组成。????</p>
 <h2 id="算法总结"><a href="#算法总结" class="headerlink" title="算法总结"></a>算法总结</h2><p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713748545655.png" alt="1713748545655">技能链骨架</p>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713748418413.png" alt="1713748418413">为技能，或者说<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713748523132.png" alt="1713748523132">，o为技能操作的对象集</p>
-<p>每个技能π ∈ Π由<strong>一组连续的可行技能参数a ∈ Aπ参数化，所以a为参数，这些</strong>参数<strong>控制着在</strong>状态空间S<strong>中的某个状态s执行技能时所需的</strong>期望运动****</p>
+<p>每个技能π ∈ Π由<strong>一组连续的可行技能参数a ∈ Aπ参数化，所以a为参数，这些</strong>参数<strong>控制着在</strong>状态空间S<strong>中的某个状态s执行技能时所需的</strong>期望运动<em>**</em></p>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713748638757.png" alt="1713748638757">为当前状态，<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713748663784.png" alt="1713748663784">为经过技能π得到后的下一个参数，而这个技能派对应的参数为<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713748729021.png" alt="1713748729021">，这些转换遵循<strong>转换模型<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713748765988.png" alt="1713748765988"></strong></p>
 <p>附加约束<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713757095834.png" alt="1713757095834"></p>
 <p><strong>掩蔽采样得分模型</strong>（masked sampling score model）为<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713754193297.png" alt="1713754193297">和<strong>扩散模型得分函数</strong><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713753195186.png" alt="1713753195186"></p>
@@ -707,18 +690,19 @@
 <p>目标条件 g</p>
 <p>约束<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713781481633.png" alt="1713781481633">：设<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713781516005.png" alt="1713781516005">为受约束影响的节点</p>
 <p>初始框架solution：<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713781614101.png" alt="1713781614101">是由<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713781629277.png" alt="1713781629277">采样得到的</p>
-<p>初始化t &#x3D; T</p>
+<p>初始化t = T</p>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713781884195.png" alt="1713781884195"></p>
-<h3 id="初始化："><a href="#初始化：" class="headerlink" title="初始化："></a>初始化：</h3><ol start="10">
+<h3 id="初始化："><a href="#初始化：" class="headerlink" title="初始化："></a>初始化：</h3><ol>
 <li>xT：从正态分布 N (0,I) 中采样的初始骨架解。</li>
 <li>初始化 t 为 T。</li>
 </ol>
-<h3 id="算法过程："><a href="#算法过程：" class="headerlink" title="算法过程："></a>算法过程：</h3><ol start="12">
+<h3 id="算法过程："><a href="#算法过程：" class="headerlink" title="算法过程："></a>算法过程：</h3><ol>
 <li>当 t ≥ 0 时，进行以下循环：</li>
 <li>初始化整个骨架序列的分数为 0。</li>
 <li></li>
-<li>- <ul>
-<li>对于 i &#x3D; 1 到 K，更新 ϵΦ 的子向量，将每个技能的分数函数加到整个骨架的分数上。</li>
+<li><ul>
+<li></li>
+<li>对于 i = 1 到 K，更新 ϵΦ 的子向量，将每个技能的分数函数加到整个骨架的分数上。</li>
 </ul>
 </li>
 <li>对于每个技能 ( pii )，我们计算它在时间步 ( t ) 的分数函数 ( epsilon{pii}(s{(i-1)}^t, a{(i-1)}^t,s{(i)}^t, t) )，然后将这个分数加到整个骨架序列的分数函数 ( epsilonPhi ) 上。这样，我们就可以得到考虑了当前技能 ( pii ) 的整个序列的累积分数。</li>
@@ -729,7 +713,7 @@
 <ul>
 <li>对于受约束的节点 v，使用梯度下降来更新 ϵΦ 的子向量，以处理约束。</li>
 <li>循环每个受约束的节点：对于每个受约束的节点 ( v )，这些节点可以是状态 ( s ) 或动作 ( a )，我们将对它们执行更新。这里的 ( v ) 指的是序列中的受约束状态和动作的集合，例如 ( s^{(1)}, a^{(2)}, s^{(K)} )。</li>
-<li>更新 ( epsilon_Phi ) 的子向量：对于每个受约束的节点 ( v )，我们需要更新它在分数函数 ( epsilonPhi ) 中对应的部分。这个更新是通过从当前的分数函数 ( epsilonPhi(v^t, t) ) 中减去一个项来实现的，这个项是约束函数 ( h ) 对数的梯度 ( nabla_{v^t} log h(tilde{s}^{(1)}, tilde{a}^{(2)}, tilde{s}^{(K)}) ) 乘以梯度分数函数权重 ( alpha )。</li>
+<li>更新 ( epsilon<em>Phi ) 的子向量：对于每个受约束的节点 ( v )，我们需要更新它在分数函数 ( epsilonPhi ) 中对应的部分。这个更新是通过从当前的分数函数 ( epsilonPhi(v^t, t) ) 中减去一个项来实现的，这个项是约束函数 ( h ) 对数的梯度 ( nabla</em>{v^t} log h(tilde{s}^{(1)}, tilde{a}^{(2)}, tilde{s}^{(K)}) ) 乘以梯度分数函数权重 ( alpha )。</li>
 <li>梯度和权重：这里的 ( nabla_{v^t} ) 表示对 ( v ) 在时间步 ( t ) 的梯度，而 ( log h ) 是约束函数 ( h ) 的对数。这个梯度指示了如何调整 ( v ) 以最大程度地满足约束 ( h )。权重 ( alpha ) 决定了这个调整的强度。、</li>
 <li>为什么要进行这个更新？<br>目的是确保生成的技能序列不仅遵循每个技能的内在逻辑（即通过 ( epsilonPhi ) 和 ( epsilon{pi} ) 的更新实现），而且还符合外部施加的约束条件 ( h )。通过在分数函数中考虑这些约束，算法能够指导逆向扩散过程，以便生成的序列在满足目标条件的同时，也不违反任何约束。</li>
 <li>总之，这个步骤是对生成过程中的样本进行调整，以确保它们遵守特定的约束规则，从而使最终的技能链既有效又合规。</li>
@@ -745,15 +729,15 @@
 <li>获取更新后的带噪样本 ( q0(t-1)(x{t-1}|tilde{x}0) )，这是一个以 ( tilde{x}0 ) 为均值，方差为 ( sigma^2_{t-1} I ) 的正态分布。</li>
 <li>t 减 1，进行下一个逆向扩散步骤。</li>
 </ul>
-<h3 id="结果："><a href="#结果：" class="headerlink" title="结果："></a>结果：</h3><ol start="13">
+<h3 id="结果："><a href="#结果：" class="headerlink" title="结果："></a>结果：</h3><ol>
 <li>返回最终的去噪样本 x0。</li>
 </ol>
 <h3 id="超参数及其计算"><a href="#超参数及其计算" class="headerlink" title="超参数及其计算"></a>超参数及其计算</h3><p>反扩散的时间步数是一个重要的参数，它决定了在保证生成样本质量的前提下完成采样所需的时间。虽然较低的步数减少了采样所花费的时间，但较高的步数可以得到精细去噪的高质量样本。</p>
-<p>我们尝试使用多个值(256、128、64和50)，并收敛到对大多数任务使用128个扩散步骤。根据第4节和第5节(图6)中描述的解释，依赖因子γ被设置为0.5。γ &#x3D; 1的值使GSC与一个平凡的策略推出方法相同。</p>
-<p>最后，在梯度的情况下，我们对权重进行微调，以平衡反向扩散过程中约束的影响。虽然由于反向过程的复杂性，很难彻底改变采样轨迹，但我们对给定计划约束的所有任务使用α &#x3D; 1</p>
-<p>我们遵循DiT[44]的分数-网络架构，并采用他们的开源实现:github.com&#x2F;facebookresearch&#x2F;DiT。我们使用以下超参数来构建分数</p>
+<p>我们尝试使用多个值(256、128、64和50)，并收敛到对大多数任务使用128个扩散步骤。根据第4节和第5节(图6)中描述的解释，依赖因子γ被设置为0.5。γ = 1的值使GSC与一个平凡的策略推出方法相同。</p>
+<p>最后，在梯度的情况下，我们对权重进行微调，以平衡反向扩散过程中约束的影响。虽然由于反向过程的复杂性，很难彻底改变采样轨迹，但我们对给定计划约束的所有任务使用α = 1</p>
+<p>我们遵循DiT[44]的分数-网络架构，并采用他们的开源实现:github.com/facebookresearch/DiT。我们使用以下超参数来构建分数</p>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713974964582.png" alt="1713974964582"></p>
-<h2 id="额外的讨论"><a href="#额外的讨论" class="headerlink" title="额外的讨论"></a>额外的讨论</h2><h3 id="实现细节"><a href="#实现细节" class="headerlink" title="实现细节:"></a>实现细节:</h3><p>所提出的技能排序框架的性能取决于专家数据集的多样性、动作在未知骨架中的最大水平依赖性以及训练的技能扩散模型的质量。此外，只有真实的分布被估计并用于对候选解进行抽样。为了确保所有任务的高成功概率，我们考虑对<strong>多个候选序列****解决方案</strong>进行采样(其中两个如图7所示)，并考虑基于个人技能成功概率度量的乘积的最佳可能解决方案。</p>
+<h2 id="额外的讨论"><a href="#额外的讨论" class="headerlink" title="额外的讨论"></a>额外的讨论</h2><h3 id="实现细节"><a href="#实现细节" class="headerlink" title="实现细节:"></a>实现细节:</h3><p>所提出的技能排序框架的性能取决于专家数据集的多样性、动作在未知骨架中的最大水平依赖性以及训练的技能扩散模型的质量。此外，只有真实的分布被估计并用于对候选解进行抽样。为了确保所有任务的高成功概率，我们考虑对<strong>多个候选序列**</strong>解决方案**进行采样(其中两个如图7所示)，并考虑基于个人技能成功概率度量的乘积的最佳可能解决方案。</p>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713975051044.png" alt="1713975051044"></p>
 <p>图7:对于拾取和放置青色盒子的“拾取”任务，这样它就可以被推入机架中:左是正确采样的状态序列，而右是不正确的。因此，筛选候选解是必要的。</p>
 <h3 id="决策扩散器方法-具有逆动力学作用的状态扩散模型。"><a href="#决策扩散器方法-具有逆动力学作用的状态扩散模型。" class="headerlink" title="决策扩散器方法:具有逆动力学作用的状态扩散模型。"></a>决策扩散器方法:具有逆动力学作用的状态扩散模型。</h3><p>扩散模型已被用于机器人的规划。其中一个框架是<strong>决策扩散器</strong>[40]，它对期望的状态轨迹进行采样，并使用逆动力学模型来找到最佳动作序列。我们的框架可以通过从样本中删除action来实现这一点。</p>
@@ -761,17 +745,17 @@
 <h3 id="C技能描述和参数化"><a href="#C技能描述和参数化" class="headerlink" title="C技能描述和参数化"></a>C技能描述和参数化</h3><p>我们有一个固定的技能库，包括:捡、放、推和拉。根据以下设置，每个技能都是根据感兴趣的对象参数化的:</p>
 <p>pick:参数化的(x, y, z， θ)作为pick的位置和抓手围绕z轴的方向。这些参数是根据感兴趣的(要挑选的)对象的起源计算的。例如，拾取块的位置是块的原点，即质心。同样，对于挑钩，原点是矩形的中心，钩是矩形的一个L-segment。</p>
 <p>place:参数为(x, y, z， θ)作为放置位置和夹持器绕z轴的方向。参数是根据感兴趣的对象(被选中的对象将被放置在其上)的原点计算的。</p>
-<p>push:参数为(x, y， θ， r)，表示工具(挂钩)在工作台(z &#x3D; 0)上放置的位置和方向，r表示挂钩将被移离臂座的长度。参数x, y， θ是相对于感兴趣的对象(要推送的)原点。推距r是刀具在θ方向上的位置位移。</p>
-<p>拉力:参数为(x, y， θ， r)，表示工具(挂钩)在工作台(z &#x3D; 0)上放置的位置和方向，r表示挂钩向臂座移动的长度。参数x, y， θ是相对于感兴趣的对象(要拉的)原点。拉力距离r是刀具在θ方向上的位置位移。</p>
+<p>push:参数为(x, y， θ， r)，表示工具(挂钩)在工作台(z = 0)上放置的位置和方向，r表示挂钩将被移离臂座的长度。参数x, y， θ是相对于感兴趣的对象(要推送的)原点。推距r是刀具在θ方向上的位置位移。</p>
+<p>拉力:参数为(x, y， θ， r)，表示工具(挂钩)在工作台(z = 0)上放置的位置和方向，r表示挂钩向臂座移动的长度。参数x, y， θ是相对于感兴趣的对象(要拉的)原点。拉力距离r是刀具在θ方向上的位置位移。</p>
 <h2 id="参考知识："><a href="#参考知识：" class="headerlink" title="参考知识："></a>参考知识：</h2><h3 id="蒙特卡洛采样（MCS）https-zhuanlan-zhihu-com-p-81806149"><a href="#蒙特卡洛采样（MCS）https-zhuanlan-zhihu-com-p-81806149" class="headerlink" title="蒙特卡洛采样（MCS）https://zhuanlan.zhihu.com/p/81806149"></a><strong>蒙特卡洛采样（MCS）<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/81806149">https://zhuanlan.zhihu.com/p/81806149</a></strong></h3><h4 id="动机"><a href="#动机" class="headerlink" title="动机"></a><strong>动机</strong></h4><p>机器学习中最常见的优化算法是  <strong>基于梯度的优化方法</strong>，当<strong>目标函数</strong>是一个类似如下结构的随机函数 F(θ) 时：</p>
-<p><img src="https://pic2.zhimg.com/80/v2-6c668a149b543ec66ba01e2e91af2ad1_720w.webp"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-6c668a149b543ec66ba01e2e91af2ad1_720w.webp" alt></p>
 <p>优化该类目标函数，<strong>最核心的计算问题</strong>是<strong>对随机函数 F(θ) 的梯度进行估计</strong>，即：</p>
-<p><img src="https://pic1.zhimg.com/80/v2-55a904bf45438d32830c5074c7f163a0_720w.webp"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-55a904bf45438d32830c5074c7f163a0_720w.webp" alt></p>
 <p>随机函数梯度估计在机器学习以及诸多领域都是核心计算问题，比如：<strong>变分推断</strong>，一种常见的近似贝叶斯推断方法；<strong>强化学习中的策略梯度算法</strong>；实验设计中的<strong>贝叶斯优化和主动学习方</strong>法等。</p>
 <p>其中，<strong>对于函数期望类目标问题，最常见的是基于蒙特卡洛采样的方法。</strong></p>
 <h4 id="背景知识"><a href="#背景知识" class="headerlink" title="背景知识"></a><strong>背景知识</strong></h4><p>要了解基于蒙特卡洛采样的梯度估计方法，首先先了解<strong>蒙特卡洛采样方法</strong>和<strong>随机优化方法。</strong></p>
 <p>MCS 是一种经典的求解积分方法，公式（1）中的问题通常可以用 MCS 近似求解如下（感觉就是概率论的矩估计法）：</p>
-<p><img src="https://pic3.zhimg.com/80/v2-78104e5848ba9eaea261d8469f56966e_720w.webp"></p>
+<p><img src="https://pic3.zhimg.com/80/v2-78104e5848ba9eaea261d8469f56966e_720w.webp" alt></p>
 <p>其中， <img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713844936139.png" alt="1713844936139">采样自分布 p(x;θ)，由于采样的不确定性和有限性，这里<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713844959039.png" alt="1713844959039">是一个随机变量，公式（3）是公式（1）的<strong>蒙特卡洛估计器（MCE）</strong>。</p>
 <p>这类方法非常适用于求解形式如公式（1）的积分问题，尤其是当分布 p(x;θ) 非常容易进行采样的时候。</p>
 <p><strong>在使用 MCE 时，往往关注其以下四个性质：</strong></p>
@@ -781,12 +765,12 @@
 </ol>
 <p><img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713845061223.png" alt="1713845061223"></p>
 <p>MCE 的无偏性是随机优化算法收敛的重要保证。</p>
-<ol start="3">
+<ol>
 <li>小方差，当几个估计方法都是无偏估计时，我们通常会选择方差较小的 MCE，因为更小方差的 MCE 会估计地更准，从而使得优化地效率更高、准确性更好。</li>
 <li>可计算性，很多机器学习问题都是高维问题，如何提高 MCE 的可计算性，比如：减少采样、提高并行能力等变得十分重要。</li>
 </ol>
 <p><strong>随机优化（SO）</strong></p>
-<p><img src="https://pic2.zhimg.com/80/v2-9ae8ce5c6063f6ef0d28da63a0929615_720w.webp"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-9ae8ce5c6063f6ef0d28da63a0929615_720w.webp" alt></p>
 <p>▲ 图1. 随机优化</p>
 <p>如图 1 所示，随机优化问题通常包含两个过程，一是仿真过程，输入优化变量，获得响应值 F(θ)，然后计算出 <img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713845127984.png" alt="1713845127984">，其中是个随机变量 ；二是优化过程，基于梯度，迭代更新优化变量。</p>
 <p>不同于确定性优化，<strong>随机优化算法包含两个部分的随机性：</strong></p>
@@ -799,28 +783,28 @@
 <p>VI 是贝叶斯推断中的一大类方法，在统计机器学习（贝叶斯视角）中具有广泛的应用。从上图中可以看出，变分推断 (VI) 的思想非常简单。假设一个变分分布簇，在概率空间中找到一个离真实分布最近的分布。VI 巧妙地将一个推断问题转化为了优化问题，优化目标是</p>
 <p>(Q||P)，即待求分布 Q 和真实后验分布 P 的距离，优化的变量是分布 Q 的描述参数。</p>
 <p>VI 方法综述将在另外一篇文章中详细介绍，本文只简单说明其目标函数是一个形如公式（1）的问题。考虑一个生成模型问题 p(z)p(x|z)，其中 z 是隐变量，x 是观测变量，p(z) 是先验分布，p(x|z) 是似然函数。根据贝叶斯公式：</p>
-<p><img src="https://pic3.zhimg.com/80/v2-3fb255b75b170577588342327d5f5442_720w.webp"></p>
-<p>其中 p(x)&#x3D;ʃp(z)p(z|x)，称为 evidence，通常 p(x) 是一个不可积的多重积分，导致后验分布 p(z|x) 无法获得解析解。如上述思路所述，假设后验分布用一个变分分布 q(z|x;θ) 来近似，通过构造如下优化问题：</p>
-<p><img src="https://pic4.zhimg.com/80/v2-31a9eedfa9ffbf7ced619a0047a0412f_720w.webp"></p>
+<p><img src="https://pic3.zhimg.com/80/v2-3fb255b75b170577588342327d5f5442_720w.webp" alt></p>
+<p>其中 p(x)=ʃp(z)p(z|x)，称为 evidence，通常 p(x) 是一个不可积的多重积分，导致后验分布 p(z|x) 无法获得解析解。如上述思路所述，假设后验分布用一个变分分布 q(z|x;θ) 来近似，通过构造如下优化问题：</p>
+<p><img src="https://pic4.zhimg.com/80/v2-31a9eedfa9ffbf7ced619a0047a0412f_720w.webp" alt></p>
 <p>来求解使得两个分布距离最小的变分分布参数 θ，从而得到近似后验分布。</p>
 <p>因为真实后验分布是未知的，直接优化公式（6）是一件比较有挑战的事情，VI 巧妙地将其转化为优化 ELBO 的问题。</p>
 <p>简单的推导过程如下：</p>
-<p><img src="https://pic1.zhimg.com/80/v2-fedc55ba5501cf4c1c8e633b89c4f9cc_720w.webp"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-fedc55ba5501cf4c1c8e633b89c4f9cc_720w.webp" alt></p>
 <p>等号两边移动一下可得：</p>
-<p><img src="https://pic3.zhimg.com/80/v2-413cba54dadb4a89497e3a295b78a482_720w.webp"></p>
+<p><img src="https://pic3.zhimg.com/80/v2-413cba54dadb4a89497e3a295b78a482_720w.webp" alt></p>
 <p>由 KL 散度的定义可知，KL(q(z|x;ф)||p(z|x;θ))≥0，同时 logp(x;θ) 是个常数，所以求优化问题（6）等价于求如下优化问题：</p>
-<p><img src="https://pic3.zhimg.com/80/v2-fb8812c91a19e34ca526e8dcfd3ca642_720w.webp"></p>
+<p><img src="https://pic3.zhimg.com/80/v2-fb8812c91a19e34ca526e8dcfd3ca642_720w.webp" alt></p>
 <p>相当于求解 log evidence lower bound，即 eblo。继续推导如下：</p>
-<p><img src="https://pic4.zhimg.com/80/v2-d20e610c98dd8b74bf6aef95a9dbdc37_720w.webp"></p>
+<p><img src="https://pic4.zhimg.com/80/v2-d20e610c98dd8b74bf6aef95a9dbdc37_720w.webp" alt></p>
 <p>公式（10）的形式如公式（1），可以用 MCGE 进行梯度估计，从而优化求解。</p>
 <p>变分推断方法是一个热门研究领域，而核心问题是如何高效求解 elbo 优化问题，在统计物理、信息论、贝叶斯推断、机器学习等诸多领域由广泛的应用。</p>
 <h5 id="强化学习"><a href="#强化学习" class="headerlink" title="强化学习"></a><strong>强化学习</strong></h5><p>强化学习是机器学习中一大类热门研究领域，尤其是 AlphaGo 的横空出世，为强化学习带来了更多的关注和更多的研究人员。本文将不对强化学习的任务和各种概念进行赘述，强化学习中的一大类问题是无模型的策略搜索问题，即通过优化累计回报的均值学习到最优策略。所谓累计回报的均值形式如下：</p>
-<p><img src="https://pic1.zhimg.com/80/v2-dc3ce6ad692d6b3e76263e20eefbdd0c_720w.webp"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-dc3ce6ad692d6b3e76263e20eefbdd0c_720w.webp" alt></p>
 <p>公式（11）形式亦如公式（1），可以用 MCGE 进行梯度估计，从而优化求解。</p>
 <p><strong>实验设计</strong></p>
 <p>实验设计是个非常广泛的领域，主要是研究如何为实验设置合适的配置，比如：自动机器学习中的超参数调优（HPO）、神经架构搜索（NAS），通过主动学习（Active Learning）选择更加合适的样本进行标注，老虎机问题的求解（Bandit）等等。</p>
 <p>这类任务中经常会遇到一个问题，如何选择下一个更好的配置，使得选择之后比选择之前性能的概率会有所提升。因此需要优化如下问题：</p>
-<p><img src="https://pic1.zhimg.com/80/v2-772979b5d4f767cb696a4f888a00a06c_720w.webp"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-772979b5d4f767cb696a4f888a00a06c_720w.webp" alt></p>
 <p>公式（12）形式亦如公式（1），可以用 MCGE 进行梯度估计，从而优化求解。</p>
 <p>简单总结一下，优化是机器学习训练中最重要的部分，而其中很多优化问题都是形如公式（1）的问题，而 MCGE 是解决这类问题的有效手段，接下来介绍两种经典的 MCGE 方法。</p>
 <h2 id="方法综述"><a href="#方法综述" class="headerlink" title="方法综述"></a><strong>方法综述</strong></h2><p>公式（1）中的积分内是一个分布和代价函数的乘积，在对其梯度进行近似估计时，可以从两个方面进行求导。由此，<strong>可以将梯度估计方法大致分为两类：</strong></p>
@@ -829,31 +813,31 @@
 <li><strong>求解代价函数的导数</strong> ，包括本文介绍的 pathwise gradient estimator</li>
 </ul>
 <p>根据公式（2）待估计的梯度是：</p>
-<p><img src="https://pic2.zhimg.com/80/v2-a650d880f323ca0ff3b47dd826b4bcd5_720w.webp"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-a650d880f323ca0ff3b47dd826b4bcd5_720w.webp" alt></p>
 <p>直接计算会非常困难，一个直观的思路是研究如何将期望的梯度转化为梯度的期望，从而可以利用 MCS 做无偏近似估计。本文将会介绍两种经典的方法，来解决这个问题。</p>
 <p><strong>Score Function Gradient Estimator (SFGE)</strong></p>
 <p>SFGE 是最经典的方法，也是适用性最好的方法，在强化学习中的策略梯度优化问题里，有一个算法叫做 REINFORCE，正是基于 SFGE 来做的。SFGE 也常常被用于解决目标函数不可导的优化问题以及一些黑盒优化问题。</p>
 <p><strong>Score Function 简介</strong></p>
 <p>所谓的 score function 是：</p>
-<p><img src="https://pic4.zhimg.com/80/v2-71afdd29ae251a3008899fbc7894cfaf_720w.webp"></p>
+<p><img src="https://pic4.zhimg.com/80/v2-71afdd29ae251a3008899fbc7894cfaf_720w.webp" alt></p>
 <p>之所以选择这个函数，是因为以下两点原因：</p>
 <ol>
 <li>score function 的期望为 0，证明如下：</li>
 </ol>
-<p><img src="https://pic2.zhimg.com/80/v2-10c6a8759c02a0e0a3ac13532d0611d5_720w.webp"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-10c6a8759c02a0e0a3ac13532d0611d5_720w.webp" alt></p>
 <p>这样会带来非常多的便利，比如：一种降低估计方差的思路，将代价函数 f(x) 改造为 f(x)-b，其中 b 是所谓的 baseline。因为 score function 的期望为 0，所以：</p>
-<p><img src="https://pic1.zhimg.com/80/v2-72d2c05eaabdb83d07ab3c06a19c2418_720w.webp"></p>
-<ol start="2">
+<p><img src="https://pic1.zhimg.com/80/v2-72d2c05eaabdb83d07ab3c06a19c2418_720w.webp" alt></p>
+<ol>
 <li>score function 的方差是 Fisher 信息量。</li>
 </ol>
 <p><strong>SFGE（Score Function Gradient Estimator）的推导过程</strong></p>
-<p><img src="https://pic2.zhimg.com/80/v2-42f2a17a680520e983bade70d3ac729d_720w.webp"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-42f2a17a680520e983bade70d3ac729d_720w.webp" alt></p>
 <p>推导中，用到了一个复合函数求导的公式，如下：</p>
-<p><img src="https://pic2.zhimg.com/80/v2-d4de48e7e4c07decdd58055559baa9fd_720w.webp"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-d4de48e7e4c07decdd58055559baa9fd_720w.webp" alt></p>
 <p>利用 MC 采样可以估计出梯度，如下：</p>
-<p><img src="https://pic2.zhimg.com/80/v2-2b90dc47cfa8f8862ef8e76bacc10d59_720w.webp"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-2b90dc47cfa8f8862ef8e76bacc10d59_720w.webp" alt></p>
 <p>其中：</p>
-<p><img src="https://pic4.zhimg.com/80/v2-c66286b3e5df9ffb0a0660180794199b_720w.webp"></p>
+<p><img src="https://pic4.zhimg.com/80/v2-c66286b3e5df9ffb0a0660180794199b_720w.webp" alt></p>
 <p>从上述推导中可以看到，通过引入 score function，可以成功地将期望的梯度<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713888479218.png" alt="1713888479218">变换为梯度的期望<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713888496031.png" alt="1713888496031">或<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/1713888720195.png" alt="1713888720195">，从而实现梯度的近似估计。</p>
 <p>这中间有一个过程是将积分和微分操作的位置进行了对换，此操作并非可以随意进行，需要满足一定的条件，但一般的机器学习问题都会满足。</p>
 <p><strong>SFGE（Score Function Gradient Estimator）的性质</strong></p>
@@ -875,21 +859,21 @@
 <p>不同于 SFGE 对代价函数没有任何约束，PGE 要求代价函数可微，虽然 SFGE 更具一般性，但 PGE 会有更好的性质。PGE在机器学习领域有一个重要的方法是 reparameterization trick，它是著名的深度生成模型 VAE 中一个重要的步骤。</p>
 <p><strong>PGE简介</strong></p>
 <p>PGE 的思路是将待学习的参数从分布中变换到代价函数中，核心是做分布变换（即所谓的 reparameterization ，重参数化），计算原来分布下的期望梯度时，由于变换后的分布不包含求导参数，可将求导和积分操作进行对换，从而基于 MC 对梯度进行估计。</p>
-<p><img src="https://pic4.zhimg.com/80/v2-abb14177f5a1a38549cf966bf2075c53_720w.webp"></p>
+<p><img src="https://pic4.zhimg.com/80/v2-abb14177f5a1a38549cf966bf2075c53_720w.webp" alt></p>
 <p>如上述公式，从一个含参 <em>θ</em> 分布中采样，等同于从一个简单无参分布中采样，然后进行函数变换，并且此函数的参数也是  <em>θ</em> 。变换前，采样是直接从所给分布中进行，而采用重参数化技巧后，采样是间接地从一个简单分布进行，然后再映射回去，这个映射是一个确定性的映射。其中，映射有很多中思路，比如：逆函数、极变换等方法。</p>
 <p>PGE 的一个重要理论依据是 Law of the Unconscious Statistician (LOTUS) ，即：</p>
-<p><img src="https://pic3.zhimg.com/80/v2-a796c271a30eb8bd3884e1b123fe13c2_720w.webp"></p>
+<p><img src="https://pic3.zhimg.com/80/v2-a796c271a30eb8bd3884e1b123fe13c2_720w.webp" alt></p>
 <p>从定理中可以看到，计算一个函数的期望，可以不知道其分布，只需要知道一个简单分布，以及从简单分布到当前分布的映射关系即可。</p>
 <p><strong>PGE推导过程</strong></p>
 <p>基于 Law of the Unconscious Statistician (LOTUS) 对 PGE 进行推导，如下：</p>
-<p><img src="https://pic1.zhimg.com/80/v2-7d4173cd947d5a75871b6f089adb26e4_720w.webp"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-7d4173cd947d5a75871b6f089adb26e4_720w.webp" alt></p>
 <p>利用 MC 可以估计出梯度为：</p>
-<p><img src="https://pic3.zhimg.com/80/v2-f0c0dc31504cf0277727d2e143d26c5a_720w.webp"></p>
+<p><img src="https://pic3.zhimg.com/80/v2-f0c0dc31504cf0277727d2e143d26c5a_720w.webp" alt></p>
 <p>其中：</p>
-<p><img src="https://pic4.zhimg.com/80/v2-a5b145797fba25088eef9aa6fdaddcd3_720w.webp"></p>
+<p><img src="https://pic4.zhimg.com/80/v2-a5b145797fba25088eef9aa6fdaddcd3_720w.webp" alt></p>
 <p>从推导中可以看出，分布中的参数被 push 到了代价函数中，从而可以将求导和积分操作进行对换。</p>
 <p>分布变换是统计学中一个基本的操作，在计算机中实际产生各种常见分布的随机数时，都是基于均匀分布的变换来完成的。有一些常见的分布变换可参见下表：</p>
-<p><img src="https://pic1.zhimg.com/80/v2-55dec2c6a19ade14da2d5f18e290a8fc_720w.webp"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-55dec2c6a19ade14da2d5f18e290a8fc_720w.webp" alt></p>
 <p>▲ 图3. 常见分布变换</p>
 <p><strong>PGE的性质</strong></p>
 <ul>
@@ -908,7 +892,7 @@
 <p>上述研究虽然有一定的局限性，但尝试了新的思路来解决这一问题。其中第[5]篇，尝试用一些 Uncertainty Qualification (UQ) 的方法，比如用一些不确定性传播的估计方法，对期望进行确定性估 计，而非随机采样估计，在一定的假设下，确实有非常显著的效果。</p>
 <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a><strong>参考文献</strong></h2><p>[1] Mohamed, S., Rosca, M., Figurnov, M., &amp; Mnih, A. (2019). Monte Carlo Gradient Estimation in Machine Learning. ArXiv Preprint ArXiv:1906.10652.</p>
 <p>[2] Fu, M. C. (2005). Stochastic Gradient Estimation, 105–147.</p>
-<p>[3] Shakir’s Machine Learning Blog <a href="https://link.zhihu.com/?target=http://blog.shakirm.com">http:&#x2F;&#x2F;<strong>blog.shakirm.com</strong></a></p>
+<p>[3] Shakir’s Machine Learning Blog <a href="https://link.zhihu.com/?target=http%3A//blog.shakirm.com">http://<strong>blog.shakirm.com</strong></a></p>
 <p>[4] Postels, J., Ferroni, F., Coskun, H., Navab, N., &amp; Tombari, F. (2019). Sampling-free Epistemic Uncertainty Estimation Using Approximated Variance Propagation. ArXiv Preprint ArXiv:1908.00598.</p>
 <p>[5] Wu, A., Nowozin, S., Meeds, T., Turner, R. E., Lobato, J. M. H., &amp; Gaunt, A. (2019). Deterministic Variational Inference for Robust Bayesian Neural Networks. In ICLR 2019 : 7th International Conference on Learning Representations.</p>
 <h2 id="本文总结"><a href="#本文总结" class="headerlink" title="本文总结"></a>本文总结</h2><p><strong>《Diffusion Policy: Visuomotor Policy Learning via Action Diffusion》</strong><br>作者为来自哥伦比亚大学、麻省理工学院等的Cheng Chi、Zhenjia Xu、Siyuan Feng等人。<br>文章提出了一种新的机器人视觉运动策略表示方法Diffusion Policy，它将机器人的视觉运动策略表示为一个条件去噪扩散过程，通过学习动作分布的梯度来生成机器人的行为。实验结果表明，Diffusion Policy在多个机器人操作基准测试中均取得了显著的性能提升，并且具有良好的泛化能力和可解释性。</p>
@@ -934,7 +918,7 @@
 </ul>
 </li>
 </ul>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz">ALTNT</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/">http://blog.705553939.xyz/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA/">Ros机器人</a></div><div class="post_share"><div class="social-share" data-image="/img/altnt.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/diffusionpolicy/" title="Diffusion Policy"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">Diffusion Policy</div></div></a></div><div class="next-post pull-right"><a href="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E4%BA%91%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="云操作系统"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">云操作系统</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/" title="模仿学习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-05</div><div class="title">模仿学习</div></div></a></div><div><a href="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/diffusionpolicy/" title="Diffusion Policy"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-05</div><div class="title">Diffusion Policy</div></div></a></div><div><a href="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/ros%E9%80%9A%E4%BF%A1%E6%9C%BA%E5%88%B6/ROS%20%E9%80%9A%E4%BF%A1%E6%9C%BA%E5%88%B6/" title="ROS通信机制"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-05</div><div class="title">ROS通信机制</div></div></a></div><div><a href="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E6%8E%A5%E4%B8%8B%E6%9D%A5%E5%8F%AF%E8%83%BD%E7%9C%8B%E7%9A%84%E8%AE%BA%E6%96%87/" title="接下来可能看的论文"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-05</div><div class="title">接下来可能看的论文</div></div></a></div><div><a href="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/ros%E9%80%9A%E4%BF%A1%E6%9C%BA%E5%88%B6/2.1%E8%AF%9D%E9%A2%98%E9%80%9A%E4%BF%A1/01.base%20example/" title="Ros通信机制-话题通信2"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-05</div><div class="title">Ros通信机制-话题通信2</div></div></a></div><div><a href="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/MOMA-Force:%20Visual-Force%20Imitation%20for%20Real-World%20Mobile%20Manipulation/" title="MOMA-Force: Visual-Force Imitation for Real-World Mobile Manipulation"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-05</div><div class="title">MOMA-Force: Visual-Force Imitation for Real-World Mobile Manipulation</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/altnt.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ALTNT</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ALTNT"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Generative-Skill-Chaining-Long-Horizon-Skill-Planning-with-Diffusion-Models%E7%94%9F%E6%88%90%E5%BC%8F%E6%8A%80%E8%83%BD%E9%93%BE%EF%BC%9A%E5%9F%BA%E4%BA%8E%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E7%9A%84%E9%95%BF%E6%97%B6%E7%A8%8B%E6%8A%80%E8%83%BD%E8%A7%84%E5%88%92"><span class="toc-number">1.</span> <span class="toc-text">Generative Skill Chaining: Long-Horizon Skill Planning with Diffusion Models生成式技能链：基于扩散模型的长时程技能规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E6%96%B0%E7%82%B9"><span class="toc-number">1.1.</span> <span class="toc-text">创新点:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E6%91%98%E8%A6%81"><span class="toc-number">2.</span> <span class="toc-text">1、摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.</span> <span class="toc-text">2、介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C"><span class="toc-number">4.</span> <span class="toc-text">3、相关工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Task-and-Motion-Planning"><span class="toc-number">4.1.</span> <span class="toc-text">Task and Motion Planning</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A"><span class="toc-number">4.1.0.0.1.</span> <span class="toc-text">解释:</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Learning-to-solve-long-horizon-tasks"><span class="toc-number">4.2.</span> <span class="toc-text">Learning to solve long-horizon tasks.</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A-1"><span class="toc-number">4.2.0.0.1.</span> <span class="toc-text">解释:</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generative-models-for-planning"><span class="toc-number">4.3.</span> <span class="toc-text">Generative models for planning.</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A-2"><span class="toc-number">4.3.0.0.1.</span> <span class="toc-text">解释:</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86"><span class="toc-number">5.</span> <span class="toc-text">4、预备知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%85%AC%E5%BC%8F%E5%8C%96"><span class="toc-number">5.1.</span> <span class="toc-text">问题公式化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E8%AE%BE%E7%BD%AE"><span class="toc-number">5.2.</span> <span class="toc-text">环境设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B"><span class="toc-number">5.3.</span> <span class="toc-text">扩散模型:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A-3"><span class="toc-number">5.3.1.</span> <span class="toc-text">解释</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81%E6%96%B9%E6%B3%95%E8%AE%BA"><span class="toc-number">6.</span> <span class="toc-text">5、方法论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E4%BD%9C%E5%8E%9F%E8%AF%AD%E4%BD%9C%E4%B8%BA%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B"><span class="toc-number">6.1.</span> <span class="toc-text">动作原语作为扩散模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sequencing-skill-diffusion-models%E5%AF%B9%E6%8A%80%E8%83%BD%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F"><span class="toc-number">6.2.</span> <span class="toc-text">Sequencing skill diffusion models对技能扩散模型进行排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E5%88%86%E7%B1%BB%E5%99%A8%E7%9A%84%E7%BA%A6%E6%9D%9F%E6%BB%A1%E8%B6%B3%E6%8C%87%E5%AF%BC"><span class="toc-number">6.3.</span> <span class="toc-text">基于分类器的约束满足指导</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">6.4.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81%E7%BB%93%E6%9E%9C"><span class="toc-number">7.</span> <span class="toc-text">5、结果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%BA%BF%E5%92%8C%E6%8C%87%E6%A0%87"><span class="toc-number">7.1.</span> <span class="toc-text">基线和指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Toy%E9%A2%86%E5%9F%9F%E3%80%82"><span class="toc-number">7.2.</span> <span class="toc-text">Toy领域。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93"><span class="toc-number">8.</span> <span class="toc-text">算法总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%951-%E7%94%9F%E6%88%90%E6%8A%80%E8%83%BD%E9%93%BE-GSC-%E7%AE%97%E6%B3%95"><span class="toc-number">8.1.</span> <span class="toc-text">算法1:生成技能链(GSC)算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%EF%BC%9A"><span class="toc-number">8.2.</span> <span class="toc-text">初始化：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E8%BF%87%E7%A8%8B%EF%BC%9A"><span class="toc-number">8.3.</span> <span class="toc-text">算法过程：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C%EF%BC%9A"><span class="toc-number">8.4.</span> <span class="toc-text">结果：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B6%85%E5%8F%82%E6%95%B0%E5%8F%8A%E5%85%B6%E8%AE%A1%E7%AE%97"><span class="toc-number">8.5.</span> <span class="toc-text">超参数及其计算</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%9D%E5%A4%96%E7%9A%84%E8%AE%A8%E8%AE%BA"><span class="toc-number">9.</span> <span class="toc-text">额外的讨论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82"><span class="toc-number">9.1.</span> <span class="toc-text">实现细节:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%89%A9%E6%95%A3%E5%99%A8%E6%96%B9%E6%B3%95-%E5%85%B7%E6%9C%89%E9%80%86%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%BD%9C%E7%94%A8%E7%9A%84%E7%8A%B6%E6%80%81%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E3%80%82"><span class="toc-number">9.2.</span> <span class="toc-text">决策扩散器方法:具有逆动力学作用的状态扩散模型。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C%E6%8A%80%E8%83%BD%E6%8F%8F%E8%BF%B0%E5%92%8C%E5%8F%82%E6%95%B0%E5%8C%96"><span class="toc-number">9.3.</span> <span class="toc-text">C技能描述和参数化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E7%9F%A5%E8%AF%86%EF%BC%9A"><span class="toc-number">10.</span> <span class="toc-text">参考知识：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E9%87%87%E6%A0%B7%EF%BC%88MCS%EF%BC%89https-zhuanlan-zhihu-com-p-81806149"><span class="toc-number">10.1.</span> <span class="toc-text">蒙特卡洛采样（MCS）https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;81806149</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%9C%BA"><span class="toc-number">10.1.1.</span> <span class="toc-text">动机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86"><span class="toc-number">10.1.2.</span> <span class="toc-text">背景知识</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%94%E7%94%A8"><span class="toc-number">10.1.3.</span> <span class="toc-text">应用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%98%E5%88%86%E6%8E%A8%E6%96%AD%EF%BC%88Variational-Inference-VI%EF%BC%89"><span class="toc-number">10.1.3.1.</span> <span class="toc-text">变分推断（Variational Inference, VI）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="toc-number">10.1.3.2.</span> <span class="toc-text">强化学习</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E7%BB%BC%E8%BF%B0"><span class="toc-number">11.</span> <span class="toc-text">方法综述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-1"><span class="toc-number">12.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">13.</span> <span class="toc-text">参考文献</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E6%96%87%E6%80%BB%E7%BB%93"><span class="toc-number">14.</span> <span class="toc-text">本文总结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/27/%E8%B5%84%E6%96%99/%E5%91%BD%E4%BB%A42/" title="命令2">命令2</a><time datetime="2024-07-26T16:12:09.942Z" title="Created 2024-07-27 00:12:09">2024-07-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/22/mac%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/mac%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" title="mac常见问题汇总">mac常见问题汇总</a><time datetime="2024-07-22T05:06:51.380Z" title="Created 2024-07-22 13:06:51">2024-07-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/28/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" title="vscode插件开发">vscode插件开发</a><time datetime="2024-06-28T06:47:30.251Z" title="Created 2024-06-28 14:47:30">2024-06-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/" title="强化学习相关概念">强化学习相关概念</a><time datetime="2024-06-28T04:03:18.846Z" title="Created 2024-06-28 12:03:18">2024-06-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/" title="机器学习相关概念">机器学习相关概念</a><time datetime="2024-06-26T09:09:56.000Z" title="Created 2024-06-26 17:09:56">2024-06-26</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By ALTNT</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz">ALTNT</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/">http://blog.705553939.xyz/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA/">Ros机器人</a></div><div class="post_share"><div class="social-share" data-image="/img/altnt.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/diffusionpolicy/" title="Diffusion Policy"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">Diffusion Policy</div></div></a></div><div class="next-post pull-right"><a href="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E4%BA%91%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="云操作系统"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">云操作系统</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/" title="模仿学习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-05</div><div class="title">模仿学习</div></div></a></div><div><a href="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/ros%E9%80%9A%E4%BF%A1%E6%9C%BA%E5%88%B6/ROS%20%E9%80%9A%E4%BF%A1%E6%9C%BA%E5%88%B6/" title="ROS通信机制"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-05</div><div class="title">ROS通信机制</div></div></a></div><div><a href="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E6%8E%A5%E4%B8%8B%E6%9D%A5%E5%8F%AF%E8%83%BD%E7%9C%8B%E7%9A%84%E8%AE%BA%E6%96%87/" title="接下来可能看的论文"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-05</div><div class="title">接下来可能看的论文</div></div></a></div><div><a href="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/diffusionpolicy/" title="Diffusion Policy"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-05</div><div class="title">Diffusion Policy</div></div></a></div><div><a href="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/MOMA-Force:%20Visual-Force%20Imitation%20for%20Real-World%20Mobile%20Manipulation/" title="MOMA-Force: Visual-Force Imitation for Real-World Mobile Manipulation"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-05</div><div class="title">MOMA-Force: Visual-Force Imitation for Real-World Mobile Manipulation</div></div></a></div><div><a href="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/ros%E9%80%9A%E4%BF%A1%E6%9C%BA%E5%88%B6/2.1%E8%AF%9D%E9%A2%98%E9%80%9A%E4%BF%A1/01.base%20example/" title="Ros通信机制-话题通信2"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-05</div><div class="title">Ros通信机制-话题通信2</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/altnt.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ALTNT</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ALTNT"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Generative-Skill-Chaining-Long-Horizon-Skill-Planning-with-Diffusion-Models%E7%94%9F%E6%88%90%E5%BC%8F%E6%8A%80%E8%83%BD%E9%93%BE%EF%BC%9A%E5%9F%BA%E4%BA%8E%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E7%9A%84%E9%95%BF%E6%97%B6%E7%A8%8B%E6%8A%80%E8%83%BD%E8%A7%84%E5%88%92"><span class="toc-number">1.</span> <span class="toc-text">Generative Skill Chaining: Long-Horizon Skill Planning with Diffusion Models生成式技能链：基于扩散模型的长时程技能规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E6%96%B0%E7%82%B9"><span class="toc-number">1.1.</span> <span class="toc-text">创新点:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E6%91%98%E8%A6%81"><span class="toc-number">2.</span> <span class="toc-text">1、摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.</span> <span class="toc-text">2、介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C"><span class="toc-number">4.</span> <span class="toc-text">3、相关工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Task-and-Motion-Planning"><span class="toc-number">4.1.</span> <span class="toc-text">Task and Motion Planning</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A"><span class="toc-number">4.1.0.0.1.</span> <span class="toc-text">解释:</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Learning-to-solve-long-horizon-tasks"><span class="toc-number">4.2.</span> <span class="toc-text">Learning to solve long-horizon tasks.</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A-1"><span class="toc-number">4.2.0.0.1.</span> <span class="toc-text">解释:</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generative-models-for-planning"><span class="toc-number">4.3.</span> <span class="toc-text">Generative models for planning.</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A-2"><span class="toc-number">4.3.0.0.1.</span> <span class="toc-text">解释:</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86"><span class="toc-number">5.</span> <span class="toc-text">4、预备知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%85%AC%E5%BC%8F%E5%8C%96"><span class="toc-number">5.1.</span> <span class="toc-text">问题公式化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E8%AE%BE%E7%BD%AE"><span class="toc-number">5.2.</span> <span class="toc-text">环境设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B"><span class="toc-number">5.3.</span> <span class="toc-text">扩散模型:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A-3"><span class="toc-number">5.3.1.</span> <span class="toc-text">解释</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81%E6%96%B9%E6%B3%95%E8%AE%BA"><span class="toc-number">6.</span> <span class="toc-text">5、方法论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E4%BD%9C%E5%8E%9F%E8%AF%AD%E4%BD%9C%E4%B8%BA%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B"><span class="toc-number">6.1.</span> <span class="toc-text">动作原语作为扩散模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sequencing-skill-diffusion-models%E5%AF%B9%E6%8A%80%E8%83%BD%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F"><span class="toc-number">6.2.</span> <span class="toc-text">Sequencing skill diffusion models对技能扩散模型进行排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E5%88%86%E7%B1%BB%E5%99%A8%E7%9A%84%E7%BA%A6%E6%9D%9F%E6%BB%A1%E8%B6%B3%E6%8C%87%E5%AF%BC"><span class="toc-number">6.3.</span> <span class="toc-text">基于分类器的约束满足指导</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">6.4.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81%E7%BB%93%E6%9E%9C"><span class="toc-number">7.</span> <span class="toc-text">5、结果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%BA%BF%E5%92%8C%E6%8C%87%E6%A0%87"><span class="toc-number">7.1.</span> <span class="toc-text">基线和指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Toy%E9%A2%86%E5%9F%9F%E3%80%82"><span class="toc-number">7.2.</span> <span class="toc-text">Toy领域。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93"><span class="toc-number">8.</span> <span class="toc-text">算法总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%951-%E7%94%9F%E6%88%90%E6%8A%80%E8%83%BD%E9%93%BE-GSC-%E7%AE%97%E6%B3%95"><span class="toc-number">8.1.</span> <span class="toc-text">算法1:生成技能链(GSC)算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%EF%BC%9A"><span class="toc-number">8.2.</span> <span class="toc-text">初始化：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E8%BF%87%E7%A8%8B%EF%BC%9A"><span class="toc-number">8.3.</span> <span class="toc-text">算法过程：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C%EF%BC%9A"><span class="toc-number">8.4.</span> <span class="toc-text">结果：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B6%85%E5%8F%82%E6%95%B0%E5%8F%8A%E5%85%B6%E8%AE%A1%E7%AE%97"><span class="toc-number">8.5.</span> <span class="toc-text">超参数及其计算</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%9D%E5%A4%96%E7%9A%84%E8%AE%A8%E8%AE%BA"><span class="toc-number">9.</span> <span class="toc-text">额外的讨论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82"><span class="toc-number">9.1.</span> <span class="toc-text">实现细节:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%89%A9%E6%95%A3%E5%99%A8%E6%96%B9%E6%B3%95-%E5%85%B7%E6%9C%89%E9%80%86%E5%8A%A8%E5%8A%9B%E5%AD%A6%E4%BD%9C%E7%94%A8%E7%9A%84%E7%8A%B6%E6%80%81%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E3%80%82"><span class="toc-number">9.2.</span> <span class="toc-text">决策扩散器方法:具有逆动力学作用的状态扩散模型。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C%E6%8A%80%E8%83%BD%E6%8F%8F%E8%BF%B0%E5%92%8C%E5%8F%82%E6%95%B0%E5%8C%96"><span class="toc-number">9.3.</span> <span class="toc-text">C技能描述和参数化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E7%9F%A5%E8%AF%86%EF%BC%9A"><span class="toc-number">10.</span> <span class="toc-text">参考知识：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E9%87%87%E6%A0%B7%EF%BC%88MCS%EF%BC%89https-zhuanlan-zhihu-com-p-81806149"><span class="toc-number">10.1.</span> <span class="toc-text">蒙特卡洛采样（MCS）https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;81806149</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%9C%BA"><span class="toc-number">10.1.1.</span> <span class="toc-text">动机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86"><span class="toc-number">10.1.2.</span> <span class="toc-text">背景知识</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%94%E7%94%A8"><span class="toc-number">10.1.3.</span> <span class="toc-text">应用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%98%E5%88%86%E6%8E%A8%E6%96%AD%EF%BC%88Variational-Inference-VI%EF%BC%89"><span class="toc-number">10.1.3.1.</span> <span class="toc-text">变分推断（Variational Inference, VI）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="toc-number">10.1.3.2.</span> <span class="toc-text">强化学习</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E7%BB%BC%E8%BF%B0"><span class="toc-number">11.</span> <span class="toc-text">方法综述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-1"><span class="toc-number">12.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">13.</span> <span class="toc-text">参考文献</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E6%96%87%E6%80%BB%E7%BB%93"><span class="toc-number">14.</span> <span class="toc-text">本文总结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/27/%E8%B5%84%E6%96%99/%E5%91%BD%E4%BB%A42/" title="命令2">命令2</a><time datetime="2024-07-26T16:12:09.942Z" title="Created 2024-07-27 00:12:09">2024-07-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/22/mac%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/mac%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/" title="mac常见问题汇总">mac常见问题汇总</a><time datetime="2024-07-22T05:06:51.380Z" title="Created 2024-07-22 13:06:51">2024-07-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/28/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" title="vscode插件开发">vscode插件开发</a><time datetime="2024-06-28T06:47:30.251Z" title="Created 2024-06-28 14:47:30">2024-06-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/" title="强化学习相关概念">强化学习相关概念</a><time datetime="2024-06-28T04:03:18.846Z" title="Created 2024-06-28 12:03:18">2024-06-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/" title="机器学习相关概念">机器学习相关概念</a><time datetime="2024-06-26T09:09:56.000Z" title="Created 2024-06-26 17:09:56">2024-06-26</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By ALTNT</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
