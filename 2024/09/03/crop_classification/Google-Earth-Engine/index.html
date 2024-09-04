@@ -1,0 +1,315 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Google Earth Engine | ALTNT's Hexo Blog</title><meta name="author" content="ALTNT"><meta name="copyright" content="ALTNT"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Here&#39;s something encrypted, password is required to continue reading.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google Earth Engine">
+<meta property="og:url" content="http://blog.705553939.xyz/2024/09/03/crop_classification/Google-Earth-Engine/index.html">
+<meta property="og:site_name" content="ALTNT&#39;s Hexo Blog">
+<meta property="og:description" content="Here&#39;s something encrypted, password is required to continue reading.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.705553939.xyz/img/altnt.jpeg">
+<meta property="article:published_time" content="2024-09-03T14:30:28.155Z">
+<meta property="article:modified_time" content="2024-09-04T07:55:10.294Z">
+<meta property="article:author" content="ALTNT">
+<meta property="article:tag" content="crop classification">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.705553939.xyz/img/altnt.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://blog.705553939.xyz/2024/09/03/crop_classification/Google-Earth-Engine/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Google Earth Engine',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-09-04 15:55:10'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.2.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/altnt.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">37</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ALTNT's Hexo Blog"><span class="site-name">ALTNT's Hexo Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Google Earth Engine</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-09-03T14:30:28.155Z" title="Created 2024-09-03 22:30:28">2024-09-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-09-04T07:55:10.294Z" title="Updated 2024-09-04 15:55:10">2024-09-04</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Google Earth Engine"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="d50a8ffdff431746bd87a84f0cc5980234b2dc215a78844ab866df9780fb8591">854efd16088ec0a2949395f17c9b60f9386aedb0ff5a819cd0390912c2b2702d080e25a880402dd8e10c6fd75f2bd8c1f88e0eec6d990983afd2ffeb5c898d13d3a13a462071392ae173d4f9c9d545cad12306904bcb41124c471ebbdec6d29cef687ff44b03a53d438910cd32de1047567b4ad943969105b4d6d29d35ef8d0eaf360b8fcbe5299826e0ca7655b56bd7d64316f04e1243590ede77339650cf1c1503c2794d55db242f5687a95fa5f059a942f3c5a02255c4fc3b3da9a8de4b83b528cfee4449ea0f2440f19f832312dd56388012f143c009dda33b4864adbd13b8b712398f43bda04e37f834f529cd63d1edca12cde32e4e7f60a311ee4fa0af3f70fa1c913ea4ce1584b8a136631b2e6940a5ec0f5c72e3549d3aaeb6274bc62d4f15f2337e65587072c539bebbeea22c3d5ada6f34ac90b546af70f93ed2148c94eb1605f2650401ee317c07c766b6e87d2941ccf74ac43e52bb1bc45b7f2b58512798d346ec6b64fadde14d0e351c7778d2709e8afc892f3c739c29fabd9098507c594882257bea262bf6ed778b1b485cf5deb1a2099247e8d13165b6f127c42855036372ace56525e92ce9fdc019bf3546ec837a37393ae4bf185aaba1676df4d9f4e784112aecbb2405caf808c830a5cd77e478cafa2f92fd6f0800d240121b7bf8793a29f25f7dd8c161dbfcc4dc8dfcab54acbef3b437449175a0814e8b3ecca4a10e69303574f22b193c526db683227bd302c77ad2554d5933844f1c7e55b64d3359dde9480b63b3feb83446e37bb498a8cdc95ab85407071ec9f6622aae1fe7cf2a5316b5ef88c9e3850ec2f7fbc8e9a1ed6a2472a0acdb0847ee047dde0bc932e20921edfb76afa3d87ea7091707ff06a0b3d9b867fb31255d339e2a455490b311b63cc4cb4c4b38f206ca6dafba2f14a7cd990fe1e7dff1de58c154d11379303f5b4b8319ec0a00c0c330fe6edfb2038f6e07450b228c29c4f1f596e0457d0f2dcefe88cf9c3c22b37cafe36abd7c79e1c11eb46c0339ac407aafda09ab47e6c902b5cb203149ec28ab968dfa76d5b72e4b53baaf3be268391221816a6a5a17ac035bf0ebbe97b3a7107e88fd7603484872cfb6c474eb8c288308eda543bc9452e7e3e2d57a3be9ee8d0c7ed833120f4ef102ff40bf40e20f9aac53a9e2134294168ddd35ce2a1a0f2b947a9969c1dfbc9d0f6d4a7a36e3863ee0e15cdbb1f8ee1d23841f485dba6e441df599b6125c3bb3cecf71445094fa7719eba65974492ae35425044e1bf44fb5c53f66605fc79f24d755c156c67f42557d2cb54a127c58de31b32d63ae387038a745e3fb1203675884a941428519faf9b9018b98cfc2c35c0c31360a8040d2f27803d393760378b2c3db23acd86da5278830ea377ec1c7c996a91d1fac75b6c9053a5ab889b5d76d7b27705e5c115867116589c1191175cab0e850c3bd0be90acfee245d03ab8a4f849bd6baaab062041e10c833b558e9aa39f06effb87b7c7fcf925c10d9a2f7de10379536824ab775a0a400d6cbf03a2441612471792d9db2344d0648cbe34dca9e804445a55ecd6f94b82a9bee44b2066086897aabfd3e874213fb9fffd222bdb28f71eb5eb067dd46508c0453ea94ab2394255e4d1a27c0354112cade6864a5c3f325500eed8da5f8d177fd8270e861a0fa64d620da36279ff08ee21222de0c3fb3313e5205d37656f92ea9cf4ef13b3f38271f1fb31b56bd3325865b977c4ea9c4e490534462bfed09685b867e70ef25303dbbb7c51c2b8ce8b6f4baa21fd3478aa3579b4f6a4a84151934881fe7260592f9b065ceb146053567a0967feeccbcce89a25cd1e56d30681ef94d796c77d5808de87b53de944ef004edcee746f9e4b3149465b95fbc325d5d24ed3247e151ae9770ee94e704180a7dcd360498312597967ca312d5a6dad103c5d42d86cc6d80476d59f9470d1f0955a16b58746e890e7968fc9dbb0cda5aeca2931946727c976439d7851510a60685527d9fc5f5917195fef9c05b41c901c0ba8a313aacfc1a3911ba1d181e1e74bd22eeedf0fc436b32b1b85f271a7bc0c40552faa415ffd6253951db6a19a3f3e52373339366599d33fc269d26d5800df88f7881a84661ca533f8cdbf7e7ca262e5cd7be985ecf46ce73450f02ece2ca9d1bb458e74892fc95b3bc1bb5e10b97fe01ee129bc571d8c92a883e48972c3be8f89ad14da445e4ffb0235b4eb2fc541cba6fa1049ac169b701c1a2957263c9c1c4073fe75496fe3b9b85015da4e0ac92f305e9c552d2aa87e0a31052c3f4c8d018a4661ce72f38c0a357e64192be7bcb0f90a982ef7a17e61966f536ed2e52975a3067c6bb581fbf76c53a319fb204b66f4eedaea8e2c08d4c6eb63a27598cd9b6e8dd14ba6d9cbb9e96fb5a014fe1ce0ce4621488e3c98656ea48e0bc5521751213c292f1c13138cbebb29a62bd712e145a12017ffa317a4af614f5d2ee5e7ac8352d30f0c4560935dc28643c45d5e81b7dc85e10f92ce3fd0dd43e297487da5a03acefeebfa8e495f527ade8402d2bab07e79175154d356b564179695d2d7794b81d6a9e0252948933ddfdd5a086a58a91c6b3de550c0c72f714ba69d7bcdf8b45c41d83d87738d517ed37ed803e3d1b4e157cda4ed20dc52e8acc6e7e52668ab257c110c10d81066fa946155da0a3db2ddf9992723e83a4e1c82e6c5379a8cbb6b252a925f4b7b7ba580aba02d0f494f96943ca86b870ff31c7a766e9f9dd2f4e294b732bc8937072f18660a6f8acf535ce1cb6a3b6fad316474071ad9b2edd53d979b65cdb8991fdaba3707ee9e23299e7a0fecf629ef6978dea18a96a46d2d37ad85e693f1f1e5d730c1524ee90d9a9c30fc484ea7f8cd9296631705e7e4f7312497321ab191438ec03ed829eb899f45a62330e441b200d09aaeb7c08c1e1e969a2db45b2926a16032208dc86c1daabe2335f62f1d58b74d7be433805793f63b399ec7d1882c7ab0907d5efe10a6271a15b8d9183b7f99b15f1537a58e46ac0a7e22c2c0252f17da8aafd3b8a65dc12823321b7a638003e63cfea61283527004d2df2922ac0710aa5fd10fee2d02ecc2649385d2595423cacc7d38ac2b56338dc0643e0bb8c82b7667d07e3350595f9649418fd4fec47eedff5fe518e75d5ccb04af3209ad54e42976d0d9f0fef2c9047c616337f35518f9e096d0ab13b1fd53ed33e74ab8c0a358c4d49f2c9544291616cae35c71c3eef5e6d06e47259e2b329bbf9c1e849d7bd769edd0e7d823e106c6139dbdf57c77aff3d3831be700cb20e4c513b4d5aa4029b853abaf586ffcbd4add7bff1213950ae6e8975097c5d831394a94f63df407a8b2c3aac00ecdbfa991a5ef1ae91150301541df610256e332767e1795224e0ab61e06e2b49708bee018570d7c785624167976e6ede4e263add872ae7fcd7110c9e28f365bd799f55a141e13f7c2b3d5c03410464d30caca62ed4007abc8dfbee6dfe5a11ee820800dcea879ba7e67910de7c3710d04cddf77c1de0ee2efc337dc2742fb5948e66feef1ed3158a7c222895031fdf3c6b5f39713cb38f704f79944b215ac43eb2453101468e51e093b50f5096cac5a6e4837f9640408df268b460539e280386edd60afcbf6fe602e1226612bbdb06a71463ce052f429c0f8830c1e74418634fd8039652fe5c9051db0554ee019ecca0fa13877f48697e9fa2f87d7986e3ad0ebaa201b5a0d84106b5af84ab8f784cf4668612346b817f059d1b61b1fe07370973e2566aae9c262fcb87de748659d770fa20b3191fcfaf1db142b89d846b1ad0d128e511f9247999403f1c8c959da1d8c0cf7e8df80380a6d46427716573d301b30ffb7a2443242752993cd0b7944f933d23582ea471dc43e6530bcd65c92dd1aed58956e37a7c595f23fef41ed680b742482347acec8bf81f7107a5b1829f0a910b255af3b3322496de4ee00d64848cb052c0626fe8f4c47b96bebd808ad82e1056b257dc72d73d0c6ae3014cec48c09ef2f5cb96905fec2d242289fc94122e86d5de89d93bac7d5c7c6d2f83611813d98b6a34aec5554bdb4060bbefe433f7fcabf7e636ce1f6baed6f6143832f6a298fb2571febfac894d7ef31bd4335b4fc0a320be20524064b695149f5f7cb1d67f6422c14a5ede7565d2ae58fd7ec3b244aeb3a0797c99c95289d0c103c4b6e4b16d8602ea996548b2721e4906170fccc8a3d523774fdae9eae8c388198e1affe955013175d5b12191457606ca2a946a146323dca2802cb187e4abedfbcf255e860532ba9cada9b384250f9b02c0b99d274be89bb6b675d9016ff2b9c6c7c29c83272d0f6369a0938f58cf4693d9d3b3adbefbc5670ad973090563b76f46efd0cded49e44f6e148f98967bdfd2b831dedc8db23a8f360675a651b3f583da9573f311da81f0bd881e34f6bb67df8fdc336e7ae8fafec30b6952423438c3e538c01d10b5811ab896996c7dd099286ce5f261f15f99df55ea235eeb44e676661edcbbe87699a42354a27a7c3106c24c51ed454a18824bb2879a62621cf9dfbeafe31852db353254c8fa1ad149f8e148465f5fd1402b86fe26799150ed1fac0572fd91cf067d4fa1bf2c4bf200283b328ea3da0c701a54c77ae3f512c74b256a501c225fa313ae4c8bd0d307e8d06bf94a846929fc97517f06c9fdfd5234b1c797ba58dfe8e340892526f6cc4c282f4d96cd0acb777419dfabadada44bbc21d9516d839f58e15523c319a6408bd120becdc1230c3ae8a538033ec2e2c1ce3d64d0b291746f147a7e6e2256f43e0a9244ee8deabdf8ba515c23d2460eab8543803b21b5acd5450f94ed6e687f2bb8761e66e349a5bf98ed63442a91efcb1214215fba0e6804ae8fb28185ad9acfbf559c9e22143d781af02556176cddcc05bb2a49ab2db6f0bab73e5ec41b67cbe6d73f3db098d1d6cf9c2989b417f9e9699529d1a7964b9351821300f950536dc009e6d44fee3f30274a31ad300dfd4f639dd5cfbac08c18eb87ce226eca5253e4483c012cbbe6cb5a4cae98634256c01cda3eb678200b7a03dd1452c1460d037e9d8c5c12382693e3700fdb979914800219fbe5656afc9f221b1b4827c417808d17c6ffc45620a031b9b26d04f1dbcf97e388c8ab655966a6b76daba8fab524220838578f23a0967e1ef86e408c7661ce971138872b37ce2ab5cec8f11a6fcdd8f78caed85db3e2c48f34caf85222d6ac9bb40ac7d95ebc7820dff48ff0cfc6bc232e701af75517b82f9befbe5ec8e1212031e586e0c8ac48bb46c2229723d5fc72c1e7d2e8e3317ae94181e628579452b3fe3026b096d37464530fd0f6795cb641d8e600f95f91ecdc304ac0add18c7569b0e38184059b79bf9d81a7730ec3ecdd286367058709e752b77cd907bdec3cb9d091a7737f295a914663d2a3fab2cb7739bca23bca17d613721243048161ce5171b9e8540388fd1e6c8ab2221abbc99d3df907e125c92b099c2c09686047cf5753ea59f8179ab6f7246af79d0793e60f2137e1632facde2af1c6af69ce5f307b091ed7665f9f6fda5a15a14c8fb67ad57da3b8e819fb37e3b24e2cb70d8a16542fe5349686943a30d8674430b512579fc96e88270955a0006b23d58a4029f4178105bcd51c90c59390102cbc13597ae994c71ef94efcafd177fb562b66980abf8355b3c3fe78ddcc93a7b78842c5c3725c1f386511394156c7292c92d5e269946aa41cf0103bb099f08b232e545c465becf1731bd14de52cb2e020a345febf8898f3793cd6b5123d3210396d59040c275614f3a43792f9d5d546ed2d9ca135cec4cab5d23aa43d96952314df1b85c012e04e4283b81c26ee044b2027050c110fffe557f39c6deec56b4dd049e0af4393767ad0f45c4e0b9e88333936116e82f3c8741de6bcb0250a27f9da7932a3d6e0286e8557358feb09857107c7d3f766c6155cb9f530b91009e06bfcb23302f36382bb44ef4adf9e4e8dcbfd11428ca527701c7380c35ad0585bfad0924bc2189c8dbcbf0079a2716cb501be708de29d3b4f47c1214a11f5b4d677575a5e5c9c71b343b6b325d74cd7be00c014cd548a1e65e2e7d6bea5593fbf9f0f2420129bcae92e4944772f1492edfbfaf9239e73be7dca4ce5c70ec0663f10b44b4f1750e5040ad3264a550fbd38368f39e8e70dc560204caba0a72de90e03b7a8da6373ac1562ca18f785d68b1356b978c36fecb5a5adfb5a4090877ce9b4b0cba159bee297938d342c51caa6c8895bb859c590b3d3a6332837ac24e1cd76dadabee234ee483e3eb86b74004837eef2f3c969425cc9f7231da7130ebe13e2b5cb1b3579f4a0ea06ca5859a0516626708a93942652d7af51e0ecc5e9a0ebf565d051a326e3fe14c3afe696d28085b1983547c6ac068184948cc9285528b39919930db862a1aa7fb095d16adec83b14ab1219659189d04396b1652eb33c15dc14a429dd42a7a398c933b520687c79f0b147786b854622727bf1070757e1bf08b612967a91bfbf555051ee345b327ee3b7f971ecf5d36974d276d00ccd926d4f3afb0e42b85d331a72e8be883557ef8cae8385b50b2743709a054fe0007ec898b71f5d92c2834d8a88c266971326ed23bd10fe532325d58c6046573ed2d455d453fb0b2ba491889d94b5c7b70a29dc1eff6867f700eda9e9888c0c2d52d547c45d71aa0d2db184fd0d276db910f58962f837a1776dfe1f96d8294713c98a39b1cc08452046a679e5b8e7cfc47cf197b05358cf5145cf5125f7767deeafab3efd3cbcb2b69764089cf32cfdff72aa6905f1ce048cf81a2343dbb493c6fe16892fe413d3f8a960f793eecd26ca4f79d8f0f54cceebc3290d931fd4810f17945fbcad14901981395bd55fa244e011b6d7bb4085034b28135f2de0fca823cf4eac17b59df4b0118f90d6db5d827c0f110885a799e95f84690ecb2475f7d9121c9b7151c50c1194ccbe2ff18516dfe2e712346485b446c5f8f8aeff6b7911cf1d3ababfbda7a9ebc95bfe73456759cf9c9333ecf406ba8e7ddfdf5593f86011a53f9694d32db967a0eb0e15a0ac2d9cd8844ab115f79550af8a4dafebd2edf35ba84324194dbe0cec36aab7d71bb29b191f19daa553e0120eb0780eb7eeadb38920bbb11870656451606343e62032d06df4c2a34dadb085c41681dc139e37e54bfd0383d713bbf143bff7221f68f48ea4732fa73440d13f2c067c9f36127d34b40c9249c75dc6b47bb8161802cfd561a18fd7f00ceae1b329c71dedf5a49a8e8aa5ae2d1d45f43f926ab5fb4fa5ea5e155b6f3388660b49eba45d34d1cf7a4a55c2a6a00727a583980cad0e9d16f6f28f69193a8e886b52c3e76aede4ce2452b2079050d4873868426a87afa3ae45e81605b2f20fccc122a120c113fa07a20cadde6c3ced95d7de2bff29a26a9769616c079684554375262de2516feb0e0e35490322ac5280133507e1404db05dff8bbe7a683f7dc53926d2544ce2400b628d3fd55a4680bc162d633f4467a438e5edc87f62d460c4384bfcb7fb1eabf215a96b451dac6e061e6be0b3b7ae4fe0399dd7a0db7a8c083254ed5fba0a04c3dae1f402cf0a91a6591bd0ebc03685691cad68edfc9a702f79417db5b1855c3fdb0ac8492041b8de00e8e5bca5b17f1150e0294ee21cbf7001be19457c34150ccbf036e6cf158dca4c01c77e34afad1ea8027087a76a19a475541bc79120665885e1f2e4ee8fd4267bed194d6d57519035d37c10d9cb2bbb5ac69f4d797ed42f4b72f70d71c7d5d39d97903ced820c48822c851a7afe9200167ad0988208bd24c91f2b743247397a764dd5f95e13e9ffca1858bc6942c7f63363e2a4ae4e18eb18f1e996f32df6b8c009d87e70fd983d6861761d4fe5aa195bc5547185c2f7bc02e70bf58dd31fff0dfcf5bb546f043e0a35c8502fa99313bf80b9d16a9d1d30bbee99963a5446d759897246df808897d8bf78080af4b1e6f2d0954cbf09c866447bffd85cfcfdbd45d91c451ac8e196ef55b31adb54bdde5ff6a5e63d09a21401788bd4c883bd9919c422d9150eba3c55c50029654796a7b238bc41317b6eaa6f07566d921b3ca03424d099ca285fa0655f34fb195fca3a584eaaa53824bddccd05b37f6abdc8392261b40e32f00f58b51d5b87aedae1132b9932da5eb49d68c73c7a9ad3d66841d8b4831ed6493fec53808b6a0b974d177e1568cb84f404d919a3f03a7b7283c23020db0a8d51f8b67d69615f17d903ca7a7e0a14f7bec36f98d822038f0463b4958ab6e70d8387caa855958aa902a53a7fdecf3f9b4a0e47222a994fd45d47587a4249e49919230b5c113712da522b126d366c210d119c6486eee0507b87ebda389c0d2534b188130bf21e0cd29a83897b6439d7bf7e612a341b76d007e79b28a084c6251957e812fefcff39ac4f651af92e1f8ba005b82222dc27ef18d4e1066c762899eb75cc0247f4cadbe53aa0f4648a8dadd983a1afe73be084b8fd5005b67c7dd998ca999efc44e3e1ee922f91cb4009d8fb20ae37e17a1c0c9394f64b79e5952ab208b023fe1e24c8061a5d86f7209391d0ccc387d76b3eda6903c383644cf833c5a704a7d3a74a47b63d26a7691c5cf532c169f68d43e2543df964312e5824523297537bf1ca1547af17d713b4d3582776e24a17c04b52ddce4547bbd3cc205984b5c2dce40edd1a4a91691792c9ee02b2863ef470a5df0e54b68c061a77dbeebb9f5c28a43adbb8840df73ff9fdecb8fa2723a5ed82696b9351b3f78d53608e51295aff5b90723b543f344d993effcbf37d934248c073997d42518f9151a10d26acc02934f88e8dbd9f94e9113b30ac666d97bdab0132f24abc00a70692a377932bbd07c8ff39be92749c4b9d7d969cc2145d5770d58d8bb5c2b61b5a1975cdfc</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css"></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz">ALTNT</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz/2024/09/03/crop_classification/Google-Earth-Engine/">http://blog.705553939.xyz/2024/09/03/crop_classification/Google-Earth-Engine/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/crop-classification/">crop classification</a></div><div class="post_share"><div class="social-share" data-image="/img/altnt.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/09/03/crop_classification/Crop%20classification/2019-RSE-Crop-type-mapping-without-field-level-labels-Random-forest-transfer-and/" title="Crop type mapping without field-level labels: Random forest transfer and unsupervised clustering techniques"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">Crop type mapping without field-level labels: Random forest transfer and unsupervised clustering techniques</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2024/08/21/crop_classification/Climate-adaptiveemergencycropmonitoringin1inaccessibleregionswithsatelliteimagery/" title="Climate-adaptive emergency crop monitoring in inaccessible regions with satellite imagery"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-21</div><div class="title">Climate-adaptive emergency crop monitoring in inaccessible regions with satellite imagery</div></div></a></div><div><a href="/2024/08/27/crop_classification/Crop%20classification/2022-RSE-Early-and-in-season-crop-type-mapping/" title="Early- and in-season crop type mapping without current-year ground truth: Generating labels from historical information via a topology-based approach"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-27</div><div class="title">Early- and in-season crop type mapping without current-year ground truth: Generating labels from historical information via a topology-based approach</div></div></a></div><div><a href="/2024/08/27/crop_classification/2024-rse-papers-for-crop-classification/Enhancing-crop-classification-in-agriculture-through-dipper-throat-optimization-and-deep-learning/" title="Enhancing food crop classification in agriculture through dipper throat optimization and deep learning with remote sensing"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-27</div><div class="title">Enhancing food crop classification in agriculture through dipper throat optimization and deep learning with remote sensing</div></div></a></div><div><a href="/2024/08/27/crop_classification/2024-rse-papers-for-crop-classification/rse-2024-Boosting-crop-classification-by-hierarchically-fusing-satellite-rotational-and-contextual-data/" title="Boosting crop classification by hierarchically fusing satellite, rotational, and contextual data"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-27</div><div class="title">Boosting crop classification by hierarchically fusing satellite, rotational, and contextual data</div></div></a></div><div><a href="/2024/08/28/crop_classification/Crop%20classification/8%E6%9C%8828/" title="8 月 28 总结"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-28</div><div class="title">8 月 28 总结</div></div></a></div><div><a href="/2024/08/24/crop_classification/Crop%20classification/WinterWheatYieldAssessmentfromLandsat8andSentinel-2DataIncorporatingSurfaceReflectanceThroughPhenologicalFittingintoRegressionYieldModels/" title="Winter Wheat Yield Assessment from Landsat 8 and Sentinel-2 Data: Incorporating Surface Reflectance, Through Phenological Fitting, into Regression Yield Models"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-24</div><div class="title">Winter Wheat Yield Assessment from Landsat 8 and Sentinel-2 Data: Incorporating Surface Reflectance, Through Phenological Fitting, into Regression Yield Models</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/altnt.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ALTNT</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">37</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ALTNT"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content toc-div-class" style="display:none"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#google-earth-engine"><span class="toc-number">1.</span> <span class="toc-text">Google Earth Engine</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#google-earth-engine%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">1、Google Earth Engine介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#google-earth-engine%E8%AE%BF%E9%97%AE%E5%87%86%E5%A4%87"><span class="toc-number">1.2.</span> <span class="toc-text">2、Google Earth Engine访问准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#google-earth-engine%E6%B3%A8%E5%86%8C%E5%8F%8A%E6%A6%82%E8%A7%88"><span class="toc-number">1.3.</span> <span class="toc-text">3、Google Earth
+Engine注册及概览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#google-earth-engine%E5%85%A5%E9%97%A8"><span class="toc-number">1.4.</span> <span class="toc-text">4、Google Earth Engine入门</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/03/crop_classification/Google-Earth-Engine/" title="Google Earth Engine">Google Earth Engine</a><time datetime="2024-09-03T14:30:28.155Z" title="Created 2024-09-03 22:30:28">2024-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/03/crop_classification/Crop%20classification/2019-RSE-Crop-type-mapping-without-field-level-labels-Random-forest-transfer-and/" title="Crop type mapping without field-level labels: Random forest transfer and unsupervised clustering techniques">Crop type mapping without field-level labels: Random forest transfer and unsupervised clustering techniques</a><time datetime="2024-09-03T14:15:09.597Z" title="Created 2024-09-03 22:15:09">2024-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/28/crop_classification/Crop%20classification/8%E6%9C%8828/" title="8 月 28 总结">8 月 28 总结</a><time datetime="2024-08-28T03:46:06.000Z" title="Created 2024-08-28 11:46:06">2024-08-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/27/crop_classification/2024-rse-papers-for-crop-classification/rse-2024-Boosting-crop-classification-by-hierarchically-fusing-satellite-rotational-and-contextual-data/" title="Boosting crop classification by hierarchically fusing satellite, rotational, and contextual data">Boosting crop classification by hierarchically fusing satellite, rotational, and contextual data</a><time datetime="2024-08-27T06:34:09.562Z" title="Created 2024-08-27 14:34:09">2024-08-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/27/crop_classification/2024-rse-papers-for-crop-classification/Enhancing-crop-classification-in-agriculture-through-dipper-throat-optimization-and-deep-learning/" title="Enhancing food crop classification in agriculture through dipper throat optimization and deep learning with remote sensing">Enhancing food crop classification in agriculture through dipper throat optimization and deep learning with remote sensing</a><time datetime="2024-08-27T03:55:26.097Z" title="Created 2024-08-27 11:55:26">2024-08-27</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By ALTNT</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

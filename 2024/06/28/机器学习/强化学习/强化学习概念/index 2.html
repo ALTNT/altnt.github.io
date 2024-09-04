@@ -1,0 +1,845 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>强化学习相关概念 | ALTNT's Hexo Blog</title><meta name="author" content="ALTNT"><meta name="copyright" content="ALTNT"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="马尔可夫决策过程 参考https:&#x2F;&#x2F;hrl.boyuai.com&#x2F;chapter&#x2F;1&#x2F;%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B&#x2F; 简介 马尔可夫决策过程 （Markov decision process，MDP）包含状态信息以及状态之间的转移机制。 如果要用强化学习去解决一个实际问题，第一步要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="强化学习相关概念">
+<meta property="og:url" content="http://blog.705553939.xyz/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/index.html">
+<meta property="og:site_name" content="ALTNT&#39;s Hexo Blog">
+<meta property="og:description" content="马尔可夫决策过程 参考https:&#x2F;&#x2F;hrl.boyuai.com&#x2F;chapter&#x2F;1&#x2F;%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B&#x2F; 简介 马尔可夫决策过程 （Markov decision process，MDP）包含状态信息以及状态之间的转移机制。 如果要用强化学习去解决一个实际问题，第一步要">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.705553939.xyz/img/altnt.jpeg">
+<meta property="article:published_time" content="2024-06-28T04:03:18.846Z">
+<meta property="article:modified_time" content="2024-08-21T08:25:21.445Z">
+<meta property="article:author" content="ALTNT">
+<meta property="article:tag" content="强化学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.705553939.xyz/img/altnt.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://blog.705553939.xyz/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '强化学习相关概念',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-08-21 16:25:21'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/altnt.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ALTNT's Hexo Blog"><span class="site-name">ALTNT's Hexo Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">强化学习相关概念</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-06-28T04:03:18.846Z" title="Created 2024-06-28 12:03:18">2024-06-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-08-21T08:25:21.445Z" title="Updated 2024-08-21 16:25:21">2024-08-21</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="强化学习相关概念"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="马尔可夫决策过程">马尔可夫决策过程</h2>
+<p>参考https://hrl.boyuai.com/chapter/1/%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B/</p>
+<h3 id="简介">简介</h3>
+<p><strong>马尔可夫决策过程</strong> （Markov decision
+process，MDP）包含状态信息以及状态之间的转移机制。</p>
+<p>如果要用强化学习去解决一个实际问题，<strong>第一步</strong>要做的事情就是把这个实际问题<strong>抽象为一个马尔可夫决策过程</strong>，也就是<strong>明确</strong>马尔可夫决策过程的<strong>各个组成要素</strong>。本章将从马尔可夫过程出发，一步一步地进行介绍，最后引出马尔可夫决策过程。</p>
+<h3 id="马尔可夫过程">马尔可夫过程</h3>
+<h4 id="随机过程">随机过程</h4>
+<p><strong>随机过程</strong> （stochastic
+process）是概率论的“动力学”部分。<strong>概率论的研究对象</strong>是<strong>静态的随机现象</strong>，而<strong>随机过程的研究对象</strong>是<strong>随时间演变的随机现象</strong>（例如天气随时间的变化、城市交通随时间的变化）。</p>
+<p>在随机过程中，随机现象在某时刻的取值是<strong>一个向量随机变量</strong>，用<span class="math inline">\(S_t\)</span>表示，<strong>所有可能的状态组成状态集合<span class="math inline">\(S\)</span></strong>。随机现象便是状态的变化过程。在某时刻的状态<span class="math inline">\(S_t\)</span>通常取决于时刻<span class="math inline">\(t\)</span>之前的状态。我们将已知历史信息<span class="math inline">\((S_1,....,S_t)\)</span>时下一个时刻状态为<span class="math inline">\(S_{t+1}\)</span>的概率表示成<span class="math inline">\(P(S_{t+1}|S_1,....,S_t)\)</span>。</p>
+<h4 id="马尔可夫性质">马尔可夫性质</h4>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1723964194272.png" alt="1723964194272">
+<figcaption aria-hidden="true">1723964194272</figcaption>
+</figure>
+<h4 id="马尔可夫过程-1">马尔可夫过程</h4>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1723964256002.png" alt="1723964256002">
+<figcaption aria-hidden="true">1723964256002</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1723964616071.png" alt="1723964616071">
+<figcaption aria-hidden="true">1723964616071</figcaption>
+</figure>
+<h3 id="马尔可夫奖励过程">马尔可夫奖励过程</h3>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1723964686115.png" alt="1723964686115">
+<figcaption aria-hidden="true">1723964686115</figcaption>
+</figure>
+<h4 id="回报">回报</h4>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1723964752394.png" alt="1723964752394">
+<figcaption aria-hidden="true">1723964752394</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1723964852408.png" alt="1723964852408">
+<figcaption aria-hidden="true">1723964852408</figcaption>
+</figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">np.random.seed(<span class="number">0</span>)</span><br><span class="line"><span class="comment"># 定义状态转移概率矩阵P</span></span><br><span class="line">P = [</span><br><span class="line">    [<span class="number">0.9</span>, <span class="number">0.1</span>, <span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>],</span><br><span class="line">    [<span class="number">0.5</span>, <span class="number">0.0</span>, <span class="number">0.5</span>, <span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>],</span><br><span class="line">    [<span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">0.6</span>, <span class="number">0.0</span>, <span class="number">0.4</span>],</span><br><span class="line">    [<span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">0.3</span>, <span class="number">0.7</span>],</span><br><span class="line">    [<span class="number">0.0</span>, <span class="number">0.2</span>, <span class="number">0.3</span>, <span class="number">0.5</span>, <span class="number">0.0</span>, <span class="number">0.0</span>],</span><br><span class="line">    [<span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">1.0</span>],</span><br><span class="line">]</span><br><span class="line">P = np.array(P)</span><br><span class="line"></span><br><span class="line">rewards = [-<span class="number">1</span>, -<span class="number">2</span>, -<span class="number">2</span>, <span class="number">10</span>, <span class="number">1</span>, <span class="number">0</span>]  <span class="comment"># 定义奖励函数</span></span><br><span class="line">gamma = <span class="number">0.5</span>  <span class="comment"># 定义折扣因子</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 给定一条序列,计算从某个索引（起始状态）开始到序列最后（终止状态）得到的回报</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">compute_return</span>(<span class="params">start_index, chain, gamma</span>):</span><br><span class="line">    G = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">reversed</span>(<span class="built_in">range</span>(start_index, <span class="built_in">len</span>(chain))):</span><br><span class="line">        G = gamma * G + rewards[chain[i] - <span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> G</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 一个状态序列,s1-s2-s3-s6</span></span><br><span class="line">chain = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">6</span>]</span><br><span class="line">start_index = <span class="number">0</span></span><br><span class="line">G = compute_return(start_index, chain, gamma)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;根据本序列计算得到回报为：%s。&quot;</span> % G)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">根据本序列计算得到回报为：-2.5。</span><br></pre></td></tr></table></figure>
+<h4 id="价值函数">价值函数</h4>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1723965101441.png" alt="1723965101441">
+<figcaption aria-hidden="true">1723965101441</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1724226890034.png" alt="1724226890034">
+<figcaption aria-hidden="true">1724226890034</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1724226911887.png" alt="1724226911887">
+<figcaption aria-hidden="true">1724226911887</figcaption>
+</figure>
+<h3 id="马尔可夫决策过程-1">马尔可夫决策过程</h3>
+<p><strong>在马尔可夫奖励过程（MRP）的基础上加入动作，就得到了马尔可夫决策过程（MDP）</strong></p>
+<p>我们发现 MDP 与 MRP 非常相像，主要区别为 MDP
+中的状态转移函数和奖励函数都比 MRP 多了动作<span class="math inline">\(a\)</span>作为自变量。</p>
+<p><img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1724227043602.png" alt="1724227043602"> <img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image-28.png" alt="alt text"></p>
+<h4 id="策略">3.4.1 策略</h4>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1724227271129.png" alt="1724227271129">
+<figcaption aria-hidden="true">1724227271129</figcaption>
+</figure>
+<h4 id="状态价值函数">3.4.2 状态价值函数</h4>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1724227494197.png" alt="1724227494197">
+<figcaption aria-hidden="true">1724227494197</figcaption>
+</figure>
+<h4 id="动作价值函数">3.4.3 动作价值函数</h4>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1724227538558.png" alt="1724227538558">
+<figcaption aria-hidden="true">1724227538558</figcaption>
+</figure>
+<h4 id="贝尔曼期望方程">3.4.4 贝尔曼期望方程</h4>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1724227691878.png" alt="1724227691878">
+<figcaption aria-hidden="true">1724227691878</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image-29.png" alt="alt text">
+<figcaption aria-hidden="true">alt text</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1724228028153.png" alt="1724228028153">
+<figcaption aria-hidden="true">1724228028153</figcaption>
+</figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">S = [<span class="string">&quot;s1&quot;</span>, <span class="string">&quot;s2&quot;</span>, <span class="string">&quot;s3&quot;</span>, <span class="string">&quot;s4&quot;</span>, <span class="string">&quot;s5&quot;</span>]  <span class="comment"># 状态集合</span></span><br><span class="line">A = [<span class="string">&quot;保持s1&quot;</span>, <span class="string">&quot;前往s1&quot;</span>, <span class="string">&quot;前往s2&quot;</span>, <span class="string">&quot;前往s3&quot;</span>, <span class="string">&quot;前往s4&quot;</span>, <span class="string">&quot;前往s5&quot;</span>, <span class="string">&quot;概率前往&quot;</span>]  <span class="comment"># 动作集合</span></span><br><span class="line"><span class="comment"># 状态转移函数</span></span><br><span class="line">P = &#123;</span><br><span class="line">    <span class="string">&quot;s1-保持s1-s1&quot;</span>: <span class="number">1.0</span>,</span><br><span class="line">    <span class="string">&quot;s1-前往s2-s2&quot;</span>: <span class="number">1.0</span>,</span><br><span class="line">    <span class="string">&quot;s2-前往s1-s1&quot;</span>: <span class="number">1.0</span>,</span><br><span class="line">    <span class="string">&quot;s2-前往s3-s3&quot;</span>: <span class="number">1.0</span>,</span><br><span class="line">    <span class="string">&quot;s3-前往s4-s4&quot;</span>: <span class="number">1.0</span>,</span><br><span class="line">    <span class="string">&quot;s3-前往s5-s5&quot;</span>: <span class="number">1.0</span>,</span><br><span class="line">    <span class="string">&quot;s4-前往s5-s5&quot;</span>: <span class="number">1.0</span>,</span><br><span class="line">    <span class="string">&quot;s4-概率前往-s2&quot;</span>: <span class="number">0.2</span>,</span><br><span class="line">    <span class="string">&quot;s4-概率前往-s3&quot;</span>: <span class="number">0.4</span>,</span><br><span class="line">    <span class="string">&quot;s4-概率前往-s4&quot;</span>: <span class="number">0.4</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 奖励函数</span></span><br><span class="line">R = &#123;</span><br><span class="line">    <span class="string">&quot;s1-保持s1&quot;</span>: -<span class="number">1</span>,</span><br><span class="line">    <span class="string">&quot;s1-前往s2&quot;</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">&quot;s2-前往s1&quot;</span>: -<span class="number">1</span>,</span><br><span class="line">    <span class="string">&quot;s2-前往s3&quot;</span>: -<span class="number">2</span>,</span><br><span class="line">    <span class="string">&quot;s3-前往s4&quot;</span>: -<span class="number">2</span>,</span><br><span class="line">    <span class="string">&quot;s3-前往s5&quot;</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">&quot;s4-前往s5&quot;</span>: <span class="number">10</span>,</span><br><span class="line">    <span class="string">&quot;s4-概率前往&quot;</span>: <span class="number">1</span>,</span><br><span class="line">&#125;</span><br><span class="line">gamma = <span class="number">0.5</span>  <span class="comment"># 折扣因子</span></span><br><span class="line">MDP = (S, A, P, R, gamma)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 策略1,随机策略</span></span><br><span class="line">Pi_1 = &#123;</span><br><span class="line">    <span class="string">&quot;s1-保持s1&quot;</span>: <span class="number">0.5</span>,</span><br><span class="line">    <span class="string">&quot;s1-前往s2&quot;</span>: <span class="number">0.5</span>,</span><br><span class="line">    <span class="string">&quot;s2-前往s1&quot;</span>: <span class="number">0.5</span>,</span><br><span class="line">    <span class="string">&quot;s2-前往s3&quot;</span>: <span class="number">0.5</span>,</span><br><span class="line">    <span class="string">&quot;s3-前往s4&quot;</span>: <span class="number">0.5</span>,</span><br><span class="line">    <span class="string">&quot;s3-前往s5&quot;</span>: <span class="number">0.5</span>,</span><br><span class="line">    <span class="string">&quot;s4-前往s5&quot;</span>: <span class="number">0.5</span>,</span><br><span class="line">    <span class="string">&quot;s4-概率前往&quot;</span>: <span class="number">0.5</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 策略2</span></span><br><span class="line">Pi_2 = &#123;</span><br><span class="line">    <span class="string">&quot;s1-保持s1&quot;</span>: <span class="number">0.6</span>,</span><br><span class="line">    <span class="string">&quot;s1-前往s2&quot;</span>: <span class="number">0.4</span>,</span><br><span class="line">    <span class="string">&quot;s2-前往s1&quot;</span>: <span class="number">0.3</span>,</span><br><span class="line">    <span class="string">&quot;s2-前往s3&quot;</span>: <span class="number">0.7</span>,</span><br><span class="line">    <span class="string">&quot;s3-前往s4&quot;</span>: <span class="number">0.5</span>,</span><br><span class="line">    <span class="string">&quot;s3-前往s5&quot;</span>: <span class="number">0.5</span>,</span><br><span class="line">    <span class="string">&quot;s4-前往s5&quot;</span>: <span class="number">0.1</span>,</span><br><span class="line">    <span class="string">&quot;s4-概率前往&quot;</span>: <span class="number">0.9</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 把输入的两个字符串通过“-”连接,便于使用上述定义的P、R变量</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">join</span>(<span class="params">str1, str2</span>):</span><br><span class="line">    <span class="keyword">return</span> str1 + <span class="string">&#x27;-&#x27;</span> + str2</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1724228105447.png" alt="1724228105447">
+<figcaption aria-hidden="true">1724228105447</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1724228243011.png" alt="1724228243011">
+<figcaption aria-hidden="true">1724228243011</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1724228492907.png" alt="1724228492907">
+<figcaption aria-hidden="true">1724228492907</figcaption>
+</figure>
+<p><strong>这个 MRP
+解析解的方法在状态动作集合比较大的时候不是很适用</strong></p>
+<h3 id="蒙特卡洛方法">3.5 蒙特卡洛方法</h3>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1724228630905.png" alt="1724228630905">
+<figcaption aria-hidden="true">1724228630905</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1724228662657.png" alt="1724228662657">
+<figcaption aria-hidden="true">1724228662657</figcaption>
+</figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">sample</span>(<span class="params">MDP, Pi, timestep_max, number</span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27; 采样函数,策略Pi,限制最长时间步timestep_max,总共采样序列数number &#x27;&#x27;&#x27;</span></span><br><span class="line">    S, A, P, R, gamma = MDP</span><br><span class="line">    episodes = []</span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(number):</span><br><span class="line">        episode = []</span><br><span class="line">        timestep = <span class="number">0</span></span><br><span class="line">        s = S[np.random.randint(<span class="number">4</span>)]  <span class="comment"># 随机选择一个除s5以外的状态s作为起点</span></span><br><span class="line">        <span class="comment"># 当前状态为终止状态或者时间步太长时,一次采样结束</span></span><br><span class="line">        <span class="keyword">while</span> s != <span class="string">&quot;s5&quot;</span> <span class="keyword">and</span> timestep &lt;= timestep_max:</span><br><span class="line">            timestep += <span class="number">1</span></span><br><span class="line">            rand, temp = np.random.rand(), <span class="number">0</span></span><br><span class="line">            <span class="comment"># 在状态s下根据策略选择动作</span></span><br><span class="line">            <span class="keyword">for</span> a_opt <span class="keyword">in</span> A:</span><br><span class="line">                temp += Pi.get(join(s, a_opt), <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">if</span> temp &gt; rand:</span><br><span class="line">                    a = a_opt</span><br><span class="line">                    r = R.get(join(s, a), <span class="number">0</span>)</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">            rand, temp = np.random.rand(), <span class="number">0</span></span><br><span class="line">            <span class="comment"># 根据状态转移概率得到下一个状态s_next</span></span><br><span class="line">            <span class="keyword">for</span> s_opt <span class="keyword">in</span> S:</span><br><span class="line">                temp += P.get(join(join(s, a), s_opt), <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">if</span> temp &gt; rand:</span><br><span class="line">                    s_next = s_opt</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">            episode.append((s, a, r, s_next))  <span class="comment"># 把（s,a,r,s_next）元组放入序列中</span></span><br><span class="line">            s = s_next  <span class="comment"># s_next变成当前状态,开始接下来的循环</span></span><br><span class="line">        episodes.append(episode)</span><br><span class="line">    <span class="keyword">return</span> episodes</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 采样5次,每个序列最长不超过20步</span></span><br><span class="line">episodes = sample(MDP, Pi_1, <span class="number">20</span>, <span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;第一条序列\n&#x27;</span>, episodes[<span class="number">0</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;第二条序列\n&#x27;</span>, episodes[<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;第五条序列\n&#x27;</span>, episodes[<span class="number">4</span>])</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1724228707248.png" alt="1724228707248">
+<figcaption aria-hidden="true">1724228707248</figcaption>
+</figure>
+<p>可以看到用蒙特卡洛方法估计得到的状态价值和我们用 MRP
+解析解得到的状态价值是很接近的。这得益于我们采样了比较多的序列，感兴趣的读者可以尝试修改采样次数，然后观察蒙特卡洛方法的结果。</p>
+<p>. . . . . . . . .
+参考资料:https://mofanpy.com/tutorials/machine-learning/reinforcement-learning/</p>
+<h2 id="dqn">DQN</h2>
+<h3 id="dqn-deep-q-network">DQN (Deep Q-Network)</h3>
+<h4 id="简介-1">简介</h4>
+<p>DQN 是一种将深度学习和 Q-Learning 结合起来的算法，由 Google DeepMind
+团队提出。它<strong>利用深度神经网络来近似 Q
+函数，从而处理高维度状态空间的问题</strong>。</p>
+<h4 id="算法流程">算法流程</h4>
+<ol type="1">
+<li><p><strong>经验回放（Experience Replay）</strong>：</p>
+<ul>
+<li>存储代理在环境中经历的转移 (state, action, reward, next state)
+到一个回放记忆库中。</li>
+<li>在训练时，从记忆库中随机抽取小批量转移样本，用于更新 Q
+网络，打破了样本之间的相关性，提高了训练稳定性。</li>
+</ul></li>
+<li><p><strong>目标网络（Target Network）</strong>：</p>
+<ul>
+<li>除了主 Q 网络（online network），还引入了一个目标 Q 网络（target
+network）。</li>
+<li>主 Q 网络的参数每隔一定步数复制到目标 Q 网络，保持目标 Q
+网络的参数固定一段时间，从而稳定训练过程。</li>
+</ul></li>
+<li><p><strong>损失函数</strong>：</p>
+<ul>
+<li><figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1720883912505.png" alt="1720883912505">
+<figcaption aria-hidden="true">1720883912505</figcaption>
+</figure></li>
+</ul></li>
+</ol>
+<h4 id="主要优点">主要优点</h4>
+<ul>
+<li>能处理高维度的状态空间。</li>
+<li>通过经验回放和目标网络，解决了传统 Q-Learning
+中的样本相关性和不稳定性问题。</li>
+</ul>
+<h2 id="double-q-learning">Double Q-Learning</h2>
+<h4 id="简介-2">简介</h4>
+<p>Double Q-Learning 是一种改进的 Q-Learning 算法，旨在解决 Q-Learning
+中存在的 <strong>过估计偏差</strong> 问题。过估计偏差是指 Q-Learning
+在更新过程中倾向于高估 Q 值，这可能会导致次优策略的学习。</p>
+<h4 id="算法流程-1">算法流程</h4>
+<ol type="1">
+<li><p><strong>双 Q 网络</strong>：</p>
+<ul>
+<li>引入两个独立的 Q 网络 (Q_A) 和 (Q_B)，分别更新和选择动作。</li>
+<li>使用其中一个 Q 网络选择动作，另一个 Q 网络计算对应 Q 值。</li>
+</ul></li>
+<li><p><strong>更新规则</strong>：</p>
+<ul>
+<li>选择动作时： [ a^* = _{a} Q_A(s', a) ]</li>
+<li>更新 Q 值时： [ Q_B(s, a) Q_B(s, a) + ( r + Q_A(s', a^*) - Q_B(s, a)
+) ]</li>
+<li>每一步迭代中，使用 (Q_A) 和 (Q_B) 交替更新。</li>
+</ul></li>
+</ol>
+<h4 id="主要优点-1">主要优点</h4>
+<ul>
+<li>减少了过估计偏差，提高了策略的稳定性和收敛性。</li>
+<li>可以在不增加太多计算开销的情况下显著改善性能。</li>
+</ul>
+<h3 id="dqn-与-double-dqn-的结合">DQN 与 Double DQN 的结合</h3>
+<p>Double DQN（Double Deep Q-Network）结合了 DQN 和 Double Q-Learning
+的优点，通过使用两个网络来分别选择动作和计算 Q
+值，进一步减少了过估计偏差问题。</p>
+<h4 id="算法流程-2">算法流程</h4>
+<ol type="1">
+<li><strong>动作选择</strong>： [ a^* = <em>{a} Q</em>{}(s', a) ]</li>
+<li><strong>目标 Q 值</strong>： [ y = r + Q_{}(s', a^*) ]</li>
+<li><strong>损失函数</strong>： [ = ]</li>
+</ol>
+<p>通过以上方法，Double DQN 在减少过估计偏差的同时，保持了 DQN
+的高效性和稳定性。</p>
+<h3 id="总结">总结</h3>
+<ul>
+<li><strong>DQN</strong>：结合深度学习和
+Q-Learning，通过经验回放和目标网络解决样本相关性和不稳定性问题。</li>
+<li><strong>Double Q-Learning</strong>：通过两个独立的 Q
+网络减少过估计偏差，提高策略的稳定性。</li>
+<li><strong>Double DQN</strong>：结合 DQN 和 Double Q-Learning
+的优点，进一步减少过估计偏差，同时保持高效性和稳定性。</li>
+</ul>
+<h2 id="policy-gradients">Policy Gradients</h2>
+<h3 id="和以往的强化学习方法不同">和以往的强化学习方法不同<a target="_blank" rel="noopener" href="https://mofanpy.com/tutorials/machine-learning/reinforcement-learning/intro-PG#%E5%92%8C%E4%BB%A5%E5%BE%80%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E4%B8%8D%E5%90%8C" title="Permalink to this headline">¶</a></h3>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1719547541292.png" alt="1719547541292">
+<figcaption aria-hidden="true">1719547541292</figcaption>
+</figure>
+<p>强化学习是一个通过奖惩来学习正确行为的机制.
+家族中有很多种不一样的成员, 有学习奖惩值, 根据自己认为的高价值选行为,
+比如 <a target="_blank" rel="noopener" href="https://mofanpy.com/tutorials/machine-learning/reinforcement-learning/intro-q-learning">Q
+learning</a>, <a target="_blank" rel="noopener" href="https://mofanpy.com/tutorials/machine-learning/reinforcement-learning/intro-DQN">Deep
+Q Network</a>, 也有不通过分析奖励值, 直接输出行为的方法,
+这就是今天要说的 Policy Gradients 了. 甚至我们可以为 Policy Gradients
+加上一个神经网络来输出预测的动作. 对比起以值为基础的方法, Policy
+Gradients 直接输出动作的最大好处就是, 它能在一个连续区间内挑选动作,
+而基于值的, 比如 Q-learning, 它如果在无穷多的动作中计算价值,
+从而选择行为, 这, 它可吃不消.</p>
+<iframe id="aswift_6" name="aswift_6" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="636" height="0" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-4601203457616636&amp;output=html&amp;h=280&amp;adk=4074062989&amp;adf=3200904431&amp;w=636&amp;abgtt=6&amp;fwrn=4&amp;fwrnh=100&amp;lmt=1719547470&amp;num_ads=1&amp;rafmt=1&amp;armr=3&amp;sem=mc&amp;pwprc=8660009725&amp;ad_type=text_image&amp;format=636x280&amp;url=https%3A%2F%2Fmofanpy.com%2Ftutorials%2Fmachine-learning%2Freinforcement-learning%2Fintro-PG&amp;fwr=0&amp;pra=3&amp;rh=159&amp;rw=636&amp;rpe=1&amp;resp_fmts=3&amp;wgl=1&amp;fa=27&amp;uach=WyJtYWNPUyIsIjEzLjYuNyIsIng4NiIsIiIsIjEyNi4wLjY0NzguMTE0IixudWxsLDAsbnVsbCwiNjQiLFtbIk5vdC9BKUJyYW5kIiwiOC4wLjAuMCJdLFsiQ2hyb21pdW0iLCIxMjYuMC42NDc4LjExNCJdLFsiR29vZ2xlIENocm9tZSIsIjEyNi4wLjY0NzguMTE0Il1dLDBd&amp;dt=1719547470085&amp;bpp=2&amp;bdt=1645&amp;idt=-M&amp;shv=r20240625&amp;mjsv=m202406250101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3Da0ca7cedf4aa7be0%3AT%3D1718528202%3ART%3D1719547339%3AS%3DALNI_MaerkWpcuNT5L1WwsFoQYm2Ftaugg&amp;eo_id_str=ID%3D77e582d3b6f37e42%3AT%3D1718528202%3ART%3D1719547339%3AS%3DAA-AfjaKmfbsxFT5o7zpxqy96_ue&amp;prev_fmts=0x0%2C700x90%2C250x250%2C300x250%2C300x250&amp;nras=2&amp;correlator=1541173047459&amp;frm=20&amp;pv=1&amp;ga_vid=545459911.1718527963&amp;ga_sid=1719547469&amp;ga_hid=1920082547&amp;ga_fc=1&amp;u_tz=480&amp;u_his=6&amp;u_h=1050&amp;u_w=1680&amp;u_ah=1050&amp;u_aw=1680&amp;u_cd=24&amp;u_sd=2&amp;dmc=8&amp;adx=365&amp;ady=2264&amp;biw=1665&amp;bih=963&amp;scr_x=0&amp;scr_y=114&amp;eid=44759837%2C42532523%2C95334508%2C95334529%2C95334570%2C95335897%2C95335292%2C31078663%2C31078665%2C31078668%2C31078670&amp;oid=2&amp;pvsid=151925372486561&amp;tmod=1130841053&amp;uas=0&amp;nvt=1&amp;ref=https%3A%2F%2Fmofanpy.com%2Ftutorials%2Fmachine-learning%2Freinforcement-learning%2F&amp;fc=1408&amp;brdim=0%2C0%2C0%2C0%2C1680%2C0%2C1680%2C1050%2C1680%2C963&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=128&amp;bc=31&amp;bz=1&amp;psd=W251bGwsbnVsbCwiY29udHJvbF8xLjIiLDFd&amp;nt=1&amp;ifi=7&amp;uci=a!7&amp;btvi=2&amp;fsb=1&amp;dtd=11" data-google-container-id="a!7" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CN-5osG1_YYDFftKwgUdYcEC1A" data-load-complete="true">
+</iframe>
+<h3 id="更新不同之处">更新不同之处</h3>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1719547596446.png" alt="1719547596446">
+<figcaption aria-hidden="true">1719547596446</figcaption>
+</figure>
+<p>有了神经网络当然方便, 但是, 我们怎么进行神经网络的误差反向传递呢?
+Policy Gradients 的误差又是什么呢? 答案是! 哈哈, 没有误差!
+但是他的确是在进行某一种的反向传递.
+这种反向传递的目的是让这次被选中的行为更有可能在下次发生.
+但是我们要怎么确定这个行为是不是应当被增加被选的概率呢?
+这时候我们的老朋友, reward 奖惩正可以在这时候派上用场,</p>
+<h3 id="具体更新步骤">具体更新步骤</h3>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1719548100657.png" alt="1719548100657">
+<figcaption aria-hidden="true">1719548100657</figcaption>
+</figure>
+<p>现在我们来演示一遍, 观测的信息通过神经网络分析, 选出了左边的行为,
+我们直接进行反向传递, 使之下次被选的可能性增加, 但是奖惩信息却告诉我们,
+这次的行为是不好的, 那我们的动作可能性增加的幅度 随之被减低.
+这样就能靠奖励来左右我们的神经网络反向传递. 我们再来举个例子,
+假如这次的观测信息让神经网络选择了右边的行为,
+右边的行为随之想要进行反向传递, 使右边的行为下次被多选一点, 这时,
+奖惩信息也来了, 告诉我们这是好行为,
+那我们就在这次反向传递的时候加大力度, 让它下次被多选的幅度更猛烈! 这就是
+Policy Gradients 的核心思想了. 很简单吧.</p>
+<p>Policy gradient 是 RL 中另外一个大家族, 他不像 Value-based 方法 (Q
+learning, Sarsa), 但他也要接受环境信息 (observation),
+不同的是他要输出不是 action 的 value, 而是具体的那一个 action, 这样
+policy gradient 就跳过了 value 这个阶段. 而且个人认为 Policy gradient
+最大的一个优势是: 输出的这个 action 可以是一个连续的值, 之前我们说到的
+value-based 方法输出的都是不连续的值, 然后再选择值最大的 action. 而
+policy gradient 可以在一个连续分布上选取 action.</p>
+<h3 id="算法">算法<a target="_blank" rel="noopener" href="https://mofanpy.com/tutorials/machine-learning/reinforcement-learning/policy-gradient-softmax1#%E7%AE%97%E6%B3%95" title="Permalink to this headline">¶</a></h3>
+<p>我们介绍的 policy gradient 的第一个算法是一种基于
+<strong>整条回合数据</strong> 的更新, 也叫 <strong>REINFORCE</strong>
+方法. 这种方法是 policy gradient 的最基本方法, 有了这个的基础,
+我们再来做更高级的.</p>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1719548643187.png" alt="1719548643187">
+<figcaption aria-hidden="true">1719548643187</figcaption>
+</figure>
+<p><code>delta(log(Policy(s,a))*V)</code> 表示在 状态 <code>s</code>
+对所选动作 <code>a</code> 的吃惊度, 如果 <code>Policy(s,a)</code>
+(<strong>即在状态s下采取动作a的概率,上面的θ是整个神经网络的参数</strong>)概率越小,
+反向的 <code>log(Policy(s,a))</code> (即 <code>-log(P)</code>) 反而越大.
+如果在 <code>Policy(s,a)</code> 很小的情况下, 拿到了一个 大的
+<code>R</code>, 也就是 大的 <code>V</code>, 那
+<code>-delta(log(Policy(s, a))*V)</code> 就更大, 表示更吃惊,
+(我选了一个不常选的动作, 却发现原来它能得到了一个好的 reward,
+那我就得对我这次的参数进行一个大幅修改). 这就是吃惊度的物理意义啦.</p>
+<h3 id="建立-policy-神经网络">建立 Policy 神经网络<a target="_blank" rel="noopener" href="https://mofanpy.com/tutorials/machine-learning/reinforcement-learning/policy-gradient-softmax2#%E5%BB%BA%E7%AB%8B%20Policy%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" title="Permalink to this headline">¶</a></h3>
+<iframe id="aswift_7" name="aswift_7" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="636" height="0" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-4601203457616636&amp;output=html&amp;h=280&amp;adk=4074062989&amp;adf=1270939717&amp;w=636&amp;abgtt=6&amp;fwrn=4&amp;fwrnh=100&amp;lmt=1719975323&amp;num_ads=1&amp;rafmt=1&amp;armr=3&amp;sem=mc&amp;pwprc=8660009725&amp;ad_type=text_image&amp;format=636x280&amp;url=https%3A%2F%2Fmofanpy.com%2Ftutorials%2Fmachine-learning%2Freinforcement-learning%2Fpolicy-gradient-softmax2&amp;fwr=0&amp;pra=3&amp;rh=159&amp;rw=636&amp;rpe=1&amp;resp_fmts=3&amp;wgl=1&amp;fa=27&amp;uach=WyJtYWNPUyIsIjEzLjYuNyIsIng4NiIsIiIsIjEyNi4wLjY0NzguMTE0IixudWxsLDAsbnVsbCwiNjQiLFtbIk5vdC9BKUJyYW5kIiwiOC4wLjAuMCJdLFsiQ2hyb21pdW0iLCIxMjYuMC42NDc4LjExNCJdLFsiR29vZ2xlIENocm9tZSIsIjEyNi4wLjY0NzguMTE0Il1dLDBd&amp;dt=1719975323387&amp;bpp=1&amp;bdt=3427&amp;idt=0&amp;shv=r20240626&amp;mjsv=m202406250101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3Da0ca7cedf4aa7be0%3AT%3D1718528202%3ART%3D1719910597%3AS%3DALNI_MaerkWpcuNT5L1WwsFoQYm2Ftaugg&amp;eo_id_str=ID%3D77e582d3b6f37e42%3AT%3D1718528202%3ART%3D1719910597%3AS%3DAA-AfjaKmfbsxFT5o7zpxqy96_ue&amp;prev_fmts=0x0%2C700x90%2C250x250%2C300x250%2C300x250%2C636x280&amp;nras=3&amp;correlator=320460050441&amp;frm=20&amp;pv=1&amp;ga_vid=545459911.1718527963&amp;ga_sid=1719975322&amp;ga_hid=1960567015&amp;ga_fc=1&amp;ga_cid=890743292.1719830792&amp;u_tz=480&amp;u_his=8&amp;u_h=1050&amp;u_w=1680&amp;u_ah=1050&amp;u_aw=1680&amp;u_cd=24&amp;u_sd=2&amp;dmc=8&amp;adx=365&amp;ady=3288&amp;biw=1665&amp;bih=963&amp;scr_x=0&amp;scr_y=881&amp;eid=44759876%2C44759927%2C44759837%2C44798934%2C95334511%2C95334525%2C95334571%2C31061690%2C31078663%2C31078665%2C31078668%2C31078670&amp;oid=2&amp;pvsid=9825409752909&amp;tmod=878162746&amp;uas=0&amp;nvt=3&amp;ref=https%3A%2F%2Fmofanpy.com%2Ftutorials%2Fmachine-learning%2Freinforcement-learning%2Fpolicy-gradient-softmax1&amp;fc=1408&amp;brdim=0%2C0%2C0%2C0%2C1680%2C0%2C1680%2C1050%2C1680%2C963&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=128&amp;bc=31&amp;bz=1&amp;psd=W251bGwsbnVsbCwiY29udHJvbF8xLjIiLDFd&amp;nt=1&amp;ifi=8&amp;uci=a!8&amp;btvi=2&amp;fsb=1&amp;dtd=29" data-google-container-id="a!8" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CJT41rHviYcDFThUDwIdHkEFvw" data-load-complete="true">
+</iframe>
+<p>这次我们要建立的神经网络是这样的: <img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image.png" alt="alt text"></p>
+<p>因为这是强化学习, 所以神经网络中并没有我们熟知的监督学习中的 y label.
+取而代之的是我们选的 action.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">PolicyGradient</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, n_actions, n_features, learning_rate=<span class="number">0.01</span>, reward_decay=<span class="number">0.95</span>, output_graph=<span class="literal">False</span></span>):</span><br><span class="line">        ...</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_build_net</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">with</span> tf.name_scope(<span class="string">&#x27;inputs&#x27;</span>):</span><br><span class="line">            self.tf_obs = tf.placeholder(tf.float32, [<span class="literal">None</span>, self.n_features], name=<span class="string">&quot;observations&quot;</span>)  <span class="comment"># 接收 observation</span></span><br><span class="line">            self.tf_acts = tf.placeholder(tf.int32, [<span class="literal">None</span>, ], name=<span class="string">&quot;actions_num&quot;</span>)   <span class="comment"># 接收我们在这个回合中选过的 actions</span></span><br><span class="line">            self.tf_vt = tf.placeholder(tf.float32, [<span class="literal">None</span>, ], name=<span class="string">&quot;actions_value&quot;</span>) <span class="comment"># 接收每个 state-action 所对应的 value (通过 reward 计算)</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># fc1</span></span><br><span class="line">        layer = tf.layers.dense(</span><br><span class="line">            inputs=self.tf_obs,</span><br><span class="line">            units=<span class="number">10</span>,   <span class="comment"># 输出个数</span></span><br><span class="line">            activation=tf.nn.tanh,  <span class="comment"># 激励函数</span></span><br><span class="line">            kernel_initializer=tf.random_normal_initializer(mean=<span class="number">0</span>, stddev=<span class="number">0.3</span>),</span><br><span class="line">            bias_initializer=tf.constant_initializer(<span class="number">0.1</span>),</span><br><span class="line">            name=<span class="string">&#x27;fc1&#x27;</span></span><br><span class="line">        )</span><br><span class="line">        <span class="comment"># fc2</span></span><br><span class="line">        all_act = tf.layers.dense(</span><br><span class="line">            inputs=layer,</span><br><span class="line">            units=self.n_actions,   <span class="comment"># 输出个数</span></span><br><span class="line">            activation=<span class="literal">None</span>,    <span class="comment"># 之后再加 Softmax</span></span><br><span class="line">            kernel_initializer=tf.random_normal_initializer(mean=<span class="number">0</span>, stddev=<span class="number">0.3</span>),</span><br><span class="line">            bias_initializer=tf.constant_initializer(<span class="number">0.1</span>),</span><br><span class="line">            name=<span class="string">&#x27;fc2&#x27;</span></span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">        self.all_act_prob = tf.nn.softmax(all_act, name=<span class="string">&#x27;act_prob&#x27;</span>)  <span class="comment"># 激励函数 softmax 出概率</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">with</span> tf.name_scope(<span class="string">&#x27;loss&#x27;</span>):</span><br><span class="line">            <span class="comment"># 最大化 总体 reward (log_p * R) 就是在最小化 -(log_p * R), 而 tf 的功能里只有最小化 loss</span></span><br><span class="line">            neg_log_prob = tf.nn.sparse_softmax_cross_entropy_with_logits(logits=all_act, labels=self.tf_acts) <span class="comment"># 所选 action 的概率 -log 值</span></span><br><span class="line">            <span class="comment"># 下面的方式是一样的:</span></span><br><span class="line">            <span class="comment"># neg_log_prob = tf.reduce_sum(-tf.log(self.all_act_prob)*tf.one_hot(self.tf_acts, self.n_actions), axis=1)</span></span><br><span class="line">            loss = tf.reduce_mean(neg_log_prob * self.tf_vt)  <span class="comment"># (vt = 本reward + 衰减的未来reward) 引导参数的梯度下降</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">with</span> tf.name_scope(<span class="string">&#x27;train&#x27;</span>):</span><br><span class="line">            self.train_op = tf.train.AdamOptimizer(self.lr).minimize(loss)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这里有必要解释一下为什么我们使用的 loss= -log(prob)*vt 当做 loss,
+因为下面有很多评论说这里不理解.</p>
+<p>简单来说, 上面提到了两种形式来计算 neg_log_prob,
+这两种形式是一模一样的, 只是第二个是第一个的展开形式.</p>
+<p>如果你仔细看第一个形式, 这不就是在神经网络分类问题中的 cross-entropy
+嘛! 使用 softmax 和神经网络的最后一层 logits 输出和真实标签
+(self.tf_acts) 对比的误差. 并将神经网络的参数按照这个真实标签改进.
+这显然和一个分类问题没有太多区别. 我们能将这个 neg_log_prob 理解成
+cross-entropy 的分类误差.</p>
+<p>分类问题中的标签是真实 x 对应的 y, 而我们 Policy gradient 中, x 是
+state, y 就是它按照这个 x 所做的动作号码. 所以也可以理解成, 它按照 x
+做的动作永远是对的 (出来的动作永远是正确标签), 它也永远会按照这个
+正确标签 修改自己的参数. 可是事实却不是这样, 他的动作不一定都是
+正确标签, 这就是强化学习(Policy
+gradient)和监督学习(classification)的不同.</p>
+<h2 id="actor-critic">Actor Critic</h2>
+<p>今天我们会来说说强化学习中的一种结合体 Actor Critic (演员评判家),
+它合并了 以值为基础 (比如 Q learning) 和 以动作概率为基础 (比如 Policy
+Gradients) 两类强化学习算法. <img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image-1.png" alt="alt text"></p>
+<h3 id="为什么要有-actor-和-critic">为什么要有 Actor 和 Critic</h3>
+<p>我们有了像 <a target="_blank" rel="noopener" href="https://mofanpy.com/tutorials/machine-learning/reinforcement-learning/intro-q-learning">Q-learning</a>
+这么伟大的算法, 为什么还要瞎折腾出一个 Actor-Critic? 原来 Actor-Critic
+的 Actor 的前生是 <a target="_blank" rel="noopener" href="https://mofanpy.com/tutorials/machine-learning/reinforcement-learning/intro-PG">Policy
+Gradients</a>, 这能让它毫不费力地在连续动作中选取合适的动作, 而
+Q-learning 做这件事会瘫痪. 那为什么不直接用 Policy Gradients 呢? 原来
+Actor Critic 中的 Critic 的前生是 Q-learning 或者其他的
+以值为基础的学习法 , 能进行单步更新, 而传统的 Policy Gradients
+则是回合更新, 这降低了学习效率.</p>
+<h3 id="actor-和-critic">Actor 和 Critic</h3>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image-2.png" alt="alt text">
+<figcaption aria-hidden="true">alt text</figcaption>
+</figure>
+<p>现在我们有两套不同的体系, Actor 和 Critic,
+他们都能用不同的神经网络来代替 . 在 Policy Gradients 的影片中提到过,
+现实中的奖惩会左右 Actor 的更新情况. Policy Gradients
+也是靠着这个来获取适宜的更新. 那么何时会有奖惩这种信息能不能被学习呢?
+这看起来不就是 以值为基础的强化学习方法做过的事吗. 那我们就拿一个 Critic
+去学习这些奖惩机制, 学习完了以后. 由 Actor 来指手画脚, 由 Critic 来告诉
+Actor 你的那些指手画脚哪些指得好, 哪些指得差, Critic
+通过学习环境和奖励之间的关系, 能看到现在所处状态的潜在奖励,
+所以用它来指点 Actor 便能使 Actor 每一步都在更新, 如果使用单纯的 Policy
+Gradients, Actor 只能等到回合结束才能开始更新.</p>
+<h3 id="增加单步更新属性">增加单步更新属性</h3>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image-3.png" alt="alt text">
+<figcaption aria-hidden="true">alt text</figcaption>
+</figure>
+<p>但是事物终有它坏的一面, Actor-Critic 涉及到了两个神经网络,
+而且每次都是在连续状态中更新参数, 每次参数更新前后都存在相关性,
+导致神经网络只能片面的看待问题, 甚至导致神经网络学不到东西. Google
+DeepMind 为了解决这个问题, 修改了 Actor Critic 的算法,</p>
+<h3 id="改进版-deep-deterministic-policy-gradient-ddpg">改进版 Deep
+Deterministic Policy Gradient (DDPG)</h3>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image-4.png" alt="alt text">
+<figcaption aria-hidden="true">alt text</figcaption>
+</figure>
+<p>将之前在电动游戏 Atari 上获得成功的 DQN 网络加入进 Actor Critic
+系统中, 这种新算法叫做 Deep Deterministic Policy Gradient,
+成功的解决的在连续动作预测上的学不到东西问题. 所以之后,
+我们再来说说什么是这种高级版本的 Deep Deterministic Policy Gradient
+吧.</p>
+<p><strong>一句话概括 Actor Critic 方法</strong> :</p>
+<p>结合了 Policy Gradient (Actor) 和 Function Approximation (Critic)
+的方法. <code>Actor</code> 基于概率选行为, <code>Critic</code> 基于
+<code>Actor</code> 的行为评判行为的得分, <code>Actor</code> 根据
+<code>Critic</code> 的评分修改选行为的概率.</p>
+<p><strong>Actor Critic 方法的优势</strong> : 可以进行单步更新, 比传统的
+Policy Gradient 要快.</p>
+<p><strong>Actor Critic 方法的劣势</strong> : 取决于 Critic 的价值判断,
+但是 Critic 难收敛, 再加上 Actor 的更新, 就更难收敛. 为了解决收敛问题,
+Google Deepmind 提出了 <code>Actor Critic</code> 升级版
+<code>Deep Deterministic Policy Gradient</code>. 后者融合了 DQN 的优势,
+解决了收敛难的问题. 我们之后也会要讲到 <a target="_blank" rel="noopener" href="https://mofanpy.com/tutorials/machine-learning/reinforcement-learning/DDPG">Deep
+Deterministic Policy Gradient</a>. 不过那个是要以
+<code>Actor Critic</code> 为基础, 懂了 <code>Actor Critic</code>,
+后面那个就好懂了.</p>
+<h3 id="算法-1">算法</h3>
+<p>这套算法是在普通的 Policy gradient 算法上面修改的</p>
+<p><strong><code>Actor</code> 修改行为时就像蒙着眼睛一直向前开车,
+<code>Critic</code> 就是那个扶方向盘改变 <code>Actor</code>
+开车方向的.</strong> <img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image-5.png" alt="alt text"></p>
+<p>或者说详细点, 就是 <code>Actor</code> 在运用 Policy Gradient
+的方法进行 Gradient ascent 的时候, 由 <code>Critic</code> 来告诉他,
+这次的 Gradient ascent 是不是一次正确的 ascent, 如果这次的得分不好,
+那么就不要 ascent 那么多.</p>
+<h3 id="代码主结构">代码主结构</h3>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image-6.png" alt="alt text">
+<figcaption aria-hidden="true">alt text</figcaption>
+</figure>
+<p>上图是 <code>Actor</code> 的神经网络结果, 代码结构在下面:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Actor</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, sess, n_features, n_actions, lr=<span class="number">0.001</span></span>):</span><br><span class="line">        <span class="comment"># 用 tensorflow 建立 Actor 神经网络,</span></span><br><span class="line">        <span class="comment"># 搭建好训练的 Graph.</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">learn</span>(<span class="params">self, s, a, td</span>):</span><br><span class="line">        <span class="comment"># s, a 用于产生 Gradient ascent 的方向,</span></span><br><span class="line">        <span class="comment"># td 来自 Critic, 用于告诉 Actor 这方向对不对.</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">choose_action</span>(<span class="params">self, s</span>):</span><br><span class="line">        <span class="comment"># 根据 s 选 行为 a</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image-7.png" alt="alt text">
+<figcaption aria-hidden="true">alt text</figcaption>
+</figure>
+<p>上图是 <code>Critic</code> 的神经网络结果, 代码结构在下面:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Critic</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, sess, n_features, lr=<span class="number">0.01</span></span>):</span><br><span class="line">        <span class="comment"># 用 tensorflow 建立 Critic 神经网络,</span></span><br><span class="line">        <span class="comment"># 搭建好训练的 Graph.</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">learn</span>(<span class="params">self, s, r, s_</span>):</span><br><span class="line">        <span class="comment"># 学习 状态的价值 (state value), 不是行为的价值 (action value),</span></span><br><span class="line">        <span class="comment"># 计算 TD_error = (r + v_) - v,</span></span><br><span class="line">        <span class="comment"># 用 TD_error 评判这一步的行为有没有带来比平时更好的结果,</span></span><br><span class="line">        <span class="comment"># 可以把它看做 Advantage</span></span><br><span class="line">        <span class="keyword">return</span> <span class="comment"># 学习时产生的 TD_error</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="两者学习方式">两者学习方式</h3>
+<p><code>Actor</code> 想要最大化期望的 <code>reward</code>, 在
+<code>Actor Critic</code> 算法中, 我们用 比平时好多少
+(<code>TD error</code>) 来当做 <code>reward</code>, 所以就是:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">&#x27;exp_v&#x27;</span>):</span><br><span class="line">    log_prob = tf.log(self.acts_prob[<span class="number">0</span>, self.a])    <span class="comment"># log 动作概率</span></span><br><span class="line">    self.exp_v = tf.reduce_mean(log_prob * self.td_error)   <span class="comment"># log 概率 * TD 方向</span></span><br><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">&#x27;train&#x27;</span>):</span><br><span class="line">    <span class="comment"># 因为我们想不断增加这个 exp_v (动作带来的额外价值),</span></span><br><span class="line">    <span class="comment"># 所以我们用过 minimize(-exp_v) 的方式达到</span></span><br><span class="line">    <span class="comment"># maximize(exp_v) 的目的</span></span><br><span class="line">    self.train_op = tf.train.AdamOptimizer(lr).minimize(-self.exp_v)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Critic 的更新很简单, 就是像 Q learning 那样更新现实和估计的误差 (TD
+error) 就好了.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">&#x27;squared_TD_error&#x27;</span>):</span><br><span class="line">    self.td_error = self.r + GAMMA * self.v_ - self.v</span><br><span class="line">    self.loss = tf.square(self.td_error)    <span class="comment"># TD_error = (r+gamma*V_next) - V_eval</span></span><br><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">&#x27;train&#x27;</span>):</span><br><span class="line">    self.train_op = tf.train.AdamOptimizer(lr).minimize(self.loss)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="每回合算法">每回合算法</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i_episode <span class="keyword">in</span> <span class="built_in">range</span>(MAX_EPISODE):</span><br><span class="line">    s = env.reset()</span><br><span class="line">    t = <span class="number">0</span></span><br><span class="line">    track_r = []    <span class="comment"># 每回合的所有奖励</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">if</span> RENDER: env.render()</span><br><span class="line"></span><br><span class="line">        a = actor.choose_action(s)</span><br><span class="line"></span><br><span class="line">        s_, r, done, info = env.step(a)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> done: r = -<span class="number">20</span>    <span class="comment"># 回合结束的惩罚</span></span><br><span class="line"></span><br><span class="line">        track_r.append(r)</span><br><span class="line"></span><br><span class="line">        td_error = critic.learn(s, r, s_)  <span class="comment"># Critic 学习</span></span><br><span class="line">        actor.learn(s, a, td_error)     <span class="comment"># Actor 学习</span></span><br><span class="line"></span><br><span class="line">        s = s_</span><br><span class="line">        t += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> done <span class="keyword">or</span> t &gt;= MAX_EP_STEPS:</span><br><span class="line">            <span class="comment"># 回合结束, 打印回合累积奖励</span></span><br><span class="line">            ep_rs_sum = <span class="built_in">sum</span>(track_r)</span><br><span class="line">            <span class="keyword">if</span> <span class="string">&#x27;running_reward&#x27;</span> <span class="keyword">not</span> <span class="keyword">in</span> <span class="built_in">globals</span>():</span><br><span class="line">                running_reward = ep_rs_sum</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                running_reward = running_reward * <span class="number">0.95</span> + ep_rs_sum * <span class="number">0.05</span></span><br><span class="line">            <span class="keyword">if</span> running_reward &gt; DISPLAY_REWARD_THRESHOLD: RENDER = <span class="literal">True</span>  <span class="comment"># rendering</span></span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;episode:&quot;</span>, i_episode, <span class="string">&quot;  reward:&quot;</span>, <span class="built_in">int</span>(running_reward))</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>由于更新时的 网络相关性, state 相关性, Actor Critic 很难收敛</p>
+<h2 id="deep-deterministic-policy-gradient-ddpg">Deep Deterministic
+Policy Gradient (DDPG)</h2>
+<p>DDPG 最大的优势就是能够在连续动作上更有效地学习.</p>
+<ul>
+<li><p>论文 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1509.02971">Continuous
+control with deep reinforcement learning</a> <img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image-8.png" alt="alt text"></p>
+<p>它吸收了 <a target="_blank" rel="noopener" href="https://mofanpy.com/tutorials/machine-learning/reinforcement-learning/intro-AC">Actor-Critic</a>
+让 <a target="_blank" rel="noopener" href="https://mofanpy.com/tutorials/machine-learning/reinforcement-learning/intro-PG">Policy
+gradient</a> 单步更新的精华, 而且还吸收让计算机学会玩游戏的 <a target="_blank" rel="noopener" href="https://mofanpy.com/tutorials/machine-learning/reinforcement-learning/intro-DQN">DQN</a>
+的精华, 合并成了一种新算法, 叫做 Deep Deterministic Policy Gradient. 那
+DDPG 到底是什么样的算法呢, 我们就拆开来分析, 我们将 DDPG 分成 ‘Deep’ 和
+‘Deterministic Policy Gradient’, 然后 ‘Deterministic Policy Gradient’
+又能被细分为 ‘Deterministic’ 和 ‘Policy Gradient’, 接下来,
+我们就开始一个个分析啦.</p></li>
+</ul>
+<h3 id="deep-和-dqn">Deep 和 DQN</h3>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image-9.png" alt="alt text">
+<figcaption aria-hidden="true">alt text</figcaption>
+</figure>
+<p>Deep 顾名思义, 就是走向更深层次, 我们在 DQN 的影片当中提到过,
+使用一个记忆库和两套结构相同,
+但参数更新频率不同的神经网络能有效促进学习. 那我们也把这种思想运用到
+DDPG 当中, 使 DDPG 也具备这种优良形式. 但是 DDPG 的神经网络形式却比 DQN
+的要复杂一点点</p>
+<h3 id="deterministic-policy-gradient">Deterministic Policy
+Gradient</h3>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image-10.png" alt="alt text">
+<figcaption aria-hidden="true">alt text</figcaption>
+</figure>
+<p>Policy gradient 我们也在之前的短片中提到过, 相比其他的强化学习方法,
+它能被用来在连续动作上进行动作的筛选 .
+而且筛选的时候是根据所学习到的动作分布随机进行筛选, 而 Deterministic
+有点看不下去, Deterministic 说: 我说兄弟,
+你其实在做动作的时候没必要那么不确定, 那么犹豫嘛,
+反正你最终都只是要输出一个动作值, 干嘛要随机, 铁定一点, 有什么不好. 所以
+Deterministic 就改变了输出动作的过程,
+斩钉截铁的只在连续动作上输出一个动作值.</p>
+<h3 id="ddpg-神经网络">DDPG 神经网络</h3>
+<p><strong>一句话概括 DDPG:</strong> Google DeepMind 提出的一种使用
+<code>Actor Critic</code> 结构, 但是输出的不是行为的概率,
+而是具体的行为, 用于连续动作 (continuous action) 的预测.
+<code>DDPG</code> 结合了之前获得成功的 <code>DQN</code> 结构, 提高了
+<code>Actor Critic</code> 的稳定性和收敛性.</p>
+<p>因为 <code>DDPG</code> 和 <code>DQN</code> 还有
+<code>Actor Critic</code> 很相关, 所以最好这两者都了解下, 对于学习
+<code>DDPG</code> 很有帮助. 我的教程链接都能在上面的学习资料中找到.</p>
+<p>效果提前看:</p>
+<video controls src="强化学习概念/Pendulum DDPG.mp4" title="Title">
+</video>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image-11.png" alt="alt text">
+<figcaption aria-hidden="true">alt text</figcaption>
+</figure>
+<p>现在我们来说说 DDPG 中所用到的神经网络. 它其实和我们之前提到的
+Actor-Critic 形式差不多, 也需要有基于 策略 Policy 的神经网络 和基于 价值
+Value 的神经网络, 但是为了体现 DQN 的思想,
+每种神经网络我们都需要再细分为两个, Policy Gradient 这边,
+我们有估计网络和现实网络, 估计网络用来输出实时的动作, 供 actor
+在现实中实行. 而现实网络则是用来更新价值网络系统的.
+所以我们再来看看价值系统这边, 我们也有现实网络和估计网络,
+他们都在输出这个状态的价值, 而输入端却有不同,
+状态现实网络这边会拿着从动作现实网络来的动作加上状态的观测值加以分析,
+而状态估计网络则是拿着当时 Actor 施加的动作当做输入.在实际运用中, DDPG
+的这种做法的确带来了更有效的学习过程.</p>
+<h3 id="算法-2">算法</h3>
+<p><code>DDPG</code> 的算法实际上就是一种 <code>Actor Critic</code></p>
+<h4 id="关于-actor-部分">关于 <code>Actor</code> 部分</h4>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1720883530165.png" alt="1720883530165">
+<figcaption aria-hidden="true">1720883530165</figcaption>
+</figure>
+<p>关于 <code>Actor</code> 部分, 他的参数更新同样会涉及到
+<code>Critic</code>, 上面是关于 <code>Actor</code> 参数的更新,
+它的前半部分 <code>grad[Q]</code> 是从 <code>Critic</code> 来的,
+这是在说: <strong>这次 <code>Actor</code> 的动作要怎么移动,
+才能获得更大的 <code>Q</code></strong> , 而后半部分 <code>grad[u]</code>
+是从 <code>Actor</code> 来的, 这是在说: <strong><code>Actor</code>
+要怎么样修改自身参数, 使得 <code>Actor</code>
+更有可能做这个动作</strong> . 所以两者合起来就是在说:
+<strong><code>Actor</code> 要朝着更有可能获取大 <code>Q</code>
+的方向修改动作参数了</strong> .</p>
+<p>注:</p>
+<p>其中<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1721378386745.png" alt="1721378386745">就是下图中的<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1721378423054.png" alt="1721378423054"></p>
+<h4 id="关于-critic-的更新">关于 <code>Critic</code> 的更新</h4>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/1720883686080.png" alt="1720883686080">
+<figcaption aria-hidden="true">1720883686080</figcaption>
+</figure>
+<p>上面这个是关于 <code>Critic</code> 的更新, 它借鉴了 <code>DQN</code>
+和 <code>Double Q learning</code> 的方式, 有两个计算 <code>Q</code>
+的神经网络, <code>Q_target</code> 中依据下一状态, 用 <code>Actor</code>
+来选择动作, 而这时的 <code>Actor</code> 也是一个
+<code>Actor_target</code> (有着 Actor 很久之前的参数).
+使用这种方法获得的 <code>Q_target</code> 能像 <code>DQN</code>
+那样切断相关性, 提高收敛性.</p>
+<h3 id="主结构">主结构</h3>
+<p>我们用 Tensorflow 搭建神经网络, 主结构可以见这个 tensorboard
+的出来的图. <img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image-12.png" alt="alt text"></p>
+<p>看起来很复杂吧, 没关系, 我们一步步来, 拆开来看就容易了. 首先看看
+<code>Actor</code> 和 <code>Critic</code> 中各有什么结构. <img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image-13.png" alt="alt text"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Actor</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        ...</span><br><span class="line">        <span class="keyword">with</span> tf.variable_scope(<span class="string">&#x27;Actor&#x27;</span>):</span><br><span class="line">            <span class="comment"># 这个网络用于及时更新参数</span></span><br><span class="line">            self.a = self._build_net(S, scope=<span class="string">&#x27;eval_net&#x27;</span>, trainable=<span class="literal">True</span>)</span><br><span class="line">            <span class="comment"># 这个网络不及时更新参数, 用于预测 Critic 的 Q_target 中的 action</span></span><br><span class="line">            self.a_ = self._build_net(S_, scope=<span class="string">&#x27;target_net&#x27;</span>, trainable=<span class="literal">False</span>)</span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Critic</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">with</span> tf.variable_scope(<span class="string">&#x27;Critic&#x27;</span>):</span><br><span class="line">            <span class="comment"># 这个网络是用于及时更新参数</span></span><br><span class="line">            self.a = a  <span class="comment"># 这个 a 是来自 Actor 的, 但是 self.a 在更新 Critic 的时候是之前选择的 a 而不是来自 Actor 的 a.</span></span><br><span class="line">            self.q = self._build_net(S, self.a, <span class="string">&#x27;eval_net&#x27;</span>, trainable=<span class="literal">True</span>)</span><br><span class="line">            <span class="comment"># 这个网络不及时更新参数, 用于给出 Actor 更新参数时的 Gradient ascent 强度</span></span><br><span class="line">            self.q_ = self._build_net(S_, a_, <span class="string">&#x27;target_net&#x27;</span>, trainable=<span class="literal">False</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="actor-critic-1">Actor Critic</h4>
+<p>有了对 <code>Actor Critic</code> 每个里面各两个神经网络结构的了解,
+我们再来具体看看他们是如何进行交流, 传递信息的. 我们从
+<code>Actor</code> 的学习更新方式开始说起. <img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image-14.png" alt="alt text"></p>
+<p>这张图我们就能一眼看穿 <code>Actor</code> 的更新到底基于了哪些东西.
+可以看出, 它使用了两个 <code>eval_net</code>, 所以 <code>Actor</code>
+class 中用于 train 的代码我们这样写:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">&#x27;policy_grads&#x27;</span>):</span><br><span class="line">    <span class="comment"># 这是在计算 (dQ/da) * (da/dparams)</span></span><br><span class="line">    self.policy_grads = tf.gradients(</span><br><span class="line">        ys=self.a, xs=self.e_params, <span class="comment"># 计算 ys 对于 xs 的梯度</span></span><br><span class="line">        grad_ys=a_grads <span class="comment"># 这是从 Critic 来的 dQ/da</span></span><br><span class="line">    )</span><br><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">&#x27;A_train&#x27;</span>):</span><br><span class="line">    opt = tf.train.AdamOptimizer(-self.lr)  <span class="comment"># 负的学习率为了使我们计算的梯度往上升, 和 Policy Gradient 中的方式一个性质</span></span><br><span class="line">    self.train_op = opt.apply_gradients(<span class="built_in">zip</span>(self.policy_grads, self.e_params)) <span class="comment"># 对 eval_net 的参数更新</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>同时下面也提到的传送给 <code>Actor</code> 的 <code>a_grad</code>
+应该用 Tensorflow 怎么计算. 这个 <code>a_grad</code> 是
+<code>Critic</code> class 里面的, 这个 <code>a</code> 是来自
+<code>Actor</code> 根据 <code>S</code> 计算而来的:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">&#x27;a_grad&#x27;</span>):</span><br><span class="line">    self.a_grads = tf.gradients(self.q, self.a)[<span class="number">0</span>]   <span class="comment"># dQ/da</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>而在 <code>Critic</code> 中, 我们用的东西简单一点. <img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image-15.png" alt="alt text"></p>
+<p>下面就是 <code>Critic</code> 更新时的代码了.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 计算 target Q</span></span><br><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">&#x27;target_q&#x27;</span>):</span><br><span class="line">    self.target_q = R + self.gamma * self.q_    <span class="comment"># self.q_ 根据 Actor 的 target_net 来的</span></span><br><span class="line"><span class="comment"># 计算误差并反向传递误差</span></span><br><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">&#x27;TD_error&#x27;</span>):</span><br><span class="line">    self.loss = tf.reduce_mean(tf.squared_difference(self.target_q, self.q))  <span class="comment"># self.q 又基于 Actor 的 target_net</span></span><br><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">&#x27;C_train&#x27;</span>):</span><br><span class="line">    self.train_op = tf.train.AdamOptimizer(self.lr).minimize(self.loss)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>最后我们建立并把 <code>Actor</code> 和 <code>Critic</code>
+融合在一起的时候是这样写的.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">actor = Actor(...)</span><br><span class="line">critic = Critic(..., actor.a, actor.a_)  <span class="comment"># 将 actor 同它的 eval_net/target_net 产生的 a/a_ 传给 Critic</span></span><br><span class="line">actor.add_grad_to_graph(critic.a_grads) <span class="comment"># 将 critic 产出的 dQ/da 加入到 Actor 的 Graph 中去</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="记忆库-memory">记忆库 Memory</h4>
+<p>以下是关于类似于 <code>DQN</code> 中的记忆库代码, 我们用一个
+<code>class</code> 来建立</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Memory</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, capacity, dims</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;用 numpy 初始化记忆库&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">store_transition</span>(<span class="params">self, s, a, r, s_</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;保存每次记忆在 numpy array 里&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">sample</span>(<span class="params">self, n</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;随即从记忆库中抽取 n 个记忆进行学习&quot;&quot;&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="每回合算法-1">每回合算法</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">var = <span class="number">3</span>  <span class="comment"># 这里初始化一个方差用于增强 actor 的探索性</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(MAX_EPISODES):</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(MAX_EP_STEPS):</span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line">        a = actor.choose_action(s)</span><br><span class="line">        a = np.clip(np.random.normal(a, var), -<span class="number">2</span>, <span class="number">2</span>) <span class="comment"># 增强探索性</span></span><br><span class="line">        s_, r, done, info = env.step(a)</span><br><span class="line"></span><br><span class="line">        M.store_transition(s, a, r / <span class="number">10</span>, s_)   <span class="comment"># 记忆库</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> M.pointer &gt; MEMORY_CAPACITY: <span class="comment"># 记忆库头一次满了以后</span></span><br><span class="line">            var *= <span class="number">.9998</span>    <span class="comment"># 逐渐降低探索性</span></span><br><span class="line">            b_M = M.sample(BATCH_SIZE)</span><br><span class="line">            ...   <span class="comment"># 将 b_M 拆分成下面的输入信息</span></span><br><span class="line">            critic.learn(b_s, b_a, b_r, b_s_)</span><br><span class="line">            actor.learn(b_s)</span><br><span class="line"></span><br><span class="line">        s = s_</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> j == MAX_EP_STEPS-<span class="number">1</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>我也用这套 DDPG 测试过自己写的机器手臂的环境, 发现效果也还行.
+有兴趣的朋友可以<a target="_blank" rel="noopener" href="https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow/tree/master/experiments/Robot_arm">看到这里</a>.</p>
+<video controls src="强化学习概念/experiment_arm.mp4" title="Title">
+</video>
+<p>有很多人留言说想要我做一个关于这个机器手臂的教程, 不负众望,
+你可以在<a target="_blank" rel="noopener" href="https://mofanpy.com/tutorials/machine-learning/ML-practice/RL-build-arm-from-scratch1">这里</a>
+看到我怎么从零开始, 手写环境, debug 测试,
+来制作一个强化学习的机器手臂.</p>
+<h2 id="asynchronous-advantage-actor-critic-a3c">Asynchronous Advantage
+Actor-Critic (A3C)</h2>
+<p>强化学习中的一种有效利用计算资源, 并且能提升训练效用的算法,
+Asynchronous Advantage Actor-Critic, 简称 A3C.</p>
+<h3 id="平行宇宙">平行宇宙</h3>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image-16.png" alt="alt text">
+<figcaption aria-hidden="true">alt text</figcaption>
+</figure>
+<p>我们先说说没什么关系的,大家知道平行宇宙这回事.
+想像现在有三个平行宇宙, 那么就意味着这3个平行宇宙上存在3个你,
+而你可能在电脑前呆了很久, 对, 说的就是你! 然后你会被我催促起来做运动~
+接着你 和 你 还有 你, 就无奈地在做着不同的运动, 油~
+我才不想知道你在做什么样的运动呢. 不过这3个你 都开始活动胫骨啦.
+假设3个你都能互相通信, 告诉对方, “我这个动作可以有效缓解我的颈椎病”,
+“我做那个动作后, 腰就不痛了 “, “我活动了手臂, 肩膀就不痛了”.
+这样你是不是就同时学到了对身体好的三招. 这样是不是感觉特别有效率.
+让你看看更有效率的, 那就想想3个你同时在写作业, 一共3题, 每人做一题,
+只用了1/3 的时间就把作业做完了. 感觉棒棒的. 哈, 你看出来了,
+如果把这种方法用到强化学习, 岂不是 “牛逼lity”.</p>
+<h3 id="平行训练">平行训练</h3>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image-17.png" alt="alt text">
+<figcaption aria-hidden="true">alt text</figcaption>
+</figure>
+<p>这就是传说中的 A3C. A3C 其实只是这种平行方式的一种而已,
+它采用的是我们之前提到的 <a target="_blank" rel="noopener" href="https://mofanpy.com/tutorials/machine-learning/reinforcement-learning/intro-AC">Actor-Critic</a>
+的形式. 为了训练一对 Actor 和 Critic, 我们将它复制多份红色的,
+然后同时放在不同的平行宇宙当中, 让他们各自玩各的.
+然后每个红色副本都悄悄告诉黑色的 Actor-Critic
+自己在那边的世界玩得怎么样, 有哪些经验值得分享. 然后还能从黑色的
+Actor-Critic 这边再次获取综合考量所有副本经验后的通关秘籍. 这样一来一回,
+形成了一种有效率的强化学习方式.</p>
+<h3 id="多核训练">多核训练</h3>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image-18.png" alt="alt text">
+<figcaption aria-hidden="true">alt text</figcaption>
+</figure>
+<p>我们知道目前的计算机多半是有双核, 4核, 甚至 6核, 8核. 一般的学习方法,
+我们只能让机器人在一个核上面玩耍. 但是如果使用 A3C 的方法,
+我们可以给他们安排去不同的核, 并行运算. 实验结果就是,
+这样的计算方式往往比传统的方式快上好多倍.
+那我们也多用用这样的红利吧.</p>
+<h3 id="要点">要点</h3>
+<p><strong>一句话概括 A3C:</strong> Google DeepMind 提出的一种解决
+<code>Actor-Critic</code> 不收敛问题的算法. 它会创建多个并行的环境,
+让多个拥有副结构的 agent 同时在这些并行环境上更新主结构中的参数.
+并行中的 agent 们互不干扰,
+而主结构的参数更新受到副结构提交更新的不连续性干扰,
+所以更新的相关性被降低, 收敛性提高.</p>
+<p>因为这节内容是基于 <code>Actor-Critic</code>, 所以还不了解
+<code>Actor-Critic</code> 的朋友们, 强烈推荐你在<a target="_blank" rel="noopener" href="https://mofanpy.com/tutorials/machine-learning/reinforcement-learning/intro-AC">这个短视频</a>
+和<a target="_blank" rel="noopener" href="https://mofanpy.com/tutorials/machine-learning/reinforcement-learning/actor-critic">这个
+Python 教程</a>中获得了解,</p>
+<p>下面是这节内容的效果提前看:</p>
+<video controls src="../机器学习相关概念/Pendulum A3C.mp4" title="Title">
+</video>
+<h3 id="算法-3">算法</h3>
+<p><code>A3C</code> 的算法实际上就是将 <code>Actor-Critic</code>
+放在了多个线程中进行同步训练. 可以想象成几个人同时在玩一样的游戏,
+而他们玩游戏的经验都会同步上传到一个中央大脑.
+然后他们又从中央大脑中获取最新的玩游戏方法.</p>
+<p><strong>这样, 对于这几个人, 他们的好处是:</strong>
+中央大脑汇集了所有人的经验, 是最会玩游戏的一个,
+他们能时不时获取到中央大脑的必杀招, 用在自己的场景中.</p>
+<p><strong>对于中央大脑的好处是:</strong>
+中央大脑最怕一个人的连续性更新,
+不只基于一个人推送更新这种方式能打消这种连续性. 使中央大脑不必有用像
+<code>DQN</code>, <code>DDPG</code> 那样的记忆库也能很好的更新. <img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image-19.png" alt="alt text"></p>
+<p>为了达到这个目的, 我们要有两套体系, 可以看作中央大脑拥有
+<code>global net</code> 和他的参数, 每位玩家有一个
+<code>global net</code> 的副本 <code>local net</code>, 可以定时向
+<code>global net</code> 推送更新, 然后定时从 <code>global net</code>
+那获取综合版的更新.</p>
+<p>如果在 tensorboard 中查看我们今天要建立的体系, 这就是你会看到的. <img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image-20.png" alt="alt text"></p>
+<p><code>W_0</code> 就是第0个 worker, 每个 worker 都可以分享
+<code>global_net</code>. <img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image-21.png" alt="alt text"></p>
+<p>如果我们调用 <code>sync</code> 中的 <code>pull</code>, 这个 worker
+就会从 <code>global_net</code> 中获取到最新的参数. <img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image-22.png" alt="alt text"></p>
+<p>如果我们调用 <code>sync</code> 中的 <code>push</code>, 这个 worker
+就会将自己的个人更新推送去 <code>global_net</code>.</p>
+<p>这次我们使用一个连续动作的环境 Pendulum 举例. 如果直接看所有代码, <a target="_blank" rel="noopener" href="https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow/tree/master/contents/10_A3C/A3C_continuous_action.py">请看我的
+Github</a>, 如果你处理的是一个离散动作环境, 可以参考这个Github 中的<a target="_blank" rel="noopener" href="https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow/tree/master/contents/10_A3C/A3C_discrete_action.py">这个文件</a>.</p>
+<p>接下来我们就开始定义连续动作的 A3C 啦.</p>
+<h3 id="主结构-1">主结构</h3>
+<p>我们用 Tensorflow 搭建神经网络, 对于我们的 Actor, tensorboard
+中可以看清晰的看到我们是如果搭建的: <img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image-23.png" alt="alt text"></p>
+<p>我们使用了 Normal distribution 来选择动作, 所以在搭建神经网络的时候,
+<code>actor</code> 这边要输出动作的均值和方差. 然后放入 Normal
+distribution 去选择动作. 计算 <code>actor</code> loss
+的时候我们还需要使用到 <code>critic</code> 提供的 <code>TD error</code>
+作为 gradient ascent 的导向. <img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image-24.png" alt="alt text"></p>
+<p><code>critic</code> 很简单啦, 只需要得到他对于 state 的价值就好了.
+用于计算 <code>TD error</code>.</p>
+<h4 id="actor-critic-网络">Actor Critic 网络</h4>
+<p>我们将 <code>Actor</code> 和 <code>Critic</code> 合并成一整套系统,
+这样方便运行.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这个 class 可以被调用生成一个 global net.</span></span><br><span class="line"><span class="comment"># 也能被调用生成一个 worker 的 net, 因为他们的结构是一样的,</span></span><br><span class="line"><span class="comment"># 所以这个 class 可以被重复利用.</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ACNet</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, globalAC=<span class="literal">None</span></span>):</span><br><span class="line">        <span class="comment"># 当创建 worker 网络的时候, 我们传入之前创建的 globalAC 给这个 worker</span></span><br><span class="line">        <span class="keyword">if</span> 这是 <span class="keyword">global</span>:   <span class="comment"># 判断当下建立的网络是 local 还是 global</span></span><br><span class="line">            <span class="keyword">with</span> tf.variable_scope(<span class="string">&#x27;Global_Net&#x27;</span>):</span><br><span class="line">                self._build_net()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">with</span> tf.variable_scope(<span class="string">&#x27;worker&#x27;</span>):</span><br><span class="line">                self._build_net()</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 接着计算 critic loss 和 actor loss</span></span><br><span class="line">            <span class="comment"># 用这两个 loss 计算要推送的 gradients</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">with</span> tf.name_scope(<span class="string">&#x27;sync&#x27;</span>):  <span class="comment"># 同步</span></span><br><span class="line">                <span class="keyword">with</span> tf.name_scope(<span class="string">&#x27;pull&#x27;</span>):</span><br><span class="line">                    <span class="comment"># 更新去 global</span></span><br><span class="line">                <span class="keyword">with</span> tf.name_scope(<span class="string">&#x27;push&#x27;</span>):</span><br><span class="line">                    <span class="comment"># 获取 global 参数</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_build_net</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment"># 在这里搭建 Actor 和 Critic 的网络</span></span><br><span class="line">        <span class="keyword">return</span> 均值, 方差, state_value</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">update_global</span>(<span class="params">self, feed_dict</span>):</span><br><span class="line">        <span class="comment"># 进行 push 操作</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">pull_global</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment"># 进行 pull 操作</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">choose_action</span>(<span class="params">self, s</span>):</span><br><span class="line">        <span class="comment"># 根据 s 选动作</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这些只是在创建网络而已, <code>worker</code> 还有属于自己的 class,
+用来执行在每个线程里的工作.</p>
+<h4 id="worker">Worker</h4>
+<p>每个 <code>worker</code> 有自己的 class, class 里面有他的工作内容
+<code>work</code>, 看全部请来我的 <a target="_blank" rel="noopener" href="https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow/tree/master/contents/10_A3C/A3C_continuous_action.py">Github</a>.</p>
+<figure>
+<img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image-25.png" alt="alt text">
+<figcaption aria-hidden="true">alt text</figcaption>
+</figure>
+<p>上面讲到的是一个 continuous action 的例子, <a target="_blank" rel="noopener" href="https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow/tree/master/contents/10_A3C/A3C_continuous_action.py">全部代码在这里</a>清晰可见.
+还有一个是 discrete action 的例子. 使用的是 Cartpole 的实验, <a target="_blank" rel="noopener" href="https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow/tree/master/contents/10_A3C/A3C_discrete_action.py">代码在这</a>.
+同时, 我还做了一个 A3C 加上 RNN 的例子, 同样是用 Pendulum 的例子, <a target="_blank" rel="noopener" href="https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow/tree/master/contents/10_A3C/A3C_RNN.py">代码在这</a>.</p>
+<h3 id="multiprocessing-a3c">multiprocessing + A3C</h3>
+<p>除此之外, 我心里一直有一个疙瘩, 因为这个 A3C 中, 我用的是 python 的
+<a target="_blank" rel="noopener" href="https://mofanpy.com/tutorials/python-basic/threading/">threading</a>,
+懂 python 的朋友知道, threading 有 <a target="_blank" rel="noopener" href="https://mofanpy.com/tutorials/python-basic/threading/GIL">GIL</a>,
+运算速度是问题, 我的 CPU 都不是满格的. 我一直想把这个 A3C 代码移植去 <a target="_blank" rel="noopener" href="https://mofanpy.com/tutorials/python-basic/multiprocessing/">multiprocessing</a>,
+提高效率. 但是 Tensorflow 的 session 就是和 multiprocessing 不兼容,
+Global Net 做不好. 怎么办?</p>
+<p><a target="_blank" rel="noopener" href="https://www.tensorflow.org/deploy/distributed">Distributed
+Tensorflow</a> 是一个备选方案. 但是这个要求你是在计算机集群上做,
+不然速度上还不如这个 threading 的 A3C. 这时, 我不爽了, 到在<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/63342728/answer/297818331">知乎上抱怨了一番</a>.
+和知友们聊了会, 然后我想出了下面这个方案.</p>
+<p>和 Tensorflow 一样, 我做过一些 <a target="_blank" rel="noopener" href="https://mofanpy.com/tutorials/machine-learning/torch/">Pytorch
+的教程</a>, pytorch 也是做神经网络的. 但是它是<a target="_blank" rel="noopener" href="http://pytorch.org/docs/master/notes/multiprocessing.html">支持
+multiprocessing</a> 的. 我专门开了一个 repo, 把 Pytorch +
+multiprocessing 的代码<a target="_blank" rel="noopener" href="https://github.com/MorvanZhou/pytorch-A3C">分享了出来</a>. 这会儿,
+CPU 满格, 心情舒畅多了~ <img src="/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/image-27.png" alt="alt text"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz">ALTNT</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/">http://blog.705553939.xyz/2024/06/28/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%A6%82%E5%BF%B5/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">强化学习</a></div><div class="post_share"><div class="social-share" data-image="/img/altnt.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/06/28/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" title="vscode插件开发"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">vscode插件开发</div></div></a></div><div class="next-post pull-right"><a href="/2024/06/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/" title="机器学习相关概念"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">机器学习相关概念</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/altnt.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ALTNT</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">15</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ALTNT"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">马尔可夫决策过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E8%BF%87%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">马尔可夫过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E8%BF%87%E7%A8%8B"><span class="toc-number">1.2.1.</span> <span class="toc-text">随机过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E6%80%A7%E8%B4%A8"><span class="toc-number">1.2.2.</span> <span class="toc-text">马尔可夫性质</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E8%BF%87%E7%A8%8B-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">马尔可夫过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E5%A5%96%E5%8A%B1%E8%BF%87%E7%A8%8B"><span class="toc-number">1.3.</span> <span class="toc-text">马尔可夫奖励过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9E%E6%8A%A5"><span class="toc-number">1.3.1.</span> <span class="toc-text">回报</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%B7%E5%80%BC%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.2.</span> <span class="toc-text">价值函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B-1"><span class="toc-number">1.4.</span> <span class="toc-text">马尔可夫决策过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AD%96%E7%95%A5"><span class="toc-number">1.4.1.</span> <span class="toc-text">3.4.1 策略</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E4%BB%B7%E5%80%BC%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.2.</span> <span class="toc-text">3.4.2 状态价值函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E4%BD%9C%E4%BB%B7%E5%80%BC%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.3.</span> <span class="toc-text">3.4.3 动作价值函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B4%9D%E5%B0%94%E6%9B%BC%E6%9C%9F%E6%9C%9B%E6%96%B9%E7%A8%8B"><span class="toc-number">1.4.4.</span> <span class="toc-text">3.4.4 贝尔曼期望方程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%96%B9%E6%B3%95"><span class="toc-number">1.5.</span> <span class="toc-text">3.5 蒙特卡洛方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dqn"><span class="toc-number">2.</span> <span class="toc-text">DQN</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dqn-deep-q-network"><span class="toc-number">2.1.</span> <span class="toc-text">DQN (Deep Q-Network)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B-1"><span class="toc-number">2.1.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="toc-number">2.1.2.</span> <span class="toc-text">算法流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E4%BC%98%E7%82%B9"><span class="toc-number">2.1.3.</span> <span class="toc-text">主要优点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#double-q-learning"><span class="toc-number">3.</span> <span class="toc-text">Double Q-Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B-2"><span class="toc-number">3.0.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B-1"><span class="toc-number">3.0.2.</span> <span class="toc-text">算法流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E4%BC%98%E7%82%B9-1"><span class="toc-number">3.0.3.</span> <span class="toc-text">主要优点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dqn-%E4%B8%8E-double-dqn-%E7%9A%84%E7%BB%93%E5%90%88"><span class="toc-number">3.1.</span> <span class="toc-text">DQN 与 Double DQN 的结合</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B-2"><span class="toc-number">3.1.1.</span> <span class="toc-text">算法流程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">3.2.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#policy-gradients"><span class="toc-number">4.</span> <span class="toc-text">Policy Gradients</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%92%8C%E4%BB%A5%E5%BE%80%E7%9A%84%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E4%B8%8D%E5%90%8C"><span class="toc-number">4.1.</span> <span class="toc-text">和以往的强化学习方法不同</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E4%B8%8D%E5%90%8C%E4%B9%8B%E5%A4%84"><span class="toc-number">4.2.</span> <span class="toc-text">更新不同之处</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E6%9B%B4%E6%96%B0%E6%AD%A5%E9%AA%A4"><span class="toc-number">4.3.</span> <span class="toc-text">具体更新步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95"><span class="toc-number">4.4.</span> <span class="toc-text">算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B-policy-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">4.5.</span> <span class="toc-text">建立 Policy 神经网络</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#actor-critic"><span class="toc-number">5.</span> <span class="toc-text">Actor Critic</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89-actor-%E5%92%8C-critic"><span class="toc-number">5.1.</span> <span class="toc-text">为什么要有 Actor 和 Critic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#actor-%E5%92%8C-critic"><span class="toc-number">5.2.</span> <span class="toc-text">Actor 和 Critic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E%E5%8A%A0%E5%8D%95%E6%AD%A5%E6%9B%B4%E6%96%B0%E5%B1%9E%E6%80%A7"><span class="toc-number">5.3.</span> <span class="toc-text">增加单步更新属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B9%E8%BF%9B%E7%89%88-deep-deterministic-policy-gradient-ddpg"><span class="toc-number">5.4.</span> <span class="toc-text">改进版 Deep
+Deterministic Policy Gradient (DDPG)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95-1"><span class="toc-number">5.5.</span> <span class="toc-text">算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E4%B8%BB%E7%BB%93%E6%9E%84"><span class="toc-number">5.6.</span> <span class="toc-text">代码主结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A4%E8%80%85%E5%AD%A6%E4%B9%A0%E6%96%B9%E5%BC%8F"><span class="toc-number">5.7.</span> <span class="toc-text">两者学习方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%8F%E5%9B%9E%E5%90%88%E7%AE%97%E6%B3%95"><span class="toc-number">5.8.</span> <span class="toc-text">每回合算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#deep-deterministic-policy-gradient-ddpg"><span class="toc-number">6.</span> <span class="toc-text">Deep Deterministic
+Policy Gradient (DDPG)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#deep-%E5%92%8C-dqn"><span class="toc-number">6.1.</span> <span class="toc-text">Deep 和 DQN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#deterministic-policy-gradient"><span class="toc-number">6.2.</span> <span class="toc-text">Deterministic Policy
+Gradient</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ddpg-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">6.3.</span> <span class="toc-text">DDPG 神经网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95-2"><span class="toc-number">6.4.</span> <span class="toc-text">算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E-actor-%E9%83%A8%E5%88%86"><span class="toc-number">6.4.1.</span> <span class="toc-text">关于 Actor 部分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E-critic-%E7%9A%84%E6%9B%B4%E6%96%B0"><span class="toc-number">6.4.2.</span> <span class="toc-text">关于 Critic 的更新</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E7%BB%93%E6%9E%84"><span class="toc-number">6.5.</span> <span class="toc-text">主结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#actor-critic-1"><span class="toc-number">6.5.1.</span> <span class="toc-text">Actor Critic</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%B0%E5%BF%86%E5%BA%93-memory"><span class="toc-number">6.5.2.</span> <span class="toc-text">记忆库 Memory</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AF%8F%E5%9B%9E%E5%90%88%E7%AE%97%E6%B3%95-1"><span class="toc-number">6.5.3.</span> <span class="toc-text">每回合算法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#asynchronous-advantage-actor-critic-a3c"><span class="toc-number">7.</span> <span class="toc-text">Asynchronous Advantage
+Actor-Critic (A3C)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E8%A1%8C%E5%AE%87%E5%AE%99"><span class="toc-number">7.1.</span> <span class="toc-text">平行宇宙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E8%A1%8C%E8%AE%AD%E7%BB%83"><span class="toc-number">7.2.</span> <span class="toc-text">平行训练</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E6%A0%B8%E8%AE%AD%E7%BB%83"><span class="toc-number">7.3.</span> <span class="toc-text">多核训练</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A6%81%E7%82%B9"><span class="toc-number">7.4.</span> <span class="toc-text">要点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95-3"><span class="toc-number">7.5.</span> <span class="toc-text">算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E7%BB%93%E6%9E%84-1"><span class="toc-number">7.6.</span> <span class="toc-text">主结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#actor-critic-%E7%BD%91%E7%BB%9C"><span class="toc-number">7.6.1.</span> <span class="toc-text">Actor Critic 网络</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#worker"><span class="toc-number">7.6.2.</span> <span class="toc-text">Worker</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#multiprocessing-a3c"><span class="toc-number">7.7.</span> <span class="toc-text">multiprocessing + A3C</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/21/crop_classification/Climate-adaptiveemergencycropmonitoringin1inaccessibleregionswithsatelliteimagery/" title="Climate-adaptive emergency crop monitoring in inaccessible regions with satellite imagery">Climate-adaptive emergency crop monitoring in inaccessible regions with satellite imagery</a><time datetime="2024-08-21T13:10:08.777Z" title="Created 2024-08-21 21:10:08">2024-08-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/14/%E8%B5%84%E6%96%99/git/" title="git">git</a><time datetime="2024-08-14T06:43:06.646Z" title="Created 2024-08-14 14:43:06">2024-08-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/14/%E8%B5%84%E6%96%99/Docker%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" title="Docker快速入门">Docker快速入门</a><time datetime="2024-08-14T03:51:21.076Z" title="Created 2024-08-14 11:51:21">2024-08-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/14/%E8%B5%84%E6%96%99/markdown/" title="Markdown 特殊符号及数学公式整理">Markdown 特殊符号及数学公式整理</a><time datetime="2024-08-14T03:47:51.740Z" title="Created 2024-08-14 11:47:51">2024-08-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/14/%E8%B5%84%E6%96%99/k8s/" title="k8s">k8s</a><time datetime="2024-08-14T03:43:57.520Z" title="Created 2024-08-14 11:43:57">2024-08-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By ALTNT</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
