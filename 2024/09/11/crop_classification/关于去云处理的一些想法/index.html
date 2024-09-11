@@ -1,0 +1,314 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>关于云处理的一些想法 | ALTNT's Hexo Blog</title><meta name="author" content="ALTNT"><meta name="copyright" content="ALTNT"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Here&#39;s something encrypted, password is required to continue reading.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于云处理的一些想法">
+<meta property="og:url" content="http://blog.705553939.xyz/2024/09/11/crop_classification/%E5%85%B3%E4%BA%8E%E5%8E%BB%E4%BA%91%E5%A4%84%E7%90%86%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/index.html">
+<meta property="og:site_name" content="ALTNT&#39;s Hexo Blog">
+<meta property="og:description" content="Here&#39;s something encrypted, password is required to continue reading.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.705553939.xyz/img/altnt.jpeg">
+<meta property="article:published_time" content="2024-09-11T02:13:38.838Z">
+<meta property="article:modified_time" content="2024-09-11T02:57:40.045Z">
+<meta property="article:author" content="ALTNT">
+<meta property="article:tag" content="crop classification">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.705553939.xyz/img/altnt.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://blog.705553939.xyz/2024/09/11/crop_classification/%E5%85%B3%E4%BA%8E%E5%8E%BB%E4%BA%91%E5%A4%84%E7%90%86%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '关于云处理的一些想法',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-09-11 10:57:40'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.2.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/altnt.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">40</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ALTNT's Hexo Blog"><span class="site-name">ALTNT's Hexo Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">关于云处理的一些想法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-09-11T02:13:38.838Z" title="Created 2024-09-11 10:13:38">2024-09-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-09-11T02:57:40.045Z" title="Updated 2024-09-11 10:57:40">2024-09-11</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="关于云处理的一些想法"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="7548706979a57f2178ba5821887ee224c163a5edc87e49cc00b935c4ad50add8">854efd16088ec0a2949395f17c9b60f9618ed3796518aea5e690afa16559fc1ff86c852c013a0870e9868d02b2614c1cfc92d206c195bc2094af2b8d17807945ea8a9105c6a76aa6592465a77ca0bb7a42b2d5e3f36e5b2bb7718c1383f68863cc2d28cddf702ea3491bf1ed62d3fb45b6b6523cbe148065ba323bbc6c677097f937a91d276631cf45c1415aa032a407483776d71c0f3d0a003ebff60c8db2bfe9afdaf94d41627e823f5ff11c1fd05d50ab09a354f4b8edcb2d1980dfc9d0f8019f0bf2b99f2aed8e77a1ca40307804d3932ac38383c54095db2b20a7fdca9e48307dc804f6c0fc80c94b5189b89ec3d15f201bf253391749652d2cf807a18c660c93cce3b956f2141247fa6db325d22bb6d0a5da8ca9fc1416dcfd8e2158c296088a3eac21f91c4e17b7f904466abe58a24ea0dcd99a5226fe781acc30b23783ad41bd5db4eeb991686f4b06ebc6e98b31242c73624e1bf4536d1104667fd4f4dc662015c3cbb0506f0491a5d9ed1c864b18690afd543905095bba9d4f391147cfcdb2b93f6c0b3cdd35502cc3b6a3eb6e02375188f5e46c12237be2e20af13ecf4e931903b533ba77394246f91599f9cf94ebdd659145a9c54fe4ca97295f22ecc03914fb9ade2e0992b737df0650d26830dba680cfb1dcd08828ff6028ff05b325bdb5ba2a4f6a8cd517361b49b1e864a414874b79ea01d799de5005cd33ea42b1b0e0cc581b1886adc78aeab96667d17c1b9f9233662bbb75f8c4f7f7132f74da0e1a3365145a73d40f3443f317dab60353f14b78fb18455cb758347e9e109da368151d990d1d515707aa4ad672be7c237cc47b25c83f9b4eee95c1b06889c3e633447a4e51bcfc425a881389544d194a17a266b465b1756947601a18794ce247a595f047070f7d6ae27c1efb96cde36382b109a224e530348c89942af674fd545e8e4f677022bcf61eda3ba6069b07e08cce3ffa610b0a2491226b77b35c2a58b3efcbb288521f50cef25773ed0d5dc4e3de4764962ccf56cfea45d1cb1d8c3695d69905caaf9f891b1e8a24cf948ad614bb4a734f3322079bf5e42efed47c5631c7e81a9b36b84b2b65b2139e7daa2c4bcb9ce6edddda6f566bea5612158467cd268b90bbfca20b40aef2b83eb0cd6c9ebd87581dfcc40ad1919dc22819c07601d21d0da03876726b2cfae1f34d1d46da2cd99aaec88d4f2683f191f71755613f707a7536ed74a06d8d2f9cf57b8559f5ab58a88dcc94a6728c1d5254e924aa40cd1d75ba9ba0334b26af23f91d324c64e7094af787af996bf09aeaa130b197d91a56cf47d0d2c85636b9454cdfbd70ab5dfbab71e885ad334432c43aaf8ae38262a80ef53bf31dc5eb08f1a31c5d9911bbf9f44e089959f565b2a3caf9d5f24983501cb84dcefaaae95b3dd297fa995af1a8fcafe1c38eada1838997fe45908a53f6b19f118427592ca475130034efc13cf53c9a0e0365d32390c89e85428d235f66020608799748515cce1ad0028f3a259aac364c14d14a20b77ee9655211fb9f0623043ad903e7d30e045d15456dba77fd9247eb39acf60a31324ff794551ce843b3b8dd983f61f4767186042e905059cc4c8c29f54bc72a0aa68bbdd38a6c385091530e3beb1721327632a46a8bf68ce2c10c706436caac1e04564b43865662ca63a31ed6a22f65bb2d9d49eb537cc0ee88482e32614a2c27c84ebde83a408a05e7c8290845658dc27fec4221d59bd68f85b642c0e0b15cdd58a8414095633f10c249020d9b91f25d498f42048d1c028d0ab71e02b30d55d68eab69558987bd510303ca654fd7a0062f81c87ddfe1a7939a013e4ec32e2f058820b9e3e07d5e74c44bc5373de1d36355b9021abdc8d0b3af497bb7668c54fce64db45bb2d04d44f5b89258ed860c8cad59554be5c1502c43dba556143612952116bb6a1f9d3943b74dabe0e4764382d33986cbff236d33d9ee7376a91d90136c31a2e14203f84f468fd70bf6b3e457f5ff6428c196ecfbdb8532a40ea0a42c0b94d93552a8f4214b50885d486b9efb0b4fb384f9153ffed0ed00ba8af5d741f5fde5198530f9dbaf6ce05295adc1aef7251f0805b8d644d662d5972c905ae5d8b4f5fef86c14af54180d00252d8a9514f9002069e5be3fe486e5a763af103bcc55e9bb162554372cd0fff830a66c4089683c9bcbdb3e7b008c7f0ce7dba708fa0c4b1c95ed3834ee8763baf4991fed1930befae4456313ba23e7d1567ad83866696a1076563383f3e62921263040dc59ebb84c70f55d2f7820fb5cc731a60c98fe</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css"></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz">ALTNT</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz/2024/09/11/crop_classification/%E5%85%B3%E4%BA%8E%E5%8E%BB%E4%BA%91%E5%A4%84%E7%90%86%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/">http://blog.705553939.xyz/2024/09/11/crop_classification/%E5%85%B3%E4%BA%8E%E5%8E%BB%E4%BA%91%E5%A4%84%E7%90%86%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/crop-classification/">crop classification</a></div><div class="post_share"><div class="social-share" data-image="/img/altnt.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/09/10/crop_classification/summary-methods/" title="机器学习相关概念"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">机器学习相关概念</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2024/08/21/crop_classification/Climate-adaptiveemergencycropmonitoringin1inaccessibleregionswithsatelliteimagery/" title="Climate-adaptive emergency crop monitoring in inaccessible regions with satellite imagery"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-21</div><div class="title">Climate-adaptive emergency crop monitoring in inaccessible regions with satellite imagery</div></div></a></div><div><a href="/2024/08/27/crop_classification/Crop%20classification/2022-RSE-Early-and-in-season-crop-type-mapping/" title="Early- and in-season crop type mapping without current-year ground truth: Generating labels from historical information via a topology-based approach"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-27</div><div class="title">Early- and in-season crop type mapping without current-year ground truth: Generating labels from historical information via a topology-based approach</div></div></a></div><div><a href="/2024/08/27/crop_classification/2024-rse-papers-for-crop-classification/Enhancing-crop-classification-in-agriculture-through-dipper-throat-optimization-and-deep-learning/" title="Enhancing food crop classification in agriculture through dipper throat optimization and deep learning with remote sensing"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-27</div><div class="title">Enhancing food crop classification in agriculture through dipper throat optimization and deep learning with remote sensing</div></div></a></div><div><a href="/2024/08/27/crop_classification/2024-rse-papers-for-crop-classification/rse-2024-Boosting-crop-classification-by-hierarchically-fusing-satellite-rotational-and-contextual-data/" title="Boosting crop classification by hierarchically fusing satellite, rotational, and contextual data"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-27</div><div class="title">Boosting crop classification by hierarchically fusing satellite, rotational, and contextual data</div></div></a></div><div><a href="/2024/08/28/crop_classification/Crop%20classification/8%E6%9C%8828/" title="8 月 28 总结"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-28</div><div class="title">8 月 28 总结</div></div></a></div><div><a href="/2024/08/24/crop_classification/Crop%20classification/WinterWheatYieldAssessmentfromLandsat8andSentinel-2DataIncorporatingSurfaceReflectanceThroughPhenologicalFittingintoRegressionYieldModels/" title="Winter Wheat Yield Assessment from Landsat 8 and Sentinel-2 Data: Incorporating Surface Reflectance, Through Phenological Fitting, into Regression Yield Models"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-24</div><div class="title">Winter Wheat Yield Assessment from Landsat 8 and Sentinel-2 Data: Incorporating Surface Reflectance, Through Phenological Fitting, into Regression Yield Models</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/altnt.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ALTNT</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">40</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ALTNT"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content toc-div-class" style="display:none"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF%E4%B8%80"><span class="toc-number">1.</span> <span class="toc-text">思路一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF%E4%BA%8C"><span class="toc-number">2.</span> <span class="toc-text">思路二：</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/11/crop_classification/%E5%85%B3%E4%BA%8E%E5%8E%BB%E4%BA%91%E5%A4%84%E7%90%86%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/" title="关于云处理的一些想法">关于云处理的一些想法</a><time datetime="2024-09-11T02:13:38.838Z" title="Created 2024-09-11 10:13:38">2024-09-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/10/crop_classification/summary-methods/" title="机器学习相关概念">机器学习相关概念</a><time datetime="2024-09-10T02:45:27.000Z" title="Created 2024-09-10 10:45:27">2024-09-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/08/remote-sensing/%E6%97%B6%E5%BA%8F%E5%8D%AB%E6%98%9F%E9%81%A5%E6%84%9F%E6%8F%AD%E7%A4%BA%E5%8A%A0%E6%B2%99%E5%9C%B0%E5%B8%A6%E6%88%98%E4%BA%89%E6%8D%9F%E6%AF%81%E6%8C%81%E7%BB%AD%E6%94%80%E5%8D%87/" title="时序卫星遥感揭示加沙地带战争损毁持续攀升">时序卫星遥感揭示加沙地带战争损毁持续攀升</a><time datetime="2024-09-08T11:24:38.481Z" title="Created 2024-09-08 19:24:38">2024-09-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/03/crop_classification/Google-Earth-Engine/" title="Google Earth Engine">Google Earth Engine</a><time datetime="2024-09-03T14:30:28.155Z" title="Created 2024-09-03 22:30:28">2024-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/03/crop_classification/Crop%20classification/2019-RSE-Crop-type-mapping-without-field-level-labels-Random-forest-transfer-and/" title="Crop type mapping without field-level labels: Random forest transfer and unsupervised clustering techniques">Crop type mapping without field-level labels: Random forest transfer and unsupervised clustering techniques</a><time datetime="2024-09-03T14:15:09.597Z" title="Created 2024-09-03 22:15:09">2024-09-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By ALTNT</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
