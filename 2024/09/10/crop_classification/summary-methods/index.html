@@ -1,15 +1,15 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>机器学习相关概念 | ALTNT's Hexo Blog</title><meta name="author" content="ALTNT"><meta name="copyright" content="ALTNT"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="输入特征 作为深度学习架构的特征输入，作物制图研究通常使用光学数据（RGB）、多光谱数据、雷达数据、热数据或这些数据的组合。 一些已综述的研究使用从遥感数据中得出的时间序列增强植被指数（EVI）[ 82、83 ]和归一化差异植被指数[ 84 ]作为其作物制图模型的输入。 Bhosle 和 Musande[ 85 ]在将高光谱图像输入 CNN 模型之前，使用主成分分析降低了其维数。 传统上，计算机视">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>“Remote-Sensing Data and Deep-Learning Techniques in Crop Mapping and Yield Prediction A Systematic Review&quot; | ALTNT's Hexo Blog</title><meta name="author" content="ALTNT"><meta name="copyright" content="ALTNT"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="参考文献： https:&#x2F;&#x2F;www.mdpi.com&#x2F;2072-4292&#x2F;15&#x2F;8&#x2F;2014 Xu, J.; Yang, J.; Xiong, X.; Li, H.; Huang, J.; Ting, K.; Ying, Y.; Lin, T. Towards Interpreting Multi-Temporal Deep Learning Models in Crop Mapping.Remo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习相关概念">
+<meta property="og:title" content="“Remote-Sensing Data and Deep-Learning Techniques in Crop Mapping and Yield Prediction A Systematic Review&quot;">
 <meta property="og:url" content="http://blog.705553939.xyz/2024/09/10/crop_classification/summary-methods/index.html">
 <meta property="og:site_name" content="ALTNT&#39;s Hexo Blog">
-<meta property="og:description" content="输入特征 作为深度学习架构的特征输入，作物制图研究通常使用光学数据（RGB）、多光谱数据、雷达数据、热数据或这些数据的组合。 一些已综述的研究使用从遥感数据中得出的时间序列增强植被指数（EVI）[ 82、83 ]和归一化差异植被指数[ 84 ]作为其作物制图模型的输入。 Bhosle 和 Musande[ 85 ]在将高光谱图像输入 CNN 模型之前，使用主成分分析降低了其维数。 传统上，计算机视">
+<meta property="og:description" content="参考文献： https:&#x2F;&#x2F;www.mdpi.com&#x2F;2072-4292&#x2F;15&#x2F;8&#x2F;2014 Xu, J.; Yang, J.; Xiong, X.; Li, H.; Huang, J.; Ting, K.; Ying, Y.; Lin, T. Towards Interpreting Multi-Temporal Deep Learning Models in Crop Mapping.Remo">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://blog.705553939.xyz/img/altnt.jpeg">
 <meta property="article:published_time" content="2024-09-10T02:45:27.000Z">
-<meta property="article:modified_time" content="2024-09-10T02:51:53.718Z">
+<meta property="article:modified_time" content="2024-09-14T06:21:14.277Z">
 <meta property="article:author" content="ALTNT">
-<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="crop classification">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://blog.705553939.xyz/img/altnt.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://blog.705553939.xyz/2024/09/10/crop_classification/summary-methods/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
   root: '/',
@@ -51,12 +51,12 @@
   },
   autoDarkmode: false
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: '机器学习相关概念',
+  title: '“Remote-Sensing Data and Deep-Learning Techniques in Crop Mapping and Yield Prediction A Systematic Review"',
   isPost: true,
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2024-09-10 10:51:53'
+  postUpdate: '2024-09-14 14:21:14'
 }</script><script>(win=>{
       win.saveToLocal = {
         set: (key, value, ttl) => {
@@ -153,17 +153,346 @@
         }
       }
       detectApple()
-    })(window)</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/altnt.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">42</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ALTNT's Hexo Blog"><span class="site-name">ALTNT's Hexo Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">机器学习相关概念</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-09-10T02:45:27.000Z" title="Created 2024-09-10 10:45:27">2024-09-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-09-10T02:51:53.718Z" title="Updated 2024-09-10 10:51:53">2024-09-10</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="机器学习相关概念"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h4 id="输入特征">输入特征</h4>
+    })(window)</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/altnt.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">42</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ALTNT's Hexo Blog"><span class="site-name">ALTNT's Hexo Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">“Remote-Sensing Data and Deep-Learning Techniques in Crop Mapping and Yield Prediction A Systematic Review&quot;</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-09-10T02:45:27.000Z" title="Created 2024-09-10 10:45:27">2024-09-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-09-14T06:21:14.277Z" title="Updated 2024-09-14 14:21:14">2024-09-14</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="“Remote-Sensing Data and Deep-Learning Techniques in Crop Mapping and Yield Prediction A Systematic Review&quot;"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="参考文献">参考文献：</h2>
+<p>https://www.mdpi.com/2072-4292/15/8/2014</p>
+<p>Xu, J.; Yang, J.; Xiong, X.; Li, H.; Huang, J.; Ting, K.; Ying, Y.;
+Lin, T. Towards Interpreting Multi-Temporal Deep Learning Models in Crop
+Mapping.Remote Sens. Environ.2021,264, 112599. [CrossRef]</p>
+<p>102.Tian, H.; Wang, P.; Tansey, K.; Han, D.; Zhang, J.; Zhang, S.;
+Li, H. A Deep Learning Framework under Attention Mechanism for Wheat
+Yield Estimation Using Remotely Sensed Indices in the Guanzhong Plain,
+Pr China.Int. J. Appl. Earth Obs. Geoinf.2021, 102, 102375.
+[CrossRef]</p>
+<p>带有注意力机制的 LSTM
+模型被用来提高产量预测模型的通用性，<strong>并确定不同变量对产量的贡献</strong>
+[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B102-remotesensing-15-02014">102</a> ]。</p>
+<p>Reedha 等人 [ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B131-remotesensing-15-02014">131</a> ]
+使用 Visual Transformer (ViT)
+模型对无人机拍摄的航拍图像进行分类，并实现了与 CNN
+类似的准确度。作者还声称，当标记的训练数据集较小时，ViT
+模型可以比最先进的 CNN 分类更好。为了评估其性能，DL 模型通常与 ML
+方法（例如 SVM、RF 和 DT）进行基准测试。</p>
+<p>论文来源：</p>
+<figure>
+<img src="/2024/09/10/crop_classification/summary-methods/1726033060821.png" alt="1726033060821">
+<figcaption aria-hidden="true">1726033060821</figcaption>
+</figure>
+<h4 id="所用传感器和平台">4.1. 所用传感器和平台。</h4>
+<p>卫星、航空或无人机传感器可用于获取遥感数据，以进行作物测绘和产量预测。如图<a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#fig_body_display_remotesensing-15-02014-f005">5</a>所示，大约
+81%
+的作物测绘和产量预测研究使用了卫星传感器，其次是无人机（12%）。一些作物测绘研究（四项）也主要使用卫星和航空图像来测试其开发的模型的稳健性。卫星图像易于获取，因为卫星已经存在于太空中并定期捕获数据。此外，数据提供商会对卫星图像进行初步预处理。因此，用户可以专注于应用程序的开发，而不是预处理部分。无人机在产量预测研究[72、73、74、75、76、77]中的使用频率高于作物测绘研究，尽管<a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B72-remotesensing-15-02014">无人机</a>在提供精确作物边界测绘数据方面同样有用。</p>
+<p><a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#table_body_display_remotesensing-15-02014-t001">表
+1</a>总结了作物测绘和产量预测研究中使用的主要传感器。</p>
+<figure>
+<img src="/2024/09/10/crop_classification/summary-methods/1726025560156.png" alt="1726025560156">
+<figcaption aria-hidden="true">1726025560156</figcaption>
+</figure>
+<figure>
+<img src="/2024/09/10/crop_classification/summary-methods/1726025588089.png" alt="1726025588089">
+<figcaption aria-hidden="true">1726025588089</figcaption>
+</figure>
+<p>除了表中提到的传感器外，</p>
+<p><strong>Planet-Scope、AVHRR、基于 UAV 的高光谱和基于 UAV 的多光谱
+(MS) 和热传感器</strong>也用于一些产量预测研究，</p>
+<p>而
+<strong>Quickbird、SPOT、VENμS、OHS-2A、Planetscope、RADARSAT-2、EO-1
+Hyperion、Formosat-2、GF-1、DigitalGlobe、ROSIS-03、WV-2、NAIP、RapidEye、Aerial
+(UCMerced) 和 Aerial (高光谱)</strong> 也用于作物测绘研究。</p>
+<p><strong>中分辨率成像光谱仪 (MODIS)</strong>
+是最常用的传感器，专门用于<strong>产量预测研究</strong>。区域研究中的高时间和足够的空间分辨率可能使
+MODIS 成为区域级产量预测研究的首选。</p>
+<p><strong>Sentinel-1、Landsat 和 Sentinel-2</strong>
+是作物测绘研究中最常用的传感器。</p>
+<p>。</p>
+<p>所有上述遥感数据的共同优点是它们都可以免费获取。这些数据也可以通过谷歌地球引擎获取，因此可以进行数据管理和预处理。</p>
+<p>事实上，一些作物监测研究已经使用谷歌地球引擎作为数据管理和处理平台 <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B78-remotesensing-15-02014"> [78，79，80
+]。MODIS
+和</a>Sentinel传感器的高时间分辨率还可以让我们在更精细的层面上研究作物物候学。</p>
+<p><strong>Sentinel-1 和<a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B79-remotesensing-15-02014">Radarsat</a> -2
+等雷达传感器</strong>也可以在<strong>多云天气下</strong>工作。这可能是这些传感器在包括水稻在内的作物物候特征研究中得到更广泛应用的原因。</p>
+<p><strong>基于无人机的光学和多光谱传感器</strong>的数量也相当可观。</p>
+<p>。</p>
+<p>值得注意的是，尽管高光谱传感器能够提供更好的光谱范围和精度，而这正是作物监测所必需的[ 81 ]，但对其的探索较少。</p>
+<h4 id="输入特征">4.2 输入特征</h4>
 <p>作为深度学习架构的特征输入，作物制图研究通常使用<strong>光学数据（RGB）、多光谱数据、雷达数据、热数据或这些数据的组合</strong>。</p>
-<p>一些已综述的研究使用从遥感数据中得出的<strong>时间序列增强植被指数（EVI）</strong>[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B82-remotesensing-15-02014">82、83</a> ]和<strong>归一化差异植被指数[ 84 ]</strong>作为其作物制图模型的输入。</p>
+<p>一些已综述的研究使用<strong>从遥感数据中得出</strong>的<strong>时间序列增强植被指数（EVI）</strong>[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B82-remotesensing-15-02014">82、83</a> ]和
+<strong>归一化差异植被指数[ 84 ]</strong> 作为其作物制图模型的输入。</p>
 <p>Bhosle 和 Musande[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B83-remotesensing-15-02014">85 </a>]<strong>在将高光谱图像输入
-CNN 模型之前，使用主成分分析降低了其维数</strong>。</p>
-<p>传统上，计算机视觉 CNN
+CNN 模型之前，使用主成分分析降低了其维数</strong>。（高光谱降低维数)</p>
+<figure>
+<img src="/2024/09/10/crop_classification/summary-methods/1726024375463.png" alt="1726024375463">
+<figcaption aria-hidden="true">1726024375463</figcaption>
+</figure>
+<p>（<strong>将 CNN 用于遥感应用要怎么做</strong>)传统上，计算机视觉 CNN
 模型是针对三通道红、绿、蓝（RGB）图像设计的。在将为计算机视觉开发的传输模型用于遥感应用时，数据应以三通道
-RGB 格式准备，**因此不能使用额外的多光谱波段[ 86 **]。例如，Li
-等人[ 87 ]采用了这种方法，只使用多光谱 Quickbird 图像的 RGB 通道来输入
-LeNet 模型。</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz">ALTNT</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz/2024/09/10/crop_classification/summary-methods/">http://blog.705553939.xyz/2024/09/10/crop_classification/summary-methods/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></div><div class="post_share"><div class="social-share" data-image="/img/altnt.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/09/11/crop_classification/%E5%85%B3%E4%BA%8E%E5%8E%BB%E4%BA%91%E5%A4%84%E7%90%86%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/" title="关于云处理的一些想法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">关于云处理的一些想法</div></div></a></div><div class="next-post pull-right"><a href="/2024/09/08/remote-sensing/%E6%97%B6%E5%BA%8F%E5%8D%AB%E6%98%9F%E9%81%A5%E6%84%9F%E6%8F%AD%E7%A4%BA%E5%8A%A0%E6%B2%99%E5%9C%B0%E5%B8%A6%E6%88%98%E4%BA%89%E6%8D%9F%E6%AF%81%E6%8C%81%E7%BB%AD%E6%94%80%E5%8D%87/" title="时序卫星遥感揭示加沙地带战争损毁持续攀升"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">时序卫星遥感揭示加沙地带战争损毁持续攀升</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2024/06/26/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/" title="机器学习相关概念"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-26</div><div class="title">机器学习相关概念</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/altnt.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ALTNT</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">42</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ALTNT"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E7%89%B9%E5%BE%81"><span class="toc-number">1.</span> <span class="toc-text">输入特征</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/12/crop_classification/Towardsinterpretingmulti-temporaldeeplearningmodelsincropmapping/" title="Towards interpreting multi-temporal deep learning models in crop mapping">Towards interpreting multi-temporal deep learning models in crop mapping</a><time datetime="2024-09-12T11:07:40.455Z" title="Created 2024-09-12 19:07:40">2024-09-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/12/crop_classification/%20ADeepLearningFrameworkunderAttentionMechanismforWheat-YieldEstimation-Using-Remotely-Sensed-Indices-in-the-Guanzhong-Plain/" title="A Deep Learning Framework under Attention Mechanism for Wheat Yield Estimation Using Remotely Sensed Indices in the Guanzhong Plain">A Deep Learning Framework under Attention Mechanism for Wheat Yield Estimation Using Remotely Sensed Indices in the Guanzhong Plain</a><time datetime="2024-09-12T07:44:27.908Z" title="Created 2024-09-12 15:44:27">2024-09-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/11/crop_classification/%E5%85%B3%E4%BA%8E%E5%8E%BB%E4%BA%91%E5%A4%84%E7%90%86%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/" title="关于云处理的一些想法">关于云处理的一些想法</a><time datetime="2024-09-11T02:13:38.838Z" title="Created 2024-09-11 10:13:38">2024-09-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/10/crop_classification/summary-methods/" title="机器学习相关概念">机器学习相关概念</a><time datetime="2024-09-10T02:45:27.000Z" title="Created 2024-09-10 10:45:27">2024-09-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/08/remote-sensing/%E6%97%B6%E5%BA%8F%E5%8D%AB%E6%98%9F%E9%81%A5%E6%84%9F%E6%8F%AD%E7%A4%BA%E5%8A%A0%E6%B2%99%E5%9C%B0%E5%B8%A6%E6%88%98%E4%BA%89%E6%8D%9F%E6%AF%81%E6%8C%81%E7%BB%AD%E6%94%80%E5%8D%87/" title="时序卫星遥感揭示加沙地带战争损毁持续攀升">时序卫星遥感揭示加沙地带战争损毁持续攀升</a><time datetime="2024-09-08T11:24:38.481Z" title="Created 2024-09-08 19:24:38">2024-09-08</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By ALTNT</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+RGB 格式准备，**因此不能使用额外的多光谱波段[ 86**
+]。(为什么啊？)例如，Li 等人[ 87 ]采用了这种方法，只使用多光谱 Quickbird
+图像的 RGB 通道来输入 LeNet 模型。</p>
+<figure>
+<img src="/2024/09/10/crop_classification/summary-methods/1726024638553.png" alt="1726024638553">
+<figcaption aria-hidden="true">1726024638553</figcaption>
+</figure>
+<p>。</p>
+<p>。</p>
+<p>（作物产量研究的 输入特征)</p>
+<p>对于作物产量研究，气候和土壤数据等环境数据越来越多地与遥感数据相结合[ 88，89，90，91，92，93，94，95，96 ] 。</p>
+<p>光学<a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B88-remotesensing-15-02014">、</a>多<a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B89-remotesensing-15-02014">光谱</a>、雷达或热数据，或它们的组合，是产量预测研究中常用的遥感输入特征。</p>
+<p><strong>植被指数</strong>在产量预测研究中的使用频率高于在测绘研究中。大约40 <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B90-remotesensing-15-02014">%</a>的产量预测研究使用植被指数作为其模型的输入。</p>
+<p>（<strong>这里大概是说光学或/和多光谱图像作为输入特征效果好</strong>)然而，Nevavuori、Narra
+和 Lipping[ 73 ]和 Yang 等人[ 74 ]发现，<strong>在 CNN
+模型中，光学或/和多光谱图像 比
+植被指数对产量的预测效果更好</strong>。</p>
+<p>[ 90 ]的作者尝试<strong>使用卫星获取的气候和土壤数据</strong>来预测产量，而不使用光谱或VI信息（VI（Vegetation
+Index，植被指数）)，但该模型仅实现了0.55的判定系数。（决定系数（coefficient
+of determination），通常用 R² 表示，是用于评估回归模型拟合优度的指标。R²
+的取值范围在 0 到 1 之间，越接近 1
+表示模型对数据的拟合越好，预测能力越强。)</p>
+<p>。</p>
+<p>。</p>
+<p>（在行政单位（县/区）尺度的作物产量预测研究)在行政单位（县/区）尺度的作物产量预测研究中，卫星图像的分辨率高于目标数据。</p>
+<p>在这种情况下，<strong>一种典型的方法是使用平均值或加权平均值汇总每个目标区域（县/区）的值</strong>。</p>
+<p>You 等 [ 42 ][提出了一种直方图方法来降低 RS
+（遥感数据)数据的维数](https://www.mdpi.com/2072-4292/15/8/2014#B42-remotesensing-15-02014)，同时保留产量预测的关键信息。该方法被随后的几项研究采用
+[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B5-remotesensing-15-02014">5、78、97</a> ]。<a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B78-remotesensing-15-02014"></a><a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B97-remotesensing-15-02014"></a></p>
+<p>。</p>
+<p>。</p>
+<p><strong>（多时态数据)多时态数据</strong>对于区分作物类型和可靠估算产量必不可少，它可以捕捉作物不同生长阶段的信息
+<a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B98-remotesensing-15-02014"> 98，99，100 []
+。</a></p>
+<p>有趣的是，在 59% 的研究中，输入特征具有多时间维度。</p>
+<p><strong>（缺陷)虽然许多研究使用多时间数据，但没有一项研究直观地模拟时间依赖性</strong>。</p>
+<p>一些研究使用 “可解释人工智能 (XAI)”
+技术来了解不同输入特征在模型预测中的重要性。例如，Wolanin 等人 [ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B99-remotesensing-15-02014">101 </a>]使用回归-激活映射可视化和解释特征和产量驱动因素，以确定不同驱动因素对产量预测研究的影响。他们发现，<strong>向下的短波辐射通量是产量预测中最有影响力的气象变量</strong>。他们还利用<strong>注意力机制</strong>确定了影响产量的最重要变量
+[ 102 ]。通过可解释性分析，Xu 等人[ 103 ]
+发现时间序列长度的增加提高了季节分类场景中的分类置信度。</p>
+<h4 id="架构">4.3 架构</h4>
+<p>深度学习作物制图和产量预测应用通常使用卷积神经网络（CNN）、循环神经网络（RNN）、深度神经网络（DNN）、自编码器（AEs）、Transformer
+以及混合架构构建（表2）。</p>
+<p>CNN 是最流行的架构，在大约58%的被审查研究中得到使用。CNN
+架构更适合于数组数据，如遥感数据。</p>
+<p>Kuwata 和 Shibasaki
+[104]是使用深度学习进行作物产量估计领域的先驱者之一。他们使用<strong>具有单个和两个全连接层（内积层）的
+CNN
+网络</strong>来提取影响作物产量的特征并估计产量指数。他们将卫星、气候和环境数据用作模型的输入。</p>
+<p>类似地，对于作物制图，Nogueira 等人[105]应用了一种早期方法，他们使用
+CNN 从遥感场景中提取特征，并将场景分类为coffee和non-coffee。</p>
+<p>Kussul 等人[106]在一项开创性工作中提出了一种基于 CNN
+的模型，用于对多时态、多源遥感数据进行分类以进行作物制图。</p>
+<figure>
+<img src="/2024/09/10/crop_classification/summary-methods/1726031857425.png" alt="1726031857425">
+<figcaption aria-hidden="true">1726031857425</figcaption>
+</figure>
+<p>基于卷积神经网络（CNN）的方法在语义分割中的应用可以大致分为<strong>基于图像块的方法</strong>和<strong>全卷积网络（FCN）</strong>[107]。</p>
+<p><strong>（基于图像块的方法)</strong></p>
+<p>在基于图像块的方法中，图像被切成不同的图像块。每个图像块被输入到CNN模型中，该模型将中心像素或整个图像块分配给一个目标值。（例子)基于图像块的CNN在作物制图中的一些例子包括Kussul等人的二维CNN分类模型[106]、油棕榈树和柑橘树检测研究[87,108,109]、Chen和Tao对极化合成孔径雷达（PolSAR）数据的分类[110]以及Nogueira、Miranda和Santos的研究[105]，他们将SPOT图像场景分类为咖啡场景和非咖啡场景。</p>
+<p>（Tri 等[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B75-remotesensing-15-02014">75</a> ])在产量预测中，Tri
+等[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B75-remotesensing-15-02014">75</a> ]使用
+LeNet 和 inception 版本 从<strong>图像块中提取特征</strong>。</p>
+<p>在 inception
+模块中，不是选择滤波器大小，而是<strong>选择多个不同大小的卷积滤波器（以学习不同尺度的特征）</strong>，并将所有输出连接起来
+[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B111-remotesensing-15-02014">111</a> ]。</p>
+<p>为了减少参数数量，沿深度使用了一对一卷积。</p>
+<p>（Nevavuori 等[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B80-remotesensing-15-02014">80</a> ])Nevavuori
+等[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B80-remotesensing-15-02014">80</a> ]设计了一种类似于
+Krizhevsky 等[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B46-remotesensing-15-02014">46</a> ]提出的
+CNN 架构，用于<strong>根据基于无人机的 RGB
+图像预测产量</strong>。该模型以令人满意的准确度预测了田间小麦和大麦的产量。</p>
+<p>（Jiang、Liu 和 Wu[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B83-remotesensing-15-02014">83</a> ]）)Jiang、Liu
+和 Wu[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B83-remotesensing-15-02014">83</a> ]使用基于
+LeNet-5 的 CNN 对时间序列 EVI
+曲线进行分类。作者对模型进行了微调，使用基于参数的迁移学习，利用时间序列
+EVI 曲线在 MNIST 数据库上训练该模型来检测手写数字。Jiang, T.; Liu, X.;
+Wu, L. Method for Mapping Rice Fields in Complex Landscape Areas Based
+on Pre-Trained Convolutional Neural Network from Hj-1 a/B Data.ISPRS
+Int. J. Geo-Inf.2018,7, 418. [CrossRef]</p>
+<p><strong>基于块的作物分类方法的主要缺点之一</strong>是小特征可能会在最终分类中被平滑和错误分类。</p>
+<p>。</p>
+<p>。</p>
+<p>。</p>
+<p><strong>（全卷积网络（FCN））</strong></p>
+<p>2015 年，一种名为 FCN 的新型 CNN
+方法问世，该方法<strong>使用卷积层处理输入图像并生成相同大小的输出图像</strong>。该方法<strong>使用整幅图像作为输入</strong>，<strong>提取不同抽象级别的特征</strong>，<strong>并对特征进行上采样</strong>，<strong>以在网络的下一部分中使用双线性插值、反卷积层和来自更早的、空间上更精确的层的特征等技术恢复输入分辨率</strong>。</p>
+<p>U-net [ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B112-remotesensing-15-02014">112</a> ]
+是一种广泛使用的具有跳过连接的 FCN 架构。它也经常用于作物测绘。</p>
+<p>Du 等人[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B113-remotesensing-15-02014">113</a> ]以及
+Saralioglu 和 Gungor[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B114-remotesensing-15-02014">114</a> ]的论文将
+FCN 用于作物测绘的典型例子。</p>
+<p>Adrian、Sagan 和 Maimaitijiang[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B80-remotesensing-15-02014">80</a> ]使用
+3D U-net 从时间和空间维度提取特征。</p>
+<p>值得注意的是，<strong>FCN 主要用于高分辨率图像</strong>。</p>
+<p>Mullissa 等人[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B115-remotesensing-15-02014">115</a> ]、La
+Rosa 等人[116]和[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B116-remotesensing-15-02014">116</a> ]、Chamorro
+Martinez 等人[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B117-remotesensing-15-02014">117</a> ]和
+Wei 等人[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B118-remotesensing-15-02014">118</a> ]将
+FCN 应用于<strong>合成孔径雷达（SAR）图像中农作物的分类</strong>。</p>
+<p>Chew 等人[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B119-remotesensing-15-02014">119</a> ]使用
+VGG16 架构和公开的 ImageNet
+数据集对其模型进行预训练，然后将其输入到无人机（VAG)图像中。</p>
+<p>.</p>
+<p>.</p>
+<p>(一维卷积神经网络（1D CNN）在时间或光谱维度上的应用)</p>
+<p>一维卷积神经网络（1D
+CNN）在时间或光谱维度上的应用也被用于作物制图和产量预测。</p>
+<p>Zhong、Hu 和 Zhou [ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B82-remotesensing-15-02014">82</a> ]
+证明 1D CNN 可有效且高效地用于对多时相影像进行分类。作者比较了 1D CNN 与
+RNN 的输出，使用多时相 Landsat EVI 数据对夏季作物进行分类。在实验中，1D
+CNN 表现出比基于 CNN、RF 和 SVM 的方法更高的准确度和 FI
+得分。<strong>该实验证明了 1D CNN
+通过表示时间特征对作物进行分类的能力。</strong></p>
+<p>(缺陷)然而，这种方法的局限性在于<strong>它没有考虑卫星图像的光谱和空间信息</strong>。</p>
+<p>Zhou 等 [ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B120-remotesensing-15-02014">120</a> ]
+使用了<strong>基于对象的图像分析</strong>，这是<strong>公认的用于作物制图的高分辨率图像分类方法</strong>。作者使用<strong>分割算法</strong>对
+Sentinel-2 影像进行分割，<strong>并使用 1D CNN
+对分割的平均光谱矢量进行分类</strong>。</p>
+<p>（缺陷)这种方法利用片段的平均值来捕捉空间信息，<strong>但仍然没有对时间关系进行建模</strong>，从而提高准确性。</p>
+<p>。</p>
+<p>。</p>
+<p>（RNN)</p>
+<p>RNN 模型是第二广泛使用的模型，因为它们在超过 22%
+的已综述研究中得到应用。</p>
+<p>事实上，RNN 是<strong>产量预测</strong>的首选方法。</p>
+<p>超过 40% 的已综述产量预测研究使用了 RNN。</p>
+<p>当涉及时间维度时，RNN 是农业监测的首选方法 [ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B47-remotesensing-15-02014">47</a> ]。</p>
+<p><strong>LSTM 是 RNN
+的一种，它可以有效地从多时相图像中学习时间特征</strong>，以进行作物制图
+[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B121-remotesensing-15-02014">121</a> , <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B122-remotesensing-15-02014">122</a> ]
+和产量估算 [ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B5-remotesensing-15-02014">5</a> , <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B79-remotesensing-15-02014">79</a> , <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B88-remotesensing-15-02014">88</a> ]。</p>
+<p><strong>Rußwurm 和 Korner [ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B123-remotesensing-15-02014">123</a> ]
+提出了一种用于时间特征提取的 LSTM
+模型</strong>，以对多类作物类型进行分类。</p>
+<p>徐等 [ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B122-remotesensing-15-02014">122</a> ]
+使用 LSTM 模型学习时间序列光谱特征，以进行作物制图。</p>
+<p><strong>作者还研究了该模型在美国玉米成熟区 6
+个地点之间的空间转移，发现该方法可以学习跨区域的通用特征表示</strong>。</p>
+<p>（RNN
+的缺陷)然而，<strong>循环神经网络模型通常不能用于学习空间特征表示</strong>。（</p>
+<p>RNN
+更适用于处理时间序列数据，能够有效地学习时间维度上的特征。然而，在学习空间特征方面，它可能不如其他专门设计用于处理空间信息的模型或方法有效。</p>
+<p>例如，在作物制图和产量预测等任务中，空间特征对于准确理解和分析作物的分布和生长情况非常重要。虽然
+RNN
+在某些情况下可以用于这些任务，但在处理空间特征时可能不如其他模型表现出色。）</p>
+<p>。</p>
+<p>。</p>
+<p>（MLP，多层感知机分类是很基础的算法了，主流肯定不会用这种)</p>
+<p>尽管 MLP 并不特别适合阵列数据（如 RS 和环境数据），但一些研究也使用了
+MLP。</p>
+<p>例如，Maimaitijiang 等人 [ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B72-remotesensing-15-02014">72</a> ]
+使用<strong>完全连接的前馈神经网络和数据融合</strong>进行<strong>产量预测</strong>。他们研究了融合光谱、作物高度、作物密度、温度和质地等数据在输入和中间阶段对大豆产量的影响。</p>
+<p>Chamorro Martinez 等人 [ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B117-remotesensing-15-02014">117</a> ]
+使用<strong>贝叶斯神经网络预测</strong>产量并发现与预测相关的不确定性。在贝叶斯神经网络中，神经网络的权重不是固定的，而是<strong>由概率分布表示</strong>。</p>
+<p>AE 是一种无监督的深度学习技术，在一些作物制图应用中得到广泛使用 <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B116-remotesensing-15-02014"> [116、124、125
+]。在这些研究中，AE 用于学习</a><a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B124-remotesensing-15-02014">压缩</a>并改进卫星数据的表示，然后使用其他方法对<a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B125-remotesensing-15-02014">这些</a>数据进行分类。</p>
+<p>。</p>
+<p>。</p>
+<p>（包含多种架构的混合模块)</p>
+<p>包含多种架构的混合模块用于学习空间、光谱和时间特征，以改进决策。</p>
+<p><strong>在混合模型中，不同的架构用于学习不同领域的特征</strong>。这些模型要么合并从两个网络获得的高级特征，要么将一种架构的输出特征用作另一种架构的输入。</p>
+<p>为了联合建模来自多时间图像的空间背景和时间信息，使用了 RNN 和 CNN
+的组合[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B42-remotesensing-15-02014">42</a> , <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B117-remotesensing-15-02014">117</a> ]。</p>
+<p>Ghazaryan 等人[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B126-remotesensing-15-02014">126</a> ]发现，在预测多时间、多光谱和多源图像的产量时，混合模型在
+3D CNN、LSTM 以及 CNN 与 LSTM 的组合中提供了最高的准确率。</p>
+<p>Zhao 等人[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B127-remotesensing-15-02014">127</a> ]首先使用
+<strong>LeNet-5 [ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B128-remotesensing-15-02014">128</a> ]
+模型和迁移学习方法对红、绿和红外图像进行分类</strong>，然后在<strong>第二步使用带有物候信息的
+DT 模型改进分类结果</strong>。</p>
+<p>虽然这种混合方法提高了水稻测绘的准确性，但该方法在更大规模上实施可能具有挑战性，因为<strong>决策规则是局部的，必须通过实地调查来确定</strong>。（这意味着这些规则是基于特定区域的实地调查得出的，可能不适用于其他地区或大规模的情况)</p>
+<p>。</p>
+<p>。</p>
+<p>（注意力机制)</p>
+<p>近年来，注意力机制在深度学习作物制图和产量预测模型中也变得流行起来。</p>
+<p>带有注意力机制的 LSTM
+模型被用来提高产量预测模型的通用性，<strong>并确定不同变量对产量的贡献</strong>
+[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B102-remotesensing-15-02014">102</a> ]。</p>
+<p>注意力机制还被用来识别作物制图的重要特征 [ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B103-remotesensing-15-02014">103</a> ]。</p>
+<p>Wang 等人 [ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B129-remotesensing-15-02014">129</a> ]
+声称，通过整合注意力机制和地理信息可以改进作物制图，因为它可以减少地理异质性的影响，并防止考虑不相关的信息。</p>
+<p>Seydi、Amani 和 Ghorbanian [ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B84-remotesensing-15-02014">84</a> ]
+实现了空间和光谱注意力机制来提取与作物制图相关的隐藏特征。</p>
+<p><strong>基于自注意力的 Transformers 也被应用于作物制图</strong>，这种
+Transformers 被发现可有效处理序列数据。</p>
+<p>Rußwurm 和 Körner [ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B130-remotesensing-15-02014">130</a> ]
+得出结论，Transformers 在处理原始时间序列 RS
+数据中的噪声方面更为稳健，并且对其分类更为有效。</p>
+<p>Reedha 等人 [ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B131-remotesensing-15-02014">131</a> ]
+使用 <strong>Visual Transformer (ViT)
+模型</strong>对无人机拍摄的航拍图像进行分类，并实现了与 CNN
+类似的准确度。作者还声称，当标记的训练数据集较小时，ViT
+模型可以比最先进的 CNN 分类更好。为了评估其性能，DL 模型通常与 ML
+方法（例如 SVM、RF 和 DT）进行基准测试。</p>
+<p>。</p>
+<p>。</p>
+<p>。</p>
+<h4 id="训练数据">4.6. 训练数据</h4>
+<p>深度学习模型的精度和泛化能力取决于训练数据的质量和数量[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B39-remotesensing-15-02014">39</a> ]。训练数据不足会导致模型过度拟合，影响预测精度。</p>
+<p>作物制图的大部分训练都是通过实地考察收集关注区域的作物类型标签进行的（<a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#table_body_display_remotesensing-15-02014-t004">表4</a>）。</p>
+<figure>
+<img src="/2024/09/10/crop_classification/summary-methods/1726046690433.png" alt="1726046690433">
+<figcaption aria-hidden="true">1726046690433</figcaption>
+</figure>
+<p>实地考察是一个耗费人力和时间的过程。</p>
+<p>实地调查之后，<strong>农田数据层（CDL）</strong>
+成为作物分类模型的主要训练来源。CDL
+是美国的地理参考、特定作物的土地覆盖地图[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B141-remotesensing-15-02014">141</a> ]。它使用地面真实数据和中等分辨率图像制作而成。CDL
+的分辨率为 30 米。它由美国农业部（USDA）每年发布。</p>
+<p>可以推断，在世界其他地方开展这样的研究具有挑战性，因为没有这样的标准数据。</p>
+<p>只有三项研究使用了除 CDL 以外的政府提供的数据。</p>
+<p>训练数据的另一种方法是对更高分辨率图像进行视觉图像解释。</p>
+<p>。</p>
+<p>。</p>
+<p><strong>基准数据</strong>（例如加州大学默塞德分校土地利用数据集、NWPU-RESISC45
+数据集、Campo Verde 数据集和 Breizhcrops）也可用于 RS
+分析，并被用于测试一些作物制图研究中的模型。</p>
+<p><strong>（Crowdsourcing)众包</strong> 是另一种训练数据来源。Wang
+等[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B142-remotesensing-15-02014">142</a> ]使用从农民那里众包的作物类型数据来训练网络。Saralioglu
+和 Gungor[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B114-remotesensing-15-02014">114</a> ]创建了一个网页界面来收集作物制图的训练数据。</p>
+<p>然而，众包方法所带来的挑战是如何为贡献者创造激励或动机。</p>
+<p>此外，这些数据的验证是另一个挑战。谷歌街景图像也能提供一种高效、经济的方式来提供地面参考，以训练
+DNN 进行作物类型制图[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B143-remotesensing-15-02014">143</a> ]。</p>
+<p>。</p>
+<p>。</p>
+<p>美国农业部国家农业统计局提供的县级产量统计数据和从田间收集的产量数据是训练
+DL 产量预测最常用的数据（<a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#table_body_display_remotesensing-15-02014-t005">表
+5</a>）。</p>
+<figure>
+<img src="/2024/09/10/crop_classification/summary-methods/1726046889618.png" alt="1726046889618">
+<figcaption aria-hidden="true">1726046889618</figcaption>
+</figure>
+<p>表中将美国农业部的产量统计数据与其他政府数据源分开，以突出其使用频率。</p>
+<p>田间规模产量预测的目标数据是在收获期间收集的，由收割机收集[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B73-remotesensing-15-02014">73</a> ]，或通过每个产量地块的加权谷物收集[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B72-remotesensing-15-02014">72</a> ]。</p>
+<p><strong>田间数据</strong>对于田间预测至关重要。</p>
+<p>地方管理机构准备的数据可能无法提供置信度和准确性。</p>
+<p>美国可以获得美国农业部的县级产量数据，而加拿大可以获得 CISA
+数据。</p>
+<p>但是，世界其他地区没有这些数据。</p>
+<p>。</p>
+<p>。</p>
+<p>作物制图[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B113-remotesensing-15-02014">113</a> ]和产量预测研究[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B75-remotesensing-15-02014">75</a> ]也使用了<strong>旋转和翻转等数据增强技术</strong>，以进一步扩大数据并确保模型不受旋转和翻转的影响。</p>
+<p>一些作物制图研究使用了<strong>领域自适应技术[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B144-remotesensing-15-02014">144</a> ]和弱监督学习[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B145-remotesensing-15-02014">145</a> ]</strong>来解决训练数据稀缺的问题。</p>
+<p>Wang等[ <a target="_blank" rel="noopener" href="https://www.mdpi.com/2072-4292/15/8/2014#B145-remotesensing-15-02014">145</a> ]的结论是，<strong>如果有效使用训练标签，即使在训练数据稀缺的情况下，CNN在作物制图方面的表现也能优于其他ML方法</strong>。</p>
+<p>作者使用两种类型的训练数据（单个地理标记点（像素）和图像级标签）来训练U-net。这种训练方法给出了令人满意的结果，证明了<strong>弱监督的适用性</strong>。该模型应针对不同地区和作物类型进一步验证，并可使用多时间特征和具有时间学习能力的DL模型进行改进。作物类型标签和历史产量数据的稀缺是开发可靠、准确的作物测绘和产量预测的深度学习模型的主要障碍。</p>
+<h4 id="输出规模">4.8 输出规模</h4>
+<p>作物制图和产量预测研究在不同尺度上实施。</p>
+<p><strong>作物监测研究</strong>的应用取决于输出的尺度。</p>
+<p>虽然区域研究有助于在国家和区域尺度上监测作物生产，但田间内的变异性对于为特定田间决策提供信息是必要的[147,148]。</p>
+<p>输出的尺度<strong>取决于输入和目标数据的分辨率</strong>。</p>
+<p><strong>在大多数作物制图研究中，每个像素或像素组被分配一个作物类别</strong>。</p>
+<p>田间边界的精度和泛化取决于遥感数据的空间分辨率。</p>
+<p>。</p>
+<p>我们<strong>将产量预测研究</strong>分为两类，即<strong>田间级别和县级或区级</strong>。</p>
+<p>几乎70%的产量预测研究是县级水平的，其余是田间级别。县级/区级作物产量统计数据通常用于县级规模的产量预测研究。相比之下，从农民和收割机收集的田间数据用于田间规模的研究。精确的产量数据可用于在尽可能好的尺度上进行预测。</p>
+<p>值得注意的是，所使用的平台和研究的尺度是相关的。</p>
+<p>在所有基于无人机的产量预测研究中都估计了田间级别的产量。</p>
+<p>县级产量预测研究主要在美国进行。这可能是因为美国农业部产量数据的可用性。</p>
+<p>。</p>
+<p>。</p>
+<h4 id="评估指标和性能">4.9. 评估指标和性能</h4>
+<p>在所审查的<strong>作物绘图研究中最常用的评估指标是</strong> overall
+accuracy, kappa statistics, precision, recall and F1 score. The majority
+of the studies used more than one metric to evaluate performance.</p>
+<p>均方误差 (MSE)、根 MSE (RMSE)、判定系数
+(R <sup>2</sup> )、平均绝对误差 (MAE) 和平均绝对百分比误差 (MAPE)
+是评估所审查的<strong>产量预测模型的常用指标</strong></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz">ALTNT</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz/2024/09/10/crop_classification/summary-methods/">http://blog.705553939.xyz/2024/09/10/crop_classification/summary-methods/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/crop-classification/">crop classification</a></div><div class="post_share"><div class="social-share" data-image="/img/altnt.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/09/11/crop_classification/%E5%85%B3%E4%BA%8E%E5%8E%BB%E4%BA%91%E5%A4%84%E7%90%86%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/" title="关于云处理的一些想法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">关于云处理的一些想法</div></div></a></div><div class="next-post pull-right"><a href="/2024/09/08/remote-sensing/%E6%97%B6%E5%BA%8F%E5%8D%AB%E6%98%9F%E9%81%A5%E6%84%9F%E6%8F%AD%E7%A4%BA%E5%8A%A0%E6%B2%99%E5%9C%B0%E5%B8%A6%E6%88%98%E4%BA%89%E6%8D%9F%E6%AF%81%E6%8C%81%E7%BB%AD%E6%94%80%E5%8D%87/" title="时序卫星遥感揭示加沙地带战争损毁持续攀升"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">时序卫星遥感揭示加沙地带战争损毁持续攀升</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2024/08/21/crop_classification/Climate-adaptiveemergencycropmonitoringin1inaccessibleregionswithsatelliteimagery/" title="Climate-adaptive emergency crop monitoring in inaccessible regions with satellite imagery"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-21</div><div class="title">Climate-adaptive emergency crop monitoring in inaccessible regions with satellite imagery</div></div></a></div><div><a href="/2024/08/27/crop_classification/Crop%20classification/2022-RSE-Early-and-in-season-crop-type-mapping/" title="Early- and in-season crop type mapping without current-year ground truth: Generating labels from historical information via a topology-based approach"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-27</div><div class="title">Early- and in-season crop type mapping without current-year ground truth: Generating labels from historical information via a topology-based approach</div></div></a></div><div><a href="/2024/08/27/crop_classification/2024-rse-papers-for-crop-classification/Enhancing-crop-classification-in-agriculture-through-dipper-throat-optimization-and-deep-learning/" title="Enhancing food crop classification in agriculture through dipper throat optimization and deep learning with remote sensing"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-27</div><div class="title">Enhancing food crop classification in agriculture through dipper throat optimization and deep learning with remote sensing</div></div></a></div><div><a href="/2024/08/27/crop_classification/2024-rse-papers-for-crop-classification/rse-2024-Boosting-crop-classification-by-hierarchically-fusing-satellite-rotational-and-contextual-data/" title="Boosting crop classification by hierarchically fusing satellite, rotational, and contextual data"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-27</div><div class="title">Boosting crop classification by hierarchically fusing satellite, rotational, and contextual data</div></div></a></div><div><a href="/2024/08/28/crop_classification/Crop%20classification/8%E6%9C%8828/" title="8 月 28 总结"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-28</div><div class="title">8 月 28 总结</div></div></a></div><div><a href="/2024/08/24/crop_classification/Crop%20classification/WinterWheatYieldAssessmentfromLandsat8andSentinel-2DataIncorporatingSurfaceReflectanceThroughPhenologicalFittingintoRegressionYieldModels/" title="Winter Wheat Yield Assessment from Landsat 8 and Sentinel-2 Data: Incorporating Surface Reflectance, Through Phenological Fitting, into Regression Yield Models"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-24</div><div class="title">Winter Wheat Yield Assessment from Landsat 8 and Sentinel-2 Data: Incorporating Surface Reflectance, Through Phenological Fitting, into Regression Yield Models</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/altnt.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ALTNT</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">42</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ALTNT"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">1.</span> <span class="toc-text">参考文献：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%80%E7%94%A8%E4%BC%A0%E6%84%9F%E5%99%A8%E5%92%8C%E5%B9%B3%E5%8F%B0"><span class="toc-number">1.0.1.</span> <span class="toc-text">4.1. 所用传感器和平台。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E7%89%B9%E5%BE%81"><span class="toc-number">1.0.2.</span> <span class="toc-text">4.2 输入特征</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84"><span class="toc-number">1.0.3.</span> <span class="toc-text">4.3 架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE"><span class="toc-number">1.0.4.</span> <span class="toc-text">4.6. 训练数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E8%A7%84%E6%A8%A1"><span class="toc-number">1.0.5.</span> <span class="toc-text">4.8 输出规模</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%E5%92%8C%E6%80%A7%E8%83%BD"><span class="toc-number">1.0.6.</span> <span class="toc-text">4.9. 评估指标和性能</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/12/crop_classification/Towardsinterpretingmulti-temporaldeeplearningmodelsincropmapping/" title="Towards interpreting multi-temporal deep learning models in crop mapping">Towards interpreting multi-temporal deep learning models in crop mapping</a><time datetime="2024-09-12T11:07:40.455Z" title="Created 2024-09-12 19:07:40">2024-09-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/12/crop_classification/%20ADeepLearningFrameworkunderAttentionMechanismforWheat-YieldEstimation-Using-Remotely-Sensed-Indices-in-the-Guanzhong-Plain/" title="A Deep Learning Framework under Attention Mechanism for Wheat Yield Estimation Using Remotely Sensed Indices in the Guanzhong Plain">A Deep Learning Framework under Attention Mechanism for Wheat Yield Estimation Using Remotely Sensed Indices in the Guanzhong Plain</a><time datetime="2024-09-12T07:44:27.908Z" title="Created 2024-09-12 15:44:27">2024-09-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/11/crop_classification/%E5%85%B3%E4%BA%8E%E5%8E%BB%E4%BA%91%E5%A4%84%E7%90%86%E7%9A%84%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/" title="关于云处理的一些想法">关于云处理的一些想法</a><time datetime="2024-09-11T02:13:38.838Z" title="Created 2024-09-11 10:13:38">2024-09-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/10/crop_classification/summary-methods/" title="“Remote-Sensing Data and Deep-Learning Techniques in Crop Mapping and Yield Prediction A Systematic Review&quot;">“Remote-Sensing Data and Deep-Learning Techniques in Crop Mapping and Yield Prediction A Systematic Review&quot;</a><time datetime="2024-09-10T02:45:27.000Z" title="Created 2024-09-10 10:45:27">2024-09-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/08/remote-sensing/%E6%97%B6%E5%BA%8F%E5%8D%AB%E6%98%9F%E9%81%A5%E6%84%9F%E6%8F%AD%E7%A4%BA%E5%8A%A0%E6%B2%99%E5%9C%B0%E5%B8%A6%E6%88%98%E4%BA%89%E6%8D%9F%E6%AF%81%E6%8C%81%E7%BB%AD%E6%94%80%E5%8D%87/" title="时序卫星遥感揭示加沙地带战争损毁持续攀升">时序卫星遥感揭示加沙地带战争损毁持续攀升</a><time datetime="2024-09-08T11:24:38.481Z" title="Created 2024-09-08 19:24:38">2024-09-08</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By ALTNT</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
