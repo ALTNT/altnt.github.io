@@ -1,0 +1,292 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>ALTNT's Hexo Blog | ALTNT's Hexo Blog</title><meta name="author" content="ALTNT"><meta name="copyright" content="ALTNT"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="N 阶幻方的计算原理 1、问题概述  幻方的定义 幻方，有时又称魔术方阵（其简称“魔方”现一般指立方体的魔术方块）或纵横图，由一组排放在正方形中的整数组成，其每行、每列以及每一条主对角线的和均相等。通常幻方由从1到𝑁2的连续整数组成，其中𝑁为正方形的行或列的数目。因此𝑁阶幻方有𝑁行𝑁列，并且所填充的数为从1到𝑁2。 幻方是一个\(n\times n\)的方阵，方阵中填入从\(1\)到\">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ALTNT&#39;s Hexo Blog">
+<meta property="og:url" content="http://blog.705553939.xyz/2024/10/04/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/n%20%E9%98%B6%E5%B9%BB%E6%96%B9%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/index.html">
+<meta property="og:site_name" content="ALTNT&#39;s Hexo Blog">
+<meta property="og:description" content="N 阶幻方的计算原理 1、问题概述  幻方的定义 幻方，有时又称魔术方阵（其简称“魔方”现一般指立方体的魔术方块）或纵横图，由一组排放在正方形中的整数组成，其每行、每列以及每一条主对角线的和均相等。通常幻方由从1到𝑁2的连续整数组成，其中𝑁为正方形的行或列的数目。因此𝑁阶幻方有𝑁行𝑁列，并且所填充的数为从1到𝑁2。 幻方是一个\(n\times n\)的方阵，方阵中填入从\(1\)到\">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.705553939.xyz/img/altnt.jpeg">
+<meta property="article:published_time" content="2024-10-04T11:32:19.150Z">
+<meta property="article:modified_time" content="2024-10-04T14:26:10.875Z">
+<meta property="article:author" content="ALTNT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.705553939.xyz/img/altnt.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://blog.705553939.xyz/2024/10/04/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/n%20%E9%98%B6%E5%B9%BB%E6%96%B9%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ALTNT\'s Hexo Blog',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-10-04 22:26:10'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/altnt.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">54</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">21</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ALTNT's Hexo Blog"><span class="site-name">ALTNT's Hexo Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Untitled</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-10-04T11:32:19.150Z" title="Created 2024-10-04 19:32:19">2024-10-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-10-04T14:26:10.875Z" title="Updated 2024-10-04 22:26:10">2024-10-04</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="n-阶幻方的计算原理">N 阶幻方的计算原理</h1>
+<h2 id="问题概述">1、问题概述</h2>
+<ol type="1">
+<li><p><strong>幻方的定义</strong>
+幻方，有时又称魔术方阵（其简称“魔方”现一般指立方体的魔术方块）或纵横图，由一组排放在正方形中的整数组成，其每行、每列以及每一条主对角线的和均相等。通常幻方由从1到𝑁2的连续整数组成，其中𝑁为正方形的行或列的数目。因此𝑁阶幻方有𝑁行𝑁列，并且所填充的数为从1到𝑁2。
+幻方是一个<span class="math inline">\(n\times
+n\)</span>的方阵，方阵中填入从<span class="math inline">\(1\)</span>到<span class="math inline">\(n^{2}\)</span>的不同数字。其每行、每列以及两条对角线上的数字之和都相等，这个相等的和被称为幻和。</p></li>
+<li><p><strong>幻和的计算</strong> 对于<span class="math inline">\(n\)</span>阶幻方，幻和<span class="math inline">\(S =
+\frac{n(n^{2}+1)}{2}\)</span>。例如，对于三阶幻方（<span class="math inline">\(n = 3\)</span>），幻和<span class="math inline">\(S=\frac{3\times(3^{2}+1)}{2}=\frac{3\times(9 +
+1)}{2}=15\)</span>。这是通过对<span class="math inline">\(1\)</span>到<span class="math inline">\(n^{2}\)</span>这<span class="math inline">\(n^{2}\)</span>个数字求和（根据等差数列求和公式<span class="math inline">\(\sum_{i =
+1}^{n^{2}}i=\frac{n^{2}(n^{2}+1)}{2}\)</span>），再除以<span class="math inline">\(n\)</span>（因为幻方有<span class="math inline">\(n\)</span>行，且每行数字之和相等）得到的。</p></li>
+<li><p><strong>构造方法原理（以奇数阶幻方为例，如罗伯法）</strong></p>
+<ul>
+<li>把<span class="math inline">\(1\)</span>放在第一行中间的位置。然后按以下规则填写数字：
+<ul>
+<li>每一个数放在前一个数的右上一格。</li>
+<li>如果这个数所要放的格已经超出了最顶行，那么就把它放在最底行，仍然要放在右一列。</li>
+<li>如果这个数所要放的格已经超出了最右列，那么就把它放在最左列，仍然要放在上一行。</li>
+<li>如果这个数所要放的格已经填好了其他的数，或者同时超出了最顶行和最右列，那么就把它放在前一个数的正下方。</li>
+</ul></li>
+<li>以三阶幻方为例，首先把<span class="math inline">\(1\)</span>放在第一行中间位置，即<span class="math inline">\((1,2)\)</span>这个位置。然后<span class="math inline">\(2\)</span>要放在<span class="math inline">\(1\)</span>的右上一格，由于超出了方阵范围（最顶行），所以<span class="math inline">\(2\)</span>放在最底行（第三行）右一列，即<span class="math inline">\((3,3)\)</span>位置。<span class="math inline">\(3\)</span>要放在<span class="math inline">\(2\)</span>的右上一格，超出了最右列，所以放在最左列上一行，即<span class="math inline">\((2,1)\)</span>位置，以此类推可以完成整个幻方的构造。</li>
+</ul></li>
+<li><p><strong>偶数阶幻方（双偶数阶幻方，以四阶幻方为例，如对称交换法）</strong></p>
+<ul>
+<li>先将<span class="math inline">\(1\)</span>到<span class="math inline">\(n^{2}\)</span>（<span class="math inline">\(n =
+4\)</span>时，<span class="math inline">\(1\)</span>到<span class="math inline">\(16\)</span>）按顺序填入方阵。</li>
+<li>把幻方划分为<span class="math inline">\(k\times k\)</span>（<span class="math inline">\(k=\frac{n}{2}\)</span>，对于四阶幻方<span class="math inline">\(k =
+2\)</span>）个小方阵，在这些小方阵中，对角线上的数字不动，其余数字关于小方阵的中心对称交换位置。</li>
+<li>例如，在四阶幻方中，将数字按顺序填入后，划分为四个<span class="math inline">\(2\times2\)</span>的小方阵，然后在每个小方阵中，除对角线上的数字外，其余数字进行中心对称交换，就可以得到一个四阶幻方。</li>
+</ul></li>
+<li><p><strong>单偶数阶幻方（<span class="math inline">\(n = 2(2m +
+1),m\in
+N\)</span>）构造原理较复杂（以六阶幻方为例，如斯特雷奇法）</strong></p>
+<ul>
+<li>可以将幻方分成<span class="math inline">\(A\)</span>、<span class="math inline">\(B\)</span>、<span class="math inline">\(C\)</span>、<span class="math inline">\(D\)</span>四个区域，先分别构造四个子幻方，然后通过一定的规则组合这些子幻方，并且进行一些数字的调整，最终得到完整的幻方。具体的构造过程涉及较多的步骤和规则转换。</li>
+</ul></li>
+</ol>
+<p>根据构造方法的不同，幻方可以分成三类：<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E5%A5%87%E6%95%B0%E9%98%B6%E5%B9%BB%E6%96%B9&amp;action=edit&amp;redlink=1" title="奇数阶幻方（页面不存在）">奇数阶幻方</a>、4k<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/58ea0bbe41a62da2d834f6fcc4298362c11e17ce" alt="{4k}"></p>
+<p>阶幻方和4k+2<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1a2d26a445e3c317d31bcdecab10690febd547a3" alt="{4k+2}"></p>
+<p>阶幻方，其中M<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f82cade9898ced02fdd08712e5f0c0151758a0dd" alt="{M}"></p>
+<p>为<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%87%AA%E7%84%B6%E6%95%B0" title="自然数">自然数</a>，2<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/901fc910c19990d0dbaaefe4726ceb1a4e217a0f" alt="{}"></p>
+<p>阶幻方不存在。</p>
+<ol type="1">
+<li><strong>定义与准备</strong>
+<ul>
+<li>设我们要构造的幻方为(n)阶幻方（(n)为奇数），幻方中的元素为从(1)到(n^2)的整数。</li>
+<li>定义幻方中第(i)行第(j)列的位置为((i, j))，其中(1in)，(1jn)。</li>
+<li>根据罗伯法，将(1)放置在((1,))位置（第一行中间列）。</li>
+<li>幻和(S =
+)，这是(n)阶幻方每行（列、对角线）数字之和的理论值，可由等差数列求和公式(_{k
+=
+1}<sup>{n</sup>2}k=)，再除以(n)得到（因为幻方有(n)行，且每行数字之和相等）。</li>
+</ul></li>
+<li><strong>位置规则的周期性证明</strong>
+<ul>
+<li>假设当前数字位于((i,
+j))位置，按照罗伯法，下一个数字应放置在其右上一格，即((i - 1, j +
+1))位置（这里的坐标运算在(n)阶幻方的范围内进行取模运算）。</li>
+<li>当向上移动超出第一行（(i - 1 = 0)）时，新位置变为((n, j +
+1))。这是因为幻方是一个循环结构，从顶部超出后自然地转移到底部继续填充，保证了数字填充的连贯性。</li>
+<li>当向右移动超出第(n)列（(j + 1&gt;n)）时，新位置变为((i -
+1,1))，即从右边超出后转移到左边继续填充，使得数字能够均匀地分布在方阵的各个位置。</li>
+<li>这样就证明了位置规则的周期性，即数字的放置位置始终在幻方范围内且遵循一定的循环规律。</li>
+</ul></li>
+<li><strong>数字填充的遍历性证明</strong>
+<ul>
+<li>通过数学归纳法来证明所有从(1)到(n^2)的数字都能恰好被放置在幻方的一个位置上，且不会重复放置。</li>
+<li>基础步骤：当放置第一个数字(1)时，它被放置在((1,))位置，显然是合理的放置。</li>
+<li>归纳假设：假设已经按照罗伯法成功放置了前(k)个数字（(1k &lt;
+n^2)），且每个数字都在幻方中有唯一的位置。</li>
+<li>归纳步骤：考虑放置第(k +
+1)个数字。根据位置规则，若按照右上一格的规则能找到一个空位，那么就将数字放置在该空位；若遇到要放置的位置已经有数字或者同时超出了最顶行和最右列，就把它放在前一个数的正下方。由于前面已经证明了位置规则的周期性，并且幻方有足够的空位（总共(n^2)个位置），所以一定可以找到一个合适的位置放置第(k
++ 1)个数字，且这个位置不会与前面已经放置的数字位置冲突。</li>
+<li>综上，通过数学归纳法证明了数字填充的遍历性，即所有数字都能被正确放置在幻方中。</li>
+</ul></li>
+<li><strong>行、列和对角线数字之和相等的证明</strong>
+<ul>
+<li><strong>行的证明</strong>：
+<ul>
+<li>考虑任意一行，设为第(m)行（(1mn)）。由于数字是按照一定规律从左到右逐格填充的，且填充规则在每行都是相同的（都是根据右上一格的规则或者遇到特殊情况的调整规则）。</li>
+<li>从第一个数字开始，它进入该行的位置是根据前面数字的放置规则确定的，后续数字依次按照规则放置，这个过程保证了该行数字的组合是有规律的。</li>
+<li>而且，由于填充过程的对称性和规则的一致性，每一行填充数字的过程和结果都是相似的，所以每行数字之和相等，且等于幻和(S)。</li>
+</ul></li>
+<li><strong>列的证明</strong>：
+<ul>
+<li>对于任意一列，设为第(p)列（(1pn)）。数字从上到下的填充规则同样是有规律的。</li>
+<li>当填充每一列的数字时，虽然是按照右上一格的规则，但从列的角度看，每一列数字的进入和排列方式也是相似的，因为位置规则保证了数字在列方向上的分布是均匀且有规律的。</li>
+<li>所以，每列数字之和相等，且等于幻和(S)。</li>
+</ul></li>
+<li><strong>对角线的证明</strong>：
+<ul>
+<li><strong>主对角线（从左上角到右下角）</strong>：主对角线位置为((i,
+i))（(1in)）。在填充过程中，数字按照右上方向的规则填充，会有数字依次落在主对角线上。</li>
+<li>由于填充顺序和规则的约束，这些数字的组合能够满足幻方要求。例如，第一个数字(1)放置在((1,))，在后续填充过程中，根据位置规则，会有其他数字逐渐填充到主对角线上，并且它们的和等于幻和(S)。</li>
+<li><strong>副对角线（从右上角到左下角）</strong>：副对角线位置可以表示为((i,
+n - i +
+1))（(1in)）。在填充过程中，虽然主要是右上方向填充，但在遇到边界和已填充数字的情况调整位置后，依然能保证副对角线上的数字组合满足幻和要求。</li>
+<li>具体来说，当按照右上一格的规则填充时，考虑到位置的周期性和调整规则，副对角线上的数字会按照一定的顺序被填充，并且它们的和等于幻和(S)。</li>
+</ul></li>
+</ul></li>
+</ol>
+<p>通过以上步骤，从位置规则的周期性、数字填充的遍历性以及行、列和对角线数字之和相等几个方面，完整地证明了罗伯法构造奇数阶幻方的原理。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz">ALTNT</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz/2024/10/04/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/n%20%E9%98%B6%E5%B9%BB%E6%96%B9%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/">http://blog.705553939.xyz/2024/10/04/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/n%20%E9%98%B6%E5%B9%BB%E6%96%B9%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/altnt.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/10/07/crop_classification/%E8%AE%B0%E5%BD%95%E5%A6%82%E4%BD%95%E7%94%9F%E4%BA%A7%20CACM%20%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E9%9B%86/" title="记录如何生产 CACM 数据集过程"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">记录如何生产 CACM 数据集过程</div></div></a></div><div class="next-post pull-right"><a href="/2024/09/30/crop_classification/Crop%20classification/9%20%E6%9C%88%2029%20%E5%91%A8%E6%8A%A5/" title=""><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info"></div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/altnt.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ALTNT</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">54</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">21</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ALTNT"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#n-%E9%98%B6%E5%B9%BB%E6%96%B9%E7%9A%84%E8%AE%A1%E7%AE%97%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">N 阶幻方的计算原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">1、问题概述</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/07/crop_classification/10%E6%9C%88%207%20%E6%97%A5%E5%91%A8%E6%8A%A5/" title="Untitled">Untitled</a><time datetime="2024-10-07T12:31:56.907Z" title="Created 2024-10-07 20:31:56">2024-10-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/07/crop_classification/%E8%AE%B0%E5%BD%95%E5%A6%82%E4%BD%95%E7%94%9F%E4%BA%A7%20CACM%20%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E9%9B%86/" title="记录如何生产 CACM 数据集过程">记录如何生产 CACM 数据集过程</a><time datetime="2024-10-07T03:35:47.057Z" title="Created 2024-10-07 11:35:47">2024-10-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/04/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/n%20%E9%98%B6%E5%B9%BB%E6%96%B9%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/" title="Untitled">Untitled</a><time datetime="2024-10-04T11:32:19.150Z" title="Created 2024-10-04 19:32:19">2024-10-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/30/crop_classification/Crop%20classification/9%20%E6%9C%88%2029%20%E5%91%A8%E6%8A%A5/" title="Untitled">Untitled</a><time datetime="2024-09-29T16:13:45.815Z" title="Created 2024-09-30 00:13:45">2024-09-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/09/26/crop_classification/Crop%20classification/2020-RSE-DeepCropMapping/" title="DCM————DeepCropMapping: A multi-temporal deep learning approach with improved spatial generalizability for dynamic corn and soybean mapping">DCM————DeepCropMapping: A multi-temporal deep learning approach with improved spatial generalizability for dynamic corn and soybean mapping</a><time datetime="2024-09-26T11:07:33.353Z" title="Created 2024-09-26 19:07:33">2024-09-26</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By ALTNT</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
