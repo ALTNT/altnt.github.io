@@ -1,0 +1,316 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>“AN IMAGE IS WORTH 16X16 WORDS——TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE&quot; | ALTNT's Hexo Blog</title><meta name="author" content="ALTNT"><meta name="copyright" content="ALTNT"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Here&#39;s something encrypted, password is required to continue reading.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="“AN IMAGE IS WORTH 16X16 WORDS——TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE&quot;">
+<meta property="og:url" content="http://blog.705553939.xyz/2025/01/05/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/2021-vit-visiontransformer/index.html">
+<meta property="og:site_name" content="ALTNT&#39;s Hexo Blog">
+<meta property="og:description" content="Here&#39;s something encrypted, password is required to continue reading.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.705553939.xyz/img/altnt.jpeg">
+<meta property="article:published_time" content="2025-01-05T15:30:35.315Z">
+<meta property="article:modified_time" content="2025-02-04T10:02:15.151Z">
+<meta property="article:author" content="ALTNT">
+<meta property="article:tag" content="Image Processing">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.705553939.xyz/img/altnt.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://blog.705553939.xyz/2025/01/05/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/2021-vit-visiontransformer/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '“AN IMAGE IS WORTH 16X16 WORDS——TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE"',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-02-04 18:02:15'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.2.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/altnt.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">113</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">29</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ALTNT's Hexo Blog"><span class="site-name">ALTNT's Hexo Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">“AN IMAGE IS WORTH 16X16 WORDS——TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE&quot;</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-01-05T15:30:35.315Z" title="Created 2025-01-05 23:30:35">2025-01-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-02-04T10:02:15.151Z" title="Updated 2025-02-04 18:02:15">2025-02-04</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="“AN IMAGE IS WORTH 16X16 WORDS——TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE&quot;"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="492b4714cff7070b7107607a577a2b9d13a4ad2912b733ca02c60659f153797c">854efd16088ec0a2949395f17c9b60f9386aedb0ff5a819cd0390912c2b2702d827e14ba04a92038747cb3394896c3694e61b3cea2922bed4d09e02c8f9022b52a2930a57620d22015802793080fa456de03c8bb7dde4d5724639874122f80e1dff1d3297dbebd9928cb440cb61b4555b09723e7608cdb32664fa03de535f0306de39a3de660d0a0ee548be8f35932d1216236559a87da7bf5ce902789bff2e18be87ce7ff11e0a8c2a1b0b29c455a78c2747331173bdf4ae2681e1d8f69c8b7696c99c741e11cfa323deedf7581bdc5a4b2048f939169a4e5f6ea60e47135fcf1c87ad24af32627249e938536f57ff56cc28b0884b9ab7eb712b46c4d62cc2b1582f3b1e3ee1c933994fe4653c3e3bd8867c78edf308a1067fa35cc2e49881fe904f66602203dc12fee567d687d2243b2188807186c629088d45ab35489c097cdbaed4caab42dc7396e41e1f733a6e2cece02d52ab72f14d49d77aa8971fffcdc0315cf1076195e0c25d141e8b7d7a02b100157851a3944fab64bec5c25ec95eda5d753554caab78a4573716cbf062971ab28a5a7f1e9184550fd9737b83c8858f43b95dcec9c1a956c47b28cc25332fc8262f5c150bc6c03eab7f5790433a3c56bc929d13690687b1c08d74e6b89bea4b665b70375bcf8650dfe214dd88aabe5489c513604bab17ce447cc68df58074f98d4a31578951f0001eb17963bc76a9c46c4b1f61aa6c21aead39a8849a8950d38c9fba0ca8a03bdace7146f48158dd49b6d176d1a44d50b6c1c167b7faa8a395d0ca371861385c77029cc844b530f7926e2840af828e12e4f93d3c324ab6b0e708a7d371024a51b0829c23e39552da23eca8757d280fdfdbe5e65234dbda84f13667958181b7a9d85d3c49312a98c5927749c9669e47a5c8c0b4860e8078c366d377c5ec7289e562c7fe1d6029b7d9cbbc312935d8155aaf359aa93ccd29878012dd0ba2bd42132c08e83c3cf41979ad6abae406b896241efb98e4976999359fa88483215611292a2a722239b9afd1d1ac990d85dc49d0bb0d6894ef5f2f2b7e68bc1ab10981ebbf97c19d383f753c87a002154c79c9cf7e71e26e0a82efdaaffa987b17335bbdbe890df984b5586a7eb44ffac5c766ff5de5bd18304fc5a9faa018d1cfa88406009f972c2597bb70edddd643b0b7beef17669a15244b8810f47c39afe5c6548da97487603289c663b5db303576445e6e3f3a0c364446214669bc95af767b715675bc73a6f8da9126618a1239f037452cec342a447d9c8e4d023d2e8973416ef89cad8281b1684fb2aa675032a5ad880a3aef57387ab7c89573cb64cbebf122949167d5dfd643c03045a985d825c13ee15eaedbdfc9ffa2138ae42e63ea5ce1090b1cb58098a3bec420bb4bd48333cfe2d2ed11af6e8079bdd31ca0f19ae211dedfc3c42a1899994184903716ce8fcecb30faf6933585c36387d6c06c8a34f61a5b961e9b3d6afface7739037a8013beaba87994064b134a13925ec84c7d20ddfb42c19f38cd881246662f38d25afa5d60b5d60f6194bf3b8d8eef6dc0215804251f2a8397eee946152322523c8e325e6020a4cd112179d0fd82ad7a0b0d84d83cc185d128fe37b22fd2afb06a4acf8db977dd917db605e7dde2400073759248ecb70311a8be1156e790be8b39764f52abb7c1a1f7e5eb0352a854cc06f7ed73e20f1fade193934179a1d6d7f7d489f9dd5db4f8753e4dce3811081caebf1eaffa9bc1b8dccfd35347f92d787ae69530f32fc4b90595fc578317de0b463b2a96bb3b35f077fa18e68c7fe31a1368eb2d80e492f9f9d821929f66353b8c643ea8ed70c6d2c2f593639fc1f85e23625ade30d7d9fbca4086c506426d2c5658182b15732335ef0f214f29641e539127de6fec67c04de11afe52626aa00478342bc9e349ae1a9cfd9a7fabc58be8556e340a5723ade8b9c0f5700f18c2aae0de4af12bbd4c69db8d1e3caf8c14e908b5db8872d6c8558119441fbd1598ca3ed0b6d55cc44477553c86179a37fddbb9fd32d0bb817f99f7a58da9bdade9305a9c93d3caf5165ba1eeaec83b7f9d0591866186e03cc93975c3584baaf2c8b9dd44f1853675be4c6f46456490c0c3988273adf3d337f339b63f004e38286a495ca255ed884e4a020749c29479e35d2a24d3da10eb42ae0d9cc523e34a5d915fb1a006dfdf0d8f6b8c50724492444916ffbba0ab3bcbaec0d9ce200af5e36cf21af7ceac54800d3cc8ba0090b4525cbc0148885f84cc6d0692938b9dda2bc588b649d290eccd57643d0ec6ee9bf141243e66bc209a261b35631a1c86408637827e8ce9863eee0f6c04e66db14fbcfb40d30a167acf18034c2eeec676926b96fdc6519d9579b3ad95361045c81306130a61bc7a5fe8694863928e7ee7e618d031de8a97b964691cdacaafa33282a28a651abded39532ca8aad17f5449aa7a443e614c068a54d50183580318b0b9e6d2a9e80f29f13048b75abbbd83d53cbecf3925030fa24e714820e3d376ca17874f4b2c52d36095ea31f59df39282a12d5798a3ee4756872f54082706b30b59798aecd1002ffd731e987f284ecbf5b0fd85a01f2ac558306fcaf314888230ce4d7e74543d218295beef6cd8e7258a6fd03d9b3aa5f19a4ed0d2d2cb7fa2c2c839729992869540e03e42c1700f694c666853025def8f2a012836c8a3e255fe3cdca2f9df4f5af3f63dd3f671b822d98328b2cdc61f9d6670f13b51176b1825b83c7b7250672a9542f6cff81361d238498d3ff106f14b1340ea7d458d207ea498bfa1e0501d4c32af68f16ce52bf6233b943d637c27dff8d70ccc0fe2d077d9b99aa617d370e06a59e27e26357d7eed234fe6bc8a3eb81ef0b77eccbff744b50adcc70813f74d166b223be94a328f7eebbfb33882627161387b4a65141af7ac2a9a1057b3803eaea3ec215de70ffba9dc022542b61017ccb479c4c48acf59d7bd9606ad367c041c08b8c461901a47332b280487080dccc8a759ceec65009b79b3f2292ff33f9ef1c20816c3df970e2caf8b949b9b81ce3f706957373e0794a427caa1b269ce6c7d252fc1aa3f518cfc25063061c014e0fbe85b4ebf7ad89d72b0a92cc7b2452b2ba6914cda298ab6c096324f9c34c0c89353aba06aae08442c362c71fd5acc884c66ad5b3e8a56da0f8ac7f4eff3d8eeaf629c3b3812f511e1b1bfc2e9f32970813c57b3f78ca4464471a9623787e0c416003bc9d5cb64655fc063ba43199f1706bc90816a7a130f13f77da523ad5393c68baa6f804ee99886c8a0787b4a7ee92a86543cb996a9c84c591ca21ed135cd9aa4bd13e075d68b11d64d7794718abb40965903c83fe16c42eeb59135797d7f5318e6f4f4eaa47bf86e97cb805ad01e180f65b70d52ac2e4191faf0878b3582ca549403fc11c20a901ba01551991a142951eb4a49a7a601e72eeb8f686485185aea2d169c7d3f29c6362e51aeeacdc9136efaab3ec48a2700e670e8d7f4008d9d7167189aa52b5d85c7f7e6eee9104c7ba72b714548978cc5837feeb0beb806d5644722ce44cf6e3bc3842f3800c6bc56a28713896391e55cf734ba7f93e29a33ec4043c3a0b17eb8ed97a1345cc92c1283a26d69debbdf6d0b3c8a461c34809351113361ae8acd82342a9cab34faa02e9f82fa8cc172c4cd050d3c1a9cc3b4d753f164e824cc49848e9d74002767442d2e029b807143260080eef4103ccfb6ae33bdee6194c997c7f65872475064fbeeb3a9d74b052c89e3585fc7b391a5cb4c2a9ed7a9e5a1f020414d96b33ff52c464e09ba13bac0a4b01bb4c7c632db25b64f3e29fe9f59dea75a4a0803f5146764b4ff08eab58aecb90e4d6465bce3293f85c66d139bec18476c748ddd66780982197a7c5ffdbf67eaf19b6422547d495c822e0fc3cfe79c5ae5ddb9d7b5726aa47de2dc36f7eb1a2896ffeee8d183b9f005984dffdb2d742b3152584a3f9313096ea48647c032ca6092d573c09f9f8cc24bcbf5fab0f46e22c2f1eef14af1a9b18ad6d72c99cd0082cf1f16557a825417e78eb963b27b202d5765c233f1792adfd07477f6770bf23538f5feed0c698678ee44be016570212685b8673e3e7b5eb99001fbffeca3b41a54b8a01bac612c9f27af472381160f64411bb69f0d25cbafd9130e32b7db3bf0b529452ecdfd228e3332122932edf9afb297b979bd395d46723136f6cfed24eeeab77b8697438d31fbb2a5964ae917712057012e213f5dd9f09787320a216a5fee0c7aa23d624ee04bab9e551118ad552304b7250a95f85d95546bcbc1d9509dabb2b376025c3973f139bd529b64e5d00f4b63f51ad747d9fc3465d2184e176e22f89c3885f44cacda291bc95386b86501943abb3b7dfd87aeb6c806e1d277f8c0553094f00de2b8fd2e499804492d11952e280bda33afd9a6bf5737608ba50a7dd7181eb5d4b31970409f9b398c6cd2e698ed8a93c4f3aa4d6786c63ced87e02abb96865e59cdc20979f633cadf743b20cd457f788e2dc9a8fb9b5dc712c7c76f4b17b64bac7b2a83a8431a0d492675bd791b694074229a1056cb3c5d242b82986433a63f2edabef291f4bc2feb3517d41751241a9052203688c87e4955cd123ff893017cc36b8ac50fe58d9a683d765fc38f06a536a1f5c46d33421a87720cb7aca6549c4e1827ff522c532f098254cfa6ae272ede14995e25d28539187cc3ecf7f2ebbc23cd01763817d3968f4cd8c0c44de1d7dc8059cb8897b451007dc4445bd761951262a6c44c0f77ec5c8c21893eeccbcf8947b4eeeb3c4a94092ad3bd70b9d66a91d9becdccfe31fc134fb127e51cd2c8c38750ecdd5d13913c306462d17e0c25276748d73b4301d03ae23aa5cc04b2716a84b715317fe02a637c5a4beda4c555f1b1fe0ac9ff5f1c90a4e33dec9cf81abc9a02a89552b87e227a73546efc96ea8a8c6c3789309813b6c7e35108ff8f2376ee255a33c60cd8dfb0991b77e01a85ecf478878bcd4e1a6a0654cc92f33686d0f999996b72204486f8d260ed234390ac39651a39168080f7f54991da79e76e21e1173431a5da3fcec58195bec99c30bc60a5b439a95f8ba1067b1c0c098be71590e404d428d787b4fefda70d2ad234d25a7650ae6e5bce18e3ac6f8741490dea7c97fe4e20b5aa43ab3c025a3d69a5293a10c46ad99683e1f17e79fe63f48c88b63bbc8ec80e1d01fc2b1b35e3fe577e24083a323d35a1540088c6107652a80f204d148bacb61a8d7459d5aae447c0b28d5dc8d7f15babf5f0d6ed230695354d0d6827642e3c25cc1516442e107112cf731abaf306b8fedbac0fbc5ad36704331b8dee0bfca84ff1d992976100325fe81ead9b8ff36aa28ab53be41c43a5a729fda1e2fa75c03885720428b322535e690df23a86d2d993cb106e3caa7c42bacc2918675ed774f8d7748e4ad424b6ebeabd4e15170ba6c400d1356f9bf55949aca7d7ccea2ba241610834404d056ef283a50117613e66c30a85ef0c64629a5bcf090b719e764d7d5d8b118ad8158b82f731c28d37ef432c543e81130721440b9005458a56b51a242aae0a7d09c46fea297a200a20843a8cf0e2258d36e08f8a9d4b0c8802f28b602b6834fdebe08b5a4e250e71f8c2bfcdc4fcdaccf837fc57be21ca6fd0dafb70d35773d22e0fdd258d9f30c76c247865112247f4d125917f077893f370216c737d5dde1f5e98294e66078c0918e04f562b872faa4249126df61879d64aefbf02dc22e1b0dd98e262c958dcc9a138d86dc3668c56dc4a9c4287a001235978141632be4a92ad916e9774a9b6329513a1329256ac694f878a9ac9de0e46ee72a957409e127d1f6fadf39c58f4e5b6968f6e33e2034634ea43ecc80d485f8fe766ed02228edfcd2b5affb5303c822e5c9bb541255a39a213b86a72770eaa2dda2dde7aa93778b5245feaa82eae7443352546ebe3ff13baa4f75c63aa69340dfc381b1c14be94a8d1ea7d4c3aba1ad1d218659cda58afc11bf33d619cfecbab1a441f25dabc3883f8e5d76cd5d18d819b8581c1c90a9f06db15225bafc9bedd9386624ac1eb19a945771e33c074d761836b7dd06b7642264a03c197656c0c7076e9596c3c4eb91566f32fce040d0eb7e71eea62b816219afa847ea358fe616edf3956191b9d0dbb5ba5350b236f3150173b8258f99a4b6deabe7bd15ce9738933d84aae4107c6ce665841a580727813296bce1db8284e58253f66ee2f38831cf57aa1a4e775c78f5db7b6ff0c950fe31e9e9334236c07f754dff66fbd4fcbc907a0e555ef9b004b7ac1cdc8d4d6f8897c91aa5b672ff9b4cd9c9308125c7c6d7edefddcb6475811b1dcb3157b249bad60b484e645d72548254e47e336aa13c85b2669a0d87cd3bcbf52c7fe492633d10a16d1a14dab18e9d839492d08e5780d5d749bc92276441a89bb4ded571bc32891f766164a120bdf33dd275237a9df4695e307045daa1560568be368dddd88d074e575484a7a080a3d8663f72c575ded55d34d589f64012a1677facf6f3d8f585fdb51747655fa78f6b7aa954f2958c6a7483da45df3</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css"></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz">ALTNT</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz/2025/01/05/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/2021-vit-visiontransformer/">http://blog.705553939.xyz/2025/01/05/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/2021-vit-visiontransformer/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Image-Processing/">Image Processing</a></div><div class="post_share"><div class="social-share" data-image="/img/altnt.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/01/06/crop_classification/Crop%20classification/1%E6%9C%883%E6%97%A5%E5%91%A8%E6%8A%A52025/" title="“周报2025年1月3日&quot;"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">“周报2025年1月3日&quot;</div></div></a></div><div class="next-post pull-right"><a href="/2025/01/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%9B%91%E7%9D%A3/2020-SimCLR/" title="A_Simple_Framework_for_Contrastive_Learning of_Visual_Representations"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">A_Simple_Framework_for_Contrastive_Learning of_Visual_Representations</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2025/01/19/sequence-processing/2019-Bert/" title="“BERT Pre-training of Deep Bidirectional Transformers for Language Understanding&quot;"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-01-19</div><div class="title">“BERT Pre-training of Deep Bidirectional Transformers for Language Understanding&quot;</div></div></a></div><div><a href="/2024/11/03/sequence-processing/2022-arxiv-StraTS/" title="“Self-Supervised Transformer for Sparse and Irregularly Sampled Multivariate Clinical Time-Series&quot;"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-03</div><div class="title">“Self-Supervised Transformer for Sparse and Irregularly Sampled Multivariate Clinical Time-Series&quot;</div></div></a></div><div><a href="/2024/10/20/sequence-processing/2023-arxiv-SLAC-Time/" title="“A Self-Supervised Learning-based Approach to Clustering Multivariate Time-Series Data with Missing Values (SLAC-Time):An Application to TBI Phenotyping&quot;"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-20</div><div class="title">“A Self-Supervised Learning-based Approach to Clustering Multivariate Time-Series Data with Missing Values (SLAC-Time):An Application to TBI Phenotyping&quot;</div></div></a></div><div><a href="/2024/11/18/sequence-processing/STraTs%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB/" title="“STraT代码阅读&quot;"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-18</div><div class="title">“STraT代码阅读&quot;</div></div></a></div><div><a href="/2024/10/15/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/2015-ImageNet/" title="“ImageNet Large Scale Visual Recognition Challenge&quot;"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-15</div><div class="title">“ImageNet Large Scale Visual Recognition Challenge&quot;</div></div></a></div><div><a href="/2024/10/14/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/2024-EAAI-CDAM-Net/" title="“CDAM-Net:Channel shuffle dual attention based multi-scale CNN for efficient glaucoma detection using fundus images&quot;"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-14</div><div class="title">“CDAM-Net:Channel shuffle dual attention based multi-scale CNN for efficient glaucoma detection using fundus images&quot;</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/altnt.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ALTNT</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">113</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">29</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ALTNT"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content toc-div-class" style="display:none"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#an-image-is-worth-16x16-words-transformers-for-image-recognition-at-scale"><span class="toc-number">1.</span> <span class="toc-text">AN
+IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT
+SCALE</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/02/crop_classification/Crop%20classification/%E9%87%8D%E6%96%B0%E5%A4%8D%E7%8E%B0CACM%20%E8%AE%B0%E5%BD%95/" title="重新复现CACM记录">重新复现CACM记录</a><time datetime="2025-02-02T06:13:13.347Z" title="Created 2025-02-02 14:13:13">2025-02-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/21/crop_classification/Crop%20classification/1%E6%9C%8820%E6%97%A5%E5%91%A8%E6%8A%A5-2025/" title="“周报2025年1月20日&quot;">“周报2025年1月20日&quot;</a><time datetime="2025-01-21T05:36:10.775Z" title="Created 2025-01-21 13:36:10">2025-01-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/21/crop_classification/Crop%20classification/%E5%91%A8%E6%8A%A51%E6%9C%8811%E6%97%A5-2025/" title="“周报 1 月 11 日2025&quot;">“周报 1 月 11 日2025&quot;</a><time datetime="2025-01-21T04:01:55.781Z" title="Created 2025-01-21 12:01:55">2025-01-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/19/sequence-processing/2019-Bert/" title="“BERT Pre-training of Deep Bidirectional Transformers for Language Understanding&quot;">“BERT Pre-training of Deep Bidirectional Transformers for Language Understanding&quot;</a><time datetime="2025-01-19T13:31:49.199Z" title="Created 2025-01-19 21:31:49">2025-01-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/19/crop_classification/Crop%20classification/2024-PhenoCropNet/" title="Untitled">Untitled</a><time datetime="2025-01-19T09:29:22.650Z" title="Created 2025-01-19 17:29:22">2025-01-19</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By ALTNT</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

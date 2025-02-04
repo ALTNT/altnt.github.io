@@ -1,0 +1,624 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Filling GRACE data gap using an innovative transformer-based deep learning approach | ALTNT's Hexo Blog</title><meta name="author" content="ALTNT"><meta name="copyright" content="ALTNT"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Filling GRACE data gap using an innovative transformer-based deep learning approach 使用一种基于Transformer的创新深度学习方法填补GRACE（重力恢复与气候实验）数据缺口。 名词： terrestrial water storage anomaly (TWSA)陆地水储量异常 Gravity Recove">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Filling GRACE data gap using an innovative transformer-based deep learning approach">
+<meta property="og:url" content="http://blog.705553939.xyz/2024/12/24/crop_classification/Crop%20classification/2024-RSE-Filling_Grace_data_gap/index.html">
+<meta property="og:site_name" content="ALTNT&#39;s Hexo Blog">
+<meta property="og:description" content="Filling GRACE data gap using an innovative transformer-based deep learning approach 使用一种基于Transformer的创新深度学习方法填补GRACE（重力恢复与气候实验）数据缺口。 名词： terrestrial water storage anomaly (TWSA)陆地水储量异常 Gravity Recove">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.705553939.xyz/img/altnt.jpeg">
+<meta property="article:published_time" content="2024-12-24T07:25:17.890Z">
+<meta property="article:modified_time" content="2024-12-26T16:11:12.081Z">
+<meta property="article:author" content="ALTNT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.705553939.xyz/img/altnt.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://blog.705553939.xyz/2024/12/24/crop_classification/Crop%20classification/2024-RSE-Filling_Grace_data_gap/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Filling GRACE data gap using an innovative transformer-based deep learning approach',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-12-27 00:11:12'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/altnt.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">113</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">29</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ALTNT's Hexo Blog"><span class="site-name">ALTNT's Hexo Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Filling GRACE data gap using an innovative transformer-based deep learning approach</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-12-24T07:25:17.890Z" title="Created 2024-12-24 15:25:17">2024-12-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-12-26T16:11:12.081Z" title="Updated 2024-12-27 00:11:12">2024-12-27</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Filling GRACE data gap using an innovative transformer-based deep learning approach"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="filling-grace-data-gap-using-an-innovative-transformer-based-deep-learning-approach">Filling
+GRACE data gap using an innovative transformer-based deep learning
+approach</h1>
+<p>使用一种基于Transformer的创新深度学习方法填补GRACE（重力恢复与气候实验）数据缺口。</p>
+<p>名词： terrestrial water storage anomaly (TWSA)陆地水储量异常</p>
+<p>Gravity Recovery and Climate Experiment(GRACE)
+：重力恢复与气候实验</p>
+<p>该论文主要介绍了一种基于Transformer的深度学习模型，用于填补GRACE数据中的空缺，为极端天气检测和环境保护提供数据支持。</p>
+<ol type="1">
+<li><strong>研究背景</strong>
+<ul>
+<li>GRACE及GRACE-FO卫星通过水重力测量监测全球重力场，其数据在水文和水资源研究中至关重要，但存在数据缺失问题，如11个月的数据缺口和多个短时间的数据缺口，影响了数据的连续性和有效利用。</li>
+<li>已有研究采用多种方法填补GRACE数据缺口，如使用替代卫星数据、自适应时间序列预测和机器学习/深度学习模型等，但各方法存在局限性。</li>
+</ul></li>
+<li><strong>数据来源</strong>
+<ul>
+<li><strong>GRACE数据</strong>：使用全球CSR GRACE/GRACE-FO RL06v02
+Mascon
+Grids产品，时间跨度为2002年4月至2023年6月，分辨率为0.25°×0.25°，包含35个月缺失数据。</li>
+<li><strong>气候数据</strong>：采用ERA5-land每月聚合降水和温度数据集，分辨率为0.25°。</li>
+<li><strong>蒸散发数据</strong>：使用Penman–Monteith–Leuning Version
+2（PML-V2）产品，将其空间分辨率协调为0.25°×0.25°。</li>
+</ul></li>
+<li><strong>研究方法</strong>
+<ul>
+<li><strong>Transformer模型</strong>：利用时间序列数据，通过可配置预测窗口预测后续时间步的TWSA值；采用多头自注意力机制，引入卷积策略和卷积自注意力机制，学习时间序列的局部上下文；采用LogSparse
+Transformer计算策略提高运行速度。</li>
+<li><strong>训练与验证策略</strong>：将10,000个随机时间序列点划分为训练集（8000个）、验证集（1000个）和测试集（1000个）；选择8000个时间序列点进行训练，以避免信息泄漏；在验证阶段，随机选择11个月作为验证窗口，评估模型性能。</li>
+<li><strong>性能指标</strong>：使用Nash-Sutcliffe
+Efficiency（NSE）和Root Mean-Square
+Error（RMSE）量化模型性能，采用Kruskal-Wallis检验评估模型在不同区域的性能差异。</li>
+</ul></li>
+<li><strong>研究结果</strong>
+<ul>
+<li><strong>验证填补结果</strong>：Transformer模型表现优异，引入降水、温度和蒸散发等特征后，平均NSE为0.906，平均RMSE为6.178cm；预测精度在短期内上升后下降，消融研究表明降水对模型影响最大。</li>
+<li><strong>不同干旱条件下的准确性评估</strong>：在所有气候区域，特别是干旱地区，模型表现良好；引入气象特征显著提高了干旱地区的预测精度，模型误差降低了7.5%。</li>
+<li><strong>时间序列填补质量评估</strong>：计算流域平均时间序列，与其他模型对比，在湿润流域表现良好，在干旱和超干旱流域更具优势。</li>
+</ul></li>
+<li><strong>研究讨论</strong>
+<ul>
+<li>与其他研究对比，该模型在干旱和超干旱地区表现突出，但在湿润地区NSE略低，可能与模型类型和误差积累有关。</li>
+<li>模型在干旱地区表现较好，但仍存在局限性，如人类活动影响、季节性信号弱和未考虑冰雪数据等；时间序列模型存在预测质量随预测期增加而下降的问题，但Transformer模型的自注意力机制可一定程度缓解。</li>
+</ul></li>
+<li><strong>研究结论</strong>
+<ul>
+<li>提出的Transformer模型能有效填补GRACE数据缺口，具有较高的鲁棒性，平均RMSE为6.178cm，NSE为0.906。</li>
+<li>模型在干旱地区表现出色，引入气象特征提高了填补精度；公开数据和代码，方便用户使用并应用于其他数据集。</li>
+</ul></li>
+</ol>
+<h2 id="摘要">摘要</h2>
+<p>（背景）</p>
+<p>由重力恢复与气候实验（GRACE）及其后续的重力恢复与气候实验接续计划（GRACE-FO）卫星所推导出的陆地水储量异常（TWSA），为极端天气监测以及加强环境保护提供了绝佳的契机。然而，GRACE数据存在11个月的数据空白以及数月的数据缺失情况，这对其实际应用构成了挑战。</p>
+<p>（目的以及考虑的三个因素）</p>
+<p>为解决这一局限，我们开发了一种基于Transformer的创新型深度学习模型用于填补数据空白。该模型纳入了利用因果卷积的自注意力机制，使神经网络能够捕捉GRACE时间序列数据的局部语境。它还考虑到了诸如温度（T）、降水（P）以及蒸散量（ET）等多种因素。——————因果卷积的自主意力机制？？？这是个什么概念？</p>
+<p>（训练样本）</p>
+<p>我们使用包含10000个时间序列像素的全球数据集对该模型进行训练，并将其应用于填补所有的时间空白。</p>
+<p>（结果）
+验证结果表明该模型具有良好的稳健性，其平均均方根误差（RMSE）为6.18厘米，纳什-萨特克利夫效率（NSE）达到0.906。尤其值得一提的是，这种基于Transformer的方法在干旱地区的表现优于其他现有先进方法。纳入温度、降水和蒸散量这几个因素进一步提高了填补空白的准确性，使得平均均方根误差降低了7.5%。</p>
+<p>（应用）
+这项研究生成了一种可靠的填补空白产品，解决了11个月的数据空白以及24个孤立空白问题，确保了GRACE数据在各类学术应用中的连续性。此外，我们的Transformer方法在预测和填补遥感数据以及网格化观测数据空白方面，有着超越传统方法的重要潜力。</p>
+<h2 id="引言">1 引言</h2>
+<p>（数据空白问题逐渐出现）</p>
+<p>重力恢复与气候实验（GRACE）项目于2002年4月启动，最初计划为期五年。然而，得益于其出色的耐用性（易和斯内乌，2021年），该项目超出了最初的设计期限，一直运行至2010年。
+随着时间推移，<strong>数据空白逐渐显现出来</strong>，尤其是在2011年之后（图1）。
+GRACE项目最终于2017年6月结束，为重力恢复与气候实验接续计划（GRACE-FO）卫星腾出了空间，后者从2018年6月起开始生成<strong>月度观测数据</strong>。
+这一过渡导致GRACE项目与GRACE-FO项目之间出现了<strong>长达11个月的显著数据空白</strong>。
+此外，在这一较长的运行期间，由于电池管理问题以及偶尔出现的高质量观测缺失情况（汉弗莱等人，2023年；克洛科尼克等人，2015年），还出现了几个时长为一到两个月的较短数据空白。这些情况共同阻碍了（数据的）持续利用。</p>
+<figure>
+<img src="/2024/12/24/crop_classification/Crop%20classification/2024-RSE-Filling_Grace_data_gap/1734784639683.png" alt="1734784639683">
+<figcaption aria-hidden="true">1734784639683</figcaption>
+</figure>
+<p>GRACE数据在水文和水资源研究方面出现了一系列间断的观测情况，<strong>总共缺失了35个月的数据</strong>，占GRACE全部观测数据的13.8%。
+值得注意的是，<strong>从2011年到2018年，这些缺失数据所占比例高达32.6%，凸显出这一数据缺口的严重性</strong>。
+这一缺口对GRACE和GRACE - FO数据的连续性及有效利用构成了重大挑战。</p>
+<p>因此，<strong>GRACE数据中的缺口极大地限制了其在数据同化过程、极端天气监测及预测方面更广泛的应用</strong>，这凸显了保持数据持续可用的重要性。</p>
+<p>（目的）建立一个连续的GRACE观测框架对于有效解决和纠正这些数据缺口来说势在必行。</p>
+<p>众多研究人员为解决GRACE（重力恢复与气候实验）数据中的缺口付出了巨大努力，他们近期的研究成果汇总于表1中。</p>
+<figure>
+<img src="/2024/12/24/crop_classification/Crop%20classification/2024-RSE-Filling_Grace_data_gap/1734785523208.png" alt="1734785523208">
+<figcaption aria-hidden="true">1734785523208</figcaption>
+</figure>
+<p>（当前研究主要使用 RL06 数据，但是本文使用 RL06v02）</p>
+<p>这些研究主要将来自美国得克萨斯大学空间研究中心（CSR）和美国喷气推进实验室（JPL）的质量聚合格点（mascon）解作为GRACE数据的来源，用于填补缺口，并且更倾向于使用第6版（RL06）质量聚合格点（mascons）的数据。</p>
+<p>然而，我们的研究使用了最新的解决方案RL06v02，它以更高的分辨率和改进的质量而闻名（Sun等人，2021年）。</p>
+<p>（以前的研究的特征没有使用水文变量如 ET）</p>
+<p>这些研究中<strong>采用的预测因子或特征涵盖了广泛的变量，包括但不限于降水（P）、温度（T）、土壤湿度（SM）以及各种气候指数（Gyawali等人，2022年）。</strong>
+需要注意的是，<strong>水文变量，特别是蒸散量（ET）</strong>，并没有得到太多关注。</p>
+<p><strong>GRACE陆地水储量异常（TWSA）的变化、降水、蒸散量和径流之间的关系</strong>基于<strong>水平衡原理</strong>。</p>
+<p>（应对 gap 的三类策略）
+为应对填补缺口的挑战，人们采用了各种策略，这些策略可分为三大类：</p>
+<p>（i）替代卫星数据或模型模拟的陆地水储量（TWS）：一些研究人员转向替代卫星数据源来填补缺口，如ERA5
+- TWSA、集水区地表模型（CLSM）模拟的陆地水储量（CLSM -
+TWS）以及Swarm卫星解决方案；</p>
+<p>（ii）自适应时间序列预测：这种方法涉及诸如奇异谱分析（SSA）或多变量奇异谱分析（MSSA）时间序列分解等技术，这些技术侧重于时间序列本身的内在特征（Gauer等人，2023年；W.
+Li等人，2019年b；易和斯内乌，2021年）；以及。</p>
+<p>（iii）机器学习（ML）或深度学习模型（DL）：许多数据驱动的方法，包括ML和DL模型，已经得到应用。这些方法利用广泛的特征来有效地预测GRACE数据序列。</p>
+<p><strong>（第一类方法）
+在第一类方法中，已应用替代数据来填补GRACE数据缺口</strong>。
+具体而言，欧洲航天局（ESA）的Swarm卫星的重力数据已被用于填补缺口。模型模拟的陆地水储量（TWS），如ERA5和CLSM，也被广泛使用。在这一类中，学者们使用上述替代数据来填补GRACE数据缺口。例如，Rodell和Li（2023年）使用了来自CLSM的全球GRACE/FO数据同化实例的TWS输出。大地测量卫星激光测距（SLR）也被用作替代数据源。一些研究使用SLR和Swarm数据来填补数据缺口。（Meyer等人，2019年；Richter等人，2021年）。以Meyer等人（2019年）为例，这进一步解释了如何利用模型模拟的陆地水储量异常（TWSAs）来填补数据缺口。首先，该研究从多个来源收集数据，包括卫星激光测距（SLR）、GRACE以及Swarm卫星。其次，整合这些数据旨在弥合GRACE任务与GRACE后续任务（GRACE
+Follow-On）之间的缺口。这涉及建立GRACE数据与来自替代来源的集成数据集之间的关系。最后，利用GRACE数据与这些替代数据集之间的数学关系，该研究有效地填补了数据缺口。
+（缺陷）
+然而，必须注意的是，这种方法虽然有用，但<strong>分辨率较低，并且与GRACE卫星数据集缺乏一致性</strong>（Friis
+- Christensen等人，2006年）。
+另一种方法涉及使用ERA5衍生的陆地水储量（TWSA）（或NOAH衍生的TWSA或CLSM -
+TWSA）。该方法通过将几个分量相加来计算TWSA：地下水、土壤湿度、雪水和冠层水储量，然后减去2004年至2009年之间的基线平均值。
+（缺陷）
+虽然这种方法很直接，但对于GRACE数据可能并不理想。例如，ERA5衍生的TWSA计算，即土壤湿度、雪水和冠层水储量之和，缺乏对地下水和地表水变化的直接测量，而这些是水文循环的关键组成部分。
+（缺陷）
+此外，模型模拟与卫星观测之间存在显著差异，特别是在干旱地区。由于这些差异，直接使用模型模拟结果进行数据缺口填补并不合适。</p>
+<p>（第二类方法） 第二类方法通常依赖
+<strong>奇异谱分析（SSA）和多变量奇异谱分析（MSSA）</strong>
+来解决数据缺口问题。 SSA或MSSA方法用于将时间序列分解为按方差排序的分量。
+它通常用于时间序列缺口填补，因为它可以提取时间信号中的非线性趋势和主要振荡（Vautard等人，1992年）。SSA可以从短而嘈杂的时间序列中通过将数据分解为趋势、年际或季节信号以及噪声等分量提取信息，且无需事先了解潜在的物理过程（Wang等人，2021年）。这种非参数方法在气象学和水文学中广泛应用（Ghil等人，2002年）。
+（缺陷）
+然而，需要注意的是，这些方法主要侧重于基于时间的特征，并且据报道会产生扭曲的重建结果（Gyawali等人，2022年）。</p>
+<p>（第三类方法）
+与前两种方法相比，最后一类方法涉及<strong>机器学习/深度学习（ML/DL）技术</strong>，其在处理多维特征以及建立陆地水储量异常（TWSA）与各种参数之间准确的非线性关系方面表现突出（Gou和Soja，2024年；Wan等人，2023年）。
+如表1所示，当代研究中一个明显的趋势是越来越多地采用ML/DL技术。
+Jing等人（2020年）采用了两种方法，<strong>即随机森林（RF）和极限梯度提升（XGB）</strong>，对输入的由集水区地表模型（CLSM）得出的陆地水储量异常（TWSA）与输出的GRACE
+TWSA之间的非线性关系进行建模，显著提高了GRACE数据的可预测性。他们应用了几乎最有效的机器学习模型，为调和全球陆面数据同化系统（GLDAS）模型与GRACE观测之间的陆地水储量（TWS）变化不匹配提供了一种方法。他们的结果证明了其稳健性。然而，<strong>考虑到TWSA在水文系统中的重要性、其对降水（P）和温度（T）时空变化的敏感性以及几个月的滞后性（Ahmed等人，2011年；Frappart等人，2013年），考虑额外的特征如P和T是明智的。</strong>此外，基于树的机器学习模型的输出不能超过训练值的范围，这可能导致潜在的<strong>过拟合问题</strong>。
+Mo等人（2022年a）采用了<strong>贝叶斯卷积神经网络（BCNN）</strong>
+方法来对输入的由ERA5得出的陆地水储量异常（TWSA）与输出的GRACE陆地水储量异常（TWSA）之间的关系进行建模。这种贝叶斯卷积神经网络（BCNN）方法具有很高的稳健性。然而，<strong>这种方法可能会忽略时间序列的局部上下文</strong>。
+Uz等人（2022年）使用了一系列深度学习技术，包括卷积神经网络（CNN）、贝叶斯卷积神经网络（BCNN）和深度卷积自编码器（DCAE），并在包含GRACE、Swarm重力测量、ERA5衍生的陆地水储量异常（TWSA）和归一化时间标签的数据集上对这些模型进行训练。
+这些深度学习方法已显示出强大的潜力，并且Mo的结果被认为是当前最先进的模型。<strong>尽管这种方法考虑了空间和时间特征，但难以捕捉长时间序列的时间依赖性，并且没有纳入最新的深度学习方法</strong>。
+然而，本研究结合了先进的深度学习模型，并引入了一种新颖的方法，以更有效地解决数据缺口问题。</p>
+<p>（transformer）</p>
+<p>最近，Transformer这种新颖的深度学习模型在自然语言处理（如ChatGPT）和计算机视觉领域（如语义分割）取得了显著成就。基于Transformer的模型在地球科学领域展现出卓越性能的巨大潜力（Gao等人，2023年）。
+一项值得注意的进展是，Bi等人（2023年）推出了一个名为“盘古”的<strong>特定于三维地球的Transformer模型</strong>，该模型在天气预报方面已被证明具有很高的准确性。
+此外，Zhou和Zhang（2023年）设计了一种基于Transformer的模型，称为<strong>3D
+- Geoformer，能够预测与厄尔尼诺 - 南方涛动（ENSO）相关的温度</strong>。
+Transformer方法独特的<strong>自注意力机制使模型能够访问历史时间序列的任何片段，而不受时间距离的影响，这使其成为时间序列缺口填补和预测的特别合适的选择</strong>（Li等人，2019年a）。</p>
+<p>（本研究）</p>
+<p>在本研究中，我们利用一种<strong>基于Transformer的新型深度学习模型的能力来解决GRACE观测数据中的缺口问题</strong>。
+我们的模型<strong>考虑了一系列水文和气候特征，包括温度（T）、降水（P）和蒸散量（ET）</strong>。
+我们将该模型应用于<strong>全球0.25°的GRACE
+RL06v02数据集</strong>，以填补这些数据缺口，为用户群体提供易于获取的产品。
+我们的研究有<strong>三个主要贡献</strong>：
+（a）成功将Transformer模型应用于GRACE数据的时间序列缺口填补，突显了其管理长期地球科学数据集的潜力；
+（b）<strong>提高了缺口填补的稳健性，特别是在干旱地区</strong>；
+（c）提供了使用CSR
+RL06v2网格的用户友好型缺口填补产品，以及公开可用的代码，使用户能够将这种新方法应用于其他遥感时间序列数据集进行预测和缺口填补。</p>
+<h2 id="数据">2 数据</h2>
+<h3 id="grace-data">2.1. GRACE data</h3>
+<p>该研究使用了全球CSR（美国得克萨斯大学空间研究中心）GRACE/GRACE - FO
+RL06v02质量聚合格点（Mascon Grids）产品（Save等人，2016年）。
+这些月度数据集的时间跨度从<strong>2002年4月至2023年6月</strong>。 CSR
+RL06v02质量聚合格点的空间分辨率为<strong>0.25°×0.25°</strong>（需要注意的是，<strong>这并不代表实际空间分辨率（约为300千米），而是重采样大小</strong>）。
+数据以<strong>NetCDF文件</strong>格式呈现为<strong>网格化的月度陆地水储量异常（TWSA）形式</strong>。
+陆地水储量异常值是计算为与2004年至2009年基线平均值的偏差。
+该数据集可分为两个不同时期，与2002年4月至2017年7月的GRACE任务时期以及2018年5月至2023年6月的GRACE
+-
+FO任务时期相对应。这些数据可从http://www2.csr.utexas.edu/grace下载。<strong>值得注意的是，该数据集包含35个月的数据缺失，其中包括与GRACE/GRACE
+-
+FO任务间隙相对应的连续11个月以及与GRACE任务不连续的24个月。</strong></p>
+<h3 id="climate-data">2.2. Climate data</h3>
+<p>本研究使用了ERA5 -
+陆地月度汇总降水和温度数据集。ERA5是欧洲中期天气预报中心（ECMWF）对全球气候进行的高精度第五代大气再分析（Hersbach等人）。（2020年）。
+这些数据的空间分辨率为0.25°，是通过谷歌地球引擎（https://developers.google.com/earth-engine/datasets/catalog/ECMWF_ERA5_MONTHLY）下载的。作为新一代的再分析数据，ERA5被认为是一个独特的、高质量的气候数据集，已广泛应用于陆地生态系统研究，并且与上一代相比有了显著改进（Beck等人，2021年；Graham等人，2019年）。</p>
+<h3 id="evapotranspiration-data">2.3. Evapotranspiration data</h3>
+<p>蒸散量数据</p>
+<p>本研究使用了Penman - Monteith - Leuning第二版（PML -
+V2）产品（Ma和Zhang，2022年；Zhang等人，2019年）。PML - V2采用耦合的水 -
+碳模型来估算蒸散量。近期研究结果突显了PML -
+V2的卓越性能，与其他蒸散量（ET）产品相比，其误差方差较低（Li等人，2023年）。PML
+-
+V2数据集可公开获取，时间跨度为2002年至2022年，有8天产品和月度汇总两种形式，空间分辨率为500米。在本研究中，我们将全球PML
+-
+V2蒸散量数据协调到0.25°×0.25°的空间分辨率，以确保与GRACE数据一致。该产品可从https://developers.google.com/earth-engine/datasets/catalog/CAS_IGSNRR_PML_V2_v017免费下载。</p>
+<h2 id="方法">3、方法</h2>
+<h3 id="transformer">3.1. Transformer</h3>
+<p>（输入时序数据）</p>
+<p>考虑一个时间序列<span class="math inline">\(\{z_{i,1:t_{0}}\}_{i =
+1}^{N}\)</span>，其中<span class="math inline">\(z\)</span>表示时间序列<span class="math inline">\(i\)</span>在时间<span class="math inline">\(t\)</span>的陆地水储量异常（TWSA）值， (预测窗口)
+我们在模型架构中<strong>实现了一个可配置的预测窗口<span class="math inline">\((\tau)\)</span></strong>，以促进快速扩展和应用。<strong>窗口<span class="math inline">\(\tau\)</span>允许动态调整，以适应1个月、2个月，直至11个月甚至更多的预测</strong>，而无需滚动预测方法。
+（目标） 目标是预测时间序列的后续<span class="math inline">\(I\)</span>个时间步（即<span class="math inline">\(\tau = 11\)</span>，表示11个月的缺口）： <span class="math inline">\(\left\{z_{i,t_{0}+1:t_{0}+\tau}\right\}_{i =
+1}^{N}\)</span> （1）</p>
+<p>为了简化这个问题，可以将其简化为一步超前预测模型。这种策略在基于深度学习（DL）的时间序列预测任务中广泛使用（蔡等人，2020年；林等人，2021年）：
+<span class="math inline">\(p\left(z_{t} | z_{i,1:t - 1}, x_{i,1:t} ;
+\Phi\right)\)</span> （2）</p>
+<p>（输入的格式定义） 在这里，<span class="math inline">\(\Phi\)</span>表示在所有时间序列中生成的可学习参数。<span class="math inline">\(x_{i,1,t}\)</span>表示基于时间的与陆地水储量异常（TWSA）相关的特征，在本研究中包括降水（<span class="math inline">\(P\)</span>）、温度（<span class="math inline">\(T\)</span>）和蒸散量（<span class="math inline">\(ET\)</span>）。
+为了最大限度地利用并行计算资源，我们<strong>将输入值转换为矩阵格式</strong>（李等人，2019年a）：
+<span class="math inline">\(y_{t}=\left[z_{t - 1} \circ x_{t}\right] \in
+R^{d + 1}\)</span> （3） <span class="math inline">\(Y_{t}=\left[y_{1},... y_{t}\right]^{T} \in R^{t
+\times(d + 1)}\)</span> （4）</p>
+<p><strong>在这里，符号<span class="math inline">\(\circ\)</span>表示拼接，<span class="math inline">\(R^{d + 1}\)</span>表示<span class="math inline">\(d + 1\)</span>维实数空间。 在本研究中，<span class="math inline">\(d\)</span>设置为4，表示三个特征和一个时间特征。</strong>
+（消融实验的基线设置）在消融实验中，<strong>基线</strong>设置为仅使用GRACE时间序列本身，这意味着仅使用基于时间的特征而没有任何额外的预测因子(即特征，不知道这里为什么又取了这个名字)。
+（消融实验的其他实验设置）其他实验在此基线的基础上，分别添加降水（<span class="math inline">\(P\)</span>）、温度（<span class="math inline">\(T\)</span>）和蒸散量（<span class="math inline">\(ET\)</span>），以展示每个特征的贡献。</p>
+<p>(生成模型的具体细节) 我们通过输入<span class="math inline">\(Y_{t}\)</span>并预测<span class="math inline">\(z_{t}\)</span>来生成模型<span class="math inline">\(z_{t}-f(Y_{t})\)</span>。 函数<span class="math inline">\(f\)</span>表示一种新颖的Transformer模型，该模型充分利用了<strong>多头自注意力机制</strong>。
+<strong>这种自注意力机制使模型能够关注各种局部序列模式</strong>。
+Vaswani等人（2017年）提出了自注意力架构，这使得Transformer成为时间序列预测的良好候选者。
+在自注意力步骤中，该机制将输入矩阵<span class="math inline">\(Y\)</span>转换为查询矩阵（<span class="math inline">\(Q_{h}=YW_{h}^{Q}\)</span>）、键矩阵（<span class="math inline">\(K_{h}=YW_{h}^{K}\)</span>）以及值矩阵（<span class="math inline">\(V_{h}=YW_{h}^{V}\)</span>），其中<span class="math inline">\(h = 1,\cdots,H\)</span>表示<span class="math inline">\(H\)</span>组不同的<span class="math inline">\(Q\)</span>、<span class="math inline">\(K\)</span>和<span class="math inline">\(V\)</span>矩阵。参数<span class="math inline">\(w_{h}^{Q}\)</span>、<span class="math inline">\(W_{h}^{K}\)</span>和<span class="math inline">\(w_{h}^{V}\)</span>是可学习参数。该参数在验证集和训练集之间保持一致。
+注意力值<span class="math inline">\(O_{h}\)</span>是通过一系列向量的点积来计算的：
+<span class="math inline">\(O_{h}=Attention(Q_{h},K_{h},V_{h})=softmax(\frac{Q_{h}K_{h}^{T}}{\sqrt{d_{k}}}\cdot
+M)V_{h}\)</span>，(5) <strong>其中<span class="math inline">\(M\)</span>是一个用于过滤向右注意力的调整参数</strong>。
+随后，<strong>在注意力输出之后，<span class="math inline">\(O_{h}\)</span>值会被导向一个线性层。</strong></p>
+<p>在本研究中，我们从超过20万个全球像素的集合中随机抽取了1万个时间序列点。
+抽样策略及原因可在图S1中查看。 <img src="/2024/12/24/crop_classification/Crop%20classification/2024-RSE-Filling_Grace_data_gap/1734792131472.png" alt="1734792131472">
+归一化之后，我们按照公式4将输入数据整理成矩阵（图2a，步骤1）。</p>
+<figure>
+<img src="/2024/12/24/crop_classification/Crop%20classification/2024-RSE-Filling_Grace_data_gap/1734792331754.png" alt="1734792331754">
+<figcaption aria-hidden="true">1734792331754</figcaption>
+</figure>
+<p><img src="/2024/12/24/crop_classification/Crop%20classification/2024-RSE-Filling_Grace_data_gap/1734792377484.png" alt="1734792377484">
+为了捕捉各种特征，我们引入了卷积策略（图2b，步骤2）。</p>
+<figure>
+<img src="/2024/12/24/crop_classification/Crop%20classification/2024-RSE-Filling_Grace_data_gap/1734792400851.png" alt="1734792400851">
+<figcaption aria-hidden="true">1734792400851</figcaption>
+</figure>
+<figure>
+<img src="/2024/12/24/crop_classification/Crop%20classification/2024-RSE-Filling_Grace_data_gap/1734792427648.png" alt="1734792427648">
+<figcaption aria-hidden="true">1734792427648</figcaption>
+</figure>
+<p>此外，我们提出了一种卷积自注意力机制，以使Transformer网络能够学习时间序列的局部上下文（图2c，步骤3）。</p>
+<p><img src="/2024/12/24/crop_classification/Crop%20classification/2024-RSE-Filling_Grace_data_gap/1734792450798.png" alt="1734792450798"><img src="/2024/12/24/crop_classification/Crop%20classification/2024-RSE-Filling_Grace_data_gap/1734792466258.png" alt="1734792466258"></p>
+<p>另外，我们引入了对数稀疏Transformer计算策略，该策略每层每个单元仅需计算<span class="math inline">\(O(log
+L)\)</span>次点积。这种方法在不减少信息量的情况下显著提高了运行速度（图2d）。</p>
+<figure>
+<img src="/2024/12/24/crop_classification/Crop%20classification/2024-RSE-Filling_Grace_data_gap/1734792492188.png" alt="1734792492188">
+<figcaption aria-hidden="true">1734792492188</figcaption>
+</figure>
+<figure>
+<img src="/2024/12/24/crop_classification/Crop%20classification/2024-RSE-Filling_Grace_data_gap/1734857223247.png" alt="1734857223247">
+<figcaption aria-hidden="true">1734857223247</figcaption>
+</figure>
+<p>图2. 本研究中的卷积变换模型和数据处理步骤。(a)
+将输入数据转换为矩阵，然后进行序列归一化。(b)
+将五维特征输入卷积层并添加位置编码。(c) 自注意力机制示意图。“Conv
+1”和“Conv
+k”分别表示核大小为{1,k}、步长为1的卷积。卷积层将变换后的输入整合到queries/keys中，使模型能够关注不同的局部序列模式。(d)
+LogSparse Transformer计算策略示意图。</p>
+<h3 id="训练及验证指标与策略">3.2. 训练及验证指标与策略</h3>
+<p>将10000个随机的全球地图序列随机划分为<strong>训练集（8000个）、验证集（1000个）和测试集（1000个）。</strong>
+考虑到<strong>GRACE的原始信号分辨率为3度</strong>，我们选择了8000个时间序列点用于训练。
+详细的概念图见图3。</p>
+<p><img src="/2024/12/24/crop_classification/Crop%20classification/2024-RSE-Filling_Grace_data_gap/1734857793565.png" alt="1734857793565"> 图3.
+流程图和示意图概述了输入样本数据和处理步骤。(a)
+示意图展示了原始GRACE的3°分辨率和分辨率为0.25°的RL06 Mascon解决方案。(b)
+样本系列策略使用10,000个样本。violin图表示TWSA数据的分布。它显示了在20,000、10,000、5000和1000个点上随机采样的GRACE
+3°分辨率和RL06
+Mascon解决方案的数据分布。<strong>星号标记表示Kruskal-Wallis检验（该检验用于判断不同采样情况下数据分布是否存在显著差异，帮助评估所选
+10,000 个样本在代表数据整体特征方面的合理性）的p值</strong>。(c)
+<strong>本研究中数据处理工作流程的总结</strong>。(d)
+<strong>对数据采样、处理、训练、填补空缺的反向推断、验证和流域平均分析的详细描述</strong>。</p>
+<p>为避免信息泄露，<strong>并非所有可用的陆地水储量异常（TWSA）序列都用于训练</strong>。（大概就是说保留
+10000 个样本点既能保持与原始信号的一致性又确保不存在信息泄露）
+图3b中的violin图展示了TWSA数据的分布情况。它呈现了GRACE
+3°分辨率以及RL06质量聚合格点（Mascon）解决方案在随机抽取的20000、10000、5000和1000个点上的分布情况。<strong>结果表明，10000个训练点不仅保持了与原始3°信号的TWSA分布的一致性，而且确保了不存在信息泄露</strong>。</p>
+<p>我们开发了一个统一的模型，该模型能够基于输入时间序列和各种特征预测未来几个月的水储量情况。
+<strong>输入特征及其分辨率如下</strong>：
+<strong>ERA5的温度（T）和降水（P）分辨率为0.25°，GRACE的RL06v02分辨率为0.25°，PML_v2的蒸散发（ET）原始分辨率为500米，已提升至0.25°以与其他数据匹配</strong>。
+在训练阶段，通过交叉验证根据模型性能分配超参数。表S2显示了<strong>超参数列表</strong>。
+<img src="/2024/12/24/crop_classification/Crop%20classification/2024-RSE-Filling_Grace_data_gap/1734858619707.png" alt="1734858619707">
+在验证阶段，我们从2013年1月至2020年1月随机选择一个11个月的时间段作为验证窗口，将这11个月视为缺失数据。<strong>如3.1节所述，将τ设置为11意味着我们直接输出11个月的值，而不是采用滚动预测</strong>。
+这使我们能够对这11个月的结果进行全面评估，并评估1至11个月的性能（即预测提前期，见图4f）。
+<img src="/2024/12/24/crop_classification/Crop%20classification/2024-RSE-Filling_Grace_data_gap/1734858790889.png" alt="1734858790889"> 图4.
+在模拟陆地水储量异常（TWSA）与GRACE观测值对比的验证过程中，不同预测提前期下的散点密度图和预测精度：(a)基线模型，(b)基线模型添加降水，(c)基线模型添加温度，(d)基线模型添加蒸散发，以及(e)包含所有三个特征的最终模型，同时给出评估指标。11个月的验证期是从2013年1月至2020年1月随机选取的。(f)展示了整个测试期间11个月预测的NSE（纳什
+-
+萨特克利夫效率）和RMSE（均方根误差）平均值。阴影区域表示±标准差，说明了预测的精度。指标的平均值显示在左上角。左上角代表NSE和RMSE的平均值（中心点）以及95%置信区间（上下须线）。</p>
+<p>图3d显示了<strong>数据采样、处理、训练、填补空缺的反向推断（backinference）、验证和流域平均分析的详细描述</strong>。
+我们选择使用所有可用的月度数据进行训练，忽略缺失值以最大化用于模型训练的时间序列长度（就下面的
+2011-05 和 2011-07 之间的 2011-06
+是空缺的，是没有索引的)。这种方法使我们能够稳健地捕捉所有年份的变化性。
+然后我们将模型的输出值与真实值进行比较。
+最后，在确认模型性能后，我们将其应用于所有全球时间序列以生成填补空缺的输出产品。</p>
+<figure>
+<img src="/2024/12/24/crop_classification/Crop%20classification/2024-RSE-Filling_Grace_data_gap/1734858995747.png" alt="1734858995747">
+<figcaption aria-hidden="true">1734858995747</figcaption>
+</figure>
+<h3 id="性能指标">3.3 性能指标</h3>
+<p>使用常用的评估指标（Sun等人，2021年；Uz等人，2022年；Yang等人，2023年）对Transformer
+TWSA的性能进行了量化，包括纳什 -
+萨特克利夫效率（NSE，Nash和Sutcliffe，1970年）和均方根误差（RMSE）。
+（NSE,衡量拟合优度）</p>
+<p>在水文研究中，NSE指标通常如下计算：</p>
+<p><span class="math inline">\(NSE = 1 - \frac{\sum_{i = 0}^{N}(y_{i} -
+\hat{y}_{i})}{\sum_{i = 0}^{N}(y_{i} -
+\overline{y}_{i})}\)</span>（6）， 其中<span class="math inline">\(y_{i}\)</span>代表观测值，<span class="math inline">\(\hat{y}_{i}\)</span>代表预测值，<span class="math inline">\(\overline{y}_{i}\)</span>代表观测值的平均值。<span class="math inline">\(N\)</span>是样本数量，在本研究中，<span class="math inline">\(N\)</span>指11,000（1000个测试样本×11个月）。NSE越接近1，表示模型性能越好。</p>
+<p>(RMSE，衡量预测精度)</p>
+<p>均方根误差（RMSE）被广泛用于衡量回归性能和模型误差。RMSE越接近0，表明模型误差越低，模拟技能越准确。</p>
+<p><span class="math inline">\(RMSE=\sqrt{\frac{1}{N}
+\sum_{i=0}^{N}\left(y_{i}-\hat{y}_{i}\right)}\)</span> (7)</p>
+<p>(NSE和 RMSE 的区别)</p>
+<p>NSE（Nash-Sutcliffe Efficiency）和RMSE（Root Mean-Square
+Error）是用于评估模型性能的两个重要指标，它们的区别如下：</p>
+<ol type="1">
+<li><strong>计算方式</strong>
+<ul>
+<li><strong>NSE</strong>：计算公式为<span class="math inline">\(NSE = 1
+- \frac{\sum_{i = 0}^{N}(y_{i} - \hat{y}_{i})}{\sum_{i = 0}^{N}(y_{i} -
+\overline{y}_{i})}\)</span>，其中<span class="math inline">\(y_{i}\)</span>是观测值，<span class="math inline">\(\hat{y}_{i}\)</span>是预测值，<span class="math inline">\(\overline{y}_{i}\)</span>是观测值的平均值，<span class="math inline">\(N\)</span>是样本数量。<strong>NSE通过比较预测值与观测值之间的差异相对于观测值与平均值之间的差异来衡量模型的拟合优度</strong>。</li>
+<li><strong>RMSE</strong>：计算公式为<span class="math inline">\(RMSE=\sqrt{\frac{1}{N}
+\sum_{i=0}^{N}\left(y_{i}-\hat{y}_{i}\right)}\)</span>，它直接计算预测值与观测值之间差异的均方根。</li>
+</ul></li>
+<li><strong>数值意义</strong>
+<ul>
+<li><strong>NSE</strong>：其值范围在负无穷到1之间，NSE越接近1，表示模型预测与观测数据的拟合程度越好，模型性能越佳；当NSE等于1时，模型预测完全符合观测值；若NSE小于0，则表示模型预测结果比使用观测数据的平均值作为预测值还要差。</li>
+<li><strong>RMSE</strong>：RMSE的值越小，说明模型预测值与观测值之间的差异越小，模型的预测精度越高；RMSE等于0时，表示模型预测与观测值完全一致。</li>
+</ul></li>
+<li><strong>对模型性能评估的侧重点</strong>
+<ul>
+<li><strong>NSE</strong>：更侧重于评估模型整体的拟合效果，考虑了预测值与观测值的相对误差，能反映模型在捕捉数据变化趋势和幅度方面的能力。例如，在评估水文模型时，NSE可以帮助判断模型是否能够准确模拟陆地水储量异常（TWSA）的变化规律。</li>
+<li><strong>RMSE</strong>：主要关注预测值与观测值之间绝对误差的平均大小，对模型预测的准确性提供了一个直观的衡量标准，尤其在比较不同模型的预测精度时，RMSE越小的模型通常被认为具有更好的性能。</li>
+</ul></li>
+</ol>
+<p>在评估模型性能时，NSE和RMSE提供了不同角度的信息，通常需要综合考虑这两个指标来全面评价模型的优劣。</p>
+<p>. (Kruskal-Wallis检验)</p>
+<p><strong>采用Kruskal-Wallis检验来检验模型性能的差异</strong>。
+例如，我们测试了Transformer模型在纳入所有特征后，在干旱地区是否有显著改进。
+这是<strong>一种非参数方法，用于检验两个或多个样本是否来自相同的概率分布（Kruskal和Wallis，1952年）</strong>。
+我们从时间序列数据中随机选择多个连续的11个月时间段。这使我们能够在几个不同的测试集上评估模型的性能，每个测试集涵盖时间序列的不同部分。然后我们计算了NSE（纳什
+- 萨特克利夫效率）和RMSE（均方根误差）的平均值。</p>
+<h4 id="kruskal-wallis检验">(Kruskal-Wallis检验)</h4>
+<p>Kruskal-Wallis检验是一种非参数检验方法，<strong>用于检验多个独立样本是否来自相同分布</strong>。它基于秩次（rank）的概念，不依赖于数据的具体分布形式，对总体分布的形状没有严格要求，因此在许多实际应用中具有广泛的适用性。</p>
+<h5 id="原理">原理</h5>
+<ol type="1">
+<li><strong>提出假设</strong>
+<ul>
+<li><strong>零假设（<span class="math inline">\(H_0\)</span>）</strong>：所有样本来自相同的分布，即不同组的总体分布没有差异。</li>
+<li><strong>备择假设（<span class="math inline">\(H_1\)</span>）</strong>：至少有两个样本来自不同的分布，即不同组的总体分布存在差异。</li>
+</ul></li>
+<li><strong>计算检验统计量（<span class="math inline">\(H\)</span>）</strong>
+<ul>
+<li>首先，将所有样本的数据混合在一起，并按照从小到大的顺序进行排序，<strong>赋予每个数据一个秩次（rank）</strong>。如果有相同的数据值（即出现结，ties），则通常采用平均秩次的方法来处理。</li>
+<li>对于每个样本组，计算其秩和（<span class="math inline">\(R_i\)</span>），即该组中所有数据的秩次之和。</li>
+<li>然后，根据以下公式计算Kruskal-Wallis检验统计量<span class="math inline">\(H\)</span>： <span class="math inline">\(H=\frac{12}{N(N + 1)}\sum_{i =
+1}^{k}\frac{R_{i}^{2}}{n_{i}} - 3(N + 1)\)</span> 其中，<span class="math inline">\(N\)</span>是所有样本的总数量（<span class="math inline">\(N = n_1 + n_2 + \cdots + n_k\)</span>，<span class="math inline">\(n_i\)</span>是第<span class="math inline">\(i\)</span>个样本组的样本数量，<span class="math inline">\(k\)</span>是样本组的数量，<span class="math inline">\(R_i\)</span>是第<span class="math inline">\(i\)</span>个样本组的秩和。</li>
+</ul></li>
+<li><strong>确定<span class="math inline">\(p\)</span>值并做出决策</strong>
+<ul>
+<li>根据计算得到的检验统计量<span class="math inline">\(H\)</span>，以及样本组数量<span class="math inline">\(k\)</span>和总样本量<span class="math inline">\(N\)</span>，可以通过查Kruskal-Wallis检验的临界值表或使用统计软件来确定相应的<span class="math inline">\(p\)</span>值。</li>
+<li>如果<span class="math inline">\(p\)</span>值小于预先设定的显著性水平（如<span class="math inline">\(0.05\)</span>），则拒绝零假设，认为至少有两个样本组的总体分布存在显著差异；如果<span class="math inline">\(p\)</span>值大于显著性水平，则不拒绝零假设，即没有足够的证据表明不同样本组的总体分布存在差异。</li>
+</ul></li>
+</ol>
+<h5 id="优点">优点</h5>
+<ol type="1">
+<li>不依赖于数据的分布假设，适用于各种类型的数据，尤其是数据分布未知或不满足正态分布假设的情况。</li>
+<li>可以处理多个独立样本的比较问题，能够同时检验多个组之间的差异。</li>
+</ol>
+<h5 id="缺点">缺点</h5>
+<ol type="1">
+<li>当样本量较小时，检验效能相对较低，可能较难检测到实际存在的差异。</li>
+<li>如果数据中存在较多的结（ties），可能会影响检验结果的准确性。在这种情况下，一些修正的方法可以用来调整检验统计量，以提高结果的可靠性。</li>
+</ol>
+<h5 id="应用场景">应用场景</h5>
+<ol type="1">
+<li>在社会科学、医学、生物学等领域，当比较多个不同处理组或总体的差异时，如果数据不满足参数检验的前提条件（如正态性、方差齐性等），Kruskal-Wallis检验是一种常用的替代方法。</li>
+<li>例如，比较不同药物治疗效果、不同教育方法对学生成绩的影响、不同地区居民收入水平等方面，当数据不符合正态分布时，可使用该检验来判断这些组之间是否存在显著差异。</li>
+</ol>
+<h2 id="结果">4、结果</h2>
+<h3 id="填补空缺结果的验证">4.1填补空缺结果的验证</h3>
+<p><img src="/2024/12/24/crop_classification/Crop%20classification/2024-RSE-Filling_Grace_data_gap/1734858790889.png" alt="1734858790889"> 图4.
+在模拟陆地水储量异常（TWSA）与GRACE观测值对比的验证过程中，不同预测提前期下的散点密度图和预测精度：(a)基线模型，(b)基线模型添加降水，(c)基线模型添加温度，(d)基线模型添加蒸散发，以及(e)包含所有三个特征的最终模型，同时给出评估指标。11个月的验证期是从2013年1月至2020年1月随机选取的。(f)展示了整个测试期间11个月预测的NSE（纳什
+-
+萨特克利夫效率）和RMSE（均方根误差）平均值。阴影区域表示±标准差，说明了预测的精度。指标的平均值显示在左上角。左上角代表NSE和RMSE的平均值（中心点）以及95%置信区间（上下须线）。</p>
+<p>在<strong>验证阶段</strong>，我们对模型的性能进行了初步评估。
+图4展示了<strong>GRACE数据与预测的陆地水储量异常（TWSA）之间的比较</strong>。
+基于测试数据集（1000个测试样本×11个月）对模型验证进行评估。
+（基线模型-采用了新颖的Transformer模型但未使用任何特征）
+模型的卓越性能可归因于<strong>基线模型</strong>：
+引入了一种新的Transformer方法。
+图4a展示了基线模型，<strong>该模型采用了新颖的Transformer模型但未使用任何特征</strong>。</p>
+<p>（整合不同特征的模型）
+图4b至图4e反映了因整合不同特征（降水、温度和蒸散发）而提高的准确性。
+（最终模型）
+图4e展示了最终模型，它由补充了各种特征的基线Transformer模型组成。</p>
+<p>（测试阶段）
+通常，在<strong>测试数据集</strong>中，只会有一个NSE（纳什 -
+萨特克利夫效率）和RMSE（均方根误差）值，代表11,000个预测的TWSA值与真实值之间的比较。
+（验证阶段）
+为确保结果的稳健性，在<strong>验证过程中</strong>，我们随机选择了多个从2013年1月至2020年1月连续的11个月时间段。
+（NSE 和 RMSE） 然后我们计算了NSE和RMSE的平均值。
+NSE和RMSE的范围值显示在左上角，而平均值显示在右下角。</p>
+<p>（结果分析1）
+对于Transformer模型，模拟的TWSA与GRACE的真实值紧密吻合，结合了三个特征（降水、温度和蒸散发）的Transformer模型产生了最高的平均NSE（0.906）和最低的平均RMSE（6.178厘米）。</p>
+<p>（结果分析 2）
+此外，<strong>由于我们直接预测11个月的时间段，每个月的准确性可能会有所不同</strong>。
+图4f展示了11个月预测提前期内的准确性变化。
+总体而言，<strong>预测准确性最初上升然后下降</strong>。
+准确性的初始上升表明我们的Transformer模型能够在短期内有效地捕捉TWSA变化的动态。
+在预测提前期为四个月后，准确性逐渐下降。</p>
+<p>（针对三个特征的消融研究）
+表S1中评估了一项全面的消融研究，<strong>表明特征重要性的层次如下：降水＞蒸散发＞温度</strong>。
+这强调了仅由Transformer驱动的我们的模型能够实现高精度和稳健的预测。
+<strong>集成参数的引入进一步提高了填补空缺的稳健性，使平均RMSE降低了7.6%</strong>。</p>
+<figure>
+<img src="/2024/12/24/crop_classification/Crop%20classification/2024-RSE-Filling_Grace_data_gap/1734872430916.png" alt="1734872430916">
+<figcaption aria-hidden="true">1734872430916</figcaption>
+</figure>
+<h3 id="不同干旱条件下的准确性评估">4.2不同干旱条件下的准确性评估</h3>
+<p>为了进一步<strong>评估模型在不同地区的性能</strong>，我们采用NSE（纳什
+- 萨特克利夫效率）和RMSE（均方根误差）指标来评估可靠性和差异。
+（结果直观展示）
+此外，我们<strong>对模型在按气候分类的区域（包括湿润、半湿润偏旱、半干旱、干旱和极干旱地区）中的性能分别进行评估</strong>，如图5所示。
+<img src="/2024/12/24/crop_classification/Crop%20classification/2024-RSE-Filling_Grace_data_gap/1734872712193.png" alt="1734872712193"> 图5. 使用（a）NSE（纳什 -
+萨特克利夫效率）和（b）RMSE（均方根误差）指标的中值评估Transformer模型在湿润（蓝色）、半湿润偏旱（深蓝色）、半干旱（橙色）、干旱（红色）和极干旱（深红色）地区的准确性。<strong>误差条代表验证的标准差。颜色的深浅代表不同的模型</strong>，从浅到深依次为Transformer基线模型、加入温度（T）的Transformer模型、接着加入降水（P）的模型，然后加入蒸散发（ET）得到包含所有特征的结果模型。（关于本图图例中颜色引用的解释，请读者参考本文的网络版本。）
+这些区域的分布和像素数量显示在图S3中。 <img src="/2024/12/24/crop_classification/Crop%20classification/2024-RSE-Filling_Grace_data_gap/1734872644310.png" alt="1734872644310"> 图5总结了五个气候区域的NSE和RMSE中值。 (结果评估)
+在所有区域中，<strong>特别是在极端干旱地区，我们的模型取得了突破，其中值NSE大于0，表明预测结果更好</strong>。</p>
+<p>（引入降水、温度和蒸散发特征可以显著提高准确性和健壮性）
+此外，从基线模型到final模型有显著的改进，因为通过Kruskal-Wallis检验表明，在所有干旱条件下p值均小于0.05。在没有额外特征的情况下，我们将Transformer模型设为基线模式，其平均RMSE为3.676
+±
+0.453厘米，这表明Transformer模型具有卓越的性能，特别是在干旱地区。当纳入降水、温度和蒸散发特征时，我们将其定义为final模型，Transformer模型的平均RMSE降至3.400
+± 0.410厘米。Kruskal-Wallis检验得出(p) &lt;
+0.001，<strong>表明组间存在显著差异</strong>。
+<strong>在干旱地区引入气象特征显著提高了预测精度，新引入的蒸散发和降水特征有助于提高模型在不同气候区域的准确性</strong>。
+纳入各种特征后，模型误差降低了7.5%。与陆地水储量（TWS）直接相关的变量，如降水和蒸散发，增强了模型的稳健性。
+此外，仅使用Transformer模型也产生了高度可靠的结果，展示了最新深度学习方法的潜力。
+不同气候区域的验证结果证实了本研究中所提出方法的可靠性和稳健性。</p>
+<h3 id="时间序列中填补空缺质量的评估这个跟-4.1-节的区别是什么">4.3时间序列中填补空缺质量的评估——这个跟
+4.1 节的区别是什么？</h3>
+<p>填补空缺结果的验证表明，Transformer模型凭借高NSE（纳什 -
+萨特克利夫效率）值几乎达到了最先进的模型水平。</p>
+<p>（）
+为了进一步展示我们模型在应用中的稳健性，<strong>我们计算了流域平均聚合（aggregated
+basin
+average）的时间序列</strong>，以及由Zhang等人（2022年）、Li等人（2021年）、Mo等人（2022a年）和Rateb等人（2022年）进行的<strong>三个独立的填补空缺结果。</strong>
+它们大致分为三类：水文模型（Zhang等人，2022年）、机器学习（Li等人，2021年；Mo等人，2022a年）和时间序列推断（Rateb等人，2022年）。
+ERA5模拟的陆地水储量异常（TWSA）也用于流域尺度的比较。
+<strong>图6展示了具有该填补空缺结果的流域平均时间序列TWSA，阴影部分的11个月空缺代表不同的干旱或湿润条件。</strong>
+<img src="/2024/12/24/crop_classification/Crop%20classification/2024-RSE-Filling_Grace_data_gap/1734874092579.png" alt="1734874092579"> 图6.
+2015年至2020年流域平均陆地水储量异常（TWSA）的时间序列。红线代表原始GRACE数据。带有阴影的11个月空缺部分代表不同的干旱或湿润状况。深红色的线条和点分别代表我们单个月和11个月的填补空缺结果。粉红色细线代表其他填补空缺或重建结果。阴影区域代表95%的预测置信区间。（关于本图图例中颜色引用的解释，请读者查阅本文的网络版本。）</p>
+<p><strong>（湿润区域——存在季节周期）
+对于湿润流域，所有模型表现良好，因为它们成功捕捉到了季节周期</strong>，例如伊洛瓦底江流域。在密西西比河流域，尽管是湿润地区，但模型之间存在相当大的差异。我们的模型擅长捕捉时间序列的变化，特别是上升趋势，这可能是最好的结果。
+（干旱和极干旱流域）
+在干旱和极干旱流域，模型之间存在显著差异<strong>。我们的模型专注于时间序列的动态变化，通常能取得更稳健的结果</strong>。</p>
+<figure>
+<img src="/2024/12/24/crop_classification/Crop%20classification/2024-RSE-Filling_Grace_data_gap/1734872277005.png" alt="1734872277005">
+<figcaption aria-hidden="true">1734872277005</figcaption>
+</figure>
+<p>图S2.
+2015年至2020年更多流域平均陆地水储量异常（TWSA）的时间序列。红线代表原始GRACE数据。阴影部分的11个月空缺代表不同的干旱或湿润条件。深红色线和点分别代表我们单个月和11个月的填补空缺结果。粉红色细线代表其他填补空缺或重建结果。阴影区域代表预测的95%置信区间。</p>
+<h2 id="讨论">5、讨论</h2>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz">ALTNT</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz/2024/12/24/crop_classification/Crop%20classification/2024-RSE-Filling_Grace_data_gap/">http://blog.705553939.xyz/2024/12/24/crop_classification/Crop%20classification/2024-RSE-Filling_Grace_data_gap/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/altnt.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/12/28/crop_classification/Crop%20classification/12%E6%9C%8827%E6%97%A5%E5%91%A8%E6%8A%A5/" title="“周报12月3日&quot;"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">“周报12月3日&quot;</div></div></a></div><div class="next-post pull-right"><a href="/2024/12/24/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/" title="Amphan_水稻受损面积说明"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">Amphan_水稻受损面积说明</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/altnt.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ALTNT</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">113</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">29</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ALTNT"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#filling-grace-data-gap-using-an-innovative-transformer-based-deep-learning-approach"><span class="toc-number">1.</span> <span class="toc-text">Filling
+GRACE data gap using an innovative transformer-based deep learning
+approach</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">1.1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.2.</span> <span class="toc-text">1 引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE"><span class="toc-number">1.3.</span> <span class="toc-text">2 数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#grace-data"><span class="toc-number">1.3.1.</span> <span class="toc-text">2.1. GRACE data</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#climate-data"><span class="toc-number">1.3.2.</span> <span class="toc-text">2.2. Climate data</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#evapotranspiration-data"><span class="toc-number">1.3.3.</span> <span class="toc-text">2.3. Evapotranspiration data</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">1.4.</span> <span class="toc-text">3、方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#transformer"><span class="toc-number">1.4.1.</span> <span class="toc-text">3.1. Transformer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83%E5%8F%8A%E9%AA%8C%E8%AF%81%E6%8C%87%E6%A0%87%E4%B8%8E%E7%AD%96%E7%95%A5"><span class="toc-number">1.4.2.</span> <span class="toc-text">3.2. 训练及验证指标与策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-number">1.4.3.</span> <span class="toc-text">3.3 性能指标</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#kruskal-wallis%E6%A3%80%E9%AA%8C"><span class="toc-number">1.4.3.1.</span> <span class="toc-text">(Kruskal-Wallis检验)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">1.4.3.1.1.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-number">1.4.3.1.2.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-number">1.4.3.1.3.</span> <span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">1.4.3.1.4.</span> <span class="toc-text">应用场景</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C"><span class="toc-number">1.5.</span> <span class="toc-text">4、结果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A1%AB%E8%A1%A5%E7%A9%BA%E7%BC%BA%E7%BB%93%E6%9E%9C%E7%9A%84%E9%AA%8C%E8%AF%81"><span class="toc-number">1.5.1.</span> <span class="toc-text">4.1填补空缺结果的验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E5%B9%B2%E6%97%B1%E6%9D%A1%E4%BB%B6%E4%B8%8B%E7%9A%84%E5%87%86%E7%A1%AE%E6%80%A7%E8%AF%84%E4%BC%B0"><span class="toc-number">1.5.2.</span> <span class="toc-text">4.2不同干旱条件下的准确性评估</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E4%B8%AD%E5%A1%AB%E8%A1%A5%E7%A9%BA%E7%BC%BA%E8%B4%A8%E9%87%8F%E7%9A%84%E8%AF%84%E4%BC%B0%E8%BF%99%E4%B8%AA%E8%B7%9F-4.1-%E8%8A%82%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.5.3.</span> <span class="toc-text">4.3时间序列中填补空缺质量的评估——这个跟
+4.1 节的区别是什么？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A8%E8%AE%BA"><span class="toc-number">1.6.</span> <span class="toc-text">5、讨论</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/02/crop_classification/Crop%20classification/%E9%87%8D%E6%96%B0%E5%A4%8D%E7%8E%B0CACM%20%E8%AE%B0%E5%BD%95/" title="重新复现CACM记录">重新复现CACM记录</a><time datetime="2025-02-02T06:13:13.347Z" title="Created 2025-02-02 14:13:13">2025-02-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/21/crop_classification/Crop%20classification/1%E6%9C%8820%E6%97%A5%E5%91%A8%E6%8A%A5-2025/" title="“周报2025年1月20日&quot;">“周报2025年1月20日&quot;</a><time datetime="2025-01-21T05:36:10.775Z" title="Created 2025-01-21 13:36:10">2025-01-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/21/crop_classification/Crop%20classification/%E5%91%A8%E6%8A%A51%E6%9C%8811%E6%97%A5-2025/" title="“周报 1 月 11 日2025&quot;">“周报 1 月 11 日2025&quot;</a><time datetime="2025-01-21T04:01:55.781Z" title="Created 2025-01-21 12:01:55">2025-01-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/19/sequence-processing/2019-Bert/" title="“BERT Pre-training of Deep Bidirectional Transformers for Language Understanding&quot;">“BERT Pre-training of Deep Bidirectional Transformers for Language Understanding&quot;</a><time datetime="2025-01-19T13:31:49.199Z" title="Created 2025-01-19 21:31:49">2025-01-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/19/crop_classification/Crop%20classification/2024-PhenoCropNet/" title="Untitled">Untitled</a><time datetime="2025-01-19T09:29:22.650Z" title="Created 2025-01-19 17:29:22">2025-01-19</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By ALTNT</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

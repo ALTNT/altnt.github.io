@@ -1,0 +1,314 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>利用基于Transformer的深度学习方法填补GRACE数据空白 | ALTNT's Hexo Blog</title><meta name="author" content="ALTNT"><meta name="copyright" content="ALTNT"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Here&#39;s something encrypted, password is required to continue reading.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用基于Transformer的深度学习方法填补GRACE数据空白">
+<meta property="og:url" content="http://blog.705553939.xyz/2024/12/16/crop_classification/Crop%20classification/2024-rse-Transformer-based-Grace/index.html">
+<meta property="og:site_name" content="ALTNT&#39;s Hexo Blog">
+<meta property="og:description" content="Here&#39;s something encrypted, password is required to continue reading.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.705553939.xyz/img/altnt.jpeg">
+<meta property="article:published_time" content="2024-12-16T07:43:11.502Z">
+<meta property="article:modified_time" content="2024-12-16T07:49:44.004Z">
+<meta property="article:author" content="ALTNT">
+<meta property="article:tag" content="crop classification">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.705553939.xyz/img/altnt.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://blog.705553939.xyz/2024/12/16/crop_classification/Crop%20classification/2024-rse-Transformer-based-Grace/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '利用基于Transformer的深度学习方法填补GRACE数据空白',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-12-16 15:49:44'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.2.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/altnt.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">113</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">29</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ALTNT's Hexo Blog"><span class="site-name">ALTNT's Hexo Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">利用基于Transformer的深度学习方法填补GRACE数据空白</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-12-16T07:43:11.502Z" title="Created 2024-12-16 15:43:11">2024-12-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-12-16T07:49:44.004Z" title="Updated 2024-12-16 15:49:44">2024-12-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="利用基于Transformer的深度学习方法填补GRACE数据空白"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="7683e58d7e3eb92dcfeee7a0e877f21e9f6082acbda3e78fae6e324fa8b14502">854efd16088ec0a2949395f17c9b60f9386aedb0ff5a819cd0390912c2b2702d96b1e5c0804704dfa4d0988b00a62eb62b0cf4532c88f10242453aa9b8284c042e1792c5d10b79288ee84593a472ad2327525aa584e2859408c60223b29ae5f01d67ed5af354071b384a7b1736e6c4af385dfb09a1054a8b95ae3aa416d98671fe295f4fcbce465e48921dfa82b73721147be2e108c5f8a98b6798eb429ebe527f586b7967ce70c6f47ed0e156ac5d2324c5c143559bd60e74cdd8a5d8618eca64819df02b5edb81dc512c5f4a2c7a8b9d89bb3a0c4de5d6cf26ecc17419b8b6922da24c97dd07e02cf85830a481fbd85408f038db8dbad44d5eedc3987513fa4b7047dc90726336596af479bed927a4128f20d9769a5e2b971544f0f2c381308ff2b78e59c6bb9ff1c04c5bcfbdecbafd34039b794d530c6b40ff5338f53d6cc177990261ef1bf0e85c11721cb77d17bac9ed26e3afe65c67070a73956f6a5c524736eed3eab9727826a82ac5c6666eb5e38ede41c2f67e5a4b063b8a6768adee100ea483a4293e5c3c9f33bd9f6f56511689bc3c78dedcf2fb90104b276ceb42c2b61832cd577e8812e56230eda19e88809a1915618dd1f67ec19697ca4a4ef6da8423f5a3ccc1b15006424961f32898df93b57082aa234df77e99288d7c5da0e58c7744e6ff6ea1282089191b42389ead6999ce282a6eb217b38b79dfd73a2060dfc200e6b3ffccafe5126989e5c6fb005ccd020ab469e0d1643714902bcec94e6139194738a2cdc006607266d3e927af8e12386fc8edba31d27289579981700e9f3171f9d64bda97bb3e55416da14901e009c32a7d301506d74ad213316938ebc367216d3a3831ebf83d990da86e275504edf03b0c632133e5c13d03207a0f8c4135ba4983b267aafd94addf62d254e9dc3d7d6a5f43667c4319f85a26a9bc538c9746ce1ad1b79c5f2a9b0e0f7a909e7b64eee2832d0a0a7da8eddc4cbd41230a7ce833f1c687673cf786fa1e97142a4b5e640e29a4a8830c595e68f5e87707dbbf8cba958a12c402f37c292c38d59ae1c7102be7d430927b3e2e6c7495520d2079ec4c0632a33fc60a4fa4a699b2f3edd39b0f304dc5cf9115f73f75163b0324ea15a58695602d6dfc1e7ca14db2075fe66dfa0e2a3c8d82e08d428a4098123c68c513b4b34eac8c0b262c1aaff9934440d2dcd629aa29b5b74d2a1754f224d8d1f13770d0cf0be64c7113bc1e09677c46481e460e4345c61c9e3ef6c70c8e5fb3d78b4c0d03bd2b55706da9c64a8988ee1ecfc0adb97b64a924837000fa34f467d6e6506f4049081ee9859659395251e2c5bd565de485dc78d636ab5da5e44eaa475c47484285150a1a984eb57f7185d5c456b355233f276f4478075dfaf610b19b6554026edba50a95f6b8e63ef0cabbbca0dc2258540749f5cba4f31446fd361df6afaf6a5f6a7e1624b34bfed7810a573b50cb0c901a4ce7f07bdba7f3adfd9bc817ccaba47597fedc6aa893ecec1e43aaaf8854cb5ae4edd6776d292a82f9b57a59fe8e0b381e4808036b43bd60983045e378b9a6f107d422f7f5fbd2247b288ef83c4529f507daa7ba619a0b9f25b8b7d503d2d5044881e66cef9caf952dd42f9e44f2920506a8f3c46dd81bee940c37f0e205f4f7b427a024042f7243e0bd59cf8e4c38bab820618efc7121dabe5e57c867f9b48fa72bbde2575b97e63349d6b5b9ae83c746e6bbb357b9c19908b58b0962d0cff24f6c14570f4ccf94535b31e6581402b099f9f98c1b3a62a21caaed40d8e6825fc5135c0d3aec25ab6f1695d6a0a9e6c53e16741f320591049aa3fb0205676ca568c89942e508d506d6393bca567e05b47110c5ede91a175019ff1eb4ca8d5a86955d5e77928960d46a48de8f06e480b18f99b94a384fab06989748519c932cec07761d1733bc6f567c5b359d13cb2229dd594e5ef16bcfa7194ff49b34c91f1bb44c05dd3678e56236423ff153e8420d8a744bc3b084821050b7c8d1e428a10ae76f061179ed7d9fe99581bf499fb92ed7a123ddbb94d639e2cc4b6a03674ae4632fbaa0392cadd0257cd007a73141d3277def89535bd79ad56db2d70aeea0c85a9ab1bb370f78031d5430ec6a058ec23e46280b072a804b0933b00e35a09767e488a3ee554abb22f881407d922ee0962db7180925ac328f402a5fdf26eeb477aa7b8062287c62b1e66752c386c9c8141fefc365e33eeacb0cedff55aaccd4c3986cc7aa63724c8b83711013009961a15ba645863dd9d880c21dc0be0918416be3672574e8ec8d7a0ae9a1df840e7396b063447614fed5349427ba75f67533e8c03eaf804aec91e6717e7fffc49a702a6648f2db59881ca85a8f043d140c89b1fe980422e5d2a1c72eef57709cca058870602d0167af36bdcbb6b8c5172d51e5c342e60b8f3df604015112f9e77164e12e631f6b32c6affdd5b602c1f576ed68e927ac68910511c2d9ee34ab0886d4dc7cdea005976380a493c67a8dece2111a718a2aa7000cce3600a7b91d42cde29b5e00a50be0791d70fa0398ec97accf21b07d4a8a37ff0c5db240a5e60985cd252cffb9d8faae16958ce7344bb9cae54f9106021834bc685ba15b33234ef2cec11f6209a65d8248b26105a570ce65a1eaf135baba299e0ef9fcba866f8d4df43a4471c7533e00631d4668b450dbfd1b0fdd31307f4100031e191c9d603e663d5b146de4783fa1679d08615cd5f87916e77881867f3723f9b9605ebc560b35b9bd1e7f630b01a872a83d3aa15d6189db065c2a2723d4c826780404ff41733d2aaced495c71deb4a1282f0bbf97fa92e77780e786b0b2e14ac180d01c5d1d5f98766f8be526854dff853d0e42011bfb2a10c1cd3b62a4fc928a47ce870f55d59bd56e8d3d97ed97f41924de027fafe1a7113ace0b46e21dc887109b77aec6019be2101b68b23c0aeeeec031180d9fbb38f7cdd60d907dc11083da600f186ff41912dc5fea13f0d2cfc7971d98518c081be8f9fe66756b6615975cb2473c318ca00532bc4effd1eed06907e26879efa8f2ca103413529b705129282af8012d7e4ff457cef9ab4bd9517332e2ec537093e7cb457b7911701e662766a7a41a6eb3b361b356e629c90dd40527740905bc38f23c841e4efc9e05316e69d3792e409935577192671720299810c04c5ddf15ce3886d6fda874aac234d9e20c9af8b77df2984b1c8da00b12304dc7c9c63f181c44ec1c5c94f9ddb695956bef7a685aca69238a047d79c77591cefd689b29e50b560d849f7c17977d2d389f66873f5556096715c18569199e3299c5a89844241c8c020fe4249134d448d1ae4a9014d3e2530346b21163b3cb1fca018c7783a0fdddf294548de9c6eab2383fb923fc7475ccb24a894f5b3e51e714ace5d5a4efe11e4132789c50dd0075dbd336da38ee8c4e7344a9f44bc2e47a2486264b4288627d1a1e61934be23f46a844c8f79e6957db80da6e34a40ddf9054fe2c98df8e28f3bb432f2cdfe324f8fc5e11ddc6ae94f6d61bd2fe1f78d16dd2ae588c45352c9c0cdc837ab08a2b9d3f8fae07c82d7d6250be52897d853c2e69be00e4777a371084d60deb452a72c1ffebf0be7fa254e6cdc5f1e91a919a0f764d636581373fbf1058ed729a10760dcdc9a1fe6cd5b3705bf437c2f7631853873d7b4d12023680cee25d91e03b3fa35e2e800347be5d883219e0b26cd7e4008d2b167d1ab94ba18f939455fe7f1a0f346e285bd0da96e6f2ce7846af70733194dbd76a96f53ba2655663e53748d2b89ea87a6be58a8818412a22540ed643cdeeb2ee493ac44b52d7c042fa5f37c8d6932924502d16b0722359ff5fff23926aed8d4ebce502012b30058cc88d056c71ff77c1af2c765afafa2d111c28c259b2fa2552083dada4708917e60fe75af86bf1a9bbb00d71b9dbd838d4e3fbfc2810d605dcbea07a48ea40c74ded7922bbcfb74883eddb6300f5e5ab9beb5bbe19143b0183e2c0b274452c40b8bd056f4f1714b649789007afd96a0818baca41a0e391e9ffd98184a93fcb1c44d70b26857ea408d5214122c6e221e407551c694e11e8d6453ed581cb20560549830fca96ffd80ccad7232ec108e787db287063fffb88a5e8efcaae641edeb95d758336e6a348fc120fc1a23c4c5029d1a9a8a8906a3857307be96aa90221eaab720781e01009ba719b5455cb2d74575b59852f6ce00c255933f30f92dc109df0b593ec00dc228d193b73941ec054fbe97067933f5bd5c5fddfbe35ffc5eef109bf42d6be044fa5d15c3aa2020d72bbfb19d8b64af5f3a4c7e447f707df17efc8890a18309ce4c18a860f1de49a4a4f68c7417bc71549372368bad12f55c0516d6a08cfb98e2eb37223a911d9d9123d79a2994ee6c1ea14af6b63adfe768a33894cfd3abe5296c5cae9e17b31205a58422f4aa9b94a5e606c574006bf66cd549466e69685756c743ffa79d6c5e939f33f4c48b0a54f328d20d0c166130d7f5f78e750d42b38e87d51eb8a59774e358bf3f83123fb807d69b009bba1406c76f1f587a5be5f373db41dcbb197866a95702bf4bc387c2f8e50b9115dbaf6cf15072fe052b181defc10c5c9177918ea65f93aca1f17b39a43698131895f0c3f4db67bfd40d4385efb785a9626faa973d4e2f3b5858538e02f71bba43b9cc11a395aa3bef5bba884d36a42831b87301fb4696dd814f05ab34171120ccd869a1e4a60e11ce0399713c28a05f3491cbdf6b1ce69a03caa61bbd50a3c5094713628220fe5753342294fd3493e636968b32f35056d2fd412f0ddca8c6eb05f97665c487c4a52a69639bb3c08797fbf75408166fa0593fd2f121d6da35d237ee32dc29773d6ab3d9307c9f5b50d9b70cee1304b8ff1549ca3e3b9043b69fd1273a77652b2eca5615306a5b8a8fb94856ae72461f1d3a57fba38369df1afe79c9097cb2e1fc9e7c30c0bb0778b8e4f6ae61dd8b0adc957748190b32cc734e6dcee05810e7bcb563914232e9bd4e6cbc349a85a938ca782c0a35438431ffddd06fd6d3d8c1f3a884507e7392e2e67b58867af388c7efbfb28e21ab303e39e4c28b4ca8e7f27c8786ecaf53df48a0c0caca64a151015a9488323c31aaff06a8688904c9b990bfb611b81091cd04d3d6e1f0584958700997582bcdcf291d16fdad407fc5fd27774956a3d72ee6c981aeb52b16f0ecb3e71116703e125fb39a007cd74c058ae2c36e32d54c0f1c604837909e5362baaf70dbeac920737d88b6fa052a25cc36aca104edda8d78c0be0ced62e093427b4f4b17004d09d223d7b39c36da21948966b3e2217e5824ffc0ac60ae6477d60a495bc148aa0fd99b2257792fdb9680caf621309e30579ed0a5a9caa2be36195d20719b20f519f29a2fbb2c187326f8367fde15f8d74abb883e9cd2fcdd1996a943633a6c92459ce58bd2a8c8e06663ed7b238ca4fb637a5e68b5558548d83b5ee7c14fc080243e44af4df5a512a63c4cfda947a8a7b62da744052b85b145821b591ca4337e656eddd1daf25c80596542b63d51e3c3b4f6d9dbd1eddee0d7b199b0b135c301d8869284a49775d6d6915ed6b09ea8e8d4332d7916f648720d60bb3adaee8f049cf493231345a8fcd8c1de70e6ea79b55fed45ed199c69c8dced4eaed08ab4d7246ecd58579d11f898f79b7874ae839461186ecd1002e83fd52e88fd09337e53b7fcb175a6c3bae41585741b326aec60c2c2d524f21a1c5fe86163c1d6e6c4b13af52542012e599b347473bea3ac25a3377fff9820919a7bebb0a9c172862d9915c9f89f5754dcdf248463dfdab8aac940e2e496c1c96b6767d9b3f3b8d533b13c49e8647eb2949935dec6b633348c92f49545c35794b75f28522f24d5dbaedacd9a128f33092e560567d474c4a5b32632d8759c803640c73cfdff90089b7f1d3edf4dad58bcb4c1421a5bdf79c9d09b733663dc07ca6d5845e1115d11911506697349fcace940e7e70fd0bdac11de0178c307fab155f4aa9fa77adc57ced898d5714c0175cae536d2065103e4398e595</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css"></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz">ALTNT</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz/2024/12/16/crop_classification/Crop%20classification/2024-rse-Transformer-based-Grace/">http://blog.705553939.xyz/2024/12/16/crop_classification/Crop%20classification/2024-rse-Transformer-based-Grace/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/crop-classification/">crop classification</a></div><div class="post_share"><div class="social-share" data-image="/img/altnt.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/12/18/crop_classification/Crop%20classification/12%E6%9C%8816%E6%97%A5%E5%91%A8%E6%8A%A5(%E7%BB%84%E4%BC%9A)/" title="“周报12月16日&quot;"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">“周报12月16日&quot;</div></div></a></div><div class="next-post pull-right"><a href="/2024/12/12/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%A4%9A%E4%B8%AAloss%E5%A6%82%E4%BD%95%E5%B9%B3%E8%A1%A1%EF%BC%9F/" title=""><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info"></div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2024/09/12/crop_classification/%20ADeepLearningFrameworkunderAttentionMechanismforWheat-YieldEstimation-Using-Remotely-Sensed-Indices-in-the-Guanzhong-Plain/" title="A Deep Learning Framework under Attention Mechanism for Wheat Yield Estimation Using Remotely Sensed Indices in the Guanzhong Plain"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-12</div><div class="title">A Deep Learning Framework under Attention Mechanism for Wheat Yield Estimation Using Remotely Sensed Indices in the Guanzhong Plain</div></div></a></div><div><a href="/2024/10/08/crop_classification/2019-rse-TempCNNs/" title="Temporal Convolutional Neural Network for the Classification of Satellite Image"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-08</div><div class="title">Temporal Convolutional Neural Network for the Classification of Satellite Image</div></div></a></div><div><a href="/2024/10/27/crop_classification/2021-CVPRSelf-Supervised-RSE-Representations/" title="“Self-Supervised Learning of Remote Sensing Scene Representations Using Contrastive Multiview Coding&quot;"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-27</div><div class="title">“Self-Supervised Learning of Remote Sensing Scene Representations Using Contrastive Multiview Coding&quot;</div></div></a></div><div><a href="/2024/10/07/crop_classification/Document_how_to_produce_CACM_datasets/" title="记录如何生产 CACM 数据集过程"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-07</div><div class="title">记录如何生产 CACM 数据集过程</div></div></a></div><div><a href="/2025/01/13/crop_classification/CACM-Climate-adaptiveemergencycropmonitoringin1inaccessibleregionswithsatelliteimagery/" title="Climate-adaptive emergency crop monitoring in inaccessible regions with satellite imagery"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-01-13</div><div class="title">Climate-adaptive emergency crop monitoring in inaccessible regions with satellite imagery</div></div></a></div><div><a href="/2024/09/12/crop_classification/Towardsinterpretingmulti-temporaldeeplearningmodelsincropmapping/" title="Towards interpreting multi-temporal deep learning models in crop mapping"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-12</div><div class="title">Towards interpreting multi-temporal deep learning models in crop mapping</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/altnt.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ALTNT</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">113</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">29</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ALTNT"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content toc-div-class" style="display:none"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E5%9F%BA%E4%BA%8Etransformer%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E5%A1%AB%E8%A1%A5grace%E6%95%B0%E6%8D%AE%E7%A9%BA%E7%99%BD"><span class="toc-number">1.</span> <span class="toc-text">利用基于Transformer的深度学习方法填补GRACE数据空白</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">1.1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A0%94%E7%A9%B6%E8%83%8C%E6%99%AF"><span class="toc-number">1.2.</span> <span class="toc-text">研究背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%9D%A5%E6%BA%90"><span class="toc-number">1.3.</span> <span class="toc-text">数据来源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#grace%E6%95%B0%E6%8D%AE"><span class="toc-number">1.3.1.</span> <span class="toc-text">GRACE数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B0%94%E5%80%99%E6%95%B0%E6%8D%AE"><span class="toc-number">1.3.2.</span> <span class="toc-text">气候数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%92%B8%E6%95%A3%E6%95%B0%E6%8D%AE"><span class="toc-number">1.3.3.</span> <span class="toc-text">蒸散数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95"><span class="toc-number">1.4.</span> <span class="toc-text">研究方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#transformer%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.4.1.</span> <span class="toc-text">Transformer模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83%E4%B8%8E%E9%AA%8C%E8%AF%81"><span class="toc-number">1.4.2.</span> <span class="toc-text">训练与验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-number">1.4.3.</span> <span class="toc-text">性能指标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A0%94%E7%A9%B6%E7%BB%93%E6%9E%9C"><span class="toc-number">1.5.</span> <span class="toc-text">研究结果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E5%A1%AB%E8%A1%A5%E7%BB%93%E6%9E%9C"><span class="toc-number">1.5.1.</span> <span class="toc-text">验证填补结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E5%B9%B2%E6%97%B1%E6%9D%A1%E4%BB%B6%E4%B8%8B%E7%9A%84%E5%87%86%E7%A1%AE%E6%80%A7%E8%AF%84%E4%BC%B0"><span class="toc-number">1.5.2.</span> <span class="toc-text">不同干旱条件下的准确性评估</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%A1%AB%E8%A1%A5%E8%B4%A8%E9%87%8F%E8%AF%84%E4%BC%B0"><span class="toc-number">1.5.3.</span> <span class="toc-text">时间序列填补质量评估</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A0%94%E7%A9%B6%E8%AE%A8%E8%AE%BA"><span class="toc-number">1.6.</span> <span class="toc-text">研究讨论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A0%94%E7%A9%B6%E7%BB%93%E8%AE%BA"><span class="toc-number">1.7.</span> <span class="toc-text">研究结论</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/02/crop_classification/Crop%20classification/%E9%87%8D%E6%96%B0%E5%A4%8D%E7%8E%B0CACM%20%E8%AE%B0%E5%BD%95/" title="重新复现CACM记录">重新复现CACM记录</a><time datetime="2025-02-02T06:13:13.347Z" title="Created 2025-02-02 14:13:13">2025-02-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/21/crop_classification/Crop%20classification/1%E6%9C%8820%E6%97%A5%E5%91%A8%E6%8A%A5-2025/" title="“周报2025年1月20日&quot;">“周报2025年1月20日&quot;</a><time datetime="2025-01-21T05:36:10.775Z" title="Created 2025-01-21 13:36:10">2025-01-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/21/crop_classification/Crop%20classification/%E5%91%A8%E6%8A%A51%E6%9C%8811%E6%97%A5-2025/" title="“周报 1 月 11 日2025&quot;">“周报 1 月 11 日2025&quot;</a><time datetime="2025-01-21T04:01:55.781Z" title="Created 2025-01-21 12:01:55">2025-01-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/19/sequence-processing/2019-Bert/" title="“BERT Pre-training of Deep Bidirectional Transformers for Language Understanding&quot;">“BERT Pre-training of Deep Bidirectional Transformers for Language Understanding&quot;</a><time datetime="2025-01-19T13:31:49.199Z" title="Created 2025-01-19 21:31:49">2025-01-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/19/crop_classification/Crop%20classification/2024-PhenoCropNet/" title="Untitled">Untitled</a><time datetime="2025-01-19T09:29:22.650Z" title="Created 2025-01-19 17:29:22">2025-01-19</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By ALTNT</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>A_Simple_Framework_for_Contrastive_Learning of_Visual_Representations | ALTNT's Hexo Blog</title><meta name="author" content="ALTNT"><meta name="copyright" content="ALTNT"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Here&#39;s something encrypted, password is required to continue reading.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A_Simple_Framework_for_Contrastive_Learning of_Visual_Representations">
+<meta property="og:url" content="http://blog.705553939.xyz/2025/01/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%9B%91%E7%9D%A3/2020-SimCLR/index.html">
+<meta property="og:site_name" content="ALTNT&#39;s Hexo Blog">
+<meta property="og:description" content="Here&#39;s something encrypted, password is required to continue reading.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.705553939.xyz/img/altnt.jpeg">
+<meta property="article:published_time" content="2025-01-04T08:42:18.031Z">
+<meta property="article:modified_time" content="2025-02-04T10:14:51.493Z">
+<meta property="article:author" content="ALTNT">
+<meta property="article:tag" content="Self-Supervise">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.705553939.xyz/img/altnt.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://blog.705553939.xyz/2025/01/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%9B%91%E7%9D%A3/2020-SimCLR/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'A_Simple_Framework_for_Contrastive_Learning of_Visual_Representations',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-02-04 18:14:51'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.2.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/altnt.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">113</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">29</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ALTNT's Hexo Blog"><span class="site-name">ALTNT's Hexo Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">A_Simple_Framework_for_Contrastive_Learning of_Visual_Representations</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-01-04T08:42:18.031Z" title="Created 2025-01-04 16:42:18">2025-01-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-02-04T10:14:51.493Z" title="Updated 2025-02-04 18:14:51">2025-02-04</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="A_Simple_Framework_for_Contrastive_Learning of_Visual_Representations"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="9a6dbae7d2b0fbd27342d752a91a9337fa371a6a9a06f8f8aa49c926c8a2008a">854efd16088ec0a2949395f17c9b60f9386aedb0ff5a819cd0390912c2b2702d7f64b8eba82403f504e7d0e3f1c7fa6dccb65f3e73f5e8dd26862dae9fe3fe8ab5925c60768a8a5505b29d2435bb7d7d9e03a042473ed83930d2caef4af00c825a8c0499b62f98ebdade374b8dbe036233c6582bca2a23a8a50929c0e9a966cb5895d9a3ed70fc9848cfb08a6d42d3a86e9d4b4bb3e8908bd162db30d0a648ea0f68036d8be6f118f1830a26e63277482a23df09b98b6a7290ce20fbf6e8977a7704c9b82613b4f540bbbfd59b310d7d30059dc41d43b1576c40cfbbfa82c9bd53382280809aee016cad83bc878d442b96e52ba94e61bbf2e4505f516e4f264c4e0dd3e9b58c154341b08eb6c80a83852810f39f32bd844a0425c72c748f474282f4c58c1fa4a626134ad0ac8e27450c0c0610e21a6c7580ea046f29260627de29c97b445fe5ff364ea72e0a5d0b45c0afa67e9ee3784ecef61adad5ae4688c02b320f8c7f24f2fcc6ef63169a88ccecd7252f71c41d16c150e90a899232c0e4ba5980908f1c4e7b7c563c269f5ca86d2a635f4be166793ccbfd8aa44a9772f7e03c840383accd55f9f13e7a073d279806ba517022a55278a96ad6fdf0700679ff29a10a9dd432c781bfe8a6b1aaf6a8ba93200651ba83d5c4eb2a23f36395146ef35624928dfb90d8235d3d4feb033bc876d3f4be5972c0587d17a4a4b33831a7a699c024b6ca6f7cd147597b634a925e8a62a9fa2dc8422ce57398d0b6e410990494290c5cedea5d433c7d87b539db0a7952f7bc9e364c874f05c1d7104bf38249bbb817f338d8beaee62f78e024fa8a5db5b49021460e109b48cdc8c7561af44c626ac52608dcd2628b479406dc4198cedb65ef9c3f3dcf4d45300be64e81f079bece88aa127bcab6d152df6a800c1dddf99bb101807164990a741a4481b40c695e24b27c7df07a2b5b2c794ff7911e27d124da37b5da3fb1059f7cc10bf7686c2166d1b646f1d1c09bbdd78e745c3f2f7f7b2a0c36ceedc093ff5fa8deb2651051a6a8d73eb5818c2cef42783e3d4762e09976b2b4fa596a40cfe1361c2c4765faf98fdd791df16d1953dc7823b1aff9dd0986e11c8bf7fb44e7e6520f125d5da71a033c0ded7f865ec9d28a267e43c89e3825641d128eb65e8b3673e7e1ec1a22429aebb2581067970adfd6ea6452097eba2f7bc2909f3357cd9cf52d827340f7c026b6fc8bd92814ffeb2a85dccbdd81dda91768cbb0bbb0bb7adbbd6a46a395e7c98f5dc72855d52be9ef4c4d03e6cc6c17a155aab0570ed0211d44228338b27055602cc2525aedd650183a6bddd72d7f08e1defe29c3c3f92b30d6e1f524b258305e5cd65acfd72843e3e9c36c1d82470fb38eb29799fad6d581290b0237d7e3b6763977ddf5a5cc054d9e845c6e15dc2295c3b89f3830a7791a24ce491795476107433a2eb51eb2f878ef6d5ee80ae73d58ea96006ea4f311b837b7ad0f0b6e9bf38690a9853f76a05eb2e3d3905e7e7348cdfbda4e508348187ea8d7e0887ae2c0661516288012718ad45626934948dfd63c2e33654bcfdbf03922bcdfefb78062218ad40df5aae7ea7873965f0d28999ebb5877864dc9757b4e7be82ebfde10bbbc4f27d860118cf7d2815996f93d2407d3e673b69e31fbc7f1571029497356ff2152b192e60fff5ebfb88cef7d22685ecb230cb3efc79a11d4362caec96c167013ffafa0a8f5066fc472846b4e4c81f22b187f997f6eafe6894fa92ba43e0b7b34f2bc28f1c7011ed1fe0a0dc230a8ca8500928965e1383f60791b598bfb8f3b848d6528238b5dd9a6a3a61374fa474ac4f86fa15c863cd883d509ddbf947e1a718358a0c73e29b37e08d5c7f287db8c8b7415a1ede960d15a995bb278be210a8e1ed69a643feae4465a0ee8f6b4308543a272305db73641c19c12e4e7d6513cb9e6bc3adea70c0e335caa62449bc4e5d179537f7e5a6e2716f4f0548aa8dfb87e4b8a01b2b632fefee80f565824f420ea18389c0f662fa84418b40d90471ce84488051ddec631a46045b8b6284536477d98966489bd15be8e34cacb0df613e19819707d53ba71bfa5f3fb1abb9da1fc0bb49d56afc73760a9a34bddf0aa2e3b6cf2051b2ed4d550a190e9e3ad9934f529077412010d1dcacfe63dd62ce3f3825149d11f654986027c6ecfe7324a58a2659a14b5b696df855a223fcc029a9b40add41ec0bdf4211b598f8a0e4144b267ad29911b5008b46db6ff1be28660a16d005406270a6ca69de91cec68c460a366084e346330276eb79c5ac4352b230f4f691d494573d033ca3c7e6af8a296f6958245218b4d3bfd6a70cf15ba7fb18d9b933fa94b28ecb114d964ecf13ca6bd0a4db5baabf392d7efa9fec673dc2e78a08fb5f85da261e8af6b6a18641031a5bea676443ada2a6ab2b471d508e02e3291fbd669178ef484949783fe1de5c61e19dfb96f2314710332ddc2153662aa06dfa0842ea2c5fdcb8b39571d684056f9d730b1c25c334903cef2d3b899c3e9dcf8ba3b34fd287faee1a22f056b46a58c28f6af6d2090c8fc0f05bb5bad0e335d8b40fc2a30e09f85640db30521a2763883e8e03eb085f4476950b08dc824200b53352f2c0787130e7b4452b2236fd1ce4ba7106569804d62cc58ce740c51dc5e2628a0316ca4adc79f490b176e62818d99405239f24add360845975697b005bedd3366ef021b088d512227c62673a1843efe53ee5032b744819ff268c0c6f77959e84d1045cd0274411e3f26371429ed4b5a8f74bfeee6cd68d25775e199540d521d26fa46ba5a7cafd3f4fa81ca7137ede988e41fa053fd1aaaaeb1ece37259cfad9c8b274b2c9c6fe41686376a3c3d56ce7a661663bd97d9678462510e39e2d6d26e06d2acb936eaaa6f3db1e96dc7a55fcab62206c7f1bb1bf3939f469e655146f6667c9384c36510745a56f3c62e8658bf1dea44c42bc90329bcc170c2816bb959fead527d2fc62a51e346ae91fcce5dea63609c3ff3e12b6d7a4af499c96d2c9f0970847ade5cb0298f527ec3d3e5b8bea76703cc8e0cfd282c73461eff35d122ef7c94362969e4ad2f0b07b45c7be95cbcc48bff3d6629c1af11795194836141f7a292f7763ec2d22085754fb24efb6a6c3969669b007db7e9ccb49facc51f1e1fb99dded534104af695f9eb7d1eb0b846aa19115bc1beb77839a6e6691868d19f9a1118f465826a390ad5538323d2adbc6852b92ff6e386f65ea1f1368ef6649cd769324656cf33fdebb0135ba61e89a3b5a115056da20d033365716c3fc52fff5cbe2d13448ac23c4f751291e537b7e472e0b06a768b58ada460ce48d8dff7ee5e7330fbc26ebd99bfa653c0846e860cc98f7f845306ff9839e53d443d1c326933dfa1e7610de5da3f0ff38710bc268bc70d2bc3bc29421948b971100b10430d57f40509807599023f15e4918606d9172f1674d336f5f0d691a03bcd283d76084ccaaeed7d5f761a228885cce5d6995e37364c611e059a983161bd8e4ddd8873c2a3d66a5a580eec3d7c53326a0d57d4a36681e25f952d18a831c839fa71029c33f2f83aa6fad47d484060fb23cc479fc5fa0544f7115925bc91543ae95274adf5c8361495e77200ae0b6b23e04b562ad6fde72874c1e1eaa9d73e2b5abfc6a9d47154da0269483ca136e9dd7652362f41127d91923a14d9aafb7ba3d3491e240af3b2e8e860385a3b0c8c71e387de0ea3c271b1785b3e5dfb1b65ba0e72406823a7bf481b7f6b038a8c069b27fef214d9defc7a4f550b13143a404a7e920293053074f7f11bfd392f9ec41b56f0bb1bb53796e4f37ce7d555da8edf126ae3e19c6c45ad14ecf4577265f073bb3281d0916f9b81c8af529024b6a2ec1bb1b3f34ce6f29023743b76e79acfdf4ce131027939cf427054d3cbb5ebe379ff83ea8c13166f070f0ee8ae51784b65523d65000daf2e8dfe6bf828ac5ea7e6f2c68369282aa04ebd8e1e28b8c6ac1a0c4f6072dfe7463e76591e9ee24758234f94bd17cabca699c316593655f54d1848d87cee4c4b4096136565afae845ab56e487fd20bce8b75d0234deb95b869e772b5b86043f7c00591016a039cf7f1132ccc8d5e5628ac9a3261e43ecc9f49767276e73df1d73b9782797b9b88da294c83a3cd78fd96b417355a840d4f0360c583c55316df9599e4344462ddea8e58cd64e08b3b2cfb701b38f7c86b51f4b97d4d9f3841e7fc5d573d9acf3e1d6b0f5e453d9285678e0935c4b14e64a5d6973ee17402c54172241c83e3d872ef0cbfec2fcaee768a9e3cd2acee9a14c0413130ea38fa4b61e84cd3cef3ccc49d6319344daaf010ca03c90a7756084ad2fa9ef01059ce8b2d6f07cc16498c150dabe70efc3ca9bbee11510056a6de0ae9a5939cb05bbd51a8922af5dca075e22915731e8bc9dae2e43b5153c860fc81521dfdbe524bcd9ac4f60134cbea53076f4fef3d5cbecc98f45a2fd3ff6983d73a8d753d60dd8de86f90a028c9f7fdb7d048854a8826a818b36c8fc03dfc4a60afa8ab56b12981dc77da0467fba5ee0b3702a446ae60531346de21ac6df5bee2f51772a62b82848283ca26a6bc9f20f43b017ff6d171d33fdb6b1aa6557900d12df22f40edcc97d86a8f2cf1b28b61686c72031bba423078af268321c62bcf08aac5951562fe49ab9576b012c36bb05015283bbbe68624eb960d7ed7586d88736fba86dc2ab4c3e350cd94c392dc36aeb426003ecba7cd7ca3b7c85483761b71b91f7ac12232b5be5a25940983b5c32c4470e30d2564c8efab425af2f3b30baf194554e24bc7f83c6ce1775f864454bcafe4bf52c8a52b3683288e4ca965f236f91e8fc2f40d9f84d9c87afabcbc5bc8122f04f89f96f4e35a397bd302c21b596360e1ab7656b45104bcb9346fbd0c83a3b28de58779906e5ea7efe154f82e1ab71d333a7acd890c45794391aee0184290dde950a246982fc41a3076251877170460d69d27967b3b126f82b71e16085393ef7d6edce3016deb4a215391d81a27f2edee57d6512eeb0632bcf23fd112addb87b5f9fca102736c324d96cedec000839caaf9c244a13abc300ed0325c76ee9db1d86f394139da6ccab6db5975bd0aae45017fed94b35f9c01115d117eb649202db74cb8449878962ba1b813b3c7db5f6ef79bc8d1f1613bf9db0a273c47624fa82f883a9a9c860f0fdb29788ba138d47aadebdfeecf508dc2616e8786da175f5d1f4464bcf11123906b510e5a6a5b50de090472d2a747ebbeb13b0cf523179a89a26126136a6afd2a3b0f65f6e4590c68fbab61f5ade70fe860086cbf58a6f0c4dad0bdb828177bf219978de273844d2610bd66502ae3e2da5970b9fe0b64640b0d467008b959929eeda618c8258a4320a1b8584c7327d88208d0e1190228f00473a2e7ab192f13fd92429b34582f2d360ffbd803686e3ce78744e73063dc67237f79f3dfe65a28c1342511ef877426ad2de549ca998a1d1904a3a742af66f42b268fcd46c6b5cd64470d91b287716483b0a9070744a95d65e26510eacf30435fe07d8c1fa86526d365c577b0a18509bd08e76353abad11e3b8c30dcddf36bc0ffe6c61c79e7e18b357e6b0f177c1751856026a00dbb12eb51c79b350a881314516f690ba18413927f94ce21c2dae0d35d2dfd8bbf6b70845b07214f901c55437ca938095df593d434aa7fb09c47b1f76d558109f3ed2e6f375d60cca198161804c043e8da49720bd0637c83b773c1aa3d97ecfa1a4b2ddc4c7d2a205962950c86e5da089cbf33949d86c9d19579b781fef451241d71d73afbe29da32c45829648244f3365d8aa13f415d24ab45967ba3412c499793cbc0865020e16deb0cb40926b5e99c9f7c5ca627c52d3d0ee07274f20ddfb938883c22b08b5f5c173e317695ec6fa8eadc51b897384c17adc11bc40a75e018992f62d2e4afc0e23edad248c4f510ab365ecf2b62bd9110f94b0db72010a78f6affbbe59b5e4dc1efafa8e194cfef3490565c98bdcc7a0fdb631a83bf3bdbcfd77de46b1e95c707acbdf60a9fb710ae7f686721bca3ce532c89afb2fb9ee6eb73f5f4c0026acfb03919c31af935330a988848f6705232946f69909ef22ff0ff8237901016adac56ebd6b1e5b6c83484cbe0aa3d7318442306683f475360ca55f44dbef2a3670d90f99e1de6a4d67f004c049b0bd47b6eac0306fab485c9b01c0c31c8e116b51bb7cf45ed214682c529170fb1e317dd427aca55ca32d9e4535c7752c1e9ce30246021f9c003a03a6ed1286f03d61b6f6d01ba0accf57c2fc1e2eba4f0d5e717c9071839f8a2be351404e8e2fc472d44eba245817d9627b1610eefc59b489c626bb493e17cb2b7b023f30bda739aa9c48d8dc2d4b1f1a89bf923e95d0f8fe4fe523ea34863b6394a0a10eb9a23972f4dec5202193226bf627ffc5b2be3769444cda01b297ba8ac980b4a9a94a78d12db6bfcc3d4821fc0f5c41caaef26730a62634f519ed179fa73b6e2560e355a8294beb0709f99656c429788b671573467e4f585bfd7d3c9bcea09ad52a2450e366b434cf75b64eed40d4c81ce973cf8f925842c110989f97d71f9e80da884b18a60f2e520886685913f356881dd5c27eb2c2fb3bca4690fb78d14cd0b7dbfe54cc190e4a05d0ab493ecee26545e5c25c40f1bcd841b68bdfd0e3d22a44cd7eb27fc4ba341b0fb333904c8df496b79f30965f42d27660a479d50d38996cac69e73a51e5c935360b806567fd86b4cfbe81e1bcbcc1e84abd2c4e3e27e8812a80e3b3ed5b376e164c78b79e1594a7980edfad0865d8181da80305ec6edbb3acf8642c5d7658fc4b3ed49454fd0972c0b8d0a595dfb2f919c434707508a7d15f010bbb2cb493e5d4b5aaca8ded6c8948f99c869c68ab41b599a6cf9621e43f48759b517b9bd3e5c0190937ef33157d3aae990ffb439c37f138f7c419fa37016354ccc69d6350bef88af8070aadf1a9f03b65562dff64976b616672d99ff3d1f9c95695ea97fdc44378413611018fcc80b09b4574bae82dc05d3549796755f74f0531542bc4a865e490b649f7db06a7bd9a69947b3872f4292ebc6e552cecc61b556592054a9bfbaad0fcea159dee338b552d6b51b2fb48596a18c18a4f7fe175837a50b7b631e75580c7206e6b4b857b7478de5f656a1</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css"></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz">ALTNT</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz/2025/01/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%9B%91%E7%9D%A3/2020-SimCLR/">http://blog.705553939.xyz/2025/01/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%9B%91%E7%9D%A3/2020-SimCLR/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Self-Supervise/">Self-Supervise</a></div><div class="post_share"><div class="social-share" data-image="/img/altnt.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/01/05/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/2021-vit-visiontransformer/" title="“AN IMAGE IS WORTH 16X16 WORDS——TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE&quot;"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">“AN IMAGE IS WORTH 16X16 WORDS——TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE&quot;</div></div></a></div><div class="next-post pull-right"><a href="/2024/12/30/crop_classification/Crop%20classification/2024_PCNNs/" title="Embedded physical constraints in machine learning to enhance vegetation phenology prediction"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">Embedded physical constraints in machine learning to enhance vegetation phenology prediction</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2024/11/02/remote-sensing/cloud-removal/2024-NeurIPS-AllClear-dataset/" title="“AllClear:A Comprehensive Dataset and Benchmark for Cloud Removal in Satellite Imagery&quot;"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-02</div><div class="title">“AllClear:A Comprehensive Dataset and Benchmark for Cloud Removal in Satellite Imagery&quot;</div></div></a></div><div><a href="/2024/12/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%9B%91%E7%9D%A3/2020-ECCV2020-Contrastive-Multiview-Coding/" title="“Contrastive Multiview Coding&quot;"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-02</div><div class="title">“Contrastive Multiview Coding&quot;</div></div></a></div><div><a href="/2024/12/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%9B%91%E7%9D%A3/2021-supervised-contrastive-learning/" title="“Supervised Contrastive Learning&quot;"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-08</div><div class="title">“Supervised Contrastive Learning&quot;</div></div></a></div><div><a href="/2024/11/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%9B%91%E7%9D%A3/2022-IJCAI-Constrastive-Graph-Transformer-Network/" title="“Contrastive Graph Transformer Network for Personality Detection&quot;"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-02</div><div class="title">“Contrastive Graph Transformer Network for Personality Detection&quot;</div></div></a></div><div><a href="/2024/11/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%9B%91%E7%9D%A3/timesurl-%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB/" title="“TimesURL:Self-supervised Contrastive Learning for Universal Time Series Representation Learning&quot;"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-20</div><div class="title">“TimesURL:Self-supervised Contrastive Learning for Universal Time Series Representation Learning&quot;</div></div></a></div><div><a href="/2024/11/03/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%9B%91%E7%9D%A3/2024-AAAI2024-TimesURL/" title="“TimesURL:Self-supervised Contrastive Learning for Universal Time Series Representation Learning&quot;"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-03</div><div class="title">“TimesURL:Self-supervised Contrastive Learning for Universal Time Series Representation Learning&quot;</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/altnt.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ALTNT</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">113</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">29</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ALTNT"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content toc-div-class" style="display:none"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#a-simple-framework-for-contrastive-learning-of-visual-representations"><span class="toc-number">1.</span> <span class="toc-text">A
+Simple Framework for Contrastive Learning of Visual Representations</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E5%A2%9E%E5%BC%BA%E6%A8%A1%E5%9D%97"><span class="toc-number">1.1.1.</span> <span class="toc-text">随机增强模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E5%99%A8"><span class="toc-number">1.1.2.</span> <span class="toc-text">编码器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%95%E5%BD%B1"><span class="toc-number">1.1.3.</span> <span class="toc-text">投影</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E6%AF%94%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.4.</span> <span class="toc-text">对比损失函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E6%A1%86%E6%9E%B6"><span class="toc-number">1.1.5.</span> <span class="toc-text">总框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%A4%A7-batch-size-%E8%BF%9B%E8%A1%8C%E8%AE%AD%E7%BB%83"><span class="toc-number">1.1.6.</span> <span class="toc-text">使用大 batch size 进行训练</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.1.7.</span> <span class="toc-text">训练设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C"><span class="toc-number">1.1.8.</span> <span class="toc-text">结果</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/02/crop_classification/Crop%20classification/%E9%87%8D%E6%96%B0%E5%A4%8D%E7%8E%B0CACM%20%E8%AE%B0%E5%BD%95/" title="重新复现CACM记录">重新复现CACM记录</a><time datetime="2025-02-02T06:13:13.347Z" title="Created 2025-02-02 14:13:13">2025-02-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/21/crop_classification/Crop%20classification/1%E6%9C%8820%E6%97%A5%E5%91%A8%E6%8A%A5-2025/" title="“周报2025年1月20日&quot;">“周报2025年1月20日&quot;</a><time datetime="2025-01-21T05:36:10.775Z" title="Created 2025-01-21 13:36:10">2025-01-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/21/crop_classification/Crop%20classification/%E5%91%A8%E6%8A%A51%E6%9C%8811%E6%97%A5-2025/" title="“周报 1 月 11 日2025&quot;">“周报 1 月 11 日2025&quot;</a><time datetime="2025-01-21T04:01:55.781Z" title="Created 2025-01-21 12:01:55">2025-01-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/19/sequence-processing/2019-Bert/" title="“BERT Pre-training of Deep Bidirectional Transformers for Language Understanding&quot;">“BERT Pre-training of Deep Bidirectional Transformers for Language Understanding&quot;</a><time datetime="2025-01-19T13:31:49.199Z" title="Created 2025-01-19 21:31:49">2025-01-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/19/crop_classification/Crop%20classification/2024-PhenoCropNet/" title="Untitled">Untitled</a><time datetime="2025-01-19T09:29:22.650Z" title="Created 2025-01-19 17:29:22">2025-01-19</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By ALTNT</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
