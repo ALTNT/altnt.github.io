@@ -1,0 +1,260 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>ALTNT's Hexo Blog | ALTNT's Hexo Blog</title><meta name="author" content="ALTNT"><meta name="copyright" content="ALTNT"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Spatiotemporal masked pre-training for advancing crop mapping on satellite image time series with limited labels   1741107677505  本文主要进行的是patch级分类，在数据处理、模型训练与实验评估环节均围绕图像块展开，但不排除在实际应用中可延伸至像素级分析。  数据处理层">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ALTNT&#39;s Hexo Blog">
+<meta property="og:url" content="http://blog.705553939.xyz/2025/03/05/crop_classification/Crop%20classification/2025-IF_7.4_Spatiotemporal_masked_pre-training_for_advancing_crop_mapping_on_satellite_image_time_series_with_limited_labels/index.html">
+<meta property="og:site_name" content="ALTNT&#39;s Hexo Blog">
+<meta property="og:description" content="Spatiotemporal masked pre-training for advancing crop mapping on satellite image time series with limited labels   1741107677505  本文主要进行的是patch级分类，在数据处理、模型训练与实验评估环节均围绕图像块展开，但不排除在实际应用中可延伸至像素级分析。  数据处理层">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.705553939.xyz/img/altnt.jpeg">
+<meta property="article:published_time" content="2025-03-04T17:06:54.400Z">
+<meta property="article:modified_time" content="2025-03-04T17:06:54.400Z">
+<meta property="article:author" content="ALTNT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.705553939.xyz/img/altnt.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://blog.705553939.xyz/2025/03/05/crop_classification/Crop%20classification/2025-IF_7.4_Spatiotemporal_masked_pre-training_for_advancing_crop_mapping_on_satellite_image_time_series_with_limited_labels/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ALTNT\'s Hexo Blog',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-03-05 01:06:54'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/altnt.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">155</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ALTNT's Hexo Blog"><span class="site-name">ALTNT's Hexo Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Untitled</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-03-04T17:06:54.400Z" title="Created 2025-03-05 01:06:54">2025-03-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-03-04T17:06:54.400Z" title="Updated 2025-03-05 01:06:54">2025-03-05</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="spatiotemporal-masked-pre-training-for-advancing-crop-mapping-on-satellite-image-time-series-with-limited-labels">Spatiotemporal
+masked pre-training for advancing crop mapping on satellite image time
+series with limited labels</h1>
+<figure>
+<img src="/2025/03/05/crop_classification/Crop%20classification/2025-IF_7.4_Spatiotemporal_masked_pre-training_for_advancing_crop_mapping_on_satellite_image_time_series_with_limited_labels/1741107677505.png" alt="1741107677505">
+<figcaption aria-hidden="true">1741107677505</figcaption>
+</figure>
+<p>本文主要进行的是patch级分类，在数据处理、模型训练与实验评估环节均围绕图像块展开，但不排除在实际应用中可延伸至像素级分析。</p>
+<ul>
+<li><strong>数据处理层面</strong>：在构建PASTIS和MTLCC数据集时，对原始图像进行了裁剪操作。如PASTIS数据集中，将图像裁剪为大小为<span class="math inline">\(32×32\)</span>的patch，MTLCC数据集中图像被构建成大小为<span class="math inline">\(48×48\)</span>的patch。这些patch作为后续模型训练和预测的基本单元，说明数据是以patch为单位进行组织和处理的。</li>
+<li><strong>模型训练角度</strong>：无论是自监督预训练阶段还是监督微调阶段，模型处理的输入都是这些图像patch。<strong>在预训练时，对输入的SITS数据（以patch形式）进行部分像素随机替换为可学习掩码值的操作</strong>，然后让模型重建缺失区域；在微调阶段，利用有限的标注patch数据对模型进行调整，以预测作物类别，整个过程都是基于patch级别的数据进行操作。</li>
+<li><strong>实验评估方面</strong>：在实验设置和结果评估中，使用的评估指标如总体准确率（OA）、交并比（IoU）和F1分数等，也是基于图像patch的预测结果与真实标签进行计算的，进一步表明了本文的研究是在patch级分类的框架下进行。</li>
+</ul>
+<h1 id="时空掩码预训练利用卫星图像时间序列推进有限标签下的作物制图">时空掩码预训练：利用卫星图像时间序列推进有限标签下的作物制图</h1>
+<h2 id="一研究背景">一、研究背景</h2>
+<ol type="1">
+<li><strong>作物制图的重要性</strong>：精准的作物制图对农业监测与粮食安全意义重大，遥感影像的高时空分辨率使基于卫星图像时间序列（SITS）数据进行动态监测成为可能。</li>
+<li><strong>深度学习方法的局限</strong>：数据驱动的深度学习方法在作物制图中表现良好，但依赖大量标注样本，获取标注数据困难，限制了其性能。</li>
+<li><strong>自监督学习的应用与挑战</strong>：自监督学习（SSL）可利用未标注数据学习特征，但现有的SITS数据SSL方法仅在时间维度进行掩码，未充分整合时空信息，难以处理复杂农田。</li>
+</ol>
+<h2 id="二研究方法">二、研究方法</h2>
+<h3 id="一时空协同学习网络stcln">（一）时空协同学习网络（STCLN）</h3>
+<ol type="1">
+<li><strong>空间编码器（SEncoder）</strong>：由两个DoubleConv层构成，处理SITS数据时，先将时间和批次维度展平，通过卷积学习空间特征，输出重塑后为时间编码器提供自适应输入。</li>
+<li><strong>时间编码器（TEncoder）</strong>：采用Transformer编码器，对输入特征图进行组归一化（GN）和位置编码（PEnc），通过多头注意力（MHA）和前馈网络（FFN）学习时间特征。</li>
+<li><strong>时空注意力（STA）模块</strong>：将空间和时间编码器的特征图投影生成注意力图，整合时空信息，通过时间池化和加权计算生成最终特征图，并与时间编码器输出残差连接。</li>
+</ol>
+<h3 id="二自监督预训练">（二）自监督预训练</h3>
+<p>设计时空掩码策略，随机替换部分像素为可学习掩码值，让网络重建缺失区域。采用均方误差（MSE）损失优化网络参数，学习时空特征表示。</p>
+<h3 id="三监督微调">（三）监督微调</h3>
+<p>预训练收敛后，用其权重初始化STCLN相应组件。微调时引入STA模块，利用少量标注数据，采用交叉熵（CE）损失监督训练，预测作物类别。</p>
+<h2 id="三实验设计">三、实验设计</h2>
+<h3 id="一实验数据集">（一）实验数据集</h3>
+<ol type="1">
+<li><strong>PASTIS数据集</strong>：涵盖法国四个Sentinel-2瓦片区域，经预处理，包含18类作物标注，划分预训练、训练、验证和测试集。</li>
+<li><strong>MTLCC数据集</strong>：来自德国慕尼黑地区，包含17类作物标注，同样划分数据集用于不同阶段实验。</li>
+</ol>
+<h3 id="二对比方法">（二）对比方法</h3>
+<p>选择8种基于卷积、循环和注意力机制的先进方法，包括3D
+U-Net、BCLSTM、UTAE等，在相同数据集上预训练和微调，进行公平比较。</p>
+<h3 id="三实验设置与评估指标">（三）实验设置与评估指标</h3>
+<p>模型在4个RTX 3090
+GPU上用PyTorch训练，预训练100轮，微调100轮，随机掩码40%像素，采用Adam优化器。使用总体准确率（OA）、交并比（IoU）、F1分数评估模型性能，计算平均IoU（mIoU）和平均F1分数（mF1）综合评价。</p>
+<h2 id="四实验结果">四、实验结果</h2>
+<h3 id="一作物制图结果">（一）作物制图结果</h3>
+<ol type="1">
+<li><strong>PASTIS数据集</strong>：STCLN_wp性能最佳，mIoU比第二好的方法高6.49%，在多种作物类型上IoU领先，定性结果显示其在复杂地块表现出色。</li>
+<li><strong>MTLCC数据集</strong>：STCLN_wp同样最优，mIoU和mF1分别比SITS-Former高4.04%和2.90%
+，在多数作物类型上IoU领先，能生成更准确分类结果。</li>
+</ol>
+<h3 id="二消融实验">（二）消融实验</h3>
+<ol type="1">
+<li>时空掩码预训练显著提升性能，mIoU提高9.0%，时间掩码预训练提升较少（3.7%）
+。</li>
+<li>STA模块带来一定性能提升，二者结合mIoU提升10.2%。</li>
+<li>实验确定掩码比例为0.4时模型性能最佳。</li>
+</ol>
+<h2 id="五研究讨论">五、研究讨论</h2>
+<h3 id="一稳健性分析">（一）稳健性分析</h3>
+<p>模型性能随训练样本量增加而提升，基于自注意力的方法表现更优，STCLN_wp在样本量极少时优势明显，在PASTIS数据集上虽数据更复杂，但仍能取得最高准确率，展现稳健性。</p>
+<h3 id="二优势与局限">（二）优势与局限</h3>
+<ol type="1">
+<li>时空掩码和STA模块提升了模型性能，时空掩码使模型学习更强大的空间表示，STA模块整合时空特征。</li>
+<li>部分作物类型存在误分类，原因可能是作物光谱或物候相似。SSL方法区域预训练泛化性不足，STA模块增加参数使优化更复杂。后续计划引入光谱掩码机制、扩大模型规模和预训练数据多样性，将STA机制融入预训练。</li>
+</ol>
+<h2 id="六研究结论">六、研究结论</h2>
+<p>提出时空掩码预训练策略和STCLN网络用于作物制图，实验证明其性能优越，时空掩码预训练和STA模块结合使mIoU提升10.2%
+，在不同数据稀缺程度下表现出色，未来将继续优化模型提升效率和拓展应用。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz">ALTNT</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz/2025/03/05/crop_classification/Crop%20classification/2025-IF_7.4_Spatiotemporal_masked_pre-training_for_advancing_crop_mapping_on_satellite_image_time_series_with_limited_labels/">http://blog.705553939.xyz/2025/03/05/crop_classification/Crop%20classification/2025-IF_7.4_Spatiotemporal_masked_pre-training_for_advancing_crop_mapping_on_satellite_image_time_series_with_limited_labels/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/altnt.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/03/05/crop_classification/%E5%A5%BD%E5%8F%A5/" title=""><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info"></div></div></a></div><div class="next-post pull-right"><a href="/2025/03/04/crop_classification/Crop%20classification/2023-rse-Demonstration_of_large_area_land_cover_classification_with%20_one_dimensional_convolutional_neural_network_applied_to_single_pixel_temporal_metric_percentiles/" title="Demonstration of large area land cover classification with a one dimensional convolutional neural network applied to single pixel temporal metric percentiles"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">Demonstration of large area land cover classification with a one dimensional convolutional neural network applied to single pixel temporal metric percentiles</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/altnt.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ALTNT</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">155</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ALTNT"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#spatiotemporal-masked-pre-training-for-advancing-crop-mapping-on-satellite-image-time-series-with-limited-labels"><span class="toc-number">1.</span> <span class="toc-text">Spatiotemporal
+masked pre-training for advancing crop mapping on satellite image time
+series with limited labels</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%B6%E7%A9%BA%E6%8E%A9%E7%A0%81%E9%A2%84%E8%AE%AD%E7%BB%83%E5%88%A9%E7%94%A8%E5%8D%AB%E6%98%9F%E5%9B%BE%E5%83%8F%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E6%8E%A8%E8%BF%9B%E6%9C%89%E9%99%90%E6%A0%87%E7%AD%BE%E4%B8%8B%E7%9A%84%E4%BD%9C%E7%89%A9%E5%88%B6%E5%9B%BE"><span class="toc-number">2.</span> <span class="toc-text">时空掩码预训练：利用卫星图像时间序列推进有限标签下的作物制图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E7%A0%94%E7%A9%B6%E8%83%8C%E6%99%AF"><span class="toc-number">2.1.</span> <span class="toc-text">一、研究背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text">二、研究方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E6%97%B6%E7%A9%BA%E5%8D%8F%E5%90%8C%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%BB%9Cstcln"><span class="toc-number">2.2.1.</span> <span class="toc-text">（一）时空协同学习网络（STCLN）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E8%87%AA%E7%9B%91%E7%9D%A3%E9%A2%84%E8%AE%AD%E7%BB%83"><span class="toc-number">2.2.2.</span> <span class="toc-text">（二）自监督预训练</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%9B%91%E7%9D%A3%E5%BE%AE%E8%B0%83"><span class="toc-number">2.2.3.</span> <span class="toc-text">（三）监督微调</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1"><span class="toc-number">2.3.</span> <span class="toc-text">三、实验设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E5%AE%9E%E9%AA%8C%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">2.3.1.</span> <span class="toc-text">（一）实验数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%AF%B9%E6%AF%94%E6%96%B9%E6%B3%95"><span class="toc-number">2.3.2.</span> <span class="toc-text">（二）对比方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E5%AE%9E%E9%AA%8C%E8%AE%BE%E7%BD%AE%E4%B8%8E%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87"><span class="toc-number">2.3.3.</span> <span class="toc-text">（三）实验设置与评估指标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="toc-number">2.4.</span> <span class="toc-text">四、实验结果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%BD%9C%E7%89%A9%E5%88%B6%E5%9B%BE%E7%BB%93%E6%9E%9C"><span class="toc-number">2.4.1.</span> <span class="toc-text">（一）作物制图结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E6%B6%88%E8%9E%8D%E5%AE%9E%E9%AA%8C"><span class="toc-number">2.4.2.</span> <span class="toc-text">（二）消融实验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E7%A0%94%E7%A9%B6%E8%AE%A8%E8%AE%BA"><span class="toc-number">2.5.</span> <span class="toc-text">五、研究讨论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E7%A8%B3%E5%81%A5%E6%80%A7%E5%88%86%E6%9E%90"><span class="toc-number">2.5.1.</span> <span class="toc-text">（一）稳健性分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E4%BC%98%E5%8A%BF%E4%B8%8E%E5%B1%80%E9%99%90"><span class="toc-number">2.5.2.</span> <span class="toc-text">（二）优势与局限</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E7%A0%94%E7%A9%B6%E7%BB%93%E8%AE%BA"><span class="toc-number">2.6.</span> <span class="toc-text">六、研究结论</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/21/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/4%E6%9C%8820%E6%97%A5%E5%91%A8%E6%8A%A5-2025/" title="周报2025年4月20日">周报2025年4月20日</a><time datetime="2025-04-21T01:17:31.516Z" title="Created 2025-04-21 09:17:31">2025-04-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/14/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/4%E6%9C%8813%E6%97%A5%E5%91%A8%E6%8A%A5-2025/" title="Untitled">Untitled</a><time datetime="2025-04-14T00:54:34.965Z" title="Created 2025-04-14 08:54:34">2025-04-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E5%AF%BB%E6%89%BE%E8%BF%87%E7%A8%8B/" title="Untitled">Untitled</a><time datetime="2025-04-13T09:22:57.613Z" title="Created 2025-04-13 17:22:57">2025-04-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/" title="Untitled">Untitled</a><time datetime="2025-04-13T04:58:32.679Z" title="Created 2025-04-13 12:58:32">2025-04-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/10/sequence-processing/2024-ICDM-CoInception/" title="Improving Time Series Encoding with Noise-Aware Self-Supervised Learning and an Efficient Encoder">Improving Time Series Encoding with Noise-Aware Self-Supervised Learning and an Efficient Encoder</a><time datetime="2025-04-10T01:39:09.193Z" title="Created 2025-04-10 09:39:09">2025-04-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By ALTNT</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

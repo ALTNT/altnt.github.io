@@ -1,0 +1,506 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>ALTNT's Hexo Blog | ALTNT's Hexo Blog</title><meta name="author" content="ALTNT"><meta name="copyright" content="ALTNT"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="数据处理下载流程 1. 确定灾害影响区域 根据提供的灾害数据汇总，定位灾害中心，根据属性（details）访问灾害信息网站或手动下载矢量文件（geometry）确定灾害影响的范围。 首先将损毁桥梁位置数据.csv中的 geometry 列下想要下载的地区的链接复制，粘贴到 area.txt,如下图所示：   1744521146079    1744521112549  使用download_an">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ALTNT&#39;s Hexo Blog">
+<meta property="og:url" content="http://blog.705553939.xyz/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/index.html">
+<meta property="og:site_name" content="ALTNT&#39;s Hexo Blog">
+<meta property="og:description" content="数据处理下载流程 1. 确定灾害影响区域 根据提供的灾害数据汇总，定位灾害中心，根据属性（details）访问灾害信息网站或手动下载矢量文件（geometry）确定灾害影响的范围。 首先将损毁桥梁位置数据.csv中的 geometry 列下想要下载的地区的链接复制，粘贴到 area.txt,如下图所示：   1744521146079    1744521112549  使用download_an">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.705553939.xyz/img/altnt.jpeg">
+<meta property="article:published_time" content="2025-04-13T04:58:32.679Z">
+<meta property="article:modified_time" content="2025-04-14T13:51:56.382Z">
+<meta property="article:author" content="ALTNT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.705553939.xyz/img/altnt.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://blog.705553939.xyz/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ALTNT\'s Hexo Blog',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-04-14 21:51:56'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/altnt.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">155</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ALTNT's Hexo Blog"><span class="site-name">ALTNT's Hexo Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Untitled</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-04-13T04:58:32.679Z" title="Created 2025-04-13 12:58:32">2025-04-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-04-14T13:51:56.382Z" title="Updated 2025-04-14 21:51:56">2025-04-14</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="数据处理下载流程"><strong>数据处理下载流程</strong></h2>
+<h3 id="确定灾害影响区域">1. 确定灾害影响区域</h3>
+<p>根据提供的灾害数据汇总，定位灾害中心，根据属性（details）访问灾害信息网站或手动下载矢量文件（geometry）确定灾害影响的范围。</p>
+<p>首先将损毁桥梁位置数据.csv中的 geometry
+列下想要下载的地区的链接复制，粘贴到 area.txt,如下图所示：</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744521146079.png" alt="1744521146079">
+<figcaption aria-hidden="true">1744521146079</figcaption>
+</figure>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744521112549.png" alt="1744521112549">
+<figcaption aria-hidden="true">1744521112549</figcaption>
+</figure>
+<p>使用download_and_convert_json2shp.py下载 json 文件并转化为 shp
+文件：</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744521368116.png" alt="1744521368116">
+<figcaption aria-hidden="true">1744521368116</figcaption>
+</figure>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744521419026.png" alt="1744521419026">
+<figcaption aria-hidden="true">1744521419026</figcaption>
+</figure>
+<h3 id="确定潜在的桥梁位置">2. 确定潜在的桥梁位置</h3>
+<p>该流程最为关键，也最为麻烦，可能需要通过目视的方式来确定灾害区域有没有桥梁。同时灵活的结合区域内OSM数据、谷歌地球历史高分影像数据和相关新闻报道，也可以快速的确定潜在的桥梁位置。</p>
+<p>（1）使用 QGIS 获取 OSM 数据：</p>
+<p>使用 QGIS 打开一个 shp 文件</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744521757939.png" alt="1744521757939">
+<figcaption aria-hidden="true">1744521757939</figcaption>
+</figure>
+<p>（2）安装 OSM 相关插件</p>
+<ul>
+<li>打开 QGIS</li>
+<li>点击菜单栏的"插件" → "管理和安装插件"</li>
+<li>在搜索框中输入以下插件名称并安装：
+<ul>
+<li>QuickOSM</li>
+<li>OSM Downloader</li>
+<li>OSMInfo</li>
+</ul></li>
+</ul>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744521906526.png" alt="1744521906526">
+<figcaption aria-hidden="true">1744521906526</figcaption>
+</figure>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744521939684.png" alt="1744521939684">
+<figcaption aria-hidden="true">1744521939684</figcaption>
+</figure>
+<p>（3）使用 QuickOSM 插件获取 OSM 数据</p>
+<p>QuickOSM 是最常用的 OSM 数据获取插件，操作简单高效：</p>
+<ol type="1">
+<li><p>打开 QuickOSM</p>
+<ul>
+<li>点击 QGIS 菜单栏的"矢量" → "QuickOSM" → "QuickOSM"</li>
+</ul>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744521984055.png" alt="1744521984055">
+<figcaption aria-hidden="true">1744521984055</figcaption>
+</figure></li>
+<li><p>使用快速查询获取桥梁数据</p>
+<ul>
+<li>在 QuickOSM 对话框中选择"快速查询"选项卡</li>
+<li>在"键"下拉菜单中选择"bridge"</li>
+<li>在"值"下拉菜单中选择"yes"（或保持为空以获取所有桥梁）</li>
+<li>在"范围"部分，可以选择：
+<ul>
+<li>"图层范围"（如果您已经加载了灾害区域的图层）</li>
+<li>"绘制在画布上"（手动绘制感兴趣区域）</li>
+<li>"输入坐标"（输入灾害中心坐标和半径）</li>
+</ul></li>
+</ul>
+<p>我这里只做了如下设置：</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744522036517.png" alt="1744522036517">
+<figcaption aria-hidden="true">1744522036517</figcaption>
+</figure></li>
+<li><p>设置高级选项</p>
+<ul>
+<li>点击"高级"展开更多选项</li>
+<li>勾选您需要的图层类型（节点、线、多边形等）</li>
+<li>设置输出名称前缀，例如"bridge_"</li>
+</ul></li>
+<li><p>运行查询</p>
+<ul>
+<li>点击"运行查询"按钮</li>
+<li>QGIS 将从 OSM 服务器下载数据并添加到图层面板中</li>
+</ul></li>
+</ol>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744522158364.png" alt="1744522158364">
+<figcaption aria-hidden="true">1744522158364</figcaption>
+</figure>
+<p>(这几个点和线我也没看懂)</p>
+<p>（4）QGIS中添加卫星图像作为底图</p>
+<ul>
+<li><p>安装QuickMapServices插件</p></li>
+<li><p>点击菜单"插件" → "管理和安装插件..."</p></li>
+<li><p>搜索"QuickMapServices"并安装</p></li>
+<li><p>获取更多地图源</p></li>
+<li><p>安装完成后，点击菜单"网络" → "QuickMapServices" → "设置"</p></li>
+<li><p>切换到"更多服务"选项卡</p></li>
+<li><p>点击"获取贡献包"按钮</p></li>
+<li><p>添加卫星影像</p></li>
+<li><p>点击菜单"网络" → "QuickMapServices"</p></li>
+<li><p>选择您需要的卫星影像服务，例如：</p>
+<ul>
+<li>Google → Google Satellite</li>
+<li>Bing → Bing Satellite</li>
+<li>ESRI → ESRI Satellite</li>
+</ul></li>
+</ul>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744522436794.png" alt="1744522436794">
+<figcaption aria-hidden="true">1744522436794</figcaption>
+</figure>
+<h3 id="目视判断桥梁损毁情况">3. 目视判断桥梁损毁情况</h3>
+<p>对确定的潜在桥梁位置，在欧空局Sentinel-2光学和Sentinel-1雷达图像逐一查询灾前、灾后的影像。采用目视判读方法，判断桥梁是否存在明显损毁。</p>
+<p>这里我也没找到好用的方法，只能目视了</p>
+<p>以下面这座桥（暂时不管这座桥有没有损毁了）为例进行演示，之后再补回如何目视判断桥梁损毁情况的内容</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744522549332.png" alt="1744522549332">
+<figcaption aria-hidden="true">1744522549332</figcaption>
+</figure>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744522597414.png" alt="1744522597414">
+<figcaption aria-hidden="true">1744522597414</figcaption>
+</figure>
+<p>找到个速度很快的好方法：</p>
+<p>找到桥后右键，复制坐标</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744637724371.png" alt="1744637724371">
+<figcaption aria-hidden="true">1744637724371</figcaption>
+</figure>
+<p>打开 google 地球 https://earth.google.com/</p>
+<p>在搜索框粘贴坐标地址，然后回车（回车别忘了），之后就会自动显示对应的卫星图像</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744637792061.png" alt="1744637792061">
+<figcaption aria-hidden="true">1744637792061</figcaption>
+</figure>
+<p>图像上方选择历史图像，根据历史图像判断是否损坏：</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744638003973.png" alt="1744638003973">
+<figcaption aria-hidden="true">1744638003973</figcaption>
+</figure>
+<h3 id="影像数据获取">4. 影像数据获取</h3>
+<p>若桥梁存在损毁情况，使用Google Earth
+Engine（GEE）下载灾前、灾后光学和雷达影像（GRD）。影像下载时需保证：影像云量尽可能小，达到目视可以判断；同一地区的灾前、灾后影像时间间隔尽可能接近。</p>
+<p>假设上面这座桥梁存在损毁情况，位置大概在这:</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744522771046.png" alt="1744522771046">
+<figcaption aria-hidden="true">1744522771046</figcaption>
+</figure>
+<h4 id="将-shp-文件上传到-gee">1、 将 shp 文件上传到 GEE</h4>
+<p>（1）首先需要安装Earth Engine Python API并进行身份验证：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install earthengine-api geopandas</span><br><span class="line">earthengine authenticate</span><br></pre></td></tr></table></figure>
+<p>（我这之前已经认证过了）</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744523519345.png" alt="1744523519345">
+<figcaption aria-hidden="true">1744523519345</figcaption>
+</figure>
+<p>（2）运行upload_to_gee.py将 shp 文件上传到 GEE 前的准备</p>
+<p>GEE获取项目 ID</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744524087423.png" alt="1744524087423">
+<figcaption aria-hidden="true">1744524087423</figcaption>
+</figure>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744524037460.png" alt="1744524037460">
+<figcaption aria-hidden="true">1744524037460</figcaption>
+</figure>
+<p>修改 upload_to_gee.py中的项目 id</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744524117125.png" alt="1744524117125">
+<figcaption aria-hidden="true">1744524117125</figcaption>
+</figure>
+<p>运行upload_to_gee.py将 shp 文件上传到
+GEE，这里有两种用法，看自己情况选择上传所有文件夹的SHP文件还是上传指定文件夹的SHP文件（例如上传eventid为1101733的文件夹）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#上传所有文件夹的SHP文件</span></span><br><span class="line">python upload_to_gee.py</span><br><span class="line"><span class="comment">#上传指定文件夹的SHP文件（例如上传上面eventid为1084565的文件夹）：</span></span><br><span class="line">python upload_to_gee.py --folder 1084565</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744523766199.png" alt="1744523766199">
+<figcaption aria-hidden="true">1744523766199</figcaption>
+</figure>
+<p>运行结果：</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744526815506.png" alt="1744526815506">
+<figcaption aria-hidden="true">1744526815506</figcaption>
+</figure>
+<p>注意目前放的是在LEGACY ASSETS而不是CLOUD ASSETS中</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744526841521.png" alt="1744526841521">
+<figcaption aria-hidden="true">1744526841521</figcaption>
+</figure>
+<h4 id="下载哨兵二号图像">2、下载哨兵二号图像</h4>
+<p>将 table 导入到 bridge_monitoring_s2</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744527050281.png" alt="1744527050281">
+<figcaption aria-hidden="true">1744527050281</figcaption>
+</figure>
+<p>直接点运行（会报错先不用管）</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744527383613.png" alt="1744527383613">
+<figcaption aria-hidden="true">1744527383613</figcaption>
+</figure>
+<p>点击卫星图像</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744527427553.png" alt="1744527427553">
+<figcaption aria-hidden="true">1744527427553</figcaption>
+</figure>
+<p>我们上面假设的桥的位置如下，在卫星图像上找到它，这里有两种方法</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744522771046.png" alt="1744522771046">
+<figcaption aria-hidden="true">1744522771046</figcaption>
+</figure>
+<p>方法 1（很慢，不推荐）：</p>
+<p>大概在这个位置</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744527542268.png" alt="1744527542268">
+<figcaption aria-hidden="true">1744527542268</figcaption>
+</figure>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744527626259.png" alt="1744527626259">
+<figcaption aria-hidden="true">1744527626259</figcaption>
+</figure>
+<p>方法 2（快速）：</p>
+<p>在 qgis 上右键复制坐标</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744638249977.png" alt="1744638249977">
+<figcaption aria-hidden="true">1744638249977</figcaption>
+</figure>
+<p>在 GEE
+上搜索框内粘贴复制的坐标，然后调换下经度和纬度的顺序（！！！重要的事说三遍），然后选择下面的候选项即可（可能还需要我们手动滑动鼠标滚轮使得下面显示的图像进行放大）</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744638312942.png" alt="1744638312942">
+<figcaption aria-hidden="true">1744638312942</figcaption>
+</figure>
+<p>按照下面的操作在桥的中央标记一个点</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744527710906.png" alt="1744527710906">
+<figcaption aria-hidden="true">1744527710906</figcaption>
+</figure>
+<p>确保 input_type 是 point</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744534408717.png" alt="1744534408717">
+<figcaption aria-hidden="true">1744534408717</figcaption>
+</figure>
+<p>重新运行代码即会自动画出感兴趣的区域半径为 1000 米（100
+个像素的圆），这个圆是用来后面画矩形区域的</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744528969671.png" alt="1744528969671">
+<figcaption aria-hidden="true">1744528969671</figcaption>
+</figure>
+<p>修改实际地震日期</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744528027458.png" alt="1744528027458">
+<figcaption aria-hidden="true">1744528027458</figcaption>
+</figure>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744528142117.png" alt="1744528142117">
+<figcaption aria-hidden="true">1744528142117</figcaption>
+</figure>
+<p>显示地震前后地震后的图像</p>
+<p>在上面这个圆基础上重新画个矩形，画出来理论上是个 200x200 的矩形</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744529056284.png" alt="1744529056284">
+<figcaption aria-hidden="true">1744529056284</figcaption>
+</figure>
+<p>然后将 input_type改为 rectangle（一定要改，不然报错）</p>
+<p>注意，下面的代码还需要根据实际情况进行更改以下载清晰的图片（有的日期可能云特别多，需要放大日期限制）</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744529246810.png" alt="1744529246810">
+<figcaption aria-hidden="true">1744529246810</figcaption>
+</figure>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744529323219.png" alt="1744529323219">
+<figcaption aria-hidden="true">1744529323219</figcaption>
+</figure>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744529354551.png" alt="1744529354551">
+<figcaption aria-hidden="true">1744529354551</figcaption>
+</figure>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744529745794.png" alt="1744529745794">
+<figcaption aria-hidden="true">1744529745794</figcaption>
+</figure>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744531558909.png" alt="1744531558909">
+<figcaption aria-hidden="true">1744531558909</figcaption>
+</figure>
+<p>注意：如果遇到下面这种错误，应该是忘了将刚刚绘制的点删掉，导致绘制了多个图形，重新绘制刚刚的矩形即可</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744531573767.png" alt="1744531573767">
+<figcaption aria-hidden="true">1744531573767</figcaption>
+</figure>
+<p>下载的图像可以用 QGIS 打开并查看宽度和高度</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744531705429.png" alt="1744531705429">
+<figcaption aria-hidden="true">1744531705429</figcaption>
+</figure>
+<h4 id="下载哨兵-一号图像">3、下载哨兵 一号图像</h4>
+<p>使用 bridge_monitoring_s1脚本在 GEE 上下载</p>
+<p>定位桥梁画出矩形区域的大致做法和下载哨兵二号图像的准备工作一致，这里不再赘述</p>
+<p>如果下载哨兵二号图像时已经绘制了矩形区域，这里可以不用重新绘制，可以直接使用</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744533771735.png" alt="1744533771735">
+<figcaption aria-hidden="true">1744533771735</figcaption>
+</figure>
+<p>这里注意一下某些Sentinel-1影像只包含VV极化波段，而没有VH极化波段（在Sentinel-1任务的早期阶段（如2014-2016年），欧空局还在测试和调整数据采集策略，所以有更多的单极化数据，而我这里刚好是
+2016 年的图像），需要观察一下脚本的打印，如下图：</p>
+<figure>
+<img src="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/1744533977466.png" alt="1744533977466">
+<figcaption aria-hidden="true">1744533977466</figcaption>
+</figure>
+<h3 id="数据归档">5. 数据归档</h3>
+<p>严格按照数据需求，记录汇总每个损毁桥梁的位置数据和图像数据。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz">ALTNT</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/">http://blog.705553939.xyz/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/altnt.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E5%AF%BB%E6%89%BE%E8%BF%87%E7%A8%8B/" title=""><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info"></div></div></a></div><div class="next-post pull-right"><a href="/2025/04/10/sequence-processing/2024-ICDM-CoInception/" title="Improving Time Series Encoding with Noise-Aware Self-Supervised Learning and an Efficient Encoder"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">Improving Time Series Encoding with Noise-Aware Self-Supervised Learning and an Efficient Encoder</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/altnt.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ALTNT</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">155</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ALTNT"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E4%B8%8B%E8%BD%BD%E6%B5%81%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">数据处理下载流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AE%E5%AE%9A%E7%81%BE%E5%AE%B3%E5%BD%B1%E5%93%8D%E5%8C%BA%E5%9F%9F"><span class="toc-number">1.1.</span> <span class="toc-text">1. 确定灾害影响区域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AE%E5%AE%9A%E6%BD%9C%E5%9C%A8%E7%9A%84%E6%A1%A5%E6%A2%81%E4%BD%8D%E7%BD%AE"><span class="toc-number">1.2.</span> <span class="toc-text">2. 确定潜在的桥梁位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E8%A7%86%E5%88%A4%E6%96%AD%E6%A1%A5%E6%A2%81%E6%8D%9F%E6%AF%81%E6%83%85%E5%86%B5"><span class="toc-number">1.3.</span> <span class="toc-text">3. 目视判断桥梁损毁情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%B1%E5%83%8F%E6%95%B0%E6%8D%AE%E8%8E%B7%E5%8F%96"><span class="toc-number">1.4.</span> <span class="toc-text">4. 影像数据获取</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%86-shp-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%88%B0-gee"><span class="toc-number">1.4.1.</span> <span class="toc-text">1、 将 shp 文件上传到 GEE</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%93%A8%E5%85%B5%E4%BA%8C%E5%8F%B7%E5%9B%BE%E5%83%8F"><span class="toc-number">1.4.2.</span> <span class="toc-text">2、下载哨兵二号图像</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%93%A8%E5%85%B5-%E4%B8%80%E5%8F%B7%E5%9B%BE%E5%83%8F"><span class="toc-number">1.4.3.</span> <span class="toc-text">3、下载哨兵 一号图像</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BD%92%E6%A1%A3"><span class="toc-number">1.5.</span> <span class="toc-text">5. 数据归档</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/21/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/4%E6%9C%8820%E6%97%A5%E5%91%A8%E6%8A%A5-2025/" title="周报2025年4月20日">周报2025年4月20日</a><time datetime="2025-04-21T01:17:31.516Z" title="Created 2025-04-21 09:17:31">2025-04-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/14/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/4%E6%9C%8813%E6%97%A5%E5%91%A8%E6%8A%A5-2025/" title="Untitled">Untitled</a><time datetime="2025-04-14T00:54:34.965Z" title="Created 2025-04-14 08:54:34">2025-04-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E5%AF%BB%E6%89%BE%E8%BF%87%E7%A8%8B/" title="Untitled">Untitled</a><time datetime="2025-04-13T09:22:57.613Z" title="Created 2025-04-13 17:22:57">2025-04-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/" title="Untitled">Untitled</a><time datetime="2025-04-13T04:58:32.679Z" title="Created 2025-04-13 12:58:32">2025-04-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/10/sequence-processing/2024-ICDM-CoInception/" title="Improving Time Series Encoding with Noise-Aware Self-Supervised Learning and an Efficient Encoder">Improving Time Series Encoding with Noise-Aware Self-Supervised Learning and an Efficient Encoder</a><time datetime="2025-04-10T01:39:09.193Z" title="Created 2025-04-10 09:39:09">2025-04-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By ALTNT</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,903 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>ALTNT's Hexo Blog | ALTNT's Hexo Blog</title><meta name="author" content="ALTNT"><meta name="copyright" content="ALTNT"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="&lt;Boosting crop classification by hierarchically fusing satellite, rotational, and contextual data&gt; （提高国家之间的可转移性) 在数据集上进行预训练可提高国家之间的可转移性，允许进行跨域和标签预测，并且在从法国到荷兰的少样本设置（即当领域根据显著新标签发生变化时）下性能具有性能鲁棒性。 提">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ALTNT&#39;s Hexo Blog">
+<meta property="og:url" content="http://blog.705553939.xyz/2025/03/05/crop_classification/%E5%A5%BD%E5%8F%A5/index.html">
+<meta property="og:site_name" content="ALTNT&#39;s Hexo Blog">
+<meta property="og:description" content="&lt;Boosting crop classification by hierarchically fusing satellite, rotational, and contextual data&gt; （提高国家之间的可转移性) 在数据集上进行预训练可提高国家之间的可转移性，允许进行跨域和标签预测，并且在从法国到荷兰的少样本设置（即当领域根据显著新标签发生变化时）下性能具有性能鲁棒性。 提">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.705553939.xyz/img/altnt.jpeg">
+<meta property="article:published_time" content="2025-03-04T17:42:09.251Z">
+<meta property="article:modified_time" content="2025-04-24T05:34:15.554Z">
+<meta property="article:author" content="ALTNT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.705553939.xyz/img/altnt.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://blog.705553939.xyz/2025/03/05/crop_classification/%E5%A5%BD%E5%8F%A5/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ALTNT\'s Hexo Blog',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-04-24 13:34:15'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/altnt.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">155</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ALTNT's Hexo Blog"><span class="site-name">ALTNT's Hexo Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Untitled</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-03-04T17:42:09.251Z" title="Created 2025-03-05 01:42:09">2025-03-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-04-24T05:34:15.554Z" title="Updated 2025-04-24 13:34:15">2025-04-24</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>&lt;Boosting crop classification by hierarchically fusing satellite,
+rotational, and contextual data&gt;</p>
+<p>（提高国家之间的可转移性)</p>
+<p>在<strong>数据集上进行预训练</strong>可提高国家之间的可转移性，<strong>允许进行跨域和标签预测</strong>，并且在从法国到荷兰的少样本设置（即当领域根据显著新标签发生变化时）下性能具有性能鲁棒性。</p>
+<p>提出的方法通过<strong>使深度学习方法能够使用经常被忽视的地块时空上下文而优于可比方法</strong></p>
+<p><strong>卫星图像时间序列（SITS）数据集</strong>在过去十年中取得了重大发展（Selea，2023），为采用<strong>数据密集型方法</strong>铺平了道路。</p>
+<p>引入了一种新颖的<strong>多模态建模方法</strong>，该方法通过使用<strong>作物轮作（CR，Crop
+Rotation）</strong>
+将<strong>地球观测数据</strong>与<strong>历史种植实践</strong>相结合。</p>
+<p>这种创新方案能够<strong>在测试年份没有地面真值数据的情况下预测作物类型</strong>。</p>
+<p>以加利福尼亚为研究区域，Zhong
+等人（2019）研究了使用一维卷积人工神经网络（ANN）（Conv1D）和长短期记忆网络（LSTM）进行作物类型制图的可行性</p>
+<p>在欧洲，Pelletier
+等人（2019）是开发基于深度学习的地球观测作物类型分类器的先驱之一。他们引入了一维卷积神经网络（CNN）TempCNN
+算法，该算法使用福尔摩沙 - 2
+号卫星数据，提供高空间和时间分辨率的时间序列（类似于 Sentinel -
+2），但光谱分辨率有所简化</p>
+<p>（Transformer编码器和 LSTM 模型都表现出相似的分类性能)</p>
+<p>采用<strong>数据密集型学习方法</strong>实现先进的作物类型分类。在
+Rußwurm 等人（2019a）的研究中，使用 Sentinel - 2
+的全光谱信息对法国布列塔尼的 13
+种作物类型进行了地块级分类。他们评估了两个模型的性能：一个Transformer编码器（Vaswani
+等人，2017）和一个基于长短期记忆网络（LSTM）架构的循环神经网络（RNN）（Hochreiter
+和 Schmidhuber，1997）。他们的发现表明，Transformer编码器和 LSTM
+模型都表现出相似的分类性能。</p>
+<p>后来，Rußwurm 和 Körner（2020）使用来自德国三个地区的 Sentinel - 2
+数据设计了一个地块级作物分类器，并比较了不同的信号建模方法，包括Transformer和
+LSTM
+等。他们得出结论，<strong>地球观测数据处理（大气校正、云过滤）</strong>
+为这些类型的模型提供了小但一致的好处。</p>
+<p>Rußwurm 等人（2019b）在中欧的 4
+万个地块上采取了类似的方法，他们提出了一种新的<strong>早期分类机制</strong>，<strong>通过基于先前看到的信息添加额外的停止概率（an
+additional stopping probability)来增强经典模型</strong>。</p>
+<p>此外，Rußwurm 和 Körner（2018）通过考虑空间变化以检测地块边界，使用
+<strong>卷积神经网络 - 长短期记忆网络（CNN - LSTM）</strong>
+对德国一个独特地区的 17 种作物进行分类，解决了像素级的作物分类任务。</p>
+<p>（Sainte Fare Garnot 等人，2019）提出<strong>在循环神经网络之前
+使用卷积神经网络
+来学习地块像素的聚</strong>合，而不是传统的平均方法，并将他们的系统应用于法国西南部的
+20 万个地块。</p>
+<p>最后，Sainte Fare Garnot
+等人（2020）提出了一种创新方法来<strong>解决地块级作物分类问题</strong>，通过<strong>随机采样地块的像素</strong>来学习由Transformer处理的富有表现力的描述符。（这篇论文看过，就是在每个地块图上选
+N个 像素点，然后利用 transformer 而不是 lstm来处理时序信息)</p>
+<p>（<strong>可转移性和领域适应的重要性</strong>)</p>
+<p>虽然<strong>大多数作物类型分类研究</strong>都<strong>依赖于当年的地面真值数</strong>据，但对于某些应用来说，探索<strong>具有时空可转移性的模型</strong>至关重要。</p>
+<p>这意味着模型能够从 一个源数据分布
+中<strong>学习</strong>，并在<strong>来自不同领域（例如不同地点）的目标数据</strong>上进行<strong>测试</strong>，这种过程被称为<strong>领域适应</strong>。（其实也就是模型能够在另一个地点也有好的效果或者说泛化能力)</p>
+<p>可转移性可以跨越时间和空间，例如用一个国家的数据集训练模型，在另一个国家的数据集上进行评估。</p>
+<p>（<strong>少样本和零样本模型</strong>)</p>
+<p>由于数据集各不相同，这个任务很复杂；</p>
+<p>例如，测试集中可能出现新的标签，而训练集中没有。</p>
+<p>（少样本模型)</p>
+<p>因此，可以使用来自新数据集的少量示例对模型进行微调，这被称为 “少样本”
+模型。</p>
+<p>（零样本模型)</p>
+<p>当不使用任何示例进行微调时，我们使用“零样本”模型命名（Peng
+等人，2018）。</p>
+<p>只有一些工作尝试使用地球观测数据进行<strong>少样本分类</strong>，因为知道大多数系统在没有领域数据的情况下表现不佳。尽管如此，Rußwurm
+等人（2019c）和 Tseng
+等人（2021a）都提出使用与模型无关的元学习（MAML）来解决像素级的少样本作物或土地覆盖分类问题，其中“仅使用地球观测数据，通过目标域中的少量标记示例来诱导泛化”。</p>
+<p><strong>（相关方法介绍</strong>）</p>
+<p>（Jia
+等人，2019）提出了一种方法，通过使用<strong>循环生成对抗网络（GAN）</strong>
+生成人工目标域数据，<strong>将目标域中的数据映射到与源域相似的分布</strong>。</p>
+<p>他们在农田制图和烧毁区域检测方面评估了他们的方法，仅使用农田数据层（CDL）数据集中的两个类别进行农田制图，<strong>没有纳入未见过的标签</strong>。</p>
+<p>（Wang
+等人2021）在一个四分类场景中也<strong>没有未见过的标签</strong>，旨在通过最小化不同领域的网络的多个隐藏状态之间的平均最小差异来强制适应。</p>
+<p>（Nyborg
+等人，2022b）引入了一种巧妙的方法，通过<strong>学习一个时间偏移来对齐不同的领域</strong>，该时间偏移<strong>模拟不同区域的物候时间序列的时间变化</strong>。他们<strong>专注于
+15
+个类别，将其他类别留作未知</strong>，并使用源域中的类别在目标域上评估他们的方法，从而减轻了未见过标签的问题。</p>
+<p>（Lucas 等人
+2023）提出了一种用于少样本领域适应的模型，在测试集中没有大量新标签（最多
+0.57%的未知测试标签）。</p>
+<p>《set function还是 Seft》</p>
+<p>提出对数据空缺进行插值会影响时序数据分类的准确性</p>
+<hr>
+<p>《A novel red-edge vegetable index for paddy rice mapping based on
+Sentinel-1/2 and GF-6 images》</p>
+<p>Accurate paddy rice mapping is crucial for ensuring food security and
+guiding agricultural production</p>
+<p>此外，全球气候变化的不利影响和水稻种植环境的恶化导致水稻和其他基本粮食作物的种植面积和产量下降</p>
+<p>传统的水稻种植面积监测方法需要进行大量的地面调查和统计分析，耗时耗力（C.K.
+Zhang, Zhang, and Tian 2023）。</p>
+<p>目前，遥感卫星技术已成为确定水稻种植的主要方法（Wang 等，2024）。</p>
+<p>光学遥感卫星基于可见光、近红外 (NIR)、红边和短波红外 (SWIR)
+传感器捕获数据，提供高分辨率图像（Ramankutty 和 Foley 1998）。</p>
+<p>由于其直观性和易于解释性，光学图像成为水稻提取最重要的数据源之一（Meng
+等，2024）。</p>
+<p>常用的基于光学遥感数据的水稻提取方法可分为以下几类：（1）<strong>基于反射率数据和图像统计数据的方法；（2）时间序列相似性方法；（3）基于物候和植被指数的方法。</strong></p>
+<p>。。</p>
+<p><strong>时间序列相似性方法</strong>被广泛用于水稻信息提取，因为它们可以根据时间序列数据分析提取许多特征。使用欧几里得距离来评估与标准生长曲线的相似性已被发现可以有效提取水稻种植面积（J.
+Zhang 等人，2022 年）</p>
+<p>dynamic time warping (DTW) distance approach (He et al.
+2023).——————这个简单啊，就是比较两条曲线的相似性 DTW
+方法的缺陷——但该方法需要确定经验模型阈值和NDVI标准曲线，受卫星数据空间分辨率的影响，适用范围有一定的局限性</p>
+<p>。。</p>
+<p><strong>基于物候学和植被指数的方法依靠遥感技术定量识别水稻生长的关键阶段，例如移栽、分蘖和收获。</strong>
+植被指数结合了来自多个光谱带的信息，可以增强对图像中各种特征的区分（Carrasco
+等人，2022 年）。
+魏等（2022）基于增强植被指数（EVI）和陆地表面水分指数（LSWI）提取了水稻面积。</p>
+<p>通过计算EVI曲线的峰值来区分单季稻、双季稻和三季稻品种。
+目前，基于物候学和植被指数的方法已广泛应用于各地水稻制图（X.Zhao 等
+2023；Yang、Guo 和 Wang2024）。
+此外，许多研究表明，与使用原始图像数据的方法相比，利用光学遥感影像获取的植被指数可以提高水稻种植面积的提取精度（Hedayati、Vahidnia和Behzadi
+2022；Li等2022；Waleed等2022）。 S. Liu 等 (2020) 提出了一种新的黄化指数
+(YI)，可根据成熟度的变化有效区分再生稻和其他水稻类型。Cao 等 (2021) 基于
+EVI
+绘制了多季节水稻地图，并指出植被指数差异较大的高峰生长季影像在识别不同水稻种植类型方面发挥着关键作用。
+尽管基于植被指数的方法已成功应用于大量水稻提取实例，但仍存在一些局限性。常用的归一化指数包括
+NDVI、绿归一化差异植被指数 (GNDVI) 和归一化差异红边指数
+(NDRE)，容易饱和，导致在植被密度高的地区灵敏度降低 (Z. H. Xu et al.
+2023)。已经进行了大量研究以克服这些挑战并提高水稻制图的准确性。Huete
+等人 (1997) 引入了
+EVI，做出了重大贡献，它降低了地表背景噪声和大气干扰，同时有效地反映了植被的生长情况。与
+NDVI 相比，EVI
+可以更准确地表示高密度植被，因为它同时考虑了结构和光学植被特性 (Tucker
+1979)。此外，Dash和Curran(2004)提出了基于中分辨率成像光谱仪(MERIS)的陆地叶绿素指数(MTCI)，研究表明，MTCI比NDVI更能响应叶绿素含量的变化，有效地缓解了过饱和问题。</p>
+<p>Kang et al. (2021) constructed NDVI time series and 10 different
+red-edge spectral index time series to fully explore the potential of
+red-edge bands in crop identification and classification</p>
+<p>由于气候影响，获取多时相可用光学遥感图像已成为一项挑战，合成孔径雷达
+(SAR) 经常被用作水稻测绘光学图像的宝贵补充 (J. Y. Zhang, Huang, and Li
+2023)。它<strong>能够穿透云层和雾，使其成为补充光学数据的理想数据源</strong>。此外，在灌溉期间，稻田通常会被水淹没。在这种情况下，SAR
+数据被证明特别有价值，因为它们可以捕捉被淹没的农田所表现出的独特后向散射特性
+(Keerthana, Salma, and Dodamani 2022)。
+传统的水稻分类方法依赖于变化阈值检测，这种方法具有主观性并且缺乏可重用性（S.
+Xu et al. 2023；Wang et al.
+2022）。这种方法正在被时间序列特征识别方法所取代。后者可以提供更客观、更灵活的分析框架，能够适应水稻种植模式随时间变化的动态和复杂性。这些算法大致可分为监督方法和非监督方法。值得注意的是，监督分类算法由于其出色的灵活性和准确性已成为水稻分类的首选方法（X.
+Y. Guo 等 2024；Z. He 和 Li 2023）。 <strong>然而，SAR
+图像本身无法完全捕捉水稻的生长特性</strong>。<strong>因此，仅依靠 SAR
+图像数据进行水稻分类的准确度通常低于利用光学图像的方法</strong>。
+为了解决这一限制，水稻测绘的一个可行解决方案是<strong>融合 SAR
+图像和光学图像（Aziz 等人，2023 年；Saadat 等人，2022 年）。</strong>
+通过结合 SAR
+和光学图像数据的独特优势，可以获得更全面、更准确的水稻种植表征，从而提高分类过程的整体效率。</p>
+<p>为了解决传统归一化指数普遍存在的过度饱和问题，本研究旨在开发一种专门用于提取水稻种植面积的新型红边指数。该指数名为红边水稻指数
+(RERI)，利用水稻的光谱特征，同时利用红边波段和近红外波段的优势。考虑到在特定生长阶段，特别是在多云和多雨地区获取无云且可用的光学图像的挑战（You
+and Dong 2020），我们结合了 SAR
+数据作为补充。基于水稻灌溉期间水稻种植区瞬态低后向散射值，利用时间序列
+SAR 数据获得潜在水稻种植区。此外，我们使用基于 Sentinel-2 和 GF-6
+影像、RERI 指数和地形要素的随机森林 (RF)
+算法提取水稻种植区范围。最后，根据决策树的条件选择，使用潜在水稻种植区对结果进行细化。</p>
+<p><strong>中国高分六号卫星</strong></p>
+<p>中国高分六号卫星拥有先进的成像能力，可进行高分辨率观测。它配备了一台
+2 米全色相机和一台 8 米多光谱高分辨率相机，可在 90
+千米的广阔观测范围内提供详细成像。此外，该卫星还配备了一台 16
+米多光谱中分辨率广角相机，可覆盖 800
+千米的广阔观测范围。为了捕获不同光谱带的数据，高分六号卫星搭载了八个多光谱传感器。这些传感器能够探测各种波长的信息，例如蓝波段（0.45–0.52
+微米）、绿波段（0.52–0.59 微米）、红波段（0.63–0.69
+微米）、近红外波段（0.77–0.89 微米）、黄波段（0.40–0.45
+微米）、黄波段（0.59–0.63 微米）、红边 1 波段（0.69–0.73 微米）和红边 2
+波段（0.73–0.77 微米）。GF-6 卫星的时间分辨率为 2
+天，可提供频繁且最新的数据。 <img src="/2025/03/05/crop_classification/%E5%A5%BD%E5%8F%A5/1739796904288.png" alt="1739796904288"></p>
+<p>我们从 ESA 哥白尼开放访问中心 (Copernicus Open Access Hub 2023)
+获得了 Sentinel-1A 地面距离探测高分辨率 (GRDH)
+产品。该产品的空间分辨率为 10 米，采用双极化、垂直发射和垂直接收 (VV)
+极化和 VH 极化的干涉宽幅 (IW) 采集模式获得。先前的研究表明，VH 极化比 VV
+极化更能有效地识别水稻洪水信号 (Benediktsson、Swain 和 Ersoy
+1989)。我们的实地调查和对当地农民的深入采访表明，从 3 月到 10
+月的这段时间实际上涵盖了研究区域整个水稻生长季节。为了最大限度地减少其他作物的潜在干扰，我们获取了
+2022 年 3 月至 10 月所有可用的具有 VH 极化的 Sentinel-1 SAR
+图像。这些图像的获取日期如下：3 月 22 日、4 月 15 日、4 月 27 日、5 月 9
+日、6 月 2 日、8 月 19 日、8 月 25 日、9 月 6 日、9 月 30 日和 10 月 12
+日。</p>
+<p>海拔变化会导致微气候因素发生细微变化，而微气候因素对水稻生长至关重要（Xiao
+等人，2005
+年）。此外，水稻生长在平坦的地形上，这提供了最佳的土壤水分含量和养分供应。一般来说，坡度小于
+3° 的地区被认为适合种植水稻（Chan、Ho 和 Nikolova，2005
+年）。为了提取水稻种植区，我们利用了航天飞机雷达地形任务 (SRTM) 1
+弧秒全球数据，分辨率为 30 米。这些数据来自 30 米 SRTM Tile
+Downloader，它托管在 NASA 服务器上（Watkins，2023
+年）。使用三个地形变量（海拔、坡度和地势起伏）来提取水稻种植区。</p>
+<p><strong>基于像元的分类方法仅依据每个像元的值进行分类，这种方法容易受到
+“椒盐噪声”
+的影响（布雷曼，1996）为了降低这种噪声的影响，本研究采用了基于对象的图像分割方法，并将分割后的对象作为基本研究单元。</strong></p>
+<hr>
+<p>《Sentinel-2 cropland mapping using pixel-based and object-based
+timeweighted dynamic time warping analysis》</p>
+<p>尽管有报道称基于对象的方法在划分农业地块方面具有优势，但基于对象的框架在高分辨率卫星图像（如
+Sentinel-2
+时间序列）的时空分析中的实施，以划分和分类农田方面却非常有限</p>
+<p>Petitjean 等人 (2012a)
+指出，基于时间序列分析的农田制图面临以下挑战：(i)
+缺乏用于训练监督算法的样本；(ii) 云层遮蔽导致时间数据缺失；(iii)
+天气或农业实践变化导致物候周期年度变化。 动态时间规整 (DTW) (Sakoe and
+Chiba, 1978) 被证明是应对这些挑战的有效解决方案 (Baumann 等人, 2017;
+Petitjean 等人, 2012a)。 Maus 等人 (2016) 提出了一种时间加权版本的 DTW
+方法 (TWDTW)，能够对具有各种植被动态的作物进行分类。 TWDTW 分析在从
+MODIS 数据得出的 EVI 中识别单茬作物、双茬作物、森林和牧场方面表现良好
+(Maus 等人, 2016)。 然而，该方法<strong>仅在像素级别应用</strong>。
+鉴于农业管理决策通常在农业地块层面做出（Forster 等，2010；Long
+等，2013），并且鉴于 Sentinel-2
+数据的空间分辨率不断提高，值得研究该方法在 OBIA 框架内应用时的表现。</p>
+<p>请注意，由于农业实践和/或气象条件的变化，这些模式可能每年都在变化（Petitjean
+et al.，2012a）；这些变化可能会影响目标作物的“典型时间剖面”（Petitjean
+et
+al.，2012a），挑战大多数现有的图像分类方法，这些方法通常无法处理不规则的时间物候特征（Maus
+et al.，2016）。</p>
+<hr>
+<p>关于含缺失值数据处理进行农作物分类的相关论文（不插值，这篇还介绍了好多农作物分类的优秀论文，可以看下）
+《Linearly interpolating missing values in time series helps little for
+land cover classification using recurrent or attention networks》</p>
+<p>研究利用Bi-LSTM和Transformer模型，对比分析有无线性插值的时间序列在土地覆盖分类中的效果，<strong>发现线性插值对提升分类精度作用甚微，且耗费计算时间，对于能处理缺失值的模型而言并非必要步骤</strong>。</p>
+<p>卫星时间序列观测在精确的土地覆盖分类方面表现出优于单一日期图像的优势（Carra
+̃o 等，2008 年；Zhu 等，2012 年；Bell ́on 等，2017 年；Inglada 等，2017
+年；Zhang 和 Roy，2017 年；Preidl 等，2020 年；Li 等，2020 年）。</p>
+<p>准确、及时的土地覆盖图对于了解陆地能量平衡、碳预算和水文循环至关重要
+(Anderson, 1976; Hansen et al., 2000; Friedl et al., 2002; Zhu and
+Woodcock, 2014; Wulder et al., 2018; Zhang et al.,
+2021)。这主要是因为时间序列数据可以捕捉土地覆盖类型之间季节性光谱变化的差异，例如物候特征。</p>
+<p>在传统机器学习算法中，土地覆盖分类通常需要对缺失值进行线性插值（金等人，2014；蔡等人，2018；德福尔尼等人，2019；格里菲思等人，2019；佩尔蒂埃等人，2019；刘等人，2020；德卢卡等人，2022）。
+卷积神经网络（CNNs）虽已用于时间序列土地覆盖分类（佩尔蒂埃等人，2019；张等人，2023），但通常在分类时将缺失值设为零（即零填充），而非屏蔽缺失值（赵等人，2021），因此本研究未使用
+Transformer
+使用多头自注意力机制作为基本单元，在所有时间步骤中对特征进行加权，以进行时间特征提取。时间序列中的缺失值可以通过屏蔽来处理，通常通过将其注意力权重设置为极小的值来实现。可以参考---2024-<a target="_blank" rel="noopener" href="https://www.sciencedirect.com/journal/science-of-remote-sensing" title="Go to Science of Remote Sensing on ScienceDirect">Science of
+Remote Sensing</a>-IF_5.7----《Classifying raw irregular time series
+(CRIT) for large area land cover mapping by adapting transformer
+model》-</p>
+<p>Landsat和Sentinel -
+2的时间序列观测数据已被广泛应用于土地覆盖分类。由美国地质调查局（USGS）和美国国家航空航天局（NASA）管理的Landsat系列卫星，以30米的分辨率提供了最长时间的地球观测记录，单颗卫星的重访周期为16天（Wulder等人，2012；Wulder等人，2022）。由欧洲航天局（ESA）开发的Sentinel
+- 2任务，由Sentinel - 2A和2B卫星星座组成，以10 -
+20米的分辨率进行陆地监测，重访周期更短，为5天。考虑到它们相似的光谱波段配置和空间分辨率，结合使用Landsat和Sentinel
+- 2的数据可以显著提高陆地观测的时间分辨率（Li和Roy，2017）。
+<strong>最近，美国国家航空航天局（NASA）的Landsat和Sentinel -
+2数据融合（HLS）产品通过结合Landsat 8/9和Sentinel -
+2A/B的观测数据，生成了时间分辨率小于3天的产品（Claverie等人，2018），并且能够提供更多的时间序列观测数据，以区分不同的土地覆盖类型（Woodcock等人，2020）。</strong></p>
+<p><strong>一些其他研究直接使用 RNN 或 Transformer
+处理具有缺失值的时间序列数据，进行土地覆盖分类，而无需线性插值（Metzger
+等人，2021 年；Zhao 等人，2021 年；Rußwurm 等人，2023
+年）。</strong></p>
+<p>数据：</p>
+<p>我们使用了美国国家航空航天局（NASA）的Landsat与Sentinel-2数据融合项目（HLS，版本2.0）中的Landsat
+8陆地成像仪（OLI，HLSL30）和Sentinel-2多光谱仪器（MSI，HLSS30）的地表反射率数据。
+<strong>2.0版本的HLS数据</strong>处理步骤包括<strong>大气校正（Vermote等人，2016）、云和云影掩膜（Qiu等人，2019）、空间配准（Gao等人，2009）、双向反射分布函数（BRDF）归一化（Roy等人，2016）以及光谱带通调整（Claverie等人，2018）</strong>。HLS图像通过结合Landsat
+8/9 OLI传感器（Irons等人，2012）和Sentinel-2A/B
+MSI传感器（Drusch等人，2012），根据纬度不同，每隔1 -
+4天提供一次30米中等空间分辨率的观测数据。HLS采用Sentinel-2通用横轴墨卡托（UTM）军事网格参考系统（MGRS）瓦片，每个瓦片覆盖面积为110×110平方千米，在同一UTM区域内，相邻瓦片通常存在水平和垂直方向的重叠（Roy等人，2016）。有关HLS数据的更详细信息，请参阅Claverie等人（2018）的研究。
+We used the NASA Harmonized Landsat Sentinel-2 project (HLS, version
+2.0) Landsat 8 Operational Land Imager (OLI, HLSL30) and Sentinel-2
+MultiSpectral Instrument (MSI, HLSS30) surface reflectance data. The
+version 2.0 HLS processing steps include atmospheric correction (Vermote
+et al., 2016), cloud and cloud-shadow masking (Qiu et al., 2019),
+spatial co-registration (Gao et al., 2009), bidirectional reflectance
+distribution function (BRDF) normalization (Roy et al., 2016) and
+spectral bandpass adjustment (Claverie et al., 2018). HLS images provide
+moderate spatial resolution (30 m) observations every 1–4 days,
+depending on latitude (Li and Roy, 2017) by combining Landsat 8/9 OLI
+sensors (Irons et al., 2012) and Sentinel-2A/B MSI sensors (Drusch et
+al., 2012). The HLS uses the Sentienl-2 Universal Transverse Mercator
+(UTM) Military Grid Reference System (MGRS) tiles with each tile
+covering <span class="math inline">\(110 ×110 ~km^{2}\)</span> which
+usually has horizontal and vertical overlap between two adjacent tiles
+in the same UTM zone (Roy et al., 2016). For more complete details
+regarding HLS data, please see Claverie et al. (2018).·</p>
+<p>《Crop Classification Under Varying Cloud Cover With Neural Ordinary
+Differential Equations》 《Evaluation of Five Deep Learning Models for
+Crop Type Mapping Using Sentinel-2 Time Series Images with Missing
+Information》</p>
+<p>研究利用 Sentinel-2 时间序列影像，设计两组实验探究 1D
+CNN、LSTM、GRU、LSTM-CNN 和 GRU-CNN
+模型在作物类型识别中的性能，发现部分模型用未填补数据分类精度超 85%
+，且未填补数据在小地块作物类型识别上有优势。-----这里没用
+transformer，可能没太大参考性</p>
+<p>这个作者写了好多农作物分类的论文啊</p>
+<figure>
+<img src="/2025/03/05/crop_classification/%E5%A5%BD%E5%8F%A5/1740749144401.png" alt="1740749144401">
+<figcaption aria-hidden="true">1740749144401</figcaption>
+</figure>
+<p>应确保样本的独立性，因为训练样本和评估样本之间的空间相关性可能会提高报告的分类精度（Colditz，2015；Kattenborn等人，2022）。——————（这个要看下指什么意思？样本不平衡有关吗（空间相关性))
+（解决方案)图4展示了每种类型样本的空间分布情况。尽管由于研究区域土地覆盖分布的特性，草地和荒地在研究区域西部更为集中（见4.4节图14），但所有样本在研究区域内分布较为均匀。尽管由于图4中的地图概括问题，样本看起来较为聚集，但样本间的距离仍大于其他研究。图5展示了每种土地覆盖类型的样本到其最近样本距离的累积直方图。在八种土地覆盖类型中，最小样本距离为0.10千米（3个Landsat像素），仅出现在少数雨养农田像素中。平均距离范围从荒地的7.42千米到林地的18.6千米不等。所有7735个样本的平均样本距离为10.71千米，与现有研究相比，这一距离足以被认为在空间上是相互独立的。例如，两项针对美国本土大陆尺度、30米分辨率Landsat数据的土地覆盖分类研究，分别使用了随机选取的290万个和4182823个样本，其平均样本距离分别为1.99千米和0.57千米（Zhang和Roy，2017；Zhang等人，2023）。</p>
+<p>下面是对这个问题的解释：</p>
+<p>引用的两篇论文指出，在进行分类研究时，训练样本和评估样本之间的空间相关性会干扰分类精度的真实性。</p>
+<ul>
+<li><p><strong>Colditz（2015）</strong>：《An evaluation of different
+training sample allocation schemes for discrete and continuous land
+cover classification using decision tree - based
+algorithms》评估不同训练样本分配方案对土地覆盖分类的影响，发现空间相关性会使模型在训练时过度学习局部空间特征。若训练和评估样本空间上相关，评估时模型在相似空间区域表现好，导致分类精度虚高，不能反映模型在不同区域的真实分类能力。</p></li>
+<li><p><strong>Kattenborn等人（2022）</strong>：《Spatially
+autocorrelated training and validation samples inflate performance
+assessment of convolutional neural
+networks》研究表明，空间自相关的训练和验证样本会夸大卷积神经网络的性能评估。在图像分类任务中，如果样本在空间上分布不均匀、存在聚集现象，训练出的模型在验证集上精度会偏高，但实际应用到其他区域时，效果可能大打折扣
+。</p></li>
+<li><p><strong>本文中的体现</strong>：本文研究土地覆盖分类，若训练和评估样本空间相关，分类模型会学习到样本的空间分布规律，而非真正的土地覆盖特征与类别之间的关系。评估模型时，会错误地认为模型性能良好，影响对模型真实分类能力的判断，导致研究结果出现偏差。所以本文强调确保样本独立性，避免这种情况影响研究的准确性
+。</p>
+<p>例如，两项针对美国本土大陆尺度、30米分辨率Landsat数据的土地覆盖分类研究，分别使用了随机选取的290万个和4182823个样本，其平均样本距离分别为1.99千米和0.57千米（Zhang和Roy，2017；Zhang等人，2023）。——————————</p>
+<figure>
+<img src="/2025/03/05/crop_classification/%E5%A5%BD%E5%8F%A5/1740763077014.png" alt="1740763077014">
+<figcaption aria-hidden="true">1740763077014</figcaption>
+</figure></li>
+<li><figure>
+<img src="/2025/03/05/crop_classification/%E5%A5%BD%E5%8F%A5/1740763319508.png" alt="1740763319508">
+<figcaption aria-hidden="true">1740763319508</figcaption>
+</figure></li>
+<li><p><strong>对于云多的区域插值方法和非插值方法的研究结论：</strong></p>
+<p>在中国研究区域（2.1节），平均有15.35%的合成周期存在缺失值。
+然而，<strong>目前尚不清楚线性插值在云层覆盖更频繁的地区（如五大湖地区或亚马逊地区
+）是否有用（阿斯纳，2001；惠特克拉夫特等人，2015；埃伯哈特等人，2016；叶戈罗夫等人，2019）</strong>。
+为了探究这一点，在中国研究区域开展了分类实验，<strong>通过随机将每个时间序列中50%的观测值作为云层遮挡进行掩蔽处理</strong>。<strong>50%的随机掩蔽过程重复进行了5次，以确保时间序列中观测值的时间分布具有多样性</strong>。
+图18展示了8种不同土地覆盖样本的原始和随机掩蔽后的时间序列卫星观测示例。
+利用这些随机掩蔽后的时间序列，分别使用有线性插值和无
+线性插值的数据训练Transformer模型，以对这8种土地覆盖类型进行分类。
+(结果)<strong>表14显示，由无线性插值和有线性插值的合成数据得出的平均总体分类精度差异小于0.3%，这与表5中使用原始时间序列的结果一致。使用原始时间序列和随机掩蔽时间序列训练的Transformer模型的F1值呈现出相似的模式，平均F1值差异分别小于0.008和0.006（表15）</strong>。
+此外，使用原始时间序列观测值得到的所有分类精度结果都相对高于使用随机掩蔽时间序列得到的结果。这在意料之中，因为对时间序列进行随机掩蔽可能会丢失重要的时间动态信息（范德瓦尔等人，2013）。</p>
+<p>为进一步探究这一点，我们还针对5.2节中的两个农业研究区域开展了<strong>另一项分类实验</strong>，即<strong>随机掩蔽年度16天合成数据的不同比例。我们仅使用加利福尼亚州和俄克拉何马州图块上14个合成周期内无任何缺失值的样本，这样就能模拟不同比例的合成周期被当作缺失值进行掩蔽的情况</strong>。
+这两个图块组合后共有18539个样本，涵盖19个类别（草地/牧场、冬小麦、杏仁、休耕/闲置农田、葡萄、开心果、大豆、建设用地、冬小麦/大豆双季作物、落叶林、玉米、紫花苜蓿、柑橘、高粱、番茄、核桃、冬小麦/玉米双季作物、棉花和开阔水域）（表9）。
+进行随机掩蔽操作，使年度16天高质量观测合成数据的比例从10%到100%以10%的步长变化。图19展示了在五折交叉验证下，有无线性插值的分类总体准确率随16天高质量观测合成数据比例的变化情况。
+<strong>(1)随着16天高质量观测合成数据比例的增加，两种分类的准确率均先上升后趋于稳定</strong>。这是意料之中的，因为随着高质量16天合成数据数量的增加，更多的时间动态信息被捕捉到了。
+当16天高质量观测合成数据的数量大于5个（=14个16天合成数据×30%）时，有无线性插值的分类总体准确率差异几乎可以忽略不计。
+<strong>(2)当16天高质量观测合成数据的数量小于5个时，二者差异在1% -
+5%之间，且无 线性插值的分类准确率更高。</strong>
+这表明，当16天高质量合成数据的数量较少时，线性插值可能会生成不可靠的时间序列。有无线性插值的各土地覆盖类型分类的F1值呈现出相似的规律（图20）。
+(3)<strong>对于相对稳定的土地覆盖类型，如建设用地、休耕/闲置农田和开阔水域，无论年度16天高质量合成数据的数量是多少，有无线性插值的分类F1值几乎没有差异</strong>。这在意料之中，因为这些类型的时间序列较为稳定，线性插值对分类的作用不大。</p></li>
+</ul>
+<h3 id="end-to-end-learned-early-classification-of-time-series-for-in-season-crop-type-mapping-2023-irprs-if_10.6">《End-to-end
+learned early classification of time series for in-season crop type
+mapping》-2023-IRPRS-IF_10.6</h3>
+<p>这篇好像不是处理含有缺失数据的论文,但是这里引入了一个预测头的概念，可以看下
+在这项工作中，我们提出了一个端到端学习的<strong>时间序列早期分类（ELECTS）模型</strong>，该模型估计<strong>分类分数</strong>和<strong>是否观察到足够的数据以做出早期且仍然准确的决策的概率</strong>。
+ELECTS是<strong>模块化的</strong>：
+任何深度时间序列分类模型都<strong>可以通过添加第二个预测头来采用ELECTS概念思想</strong>，该预测头<strong>输出停止分类的概率</strong>。
+然后，<strong>ELECTS损失函数在早期和准确性的平衡目标上优化整体模型</strong>。</p>
+<p>高效的大规模农业监测和作物类型制图是地球观测中时间序列分析的一个典型例子：分析作物生长季节植被的时间变化对于进行高效且准确的预测至关重要。通过卫星时间序列训练的模型和算法能够通过观察不同作物在物候（生命周期）上的差异来区分作物类型。传统上，基于归一化植被指数（NDVI）的时间剖面（Wardlow和Egbert，2008；Jönsson和Eklundh，2004）被用于提取一组固定的人工定义特征，例如返青日期或衰老阶段（Jönsson和Eklundh，2004）。在这些方法中，遥感专家通常会手动选择观测期，以涵盖特定区域内作物的整个营养生长周期。在观测期结束时进行最终分类，生成作物覆盖图。早期时间序列分类一直是遥感领域备受关注的话题，但通常被视为一个辅助目标。在作物类型分类中，“季中”或“早期作物类型制图”这两个术语较为常用。多项研究（McNairn等人，2014；Vaudour等人，2015；Inglada等人，2016；Cai等人，2018）发现，在特定区域的生长季节内，大多数作物类型都可以实现较高的分类精度。评估一年中不同日期可能达到的分类精度的一种常用策略是Inglada等人（2016）提出的增量分类法：每当有新图像可用时，监督分类器就会进行一次分类。然后记录可达到的精度，并将其与序列长度相关联。这个过程需要针对不同的子序列重新拟合分类器，并针对所有作物类型提供特定区域的证据，以确定能够进行准确分类的日期。最近的研究已将增量分类法应用于德国（Marszalek等人，2020；Kondmann等人，2022）和南非（Maponya等人，2020）的早期作物类型制图。其他方法则通过选择与序列长度无关的特征（Skakun等人，2017）、采用聚类后标记策略（Konduri等人，2020）或从历史数据中以生成式方式对简化的二维特征空间进行建模（Lin等人，2022）来避免重新拟合分类器。这些方法采用越来越复杂的启发式方法来手动定义与序列长度无关的特征。关键的是，这些方法能够大致了解在一年中的特定日期，单个区域内多种作物类型可达到的分类精度。与此同时，基于递归（Rußwurm和Körner，2018）、自注意力机制（Sainte
+Fare
+Garnot等人，2020）或卷积（Pelletier等人，2019）的端到端深度学习架构能够自然地将可变长度的序列映射为固定长度的表示。这些深度神经网络通过以最小化分类误差为目标函数，在端到端的方案中仅从大量带标签样本的数据集中学习区分不同类别的特征。据我们所知，目前还没有方法针对遥感中的早期分类目标对模型进行明确优化。</p>
+<h3 id="classifying-raw-irregular-time-series-crit-for-large-area-land-cover-mapping-by-adapting-transformer-model-2024-science-of-remote-sensing-if_5.7">《Classifying
+raw irregular time series (CRIT) for large area land cover mapping by
+adapting transformer model》-2024-<a target="_blank" rel="noopener" href="https://www.sciencedirect.com/journal/science-of-remote-sensing" title="Go to Science of Remote Sensing on ScienceDirect">Science of
+Remote Sensing</a>-IF_5.7</h3>
+<p>“Classifying raw irregular time series (CRIT) for large area land
+cover mapping by adapting transformer
+model”由Zhang、Luo、Li等人撰写。该研究旨在利用Transformer模型对原始不规则时间序列进行分类，以实现大面积土地覆盖制图，具体做法如下：</p>
+<ol type="1">
+<li><strong>数据准备</strong>：研究采用来自美国地质调查局（USGS）管理的Landsat系列卫星数据，以及欧洲航天局（ESA）的Sentinel
+-
+2数据。这些数据涵盖了不同时间和空间分辨率的影像，为土地覆盖分类提供了丰富信息。从全球土地覆盖产品GlobeLand30中提取训练和验证样本。该产品基于像素
+- 对象 -
+知识（POK）分类方法，<strong>具有10种土地覆盖类型，空间分辨率为30米
+。通过分层随机抽样技术，从GlobeLand30数据集中选取不同土地覆盖类型的样本，确保各类别样本的代表性。</strong></li>
+<li><strong>模型构建</strong>：基于Transformer架构进行模型构建。Transformer原本用于自然语言处理，其核心是多头自注意力机制，能有效捕捉长序列信息并支持并行计算。<strong>研究对Transformer的位置编码函数进行修改，采用可学习的模型系数，而非传统的预定义正弦和余弦函数参数，以此提升分类精度</strong>。
+插入掩码层来处理时间序列中的缺失值，在遇到缺失值时，通过将注意力权重设为极小值，使模型忽略这些值的影响，确保分类过程不受缺失数据干扰。
+<strong>添加掩码平均层</strong>，在推导分类概率前，从无缺失值的时间周期特征向量中计算平均特征向量，为分类决策提供更具代表性的特征信息。</li>
+<li><strong>模型训练与评估</strong>：采用交叉熵损失函数来优化模型训练过程，通过最小化预测结果与真实标签之间的差异，不断调整模型参数。使用Adam优化器对Bi
+-
+LSTM和Transformer模型进行训练，通过试验不同的超参数组合，确定最优超参数设置，如批次大小、学习率、随机失活率等。运用五折交叉验证方法评估模型性能，将数据集划分为五个子集，每次使用其中一个子集作为测试集，其余四个子集用于训练和验证。通过多次运行模型，计算总体准确率（OA）和F1分数等指标，全面评估模型在不同条件下的分类能力
+。</li>
+<li><strong>对比实验</strong>：对比使用和不使用线性插值处理缺失值的时间序列数据的分类效果。分别用Bi
+-
+LSTM和Transformer模型对含缺失值的时间序列合成数据和经线性插值后无缺失值的数据进行分类，比较两者在分类精度、计算时间等方面的差异。开展敏感性实验，探究不同土地覆盖分类图例、不同数量的高质量合成数据对分类结果的影响。通过随机掩蔽部分观测数据，模拟不同程度的云层覆盖情况，观察模型分类性能的变化。</li>
+</ol>
+<h3 id="crop-classification-under-varying-cloud-cover-with-neural-ordinary-differential-equations">《Crop
+Classification Under Varying Cloud Cover With Neural Ordinary
+Differential Equations》</h3>
+<h3 id="demonstration-of-large-area-land-cover-classification-with-a-one-dimensional-convolutional-neural-network-applied-to-single-pixel-temporal-metric-percentiles">《Demonstration
+of large area land cover classification with a one dimensional
+convolutional neural network applied to single pixel temporal metric
+percentiles》</h3>
+<p>However, with all patch-based approaches, small and spatially
+fragmented land cover areas may be blurred because their pixels may be
+confused with neighboring pixels that have different land cover that
+occupy the majority of the patch, and certain land cover class
+boundaries may be overly generalized (Kussul et al., 2017; Stoian et
+al., 2019; Derksen et al., 2019; Zhang et al., 2020)
+然而，对于所有基于patch的方法来说，小且空间碎片化的土地覆盖区域可能会变得模糊，因为这些区域的像素可能会与占据patch大部分的不同土地覆盖的相邻像素混淆，并且某些土地覆盖类别的边界可能会被过度概括（Kussul
+等人，2017 年；Stoian 等人，2019 年；Derksen 等人，2019 年；Zhang
+等人，2020 年）</p>
+<p>与使用图像斑块不同，<strong>基于单像素时间序列的土地覆盖分类方法得以发展</strong>，该方法将一维（1D）卷积神经网络应用于由t×s数组定义的单像素时间序列，其中t是时间序列中的观测次数，s是光谱波段的数量。
+最近，<strong>单像素时间序列的1D
+CNN土地覆盖分类方法已在相对较小的地理区域得到验证</strong>。
+例如，Pelletier等人（2019年）使用5层1D
+CNN对法国一个24×24千米区域内46个日期获取的福卫二号（Formosat -
+2）图像时间序列进行分类。 Zhong等人（2019年）使用5层1D
+CNN对2014年加利福尼亚州某县37个日期获取的Landsat 7和Landsat
+8图像时间序列进行分类。 Wang等人（2020年）使用5层1D
+CNN对2017年至2019年印度两个邦获取的Sentinel - 2和Sentinel -
+1图像时间序列进行分类。 Rußwurm和Körner（2020年）使用5层1D
+CNN对德国三个100×100千米区域的Sentinel - 2图像时间序列进行分类。 Debella
+- Gilo和Gjertsen（2021年）使用5层1D CNN对挪威全境获取的Sentinel -
+2图像时间序列进行分类，这些图像在时间上被合成为27个7天、14个14天、9个21天和7个28天的间隔。
+Lobert等人（2021年）使用4层1D CNN对德国三个研究地点的Landsat -
+8、Sentinel - 2和Sentinel - 1时间序列进行分类； Sentinel - 2和Landsat -
+8数据被合成为44个6天的间隔，以便与Sentinel - 1的重访间隔一致。
+Zhao等人（2021年）使用5层1D CNN对中国河北省4个110×110千米Sentinel -
+2图像块上37个日期获取的Sentinel - 2图像时间序列进行分类。
+Lange等人（2022年）使用4层1D CNN对德国草原地区的Sentinel -
+2时间序列进行分类。</p>
+<p><strong>一维 CNN
+单像素时间序列土地覆盖分类方法明确支持提取捕获土地覆盖类别随时间变化的光谱差异的特征</strong>，例如，与植被绿度和生长阶段的物候变化相关，并且不存在基于斑块的
+CNN 方法可能出现的小物体错误分类和土地覆盖边界泛化缺点。
+（局限性）然而，为了可靠的应用，它要求单像素时间序列中没有缺失的观测值。
+在 Landsat 或 Sentinel-2（Egorov et al.，2019； Li and Roy，2017；Yanand
+Roy，2020）和高时空分辨率商业卫星数据（Roy et
+al.，2021）提供的中分辨率时间序列中，缺失的卫星观测值通常具有不规则的观测时间节奏和大的时间间隔。
+单像素一维 CNN
+土地覆盖分类研究人员采用的一种方法是通过在连续有效观测之间进行插值来填补缺失和云模糊观测（钟等人，2019
+年；Pelletier 等人，2019 年；Wang 等人，2020 年；Ru😍wurm 和
+Kéorner，2020 年；Debella-Gilo 和 Gjertsen，2021 年；Lobert 等人，2021
+年；Lange 等人，2022 年）。
+<strong>（插值可能不可靠）然而，当间隙发生在快速地表变化的时期时，例如，在生长季节，或者当间隙持续时间较长时，或者当存在残余云层、阴影和大气校正不佳的观测值时，这些观测值没有被可靠地标记，因此在插值中使用不正确（Yan
+和 Roy，2020 年），插值是不可靠的。</strong></p>
+<p>现有的 30
+米美国大陆土地覆盖图被用作训练分类器和评估结果所需的土地覆盖类别标签的来源，这是一种常见的方法（Zhang
+和 Roy，2017；Johnson 和 Mueller，2021；Zhai 等人，2022）。
+使用了美国地质调查局 2011 年国家土地覆盖数据库（NLCD），该数据库在 2014
+年进行了重新处理，有 16 个土地覆盖类别（Homer
+等人，2015），<strong>据报道总体土地覆盖分类准确率为
+86.8%</strong>（Wickham 等人，2021）。NLCD
+存储在美国大陆单个图像文件中，采用阿尔伯斯等积圆锥投影，并在空间上裁剪到
+5000×5000 的 30 米像素 ARD 瓦片网格中。每块图斑在列和行方向上每隔 40
+个像素（即每隔 1.2
+千米）进行系统采样，以减少土地覆盖的空间自相关效应（Yang 等人，2003
+年；Zhang 和 Roy，2017 年）。</p>
+<p>这种图可以参考下</p>
+<p><img src="/2025/03/05/crop_classification/%E5%A5%BD%E5%8F%A5/1741093581112.png" alt="1741093581112">
+研究没有进行使用<span class="math inline">\(n_{p}=11\)</span>个百分位数的土地覆盖分类实验，因为美国本土（CONUS）的分析就绪数据（ARD）中，只有93.56%的30米像素位置在生长季有≥11个经过质量筛选的观测值（见图2）。
+因此，由于要求Landsat观测值的数量至少与百分位数的数量相同<strong>，当<span class="math inline">\(n_{p}=11\)</span>时，6.44%的CONUS
+ARD像素将无法被分类</strong> 。
+这一点在图3中也很明显，图3展示了2011年美国本土ARD像素在3×3千米网格单元中，具有≥5、≥7、≥9和&gt;11个Landsat
+- 5和Landsat - 7生长季经过质量筛选观测值的比例。</p>
+<figure>
+<img src="/2025/03/05/crop_classification/%E5%A5%BD%E5%8F%A5/1741102918898.png" alt="1741102918898">
+<figcaption aria-hidden="true">1741102918898</figcaption>
+</figure>
+<p>在局部地区，经过质量筛选的生长季观测值较少，主要是在美国本土Landsat卫星过境时多云的地区，即东北部和西北部（Kovalskyy和Roy，2015年）。此外，在相邻Landsat轨道条带不重叠的大致南北向条带区域，观测值也较少，条带重叠区域的观测数量通常是不重叠区域的两倍（Egorov等人，2019年）。研究也没有进行使用<span class="math inline">\(n_{p}=3\)</span>个百分位数的土地覆盖分类实验，因为这么少的百分位数预计无法捕捉季节性地表变化，而且之前的Landsat研究都使用<span class="math inline">\(n_{p}≥5\)</span>个百分位数。 数据选取： NLCD
+存储在美国大陆单个图像文件中，采用阿尔伯斯等积圆锥投影，并<strong>在空间上裁剪到
+5000×5000 的 30 米像素 ARD 瓦片网格中</strong>。
+每块图斑在列和行方向<strong>上每隔 40 个像素（即每隔 1.2
+千米）进行系统采样，以减少土地覆盖的空间自相关效应</strong>（Yang
+等人，2003 年；Zhang 和 Roy，2017 年）。</p>
+<p>然后，提取 2011 年生长季该像素位置的 NLCD
+土地覆盖类别标签和经过质量筛选的 Landsat 5 和 Landsat 7
+观测值。在提取过程中应用了以下筛选标准。 仅（1）具有≥5 个经过质量筛选的
+2011 年生长季观测值的 ARD 像素位置被考虑（因为基于时间度量、<span class="math inline">\(n_p = 5\)</span>以及 7 和 9
+百分位数生成了土地覆盖分类），——————需要确保每个样本有足够观测值来计算这些百分位数
+（ii）周围八个 30 米像素具有相同 NLCD 土地覆盖类别的 ARD
+像素位置被考虑，以减少 Landsat 亚像素配准误差和孤立的单个像素 NLCD
+错误分类的影响（Colditz 等人，2012 年；Zhang 和 Roy，2017
+年），——这样做是为了降低 Landsat 亚像素配准误差和孤立单像素 NLCD
+误分类误差对样本准确性的影响 （iii）具有≥1000 个样本的 NLCD
+土地覆盖类别被考虑，以确保使用具有充分代表性的类别样本；——因此，由于
+NLCD 常年冰雪类在美国本土的地理稀缺性，未包括在内。 <strong>总共提取了
+3,314,439 个美国本土 30 米像素位置</strong>，每个位置都有一个 NLCD
+土地覆盖类别标签响应变量（表 1）和由该像素位置经过质量筛选的 Landsat
+生长季观测值得出的<span class="math inline">\(n_p×13\)</span>个时间度量定义的预测变量。</p>
+<p>3.4. 土地覆盖分类精度和质量评估 2011 年美国本土土地覆盖分类精度通过与
+2011 年评估数据进行比较来量化。回想一下，评估数据是在考虑了未用于训练的
+330 万个美国本土样本中的 10%（表
+1）后选择的，并且是从那些至少有与用于生成分类的百分位数数量（<span class="math inline">\(n_{p}\)</span>）一样多的生长季 Landsat 观测值的
+ARD 30 米像素位置中随机选择的。这提供了一个在美国本土定义的超过 325,000
+个 30 米像素位置的评估数据集（表
+2）。美国本土土地覆盖分类精度以常规方式通过计算评估的 30 米像素位置处的
+NLCD 类别值与分类的类别值的对应关系来量化，以填充由 15
+个土地覆盖类别组成的二维混淆矩阵。然后从混淆矩阵中得出特定土地覆盖类别的生产者精度和用户精度（有时分别称为精确率和召回率）以及作为用户精度和生产者精度谐波平均值的
+F1 分数（Congalton 和
+Green，2019）。总体精度也从混淆矩阵中提取出来，并用作诊断精度指标来比较不同的分类结果。每个分类的总体精度被推导
+7
+次，以检查训练步骤中随机性的不当影响。值得注意的是，卷积神经网络在网络系数初始化和小批量梯度下降训练中具有随机性（Scardapane
+和
+Wang，2017），随机森林在每个树分支的树样本选择和预测器选择中具有随机性（Breiman，2001）。为了检验这一点，使用不同的伪随机数生成初始化进行训练，并检查
+7 个总体分类精度的均值和标准差。由于发现 7
+个总体分类的标准差非常小（≤0.03%），因此未对特定类别精度分析进行这个 7
+重实验。
+众所周知，大面积土地覆盖分类可能存在质量问题，例如输入图像边界处的条纹或异常空间模式，这些问题可能不会通过必然依赖有限评估数据样本的精度评估结果显示出来（Boschetti
+等人，2019）。因此，通过与 NLCD 2011 美国大陆土地覆盖图进行视觉比较，对
+30 米美国大陆土地覆盖分类进行了质量评估。此外，比较了 NLCD
+和一维卷积神经网络将美国大陆 ARD
+土地像素分类为每个类别的百分比，以提供对它们一致性的概要评估。在三个陆地卫星
+ARD 5000×5000 的 30
+米图块上进行了详细的视觉比较，以确定空间破碎和孤立像素的土地覆盖是否得到保留，如前所述，这对于传统方法可能是一个问题。基于补丁的
+CNN 分类器，对于基于单像素时间序列的一维 CNN 分类不应成为问题。这三个
+ARD 图块是在我们在其他论文中研究过的位置选择的（Yan 和 Roy，2020；Zhai
+等人，2022），并且涵盖了多种土地覆盖类型，主要是南达科他州的农业、亚利桑那州的灌木丛和城市以及佛罗里达州的湿地、水域和城市。
+时间度量百分位数可用于大面积土地覆盖使用其他深度学习模型进行分类，<strong>例如
+RNN
+和基于完全注意力的网络（如在基于补丁的实现的介绍中所讨论的</strong>）。</p>
+<p>值得注意的是，这些模型已被应用于通过对受云污染或缺失观测值使用插值来对单个像素时间序列进行分类，例如使用
+RNN（Ienco 等人，2017；Campos-Taberner
+等人，2020）和基于完全注意力的网络（Rußwurm 和 Körner，2020；Yuan 和
+Lin，2021）。</p>
+<p><strong>我们注意到，在小区域比较这些不同模型的研究报告了不同的结果</strong>。
+例如，Xu 等人（2020）发现，对于将美国六个 51×51 公里站点的 Landsat
+反射率时间序列分为三类（玉米、大豆、其他），RNN
+提供的准确性高于基于完全注意力的网络。 Rußwurm 和
+Körner（2020）发现，对于将德国巴伐利亚三个小于 50×50 公里区域的
+Sentinel-2 反射率时间序列分为 23 个土地覆盖类别，1D CNN、RNN
+和基于完全注意力的模型之间的差异可以忽略不计。 Yuan 和
+Lin（2021）报告说，对于将加利福尼亚和密苏里州 110×110 公里区域的
+Sentinel-2 反射率时间序列分为农业和非农业类别，以及将中国北京的分为 5
+个土地覆盖类别，基于完全注意力的网络比 1D CNN 和 RNN 表现更好。
+<strong>原则上，RNN
+和基于完全注意力的模型可以处理可变长度的时间序列数据（Cho
+等人，2014；Devlin
+等人，2018），而无需插值缺失数据</strong>。实际上，Rußwurm
+等人（2023）最近在法国一个 27200 平方公里的区域和德国一个 1400
+平方公里的区域使用一年的 Sentinel-2
+图像进行作物类型的季节内映射时证明了这一点。对于每个研究区域，他们训练并应用了一个单一的
+RNN 模型，考虑到类别的数量，分类准确率合理（法国站点 14
+种作物类型的总体准确率为 75%，德国 7 种作物类型的重叠准确率为
+86%）。</p>
+<h3 id="self-supervised-pre-training-for-large-scale-crop-mapping-using-sentinel-2-time-series">《Self-supervised
+pre-training for large-scale crop mapping using Sentinel-2 time
+series》</h3>
+<p>传统上，作物制图通常基于调查和普查，这些方法劳动强度大、耗时久，且可扩展性有限（Wang等人，2019）。随着卫星遥感（RS）图像获取的日益便捷以及深度学习（DL）算法的发展，研究人员已利用深度学习方法基于遥感图像进行大规模作物制图。具体来说，卫星遥感图像能够以合适的时间间隔对地球表面进行观测（例如，哨兵2号卫星的重访周期为5天，陆地卫星8号为16天
+）。卫星图像时间序列（SITS）能够捕捉作物生长过程，即作物物候变化，可用于监测作物覆盖情况并区分不同的作物类型（Wang等人，2019；Zhong等人，2014）。另一方面，深度学习具有自动学习特征的优势，无需针对单个作物进行显式编程或了解其生理机制（Ma等人，2021）。因此，基于卫星图像时间序列的深度学习作物制图取得了显著进展。在作物制图中，两种最常用的深度学习架构是卷积神经网络（CNN）和循环神经网络（RNN）（Pelletier等人，2019；Wang等人，2021b；Xu等人，2020；Yu等人，2021；Zhong等人，2014
+）。例如，Zhong等人（2019）在时间维度上应用卷积操作来捕捉多层次的时间特征，以进行作物分类，并证明了一维卷积（Conv1D）结构在处理时间序列图像上的作物制图任务时，对时间域的处理具有优越性。Xu等人（2020）设计了一种具有长短期记忆（LSTM）结构的循环神经网络，用于整合多时相和多光谱遥感数据，以对美国玉米带的玉米和大豆进行分类。</p>
+<p>然而，循环层和时间卷积都只能捕捉时间序列数据中的相对关系，即观测顺序。由于云和阴影产生的噪声以及不同地点的重访周期不同，卫星图像时间序列可能包含缺失的观测数据和无效观测值，导致不同样本的时间序列出现不规则情况。
+<strong>因此，现有的基于卷积神经网络或循环神经网络的模型需要进行时间插值，以填补卫星图像时间序列中的缺失值</strong>（Pelletier等人，2019；Wang等人，2021b；Xu等人，2020），使模型能够获取观测值之间的正确相对关系。然而，插值过程不仅计算成本高，还容易忽略原始时间序列中的显式时间信息和非线性现象。
+Transformer（Vaswani等人，2017）有望解决这一问题，它使用位置编码（PE）根据一年中的观测日期（DoY）对每幅图像的位置进行编码，并利用自注意力机制聚焦于最具信息性的特征。这种能力对于卫星图像时间序列的作物制图至关重要，<strong>因为它使Transformer模型能够捕捉显式的时间依赖关系</strong>。
+最近的研究表明，Transformer在作物制图任务中具有优越性（Rußwurm和K¨orner，2020；Yuan和Lin，2021；Garnot和Landrieu，2020；Garnot等人，2020
+）。例如，Garnot等人（2020）将像素集编码器和改进的自注意力模块相结合，用于基于对象的作物分类，与基于循环神经网络的方法相比，性能有所提升。
+<strong>Rußwurm和K¨orner（2020）证明了Transformer中的自注意力机制能够抑制噪声观测值，并且在使用原始卫星时间序列进行作物制图时表现出色。</strong></p>
+<p>尽管取得了这些成功，但要训练一个有效的基于Transformer的作物映射模型，通常需要大量带有地面真实标签信息（即作物类型信息）的数据样本（Yuan和Lin，2021）。在实际操作中，获取作物类型信息的成本可能特别高，因为这需要进行昂贵的实地调查，或者依靠专家知识进行照片解译（Ma˜nas等人，2021；Neumann等人，2019）。因此，在一些农业地区，带标签的数据样本可能不足，这使得训练一个可靠的Transformer模型变得困难。此外，由于不同地理区域之间存在领域差异，在一个地区训练的深度学习模型如果直接应用到另一个地区，可能表现不佳。</p>
+<p><strong>为了解决领域差异问题并提高深度学习模型的可迁移性，迁移学习（TL）是一种很有前景的策略。在这种策略中，模型经过训练，将在数据丰富地区（即源领域）学到的知识迁移到数据稀缺地区（即目标领域）</strong>，以完成目标领域的任务（Pan和Yang，2010）。
+<strong>（基于微调的迁移学习)基于微调的迁移学习（FTL）是应用最广泛的迁移学习方法，该方法先在源领域对模型进行预训练，然后利用有限数量的地面真实数据对模型进行微调，使其适应目标领域</strong>。例如，Bazzi等人（2020）提出在源领域训练一个教师模型，然后将其提炼为一个学生模型，并利用目标领域的数据样本对学生模型进行逐步优化，以使用Sentinel
+- 1时间序列图像绘制灌溉区域图。</p>
+<p><strong>（无监督领域自适应（UDA)</strong>此外，<strong>无监督领域自适应（UDA）</strong>是另一种广泛用于提高卫星图像时间序列（SITS）作物映射模型可迁移性的迁移学习方法。无监督领域自适应的理念是通过<strong>对齐源领域和目标领域的特征分布来减少领域差异</strong>。例如，Wang等人（2021b）利<strong>用最大平均差异（MMD）损失来最小化从中国三个地理分散平原提取的特征差异，并在跨区域冬作物分类上取得了令人满意的效果</strong>。</p>
+<p>然而，基于微调的迁移学习和无监督领域自适应都需要源领域提供大量高质量的带标签数据集（Neumann等人，2019），并且模型的有效性会因源领域和目标领域之间的领域差异而有很大不同。当源领域和目标领域环境不同或作物类型不同且相互距离较远时，无论是基于微调的迁移学习还是无监督领域自适应，都无法有效地解决领域差异问题（Nyborg等人，2022），这限制了这些方法在大规模卫星图像时间序列作物分类中的应用。</p>
+<p>本研究使用了Sentinel-2
+L2A大气底部（BOA）反射率数据（Drusch等人，2012年）。去除了三个大气波段（即气溶胶、水汽和卷云波段），其余10个光谱波段保留作为模型输入。每个波段的详细信息列于表1。我们使用谷歌地球引擎（Gorelick等人，2017年）处理和下载Sentinel-2图像时间序列。具体来说，首先利用Sentinel-2的内置云掩膜波段（QA60）掩蔽掉被云和卷云污染的像素。收集每个测试年份1月1日至12月31日期间云覆盖率≤80%的所有可用图像。之后，我们保留所有带有相应观测日期（DoY）的可用观测数据，以保留生长季节内的明确时间信息，这可以为不同作物类型的物候事件提供具体时间。值得注意的是，为了保留完整的非线性作物物候信息，在时间维度上未进行线性插值。</p>
+<p>5.2 自注意力分数</p>
+<p>自注意力机制是STNet的关键组成部分。如3.1节所述，每个自注意力头根据公式(2)计算一个注意力矩阵<span class="math inline">\(A=[\alpha_{1}, \alpha_{2}, \cdots
+\alpha_{T}]\)</span>。每个<span class="math inline">\(\alpha_{t}\)</span>表示时间步<span class="math inline">\(t\)</span>的观测值与时间序列中所有观测值之间的时间对应关系，即哪些观测值会影响当前时间步<span class="math inline">\(t\)</span>的观测值。为了直观展示自注意力机制，图7展示了美国两种主要作物（即玉米和大豆）的平均注意力矩阵。
+<strong>注意力矩阵中的值量化了输入时间观测值对输出时间特征的权重。注意力值越大，表明对该观测值的权重越大</strong>。
+值得注意的是，<strong>每个自注意力头关注不同的时间范围，学习不同的时间特征，以增强模型的判别能力</strong>。
+例如，第一个自注意力头似乎关注时间序列的中后期阶段，而第13个自注意力头则捕捉时间序列早期和晚期的信息。
+此外，我们<strong>注意到自注意力头对不同作物类型具有适应性。例如，玉米的第一个和最后一个自注意力头覆盖的时间范围比大豆的更长。这可以归因于这两种作物在我们数据集中的不同分布</strong>。具体来说，大豆主要集中在站点C、D和E，这些站点在地理上彼此接近，大豆的生长周期往往相似。
+因此，<strong>模型在这些站点中关注相对较窄的时间范围来观测大豆的生长季节</strong>。
+相反，<strong>玉米分布在不同地区，种植时间不同。因此，模型关注更广泛的时间范围，以识别不同地区的玉米</strong>。</p>
+<h3 id="lightweight-pre-trained-transformers-for-remote-sensing-timeseries">《Lightweight,
+Pre-trained Transformers for Remote Sensing Timeseries》</h3>
+<p><strong>机器学习越来越多地应用于遥感领域，尤其是用于了解地球表面随时间的演变（Brown
+等人，2022 年；Voosen，2020 年；Abys 等人，2024 年；Wang
+等人，2020b）。</strong>
+这些应用可以产生重要的社会效益，从跟踪可持续发展目标的进展（Ferreira
+等人，2020 年）到改进天气预报（English 等人，2013 年；Voosen，2020
+年）再到灾害管理（Kansakar 和 Hossain，2016 年）。
+（标记数据集通常包含的标签很少）然而，<strong>标记数据集通常包含的标签很少、稀疏且不可靠（Bressan
+等人，2022
+年），特别是对于资源不足的地区，导致全球泛化能力差</strong>（Yifang
+等人，2015 年；Kerner 等人，2020 年；Nakalembe 等人，2021 年）。
+（引入对遥感数据的自监督学习算法）这促使人们<strong>对遥感数据的自监督学习算法</strong>进行研究。</p>
+<p><strong>（单时间步图像的模型）当前针对遥感数据的自监督方法借鉴了计算机视觉中的方法</strong>，产生了将遥感数据视为<strong>单时间步图像的模型</strong>（让等人，2019；马纳斯等人，2021；阿尤什等人，2021）。
+（单时间步图像的模型存在的问题）这类模型存在以下问题：
+（i）无法从对某一区域进行长期监测时出现的模式中获益，这对于农业和其他季节性土地覆盖监测尤为重要；
+（ii）通常只考虑单一的卫星产品（如哨兵2号多光谱数据），尽管有数百种公开可用的卫星数据产品（谷歌地球引擎）；
+（iii）通常规模庞大且计算成本高昂（里德等人，2022；丛等人，2022；富勒等人，2023），这使得大规模部署这些模型具有挑战性；
+（iv）无法原生处理许多遥感数据集的标签，这些标签通常是点或不规则形状的多边形（拉奥等人，2020；巴特杰斯等人，2017），需要额外的方法来处理这些标签（王等人，2020a）。</p>
+<p>计算效率：在部署时，为遥感数据构建的模型通常用于对数百万（甚至数十亿）个样本进行连续的地理空间预测，以形成预测地图。因此，模型的计算性能是部署时的主要考虑因素之一。<strong>范·特里希特（2021年）、亨格尔等人（2017年）和罗宾逊等人（2019年）在进行全球或大规模地图绘制工作时，在大规模部署遥感模型时都优先考虑效率而非准确性</strong>。Presto与基于ViT或ResNet的模型相比具有竞争力，尽管其可训练参数少了多达1000倍，且在推理时所需的浮点运算次数（FLOPs）也少了几个数量级。
+<strong>处理不同形状输入的能力：不同的下游任务可能需要截然不同的遥感输入。例如，在作物制图和产量估算中，圣法尔·加诺等人（2020年）和尤等人（2017年）舍弃了输入中的所有空间信息，转而强调时间模式。我们在广泛的下游输入上对Presto进行了测试（例如，有或没有空间信息，以及单时间步或多时间步的数据），发现它与专门为这些输入设计的模型相比具有竞争力。</strong>
+处理一系列遥感数据集的能力：在燃料湿度估算方面，拉奥等人（2020年）发现，除了原始输入外，纳入衍生产品能显著提高模型性能。Presto可以处理一系列静态和动态的原始输入数据，以及地球观测中广泛使用的衍生产品输入（如1974年劳斯等人提出的归一化植被指数NDVI）。
+处理缺失数据的能力：遥感产品的覆盖范围常常在空间和时间上不完整。例如，<strong>某些地区云层覆盖率极高（超过90%），这降低了像哨兵2号图像等光学测量数据的可用性（苏德曼斯等人，2019年）</strong>。<strong>由于Presto可以处理多种遥感输入，当某一数据缺失时，它可以利用替代数据源（例如，如果哨兵2号图像被云层遮挡，则可以依靠能穿透云层的哨兵1号数据）。</strong></p>
+<p>——<strong>某些地区云层覆盖率极高（超过90%），这降低了像哨兵2号图像等光学测量数据的可用性（苏德曼斯等人，2019年）——————超过
+90%？？？？太恐怖了</strong></p>
+<p>我们的研究结果支持了一个令人惊讶的结论：<strong>在某些情况下，基于像素的方法能够与复杂的基于计算机视觉的方法相媲美，甚至表现更优</strong>。
+我们推测这是因为：
+第一，Presto从许多语义丰富的数据源中学习，使其能够从像素时间序列中提取有价值的模式；
+第二，<strong>许多遥感任务所需的感受野比基于计算机视觉的模型提供的感受野小得多</strong>。布朗等人（2022年）利用这些特性，训练出了一个比标准模型小100倍的模型，同时取得了最先进的土地覆盖分割结果。</p>
+<p><strong>遥感的自监督学习</strong>
+虽然对比学习已在遥感领域得到研究（马纳斯等人，2021年），但近期的自监督学习研究主要集中在掩码自动编码器上（袁等人，2022年；丛等人，2022年；里德等人，2022年；富勒等人，2023年）。
+然而，这些方法存在以下问题：
+（i）<strong>专注于从原始卫星数据产品中学习（忽略海拔等衍生产品），并且通常仅使用单个传感器的数据（富勒等人2023年提出的CROMA模型除外，该模型同时使用哨兵1号和哨兵2号数据）</strong>；
+（ii）<strong>处理的时间步长很少或不处理</strong>（里德等人在2022年以及富勒等人在2023年的研究中仅处理一个时间步长的数据，而丛等人在2022年的研究中最多处理三个时间步长的数据）；
+（iii）<strong>对数据大小有特定要求（</strong>例如，基于视觉Transformer（ViT）的模型要求数据具有空间维度），因此无法原生处理缺失数据；
+（iv）<strong>通常会产生规模较大的模型</strong>，参数数量从250万个（袁和林，2020年）到基于ViT的方法的超过3亿个不等，这使得在计算资源受限的环境中部署这些模型颇具挑战。</p>
+<p>Fuller, K. Millard, and J. R. Green. CROMA: Remote sensing
+representations with contrastive radar-optical masked autoencoders. In
+Thirty-seventh Conference on Neural Information Processing Systems,
+2023. URL https://openreview.net/forum?id=ezqI5WgGvY.</p>
+<figure>
+<img src="/2025/03/05/crop_classification/%E5%A5%BD%E5%8F%A5/1741507656398.png" alt="1741507656398">
+<figcaption aria-hidden="true">1741507656398</figcaption>
+</figure>
+<h3 id="improving-time-series-encoding-with-noise-aware-self-supervised-learning-and-an-efficient-encoder">《Improving
+Time Series Encoding with Noise-Aware Self-Supervised Learning and an
+Efficient Encoder》</h3>
+<p>现有无监督方法的一个常见缺陷是，它们在学习时间序列表示的过程中对噪声的处理方式存在问题，而这一话题在传统的时间序列分析文献[14]、[15]中已有广泛探讨。这些方法中的大多数要么忽视了时间序列数据的噪声特性，要么暗中依赖神经网络处理这类不需要的信号的能力，而不是在表示学习过程中明确地处理这些噪声。事实证明，这一缺陷会对任务的准确性产生不利影响[16]、[17]。</p>
+<p>基于 Transformer 的模型及其变体 [23]、[24]、[25]
+被用于解决长期依赖关系的问题，但它们可能计算量很大，并且在特定任务或数据上容易失效
+[26]、[27]</p>
+<ul>
+<li>不同的任务和数据具有不同的特点和分布。尽管 Transformer
+模型在许多常见的任务和数据上表现出色，但对于一些特定的任务或具有特殊分布的数据，它可能无法很好地适应。例如，在一些具有非常复杂的噪声模式的时间序列数据中，<strong>或者在一些需要对局部细节有精确捕捉的图像任务中，Transformer
+模型可能会因为其全局注意力机制而难以聚焦于关键的局部信息，从而导致性能下降</strong>。另外，如果数据集中存在一些异常值或者数据分布不均衡的情况，也可能影响
+Transformer 模型的性能，使其在这些特定情况下容易出现失效的现象。</li>
+</ul>
+<h2 id="数据集">数据集</h2>
+<h3 id="deepcropmapping">《Deepcropmapping》</h3>
+<h3 id="陆地卫星分析就绪数据ard">陆地卫星分析就绪数据（ARD）</h3>
+<ul>
+<li><p><strong>定义与概念</strong></p>
+<ul>
+<li>陆地卫星分析就绪数据是经过一系列标准化处理的数据产品，旨在为用户提供更便捷、更适合直接进行分析的陆地卫星数据。它是对原始陆地卫星影像进行预处理，使其在几何、辐射和大气校正等方面达到一定的标准，以便更好地满足不同应用领域的需求。</li>
+</ul></li>
+<li><p><strong>数据处理过程</strong></p>
+<ul>
+<li><strong>几何校正</strong>：对卫星影像进行几何校正，以纠正由于卫星姿态、地球曲率、地形起伏等因素导致的图像几何变形。通过使用精确的地理参考信息和数学模型，将影像中的每个像元准确地定位到地球表面的实际地理位置上，确保影像与地理空间数据的一致性。</li>
+<li><strong>辐射校正</strong>：消除或减少由于传感器自身特性、大气吸收和散射等因素引起的辐射误差。这包括传感器的定标，以确保影像的辐射值能够准确反映地物的真实辐射特性；以及大气校正，通过模型计算或实测数据，去除大气对辐射传输的影响，使得不同时间、不同大气条件下获取的影像具有可比性。</li>
+<li><strong>数据格式标准化</strong>：将处理后的影像数据转换为统一的格式，便于数据的存储、管理和共享。通常采用通用的地理信息数据格式，如GeoTIFF等，这些格式支持地理空间坐标信息的嵌入，方便与其他地理信息系统（GIS）工具和软件进行集成。</li>
+</ul></li>
+<li><p><strong>应用领域</strong></p>
+<ul>
+<li><strong>农业监测</strong>：用于监测农作物的生长状况，如作物种植面积的估算、作物生长阶段的识别、病虫害的监测等。通过分析不同时间序列的ARD影像，可以获取农作物在整个生长周期内的动态变化信息，为农业生产管理提供决策依据。</li>
+<li><strong>土地利用/土地覆盖变化监测</strong>：能够帮助研究人员了解土地利用和土地覆盖的变化情况，包括城市扩张、森林砍伐、湿地退化等。通过对比不同时期的ARD影像，可以准确地检测出土地类型的转变，评估人类活动对土地环境的影响。</li>
+<li><strong>环境科学研究</strong>：在环境科学领域，ARD数据可用于研究生态系统的结构和功能，如监测水资源的变化、评估生物多样性、分析气候变化对生态环境的影响等。</li>
+<li></li>
+<li><strong>数据来源与基础</strong> ：基于美国陆地卫星 Landsat 4-8
+卫星的 1
+级地形校正产品生成。陆地卫星计划由美国地质调查局（USGS）和美国航空航天局（NASA）共同管理，提供了地球陆地长时间的连续太空观测记录。</li>
+<li><strong>数据内容</strong>
+<ul>
+<li><strong>大气顶层反射率</strong>
+：是指卫星传感器所接收到的来自大气层顶部的反射率信息，反映了地物在大气层顶部的反射特性，可用于初步分析地物的反射特征和进行一些简单的遥感应用。</li>
+<li><strong>亮温</strong>
+：通过卫星传感器对热红外波段的观测数据反演得到的地物温度信息，对于研究地表热状况、城市热岛效应、土壤水分等具有重要意义。</li>
+<li><strong>地表反射率</strong>
+：经过大气校正等处理后得到的地物实际反射率，去除了大气对光线的散射和吸收等影响，更准确地反映了地物本身的反射特性，是进行地物分类、植被监测、土地利用变化分析等众多遥感应用的关键数据。</li>
+<li><strong>像素质量评估</strong>
+：对每个像素的数据质量进行评估和记录，包括该像素是否受云、雾、阴影等因素的影响，以及数据的准确性、可靠性等信息，帮助用户更好地理解和使用数据。</li>
+<li><strong>像素可用性信息</strong>
+：包含每个像素的元数据，如该像素对应的地理位置、采集时间、传感器参数等，方便用户根据自己的需求筛选和使用数据。</li>
+</ul></li>
+<li><strong>数据特点</strong>
+<ul>
+<li><strong>无需进一步处理</strong>
+：用户拿到数据后无需再进行复杂的预处理操作，如大气校正、几何校正等，可直接用于各种分析工作，大大节省了用户的时间和精力，降低了遥感数据的使用门槛。</li>
+<li><strong>标准格网分块</strong> ：每个 ARD 瓦片是 5000×5000
+像素的正方形，按照标准格网进行分块，使得数据在空间上具有一致性和规范性，便于进行拼接、融合和对比分析等操作。</li>
+<li><strong>访问灵活性高</strong>
+：用户能够根据感兴趣的地理空间区域、光谱波段和采集日期等特定需求定制数据请求，生成定制的数据立方体堆栈，满足不同应用场景下的数据需求。</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>《Lightweight, Pre-trained Transformers for Remote Sensing
+Timeseries》</p>
+<p>用于遥感的自监督模型必须能够广泛适用于各种地理区域和任务（拉科斯特等人，2023年）。</p>
+<h3 id="end-to-end-learned-early-classification-of-time-series-for-in-season-crop-type-mapping-2023-irprs-if_10.6-1">《End-to-end
+learned early classification of time series for in-season crop type
+mapping》-2023-IRPRS-IF_10.6</h3>
+<figure>
+<img src="/2025/03/05/crop_classification/%E5%A5%BD%E5%8F%A5/1740751742349.png" alt="1740751742349">
+<figcaption aria-hidden="true">1740751742349</figcaption>
+</figure>
+<figure>
+<img src="/2025/03/05/crop_classification/%E5%A5%BD%E5%8F%A5/1740751730003.png" alt="1740751730003">
+<figcaption aria-hidden="true">1740751730003</figcaption>
+</figure>
+<figure>
+<img src="/2025/03/05/crop_classification/%E5%A5%BD%E5%8F%A5/1740751798721.png" alt="1740751798721">
+<figcaption aria-hidden="true">1740751798721</figcaption>
+</figure>
+<figure>
+<img src="/2025/03/05/crop_classification/%E5%A5%BD%E5%8F%A5/1740751822725.png" alt="1740751822725">
+<figcaption aria-hidden="true">1740751822725</figcaption>
+</figure>
+<h3 id="linearly-interpolating-missing-values-in-time-series-helps-little-for-land-cover-classification-using-recurrent-or-attention-networks">《Linearly
+interpolating missing values in time series helps little for land cover
+classification using recurrent or attention networks》</h3>
+<figure>
+<img src="/2025/03/05/crop_classification/%E5%A5%BD%E5%8F%A5/1740762654392.png" alt="1740762654392">
+<figcaption aria-hidden="true">1740762654392</figcaption>
+</figure>
+<h3 id="croma-remote-sensing-representations-with-contrastive-radar-optical-masked-autoencoders">《CROMA:
+Remote Sensing Representations with Contrastive Radar-Optical Masked
+Autoencoders》</h3>
+<p>在多光谱光学实验的分类任务中，使用了如 BigEarthNet、fMoW -
+Sentinel、EuroSAT、加拿大农田数据集等</p>
+<p>以 BigEarthNet
+数据集为例，它是一个多标签数据集，用于评估模型在不同土地覆盖类型分类上的表现
+，并非针对单个像素进行分类，而是对图像中的不同地块或区域进行类别判断，属于地块级分类。在雷达和雷达
+- 光学实验中，对 BigEarthNet 和 DFC2020
+数据集进行评估时，同样是基于地块或区域的特征进行分析和分类，例如通过线性探测冻结的图像表示或补丁编码来判断地块所属类别。</p>
+<h2 id="超参数">超参数</h2>
+<h3 id="linearly-interpolating-missing-values-in-time-series-helps-little-for-land-cover-classification-using-recurrent-or-attention-networks-1">《Linearly
+interpolating missing values in time series helps little for land cover
+classification using recurrent or attention networks》</h3>
+<p>3.3 模型训练和评估</p>
+<p>所有Bi -
+LSTM和Transformer模型均使用交叉熵损失函数进行训练。为避免训练过程中的收敛问题，使用从训练样本中得出的特定维度的均值和标准差，对14个输入变量<span class="math inline">\(x_{t}\)</span>进行标准化处理。
+我们使用Adam优化器（金马和巴，2014）对Bi -
+LSTM和Transformer模型进行训练。 Bi - LSTM的最优超参数通过对批量大小<span class="math inline">\(b \in{16,32,64,128}\)</span>、学习率<span class="math inline">\(a \in{10^{-5}, 10^{-4}, 10^{-3}, 10^{-2},
+10^{-1}}\)</span>、随机失活率<span class="math inline">\(\rho_{drap }
+\in{0,0.5,0.8}\)</span>、训练轮数<span class="math inline">\(e \in{40,
+80, 120}\)</span>、隐藏特征维度<span class="math inline">\(d \in{32, 64,
+128, 256}\)</span>以及全连接层神经元数量<span class="math inline">\(\in{20,40,60,100}\)</span>进行超参数候选采样来确定。
+因此，每个模型运行<span class="math inline">\(4 ×5 ×3 ×3 ×4
+×4\)</span>次，以找到最优组合。最终确定的最优批量大小b、学习率a、随机失活率<span class="math inline">\(\rho_{drup
+}\)</span>、训练轮数和全连接层神经元数量分别为32、<span class="math inline">\(10^{-4}\)</span>、0.5、80和100，隐藏特征维度d在四个层中分别设为32、64、126、256。对Transformer模型采用类似策略，确定其最优批量大小b、学习率a、随机失活率<span class="math inline">\(drop\)</span>、训练轮数和头数<span class="math inline">\(\in{1,2,3,4,5,6}\)</span>分别为32、<span class="math inline">\(10^{-4}\)</span>、0.1、80和4。总体而言，寻找Bi -
+LSTM和Transformer模型最优参数配置的训练时间分别约为15天和2天。</p>
+<p>分类模型使用五折交叉验证（<span class="math inline">\(k =
+5\)</span>）进行评估。具体来说，将7755个样本划分为五个子集，每个子集包含相同数量的样本（<span class="math inline">\(7755÷5 =
+1551\)</span>）。其中一个子集用作测试数据集，另外四个子集则划分为训练数据集用于模型参数学习，以及验证数据集用于参数优化（训练集和验证集样本比例为24：1）。这样的操作进行五次，使得每个子集都有机会作为测试数据集。计算测试数据集的总体准确率（OA）和F1分数，F1分数定义为用户准确率和生产者准确率的调和均值。每个模型运行五次，以检验深度学习模型在每次折叠训练和测试中的随机性。结合五折交叉验证，这意味着每个模型使用最优超参数进行了25次训练。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz">ALTNT</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz/2025/03/05/crop_classification/%E5%A5%BD%E5%8F%A5/">http://blog.705553939.xyz/2025/03/05/crop_classification/%E5%A5%BD%E5%8F%A5/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/altnt.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/03/05/crop_classification/Crop%20classification/2024-ISPRS-Self-supervised_pre-training_for_large-scale_crop_mapping_using_Sentinel-2_time_series/" title="Self-supervised pre-training for large-scale crop mapping using Sentinel-2 time series"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">Self-supervised pre-training for large-scale crop mapping using Sentinel-2 time series</div></div></a></div><div class="next-post pull-right"><a href="/2025/03/05/crop_classification/Crop%20classification/2025-IF_7.4_Spatiotemporal_masked_pre-training_for_advancing_crop_mapping_on_satellite_image_time_series_with_limited_labels/" title=""><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info"></div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/altnt.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ALTNT</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">155</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ALTNT"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#end-to-end-learned-early-classification-of-time-series-for-in-season-crop-type-mapping-2023-irprs-if_10.6"><span class="toc-number">1.</span> <span class="toc-text">《End-to-end
+learned early classification of time series for in-season crop type
+mapping》-2023-IRPRS-IF_10.6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#classifying-raw-irregular-time-series-crit-for-large-area-land-cover-mapping-by-adapting-transformer-model-2024-science-of-remote-sensing-if_5.7"><span class="toc-number">2.</span> <span class="toc-text">《Classifying
+raw irregular time series (CRIT) for large area land cover mapping by
+adapting transformer model》-2024-Science of
+Remote Sensing-IF_5.7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#crop-classification-under-varying-cloud-cover-with-neural-ordinary-differential-equations"><span class="toc-number">3.</span> <span class="toc-text">《Crop
+Classification Under Varying Cloud Cover With Neural Ordinary
+Differential Equations》</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#demonstration-of-large-area-land-cover-classification-with-a-one-dimensional-convolutional-neural-network-applied-to-single-pixel-temporal-metric-percentiles"><span class="toc-number">4.</span> <span class="toc-text">《Demonstration
+of large area land cover classification with a one dimensional
+convolutional neural network applied to single pixel temporal metric
+percentiles》</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#self-supervised-pre-training-for-large-scale-crop-mapping-using-sentinel-2-time-series"><span class="toc-number">5.</span> <span class="toc-text">《Self-supervised
+pre-training for large-scale crop mapping using Sentinel-2 time
+series》</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lightweight-pre-trained-transformers-for-remote-sensing-timeseries"><span class="toc-number">6.</span> <span class="toc-text">《Lightweight,
+Pre-trained Transformers for Remote Sensing Timeseries》</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#improving-time-series-encoding-with-noise-aware-self-supervised-learning-and-an-efficient-encoder"><span class="toc-number">7.</span> <span class="toc-text">《Improving
+Time Series Encoding with Noise-Aware Self-Supervised Learning and an
+Efficient Encoder》</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number"></span> <span class="toc-text">数据集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#deepcropmapping"><span class="toc-number">1.</span> <span class="toc-text">《Deepcropmapping》</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%86%E5%9C%B0%E5%8D%AB%E6%98%9F%E5%88%86%E6%9E%90%E5%B0%B1%E7%BB%AA%E6%95%B0%E6%8D%AEard"><span class="toc-number">2.</span> <span class="toc-text">陆地卫星分析就绪数据（ARD）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#end-to-end-learned-early-classification-of-time-series-for-in-season-crop-type-mapping-2023-irprs-if_10.6-1"><span class="toc-number">3.</span> <span class="toc-text">《End-to-end
+learned early classification of time series for in-season crop type
+mapping》-2023-IRPRS-IF_10.6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#linearly-interpolating-missing-values-in-time-series-helps-little-for-land-cover-classification-using-recurrent-or-attention-networks"><span class="toc-number">4.</span> <span class="toc-text">《Linearly
+interpolating missing values in time series helps little for land cover
+classification using recurrent or attention networks》</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#croma-remote-sensing-representations-with-contrastive-radar-optical-masked-autoencoders"><span class="toc-number">5.</span> <span class="toc-text">《CROMA:
+Remote Sensing Representations with Contrastive Radar-Optical Masked
+Autoencoders》</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B6%85%E5%8F%82%E6%95%B0"><span class="toc-number"></span> <span class="toc-text">超参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#linearly-interpolating-missing-values-in-time-series-helps-little-for-land-cover-classification-using-recurrent-or-attention-networks-1"><span class="toc-number">1.</span> <span class="toc-text">《Linearly
+interpolating missing values in time series helps little for land cover
+classification using recurrent or attention networks》</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/21/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/4%E6%9C%8820%E6%97%A5%E5%91%A8%E6%8A%A5-2025/" title="周报2025年4月20日">周报2025年4月20日</a><time datetime="2025-04-21T01:17:31.516Z" title="Created 2025-04-21 09:17:31">2025-04-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/14/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/4%E6%9C%8813%E6%97%A5%E5%91%A8%E6%8A%A5-2025/" title="Untitled">Untitled</a><time datetime="2025-04-14T00:54:34.965Z" title="Created 2025-04-14 08:54:34">2025-04-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E5%AF%BB%E6%89%BE%E8%BF%87%E7%A8%8B/" title="Untitled">Untitled</a><time datetime="2025-04-13T09:22:57.613Z" title="Created 2025-04-13 17:22:57">2025-04-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/13/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/%E6%A1%A5%E6%A2%81%E6%95%B0%E6%8D%AE%E9%9B%86%E5%88%B6%E4%BD%9C/%E6%B5%81%E7%A8%8B%E5%A4%84%E7%90%86/" title="Untitled">Untitled</a><time datetime="2025-04-13T04:58:32.679Z" title="Created 2025-04-13 12:58:32">2025-04-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/10/sequence-processing/2024-ICDM-CoInception/" title="Improving Time Series Encoding with Noise-Aware Self-Supervised Learning and an Efficient Encoder">Improving Time Series Encoding with Noise-Aware Self-Supervised Learning and an Efficient Encoder</a><time datetime="2025-04-10T01:39:09.193Z" title="Created 2025-04-10 09:39:09">2025-04-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By ALTNT</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
