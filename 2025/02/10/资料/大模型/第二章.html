@@ -1,0 +1,426 @@
+<h1 id="大模型技术原理第二章">大模型技术原理第二章</h1>
+<h2 id="模型架构概览">模型架构概览</h2>
+<figure>
+<img src="第二章/1739181389679.png" alt="1739181389679" />
+<figcaption aria-hidden="true">1739181389679</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739181402691.png" alt="1739181402691" />
+<figcaption aria-hidden="true">1739181402691</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739181461037.png" alt="1739181461037" />
+<figcaption aria-hidden="true">1739181461037</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739181504476.png" alt="1739181504476" />
+<figcaption aria-hidden="true">1739181504476</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739181547952.png" alt="1739181547952" />
+<figcaption aria-hidden="true">1739181547952</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739249820076.png" alt="1739249820076" />
+<figcaption aria-hidden="true">1739249820076</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739249890183.png" alt="1739249890183" />
+<figcaption aria-hidden="true">1739249890183</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739249925924.png" alt="1739249925924" />
+<figcaption aria-hidden="true">1739249925924</figcaption>
+</figure>
+<h3 id="扩展法则">扩展法则</h3>
+<figure>
+<img src="第二章/1739249976176.png" alt="1739249976176" />
+<figcaption aria-hidden="true">1739249976176</figcaption>
+</figure>
+<p>注意下面的是曲线，因为横轴做了指数化</p>
+<figure>
+<img src="第二章/1739254464996.png" alt="1739254464996" />
+<figcaption aria-hidden="true">1739254464996</figcaption>
+</figure>
+<p>意义 <img src="第二章/1739254598361.png" alt="1739254598361" /></p>
+<p>Chinchilla 发展把参数量和数据规模写到了同一个式子里</p>
+<figure>
+<img src="第二章/1739254625276.png" alt="1739254625276" />
+<figcaption aria-hidden="true">1739254625276</figcaption>
+</figure>
+<p>两个法则之间的区别：</p>
+<p>这导致后面两家公司（google llama 和 openai gpt）的技术路线有不同</p>
+<figure>
+<img src="第二章/1739254735250.png" alt="1739254735250" />
+<figcaption aria-hidden="true">1739254735250</figcaption>
+</figure>
+<p>可以看出 gpt-3 参数量超过主流基线（gpt-4 的参数量目前未知）</p>
+<figure>
+<img src="第二章/1739254844463.png" alt="1739254844463" />
+<figcaption aria-hidden="true">1739254844463</figcaption>
+</figure>
+<h3 id="基于-transformer-的三种架构">基于 transformer 的三种架构</h3>
+<figure>
+<img src="第二章/1739255001422.png" alt="1739255001422" />
+<figcaption aria-hidden="true">1739255001422</figcaption>
+</figure>
+<h3 id="encoder-only-架构">Encoder-only 架构</h3>
+<p>需要搭配一个专门的任务处理模块</p>
+<figure>
+<img src="第二章/1739255078571.png" alt="1739255078571" />
+<figcaption aria-hidden="true">1739255078571</figcaption>
+</figure>
+<h3 id="decoder-only-架构">Decoder-only 架构</h3>
+<p>解码模块与编码模块的主要区别是带掩码（需要生成上下文，不能提前泄露下文的内容）</p>
+<p>交叉注意力模块 好像是实现 Encoder 的特征与 Decoder
+的特征直接数据交互的</p>
+<figure>
+<img src="第二章/1739255170115.png" alt="1739255170115" />
+<figcaption aria-hidden="true">1739255170115</figcaption>
+</figure>
+<h3 id="encoder-decoder-架构">Encoder-Decoder 架构</h3>
+<figure>
+<img src="第二章/1739255493369.png" alt="1739255493369" />
+<figcaption aria-hidden="true">1739255493369</figcaption>
+</figure>
+<h3 id="三种架构对比">三种架构对比</h3>
+<figure>
+<img src="第二章/1739255700894.png" alt="1739255700894" />
+<figcaption aria-hidden="true">1739255700894</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739255838148.png" alt="1739255838148" />
+<figcaption aria-hidden="true">1739255838148</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739255858642.png" alt="1739255858642" />
+<figcaption aria-hidden="true">1739255858642</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739256084131.png" alt="1739256084131" />
+<figcaption aria-hidden="true">1739256084131</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739255976293.png" alt="1739255976293" />
+<figcaption aria-hidden="true">1739255976293</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739256317103.png" alt="1739256317103" />
+<figcaption aria-hidden="true">1739256317103</figcaption>
+</figure>
+<h2 id="基于encoder-only-架构的模型">基于Encoder-only 架构的模型</h2>
+<figure>
+<img src="第二章/1739256421857.png" alt="1739256421857" />
+<figcaption aria-hidden="true">1739256421857</figcaption>
+</figure>
+<h3 id="bert">Bert</h3>
+<figure>
+<img src="第二章/1739256459026.png" alt="1739256459026" />
+<figcaption aria-hidden="true">1739256459026</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739256513850.png" alt="1739256513850" />
+<figcaption aria-hidden="true">1739256513850</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739256530317.png" alt="1739256530317" />
+<figcaption aria-hidden="true">1739256530317</figcaption>
+</figure>
+<h3 id="roberta">RoBERTa</h3>
+<p>结构和参数量基本不变，</p>
+<p>但是数据扩大了</p>
+<p>同时还有以下的区别</p>
+<figure>
+<img src="第二章/1739256636072.png" alt="1739256636072" />
+<figcaption aria-hidden="true">1739256636072</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739256699047.png" alt="1739256699047" />
+<figcaption aria-hidden="true">1739256699047</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739256781098.png" alt="1739256781098" />
+<figcaption aria-hidden="true">1739256781098</figcaption>
+</figure>
+<h4 id="对预训练任务也进行了调整">对预训练任务也进行了调整</h4>
+<figure>
+<img src="第二章/1739256853544.png" alt="1739256853544" />
+<figcaption aria-hidden="true">1739256853544</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739257101673.png" alt="1739257101673" />
+<figcaption aria-hidden="true">1739257101673</figcaption>
+</figure>
+<h3 id="albert">ALBERT</h3>
+<figure>
+<img src="第二章/1739257149527.png" alt="1739257149527" />
+<figcaption aria-hidden="true">1739257149527</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739257202639.png" alt="1739257202639" />
+<figcaption aria-hidden="true">1739257202639</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739257239536.png" alt="1739257239536" />
+<figcaption aria-hidden="true">1739257239536</figcaption>
+</figure>
+<p>实际就是参数复用</p>
+<figure>
+<img src="第二章/1739257293415.png" alt="1739257293415" />
+<figcaption aria-hidden="true">1739257293415</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739257340822.png" alt="1739257340822" />
+<figcaption aria-hidden="true">1739257340822</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739258011011.png" alt="1739258011011" />
+<figcaption aria-hidden="true">1739258011011</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739258038373.png" alt="1739258038373" />
+<figcaption aria-hidden="true">1739258038373</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739258078858.png" alt="1739258078858" />
+<figcaption aria-hidden="true">1739258078858</figcaption>
+</figure>
+<h2 id="基于encoder-decoder-架构的模型">基于Encoder-Decoder
+架构的模型</h2>
+<figure>
+<img src="第二章/1739258123273.png" alt="1739258123273" />
+<figcaption aria-hidden="true">1739258123273</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739258265661.png" alt="1739258265661" />
+<figcaption aria-hidden="true">1739258265661</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739258310973.png" alt="1739258310973" />
+<figcaption aria-hidden="true">1739258310973</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739258374354.png" alt="1739258374354" />
+<figcaption aria-hidden="true">1739258374354</figcaption>
+</figure>
+<h3 id="bart-和-t5">BART 和 T5</h3>
+<figure>
+<img src="第二章/1739258437421.png" alt="1739258437421" />
+<figcaption aria-hidden="true">1739258437421</figcaption>
+</figure>
+<h3 id="bart">BART</h3>
+<figure>
+<img src="第二章/1739258659299.png" alt="1739258659299" />
+<figcaption aria-hidden="true">1739258659299</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739258686370.png" alt="1739258686370" />
+<figcaption aria-hidden="true">1739258686370</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739259003826.png" alt="1739259003826" />
+<figcaption aria-hidden="true">1739259003826</figcaption>
+</figure>
+<h3 id="t5">T5</h3>
+<p>——使用一个模型适配多个下游任务</p>
+<figure>
+<img src="第二章/1739259051807.png" alt="1739259051807" />
+<figcaption aria-hidden="true">1739259051807</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739259082513.png" alt="1739259082513" />
+<figcaption aria-hidden="true">1739259082513</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739259100080.png" alt="1739259100080" />
+<figcaption aria-hidden="true">1739259100080</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739259128411.png" alt="1739259128411" />
+<figcaption aria-hidden="true">1739259128411</figcaption>
+</figure>
+<h4 id="prompt-工程技术">Prompt 工程技术</h4>
+<p>加前缀</p>
+<figure>
+<img src="第二章/1739259197980.png" alt="1739259197980" />
+<figcaption aria-hidden="true">1739259197980</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739259327485.png" alt="1739259327485" />
+<figcaption aria-hidden="true">1739259327485</figcaption>
+</figure>
+<h2 id="基于decoder-only架构的模型">基于Decoder-only架构的模型</h2>
+<figure>
+<img src="第二章/1739259402671.png" alt="1739259402671" />
+<figcaption aria-hidden="true">1739259402671</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739259502584.png" alt="1739259502584" />
+<figcaption aria-hidden="true">1739259502584</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739259556913.png" alt="1739259556913" />
+<figcaption aria-hidden="true">1739259556913</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739259692522.png" alt="1739259692522" />
+<figcaption aria-hidden="true">1739259692522</figcaption>
+</figure>
+<h3 id="gpt-1">GPT-1</h3>
+<figure>
+<img src="第二章/1739259799747.png" alt="1739259799747" />
+<figcaption aria-hidden="true">1739259799747</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739259846878.png" alt="1739259846878" />
+<figcaption aria-hidden="true">1739259846878</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739259884969.png" alt="1739259884969" />
+<figcaption aria-hidden="true">1739259884969</figcaption>
+</figure>
+<h3 id="gpt-2">GPT-2</h3>
+<figure>
+<img src="第二章/1739260055293.png" alt="1739260055293" />
+<figcaption aria-hidden="true">1739260055293</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739260081730.png" alt="1739260081730" />
+<figcaption aria-hidden="true">1739260081730</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739260147384.png" alt="1739260147384" />
+<figcaption aria-hidden="true">1739260147384</figcaption>
+</figure>
+<h3 id="gpt-3">GPT-3</h3>
+<figure>
+<img src="第二章/1739260176115.png" alt="1739260176115" />
+<figcaption aria-hidden="true">1739260176115</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739260261616.png" alt="1739260261616" />
+<figcaption aria-hidden="true">1739260261616</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739260348172.png" alt="1739260348172" />
+<figcaption aria-hidden="true">1739260348172</figcaption>
+</figure>
+<h3 id="instructgpt-等衍生模型">InstructGPT 等衍生模型</h3>
+<p>从这开始 gpt 就不再开源</p>
+<figure>
+<img src="第二章/1739260386616.png" alt="1739260386616" />
+<figcaption aria-hidden="true">1739260386616</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739260457452.png" alt="1739260457452" />
+<figcaption aria-hidden="true">1739260457452</figcaption>
+</figure>
+<h3 id="chatgpt-及-gpt-4-等模型">ChatGPT 及 GPT-4 等模型</h3>
+<figure>
+<img src="第二章/1739260528322.png" alt="1739260528322" />
+<figcaption aria-hidden="true">1739260528322</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739260654375.png" alt="1739260654375" />
+<figcaption aria-hidden="true">1739260654375</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739260726781.png" alt="1739260726781" />
+<figcaption aria-hidden="true">1739260726781</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739260756266.png" alt="1739260756266" />
+<figcaption aria-hidden="true">1739260756266</figcaption>
+</figure>
+<h3 id="llama-模型">LLaMA 模型</h3>
+<figure>
+<img src="第二章/1739260785222.png" alt="1739260785222" />
+<figcaption aria-hidden="true">1739260785222</figcaption>
+</figure>
+<h3 id="llama1-模型">LLaMA1 模型</h3>
+<figure>
+<img src="第二章/1739260833633.png" alt="1739260833633" />
+<figcaption aria-hidden="true">1739260833633</figcaption>
+</figure>
+<h4 id="注意仔细看下面的区别">注意仔细看下面的区别：</h4>
+<p>对 transformer 做了修改</p>
+<figure>
+<img src="第二章/1739260959826.png" alt="1739260959826" />
+<figcaption aria-hidden="true">1739260959826</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739261139345.png" alt="1739261139345" />
+<figcaption aria-hidden="true">1739261139345</figcaption>
+</figure>
+<h3 id="llama2-模型">LLaMA2 模型</h3>
+<figure>
+<img src="第二章/1739261162546.png" alt="1739261162546" />
+<figcaption aria-hidden="true">1739261162546</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739261218562.png" alt="1739261218562" />
+<figcaption aria-hidden="true">1739261218562</figcaption>
+</figure>
+<h3 id="llama3-模型">LLaMA3 模型</h3>
+<figure>
+<img src="第二章/1739261253211.png" alt="1739261253211" />
+<figcaption aria-hidden="true">1739261253211</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739261319114.png" alt="1739261319114" />
+<figcaption aria-hidden="true">1739261319114</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739261486219.png" alt="1739261486219" />
+<figcaption aria-hidden="true">1739261486219</figcaption>
+</figure>
+<h3 id="decoder-only-架构总结">Decoder-only 架构总结</h3>
+<figure>
+<img src="第二章/1739261522055.png" alt="1739261522055" />
+<figcaption aria-hidden="true">1739261522055</figcaption>
+</figure>
+<h2 id="mamda架构">Mamda架构</h2>
+<figure>
+<img src="第二章/1739261809404.png" alt="1739261809404" />
+<figcaption aria-hidden="true">1739261809404</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739264569922.png" alt="1739264569922" />
+<figcaption aria-hidden="true">1739264569922</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739261920117.png" alt="1739261920117" />
+<figcaption aria-hidden="true">1739261920117</figcaption>
+</figure>
+<h3 id="state-space-modelssm">State Space Model（SSM）</h3>
+<p>n 阶系统，使用 n 个一阶系统进行矩阵表达</p>
+<figure>
+<img src="第二章/1739263132014.png" alt="1739263132014" />
+<figcaption aria-hidden="true">1739263132014</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739263258872.png" alt="1739263258872" />
+<figcaption aria-hidden="true">1739263258872</figcaption>
+</figure>
+<p>这里 h1（t）h2（t）视为状态</p>
+<p>这里进行符号重新定义简化下：</p>
+<figure>
+<img src="第二章/1739263419972.png" alt="1739263419972" />
+<figcaption aria-hidden="true">1739263419972</figcaption>
+</figure>
+<p>这里 h（t）定义如下：</p>
+<figure>
+<img src="第二章/1739263459511.png" alt="1739263459511" />
+<figcaption aria-hidden="true">1739263459511</figcaption>
+</figure>
+<p>上面的式子怎么用到机器学习呢？</p>
+<p>先离散化</p>
+<p>零阶状态保持</p>
+<figure>
+<img src="第二章/1739263570015.png" alt="1739263570015" />
+<figcaption aria-hidden="true">1739263570015</figcaption>
+</figure>
+<figure>
+<img src="第二章/1739266395616.png" alt="1739266395616" />
+<figcaption aria-hidden="true">1739266395616</figcaption>
+</figure>
