@@ -1,0 +1,310 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>ALTNT's Hexo Blog | ALTNT's Hexo Blog</title><meta name="author" content="ALTNT"><meta name="copyright" content="ALTNT"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="In-season crop progress in unsurveyed regions using networks trained on synthetic data 利用基于合成数据训练的网络，对未调查地区的作物生长季进行评估 许多商品作物在某些生长阶段特别容易受到胁迫导致的产量损失。作物生长季内的信息对于量化作物风险至关重要，而卫星遥感（RS）可用于区域尺度的作物生长进度追踪。 （依赖于">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ALTNT&#39;s Hexo Blog">
+<meta property="og:url" content="http://blog.705553939.xyz/2025/11/16/crop_classification/Crop%20classification/IF11.3-RSE-In-season_crop_progress_in_unsurveyed_regions_using_networks_trained_on_synthetic_data/index.html">
+<meta property="og:site_name" content="ALTNT&#39;s Hexo Blog">
+<meta property="og:description" content="In-season crop progress in unsurveyed regions using networks trained on synthetic data 利用基于合成数据训练的网络，对未调查地区的作物生长季进行评估 许多商品作物在某些生长阶段特别容易受到胁迫导致的产量损失。作物生长季内的信息对于量化作物风险至关重要，而卫星遥感（RS）可用于区域尺度的作物生长进度追踪。 （依赖于">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.705553939.xyz/img/altnt.jpeg">
+<meta property="article:published_time" content="2025-11-16T06:53:32.423Z">
+<meta property="article:modified_time" content="2025-11-16T08:58:26.508Z">
+<meta property="article:author" content="ALTNT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.705553939.xyz/img/altnt.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://blog.705553939.xyz/2025/11/16/crop_classification/Crop%20classification/IF11.3-RSE-In-season_crop_progress_in_unsurveyed_regions_using_networks_trained_on_synthetic_data/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ALTNT\'s Hexo Blog',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-11-16 16:58:26'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/altnt.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">198</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">38</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="ALTNT's Hexo Blog"><span class="site-name">ALTNT's Hexo Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Untitled</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-11-16T06:53:32.423Z" title="Created 2025-11-16 14:53:32">2025-11-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-11-16T08:58:26.508Z" title="Updated 2025-11-16 16:58:26">2025-11-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="in-season-crop-progress-in-unsurveyed-regions-using-networks-trained-on-synthetic-data">In-season
+crop progress in unsurveyed regions using networks trained on synthetic
+data</h1>
+<p>利用基于合成数据训练的网络，对未调查地区的作物生长季进行评估</p>
+<p>许多商品作物在某些生长阶段特别容易受到胁迫导致的产量损失。作物生长季内的信息对于量化作物风险至关重要，而卫星遥感（RS）可用于区域尺度的作物生长进度追踪。
+（依赖于地面实测数据进行训练/校准）目前，所有针对特定作物生长阶段的基于遥感的作物生长进度估算（CPE）方法都依赖于地面实测数据进行训练/校准。
+（缺陷）这些数据通过田间试验或调查收集。这种对地面调查数据的依赖使得CPE方法<strong>只能应用于已调查区域，从而限制了其应用范围</strong>。
+本研究开发了一种新的方法，通过<strong>将已调查区域的数据与针对目标未调查区域生成的合成作物生长进度数据相结合，在未调查区域开展基于遥感的作物生长季内CPE</strong>。
+阿根廷的玉米种植区被用作“未调查”区域的替代模型。<strong>这些区域的气候和双季种植制度与美国中西部（本研究的调查区域）的单季种植制度存在差异</strong>。
+（方法）
+将现有的天气生成模型、作物生长模型和光辐射传输模型相结合，<strong>生成合成天气、作物生长和冠层反射率数据</strong>。<strong>这些数据模拟了未调查区域的天气、品种和耕作方式</strong>。
+<strong>基于双向长短期记忆网络（BSTM）的神经网络（NN）方法分别使用调查数据、合成数据以及调查数据和合成数据的两种不同组合进行训练。</strong>
+（针对未调查区）由于未调查区域缺乏真实的验证数据，因此<strong>开发了一种停止准则，该准则使用调查数据和合成数据验证损失的加权散度</strong>。
+为了衡量神经网络在每种数据组合上训练后的作物生长预测准确性，<strong>评分标准进行了修改，评分基于整个生长季作物生长进度的过高估计和过低估计</strong>。
+在阿根廷11个玉米种植区中的9个，训练过程中加入合成数据提高了模型的性能。
+当使用调查区域数据和合成数据相结合的方式进行训练时，所有作物生长阶段的评分均提高了
+8.7%，总体性能仅比使用调查数据训练神经网络并应用于美国中西部地区时低
+21%。
+<strong>在具有双播期的区域，合成数据带来的性能提升最为显著</strong>；同时，纳入美国中西部地区的调查区域数据有助于降低神经网络对
+NDVI 数据噪声的敏感性。
+（结论）总体结果表明，<strong>通过增加合成作物生长数据的数量和种类，在其他未调查区域实现季内作物生长预测
+(CPE) 也是可能的</strong>。</p>
+<h2 id="引言">引言</h2>
+<p>在未调查区域，基于遥感的作物物候提取（CPE）具有挑战性，因为缺乏标记数据。在农业遥感领域，作物制图和产量估算研究已通过迁移学习解决了标记数据稀疏的问题（Nowakowski等人，2021；Luo等人，2022；Khaki等人，2021），该方法包括先在大型且通常不相关的数据集上预训练神经网络，再在有限的可用标记数据上对其进行微调。鉴于迁移学习在这些研究中的成功，或许可以利用美国等已调查区域的标记数据信息来训练基于神经网络的方法，并将其应用于未调查区域的季内作物物候提取。然而，由于缺乏未调查区域在种植方式、品种选择和气候方面的微调样本，其可迁移性可能会受到限制。</p>
+<p>另一种缓解数据稀疏性的方法是<strong>使用生成式方法来提供额外的合成训练样本</strong>。
+在基于遥感的场景分类中，合成样本的生成十分常见，因为手动划分和标记场景需要耗费大量人力（Cheng等人，2020）。
+场<strong>景分类中常用的一种生成式方法是生成对抗网络（GANs），它能从有限的人工标记样本中生成特定类别的额外合成样本（</strong>Qian等人，2020；Han等人，2020）。<strong>生成对抗网络在图像识别任务中效果显著，但它们需要一些标记数据来进行示例学习，而未调查区域往往没有这些标记数据</strong>。
+因此，<strong>任何用于生成合成作物生长进度数据的生成式方法都必须包含真实数据中存在的天气、作物生长发育以及观测反射率之间的潜在物理关系，且无需依赖标记样本</strong>。</p>
+<p>基于物理的天气生成、作物生长和冠层反射率模型在农业和遥感研究中被广泛应用。
+农艺学研究通常利用<strong>随机天气生成器来评估不同气候情景对作物产量的影响</strong>（Semenov和Barrow，1997；Apipattanavis等人，2010；Supit等人，2012）。
+一些研究对由土壤和气象数据驱动的生物物理作物模型进行校准，以生成季内产量估算（Archontoulis等人，2020；Akhavizadegan等人，2021）。
+<strong>在遥感领域，光学辐射传输模型（RTMs）通过植物结构和叶片色素浓度模拟可见光和红外波长下的冠层反射率，这些模型常被反演以获取叶面积指数（LAI）和叶绿素含量的估算值（Duan等人，2014；Jay等人，2017）</strong>。
+<strong>当这些天气、作物和遥感模型相结合时，它们可以生成模拟农业生产中真实时空模式及其光学特征的合成数据，正如从遥感平台所观测到的那样</strong>。例如，Lobell等人（2015）使用APSIM作物模型和叶面积指数-植被指数关系来校准基于遥感的季末产量估算回归模型。
+<strong>文献中已有利用历史天气、机械作物模型和辐射传输模型生成合成研究数据的先例</strong>，例如利用微波进行土壤湿度降尺度（Chakrabarti等人，2015）和森林生物量估算（Fassnacht等人，2018）。
+（缺陷）然而，据我们所知，<strong>源自关联的天气-作物-辐射传输模型的合成数据尚未被用于训练神经网络，以应用于没有地面真实数据的区域</strong>。</p>
+<p>本研究的目的是<strong>探索合成数据在多大程度上可以减少在没有地面真实数据的未调查区域生成季内作物生长进度估计时对地面调查数据的需求</strong>。
+这是<strong>因为有必要消除对用于校准的地面真实数据的依赖，以便在全球未调查区域开展基于遥感（RS）的作物生长进度估计（CPE）</strong>。
+在本研究中，<strong>来自气象学、农学和光学遥感的特定领域模型被关联起来，用于生成合成的作物生长进度数据</strong>。
+一种基于神经网络（NN）的遥感作物生长进度估计方法同时在这些合成数据和来自已调查区域的观测数据上进行训练。</p>
+<p>本研究旨在探究在缺乏实地真实数据的未调查区域，合成数据在多大程度上能够减少获取季内作物生长进度估算结果对实地调查数据的依赖。
+开展此项研究的动因在于，为实现对全球未调查区域基于遥感（RS）的作物生长进度估算（CPE），<strong>需摆脱该估算方法对实地真实数据用于校准的依赖</strong>。</p>
+<p>在本研究中，研究人员将气象学、农学和光学遥感领域的特定模型相结合，生成合成作物生长进度数据。
+同时，基于神经网络（NN）构建遥感作物生长进度估算方法，该方法不仅利用上述合成数据进行训练，还纳入了美国已调查区域的实测数据；训练完成后，将其应用于未调查区域的作物生长进度估算。
+为评估在未调查区域的作物生长进度估算中纳入合成作物生长进度数据的价值，研究人员还探究了仅使用美国已调查区域数据训练神经网络估算方法时的性能表现。</p>
+<p>具体而言，本研究的目标包括：</p>
+<ol type="1">
+<li><strong>构建一个 “天气生成器 - 作物模型 - 辐射传输模型（RTM）”
+联动框架</strong>，该框架能够<strong>为未调查区域生成作物生长进度数据的合成样本</strong>。</li>
+<li>探究训练过程中接触<strong>合成作物生长进度数据，对基于神经网络的未调查区域季内作物生长进度估算精度产生的影响</strong>。</li>
+<li>评估<strong>未调查区域不同种植方式对基于神经网络的作物生长进度估算性能</strong>的作用。</li>
+</ol>
+<h2 id="study-regions-and-datasets">2. Study regions and datasets</h2>
+<p>在本研究中，阿根廷代表 “未调查”
+区域，因为它是除美国之外少数几个拥有可公开获取的每周作物生长进度数据的国家之一，这些数据可用于评估基于神经网络的方法。</p>
+<p>美国中西部的爱荷华州和伊利诺伊州代表 “已调查”
+区域。阿根廷和美国都是玉米、小麦等主要粮食作物的出口大国。玉米作为全球产量第二大的作物，被选为示例作物（联合国粮农组织，2022
+年）。</p>
+<p>在阿根廷，大部分玉米采用双季种植制度，早季作物和晚季作物分别在 9-11
+月和 12-1 月播种。</p>
+<p>阿根廷谷物交易所（BdC）将全国划分为 13 个种植区，其中 11
+个区域对玉米生产进行调查（见图 1）。 <img src="/2025/11/16/crop_classification/Crop%20classification/IF11.3-RSE-In-season_crop_progress_in_unsurveyed_regions_using_networks_trained_on_synthetic_data/1763282076386.png" alt="1763282076386"> 这 11
+个区域中有 9 个同时种植早季和晚季玉米（见表 1 和图
+2）这使得整个生长季的玉米生长进度呈现双峰模式。<img src="/2025/11/16/crop_classification/Crop%20classification/IF11.3-RSE-In-season_crop_progress_in_unsurveyed_regions_using_networks_trained_on_synthetic_data/1763282112679.png" alt="1763282112679"></p>
+<figure>
+<img src="/2025/11/16/crop_classification/Crop%20classification/IF11.3-RSE-In-season_crop_progress_in_unsurveyed_regions_using_networks_trained_on_synthetic_data/1763282178656.png" alt="1763282178656">
+<figcaption aria-hidden="true">1763282178656</figcaption>
+</figure>
+<p>此外，<strong>中部地区的温带气候几乎允许全年种植，包括冬夏双季种植和季后覆盖作物种</strong>植。
+相比之下，在美国中西部，玉米采用单季种植制度，种植期为 4 月至 11
+月，在爱荷华州和伊利诺伊州美国农业部划定的 18
+个辖区中，每个辖区的播种窗口期为 4-5 月（见图 3）。
+<strong>阿根廷与美国中西部在玉米种植方面的差异，使阿根廷成为一个理想且独特的
+“未调查”
+测试案例</strong>，<strong>可用于评估不同气候和种植方式对本研究中开发的季内作物生长估算方法性能的影响</strong>。</p>
+<h3 id="数据集">2.1. 数据集</h3>
+<p>本研究利用地面调查的作物生长进度数据、卫星遥感数据和气象数据监测玉米的生长进度，并利用土壤数据集对生物物理模型模拟进行参数化。</p>
+<h4 id="作物生长进度数据">2.1.1. 作物生长进度数据</h4>
+<p>在阿根廷，中央银行（BdC）通过地面调查和电话调查，<strong>按区域收集早季和晚季玉米作物的每周生长进度数据</strong>（农业估算部门，2020年）。
+中央银行记录的生长阶段包括：<strong>叶片扩展期（expansión
+foliar）、抽雄期（panojamiento）、吐丝期（floración
+femenina）、乳熟期（grano pastoso）、生理成熟期（madurez
+fisiológica）和收获期（cosecha）</strong>。
+阿根廷的生长季跨越新年，对于气候适宜全年生产的地区，作物生长进度报告的时间范围<strong>可从9月延续至次年9月</strong>。
+在本研究中，<strong>仅使用2019/20和2020/21生长季阿根廷的作物生长进度数据来评估季内作物物候期估算（CPE）方法</strong>，且在神经网络开发和超参数选择过程中，<strong>基于神经网络的作物物候期估算方法从未接触过阿根廷的真实作物生长进度数据。</strong>
+在美国中西部，美国农业部（USDA）的地面调查员<strong>在整个生长季期间，按农业统计区（以下简称“分区”）收集玉米的每周生长进度数据（美国农业部国家农业统计局，2022b）</strong>。
+记录的生长阶段包括：播种期、出苗期、吐丝期、乳熟期、蜡熟期、成熟期和收获期。
+<strong>仅使用2003–2020年美国中西部生长季的作物生长进度数据以及为阿根廷生成的合成数据，来训练基于神经网络的季内作物物候期估算方法。</strong></p>
+<h4 id="遥感和气象数据">2.1.2. 遥感和气象数据</h4>
+<figure>
+<img src="/2025/11/16/crop_classification/Crop%20classification/IF11.3-RSE-In-season_crop_progress_in_unsurveyed_regions_using_networks_trained_on_synthetic_data/1763282807909.png" alt="1763282807909">
+<figcaption aria-hidden="true">1763282807909</figcaption>
+</figure>
+<p>表2展示了用作基于神经网络的CPE方法输入的遥感数据，包括其分辨率和预处理步骤。
+在本研究中，<strong>使用了2019/20和2020/21生长季阿根廷30米分辨率的作物覆盖图（de
+Abelleyra等人，2020年）以及2003–2020生长季美国30米分辨率的作物覆盖图（美国农业部农业数据共享中心，2021年）来识别玉米像素</strong>。
+<strong>为了与中分辨率成像光谱仪（MODIS）归一化植被指数（NDVI）产品的分辨率匹配，作物图通过像素平均法被上采样至250米。
+所有玉米覆盖率低于90%的像素均被掩膜处理</strong>，<strong>并且对每个玉米像素的MODIS观测NDVI值进行线性插值，以生成每个像素的每日时间序列值</strong>。
+然后，这些时间序列被整理成每个地区/区域的每日NDVI值直方图，直方图在0到1的范围内设有20个分箱。负的NDVI值被设为0。</p>
+<p>研究利用日最高气温和日最低气温计算各区域（农业统计区/阿根廷玉米种植区）的日生长度日（daily
+growing degree day GDD），计算公式如下：</p>
+<p><span class="math display">\[
+GDD=
+\begin{cases}
+\frac{T_{max} + T_{min}}{2} - T_{base}, &amp; \text{if } \frac{T_{max} +
+T_{min}}{2} \geq T_{base} \\
+0, &amp; \text{otherwise}
+\end{cases}
+\]</span></p>
+<p>其中，<span class="math inline">\(T_{max}\)</span>
+取日最高气温与34℃中的较小值，<span class="math inline">\(T_{base}\)</span>（基础温度）为8℃，<span class="math inline">\(T_{min}\)</span>
+为日最低气温。<strong>生长度日是模拟温度对作物生长发育影响的常用指标，研究将每个玉米像元的生长度日时间序列汇总为日直方图，该直方图设置27个区间，取值范围为0-26℃。</strong></p>
+<p><strong>对每日NDVI直方图和GDD直方图分别进行归一化处理，确保每日各区间的数值总和为1</strong>。
+<strong>各区域（农业统计区/阿根廷玉米种植区）的NDVI和GDD时间序列均从该区域历史最早播种日期前两周开始，最终生成每个区域完整生长季的NDVI和GDD日直方图时间序列</strong>。</p>
+<figure>
+<img src="/2025/11/16/crop_classification/Crop%20classification/IF11.3-RSE-In-season_crop_progress_in_unsurveyed_regions_using_networks_trained_on_synthetic_data/1763283504290.png" alt="1763283504290">
+<figcaption aria-hidden="true">1763283504290</figcaption>
+</figure>
+<p>图4展示了美国爱荷华州西北部地区与阿根廷V区的区域尺度NDVI和GDD时间序列示例。如图所示，受双种植窗口期影响，阿根廷V区的NDVI值呈现出两个明显的峰值。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz">ALTNT</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://blog.705553939.xyz/2025/11/16/crop_classification/Crop%20classification/IF11.3-RSE-In-season_crop_progress_in_unsurveyed_regions_using_networks_trained_on_synthetic_data/">http://blog.705553939.xyz/2025/11/16/crop_classification/Crop%20classification/IF11.3-RSE-In-season_crop_progress_in_unsurveyed_regions_using_networks_trained_on_synthetic_data/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/altnt.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/11/22/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/11%E6%9C%8822%E6%97%A5%E5%91%A8%E6%8A%A5-2025/" title="周报2025年11月22日"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">周报2025年11月22日</div></div></a></div><div class="next-post pull-right"><a href="/2025/11/09/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/11%E6%9C%889%E6%97%A5%E5%91%A8%E6%8A%A5-2025/" title="周报2025年11月9日"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">周报2025年11月9日</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/altnt.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">ALTNT</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">198</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">38</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ALTNT"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#in-season-crop-progress-in-unsurveyed-regions-using-networks-trained-on-synthetic-data"><span class="toc-number">1.</span> <span class="toc-text">In-season
+crop progress in unsurveyed regions using networks trained on synthetic
+data</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#study-regions-and-datasets"><span class="toc-number">1.2.</span> <span class="toc-text">2. Study regions and datasets</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1. 数据集</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%9C%E7%89%A9%E7%94%9F%E9%95%BF%E8%BF%9B%E5%BA%A6%E6%95%B0%E6%8D%AE"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">2.1.1. 作物生长进度数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%81%A5%E6%84%9F%E5%92%8C%E6%B0%94%E8%B1%A1%E6%95%B0%E6%8D%AE"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">2.1.2. 遥感和气象数据</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/08/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/12%E6%9C%887%E6%97%A5%E5%91%A8%E6%8A%A5-2025/" title="周报2025年12月7日">周报2025年12月7日</a><time datetime="2025-12-08T03:31:52.337Z" title="Created 2025-12-08 11:31:52">2025-12-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/11/30/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/11%E6%9C%8830%E6%97%A5%E5%91%A8%E6%8A%A5-2025/" title="周报2025年11月30日">周报2025年11月30日</a><time datetime="2025-11-30T14:03:48.174Z" title="Created 2025-11-30 22:03:48">2025-11-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/11/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%9B%91%E7%9D%A3%E5%BE%AE%E8%B0%83/2024-ICLR-LP-FT/" title="LP-FT">LP-FT</a><time datetime="2025-11-23T12:01:25.150Z" title="Created 2025-11-23 20:01:25">2025-11-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/11/22/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/11%E6%9C%8822%E6%97%A5%E5%91%A8%E6%8A%A5-2025/" title="周报2025年11月22日">周报2025年11月22日</a><time datetime="2025-11-22T15:29:55.427Z" title="Created 2025-11-22 23:29:55">2025-11-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/11/16/crop_classification/Crop%20classification/IF11.3-RSE-In-season_crop_progress_in_unsurveyed_regions_using_networks_trained_on_synthetic_data/" title="Untitled">Untitled</a><time datetime="2025-11-16T06:53:32.423Z" title="Created 2025-11-16 14:53:32">2025-11-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By ALTNT</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
