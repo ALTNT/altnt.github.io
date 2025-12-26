@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>My First Blog Post</title>
-    <url>/2024/06/28/hello-world/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Front-end</category>
-      </categories>
-      <tags>
-        <tag>Foo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>云操作系统</title>
     <url>/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E4%BA%91%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</url>
     <content><![CDATA[]]></content>
@@ -20,17 +9,6 @@
       </categories>
       <tags>
         <tag>云操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Youtube English Learning1</title>
-    <url>/2024/05/31/Youtube%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/Learning1/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Youtube英语学习</category>
-      </categories>
-      <tags>
-        <tag>English</tag>
       </tags>
   </entry>
   <entry>
@@ -45,28 +23,25 @@
       </tags>
   </entry>
   <entry>
-    <title>CSDI:Conditional Score-based Diffusion Models for Probabilistic Time Series Imputation</title>
-    <url>/2024/11/25/diffusion/2021-NeauralPS-CSDI/</url>
+    <title>Youtube English Learning1</title>
+    <url>/2024/05/31/Youtube%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/Learning1/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>diffusion</category>
+        <category>Youtube英语学习</category>
       </categories>
       <tags>
-        <tag>diffusion</tag>
-        <tag>Sequence Processing</tag>
+        <tag>English</tag>
       </tags>
   </entry>
   <entry>
-    <title>CSDI代码解释</title>
-    <url>/2024/11/24/diffusion/CSDI%E4%BB%A3%E7%A0%81/</url>
+    <title>mac常见问题汇总</title>
+    <url>/2024/07/22/mac%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/mac%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>diffusion</category>
+        <category>mac常见问题</category>
       </categories>
       <tags>
-        <tag>diffusion</tag>
-        <tag>Sequence Processing</tag>
-        <tag>code</tag>
+        <tag>Mac Macos</tag>
       </tags>
   </entry>
   <entry>
@@ -93,17 +68,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Self-Supervised Learning of Remote Sensing Scene Representations Using Contrastive Multiview Coding</title>
-    <url>/2024/10/27/crop_classification/2021-CVPRSelf-Supervised-RSE-Representations/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>crop_classification</category>
-      </categories>
-      <tags>
-        <tag>crop classification</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Temporal Convolutional Neural Network for the Classification of Satellite Image</title>
     <url>/2024/10/08/crop_classification/2019-rse-TempCNNs/</url>
     <content><![CDATA[]]></content>
@@ -115,8 +79,8 @@
       </tags>
   </entry>
   <entry>
-    <title>Deep learning with multi-scale temporal hybrid structure for robust crop mapping</title>
-    <url>/2025/09/16/crop_classification/2024-IF12.2-ISPRS-Multi-scale-Temporal-Transformer-Conv/</url>
+    <title>Self-Supervised Learning of Remote Sensing Scene Representations Using Contrastive Multiview Coding</title>
+    <url>/2024/10/27/crop_classification/2021-CVPRSelf-Supervised-RSE-Representations/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -126,15 +90,25 @@
       </tags>
   </entry>
   <entry>
-    <title>记录如何生产 CACM 数据集过程</title>
-    <url>/2024/10/07/crop_classification/Document_how_to_produce_CACM_datasets/</url>
+    <title>My First Blog Post</title>
+    <url>/2024/06/28/hello-world/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Front-end</category>
+      </categories>
+      <tags>
+        <tag>Foo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Deep learning with multi-scale temporal hybrid structure for robust crop mapping</title>
+    <url>/2025/09/16/crop_classification/2024-IF12.2-ISPRS-Multi-scale-Temporal-Transformer-Conv/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
       </categories>
       <tags>
         <tag>crop classification</tag>
-        <tag>Cross-phenological-region</tag>
       </tags>
   </entry>
   <entry>
@@ -182,14 +156,15 @@
       </tags>
   </entry>
   <entry>
-    <title>Remote-Sensing Data and Deep-Learning Techniques in Crop Mapping and Yield Prediction A Systematic Review</title>
-    <url>/2024/09/14/crop_classification/summary-methods/</url>
+    <title>记录如何生产 CACM 数据集过程</title>
+    <url>/2024/10/07/crop_classification/Document_how_to_produce_CACM_datasets/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
       </categories>
       <tags>
         <tag>crop classification</tag>
+        <tag>Cross-phenological-region</tag>
       </tags>
   </entry>
   <entry>
@@ -207,28 +182,6 @@
     <title></title>
     <url>/2024/08/27/crop_classification/%E7%9B%B8%E5%85%B3%E4%BC%9A%E8%AE%AE/</url>
     <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>mac常见问题汇总</title>
-    <url>/2024/07/22/mac%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/mac%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>mac常见问题</category>
-      </categories>
-      <tags>
-        <tag>Mac Macos</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>A BASELINE FOR DETECTING MISCLASSIFIED AND OUT-OF-DISTRIBUTION EXAMPLES IN NEURAL NETWORKS</title>
-    <url>/2025/09/09/classification/2018-ICLR-A-BASELINE-FOR-DETECTING-MISCLASSIFIED-AND-OUT-OF-DISTRIBUTION-EXAMPLES-IN-NEURAL-NETWORKS/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>classification</category>
-      </categories>
-      <tags>
-        <tag>classification</tag>
-      </tags>
   </entry>
   <entry>
     <title>好句</title>
@@ -265,14 +218,14 @@
       </tags>
   </entry>
   <entry>
-    <title>Generalized Out-of-Distribution Detection: A Survey</title>
-    <url>/2025/10/10/classification/2024-Generalized_Out-of-Distribution_Detection_A_Survey/</url>
+    <title>Remote-Sensing Data and Deep-Learning Techniques in Crop Mapping and Yield Prediction A Systematic Review</title>
+    <url>/2024/09/14/crop_classification/summary-methods/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>classification</category>
+        <category>crop_classification</category>
       </categories>
       <tags>
-        <tag>classification</tag>
+        <tag>crop classification</tag>
       </tags>
   </entry>
   <entry>
@@ -298,14 +251,14 @@
       </tags>
   </entry>
   <entry>
-    <title>vscode插件开发</title>
-    <url>/2024/06/28/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/</url>
+    <title>Self-Supervised Transformer for Sparse and Irregularly Sampled Multivariate Clinical Time-Series</title>
+    <url>/2024/11/03/sequence-processing/2022-arxiv-StraTS/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>vscode插件开发</category>
+        <category>sequence-processing</category>
       </categories>
       <tags>
-        <tag>vscode插件开发, javascript, TypeScript</tag>
+        <tag>Image Processing</tag>
       </tags>
   </entry>
   <entry>
@@ -318,17 +271,6 @@
       <tags>
         <tag>Sequence Processing</tag>
         <tag>Self-supervised learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Self-Supervised Transformer for Sparse and Irregularly Sampled Multivariate Clinical Time-Series</title>
-    <url>/2024/11/03/sequence-processing/2022-arxiv-StraTS/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>sequence-processing</category>
-      </categories>
-      <tags>
-        <tag>Image Processing</tag>
       </tags>
   </entry>
   <entry>
@@ -398,17 +340,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Context Encoders:Feature Learning by Inpainting</title>
-    <url>/2024/10/28/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/2015-context-encoder/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>图像处理</category>
-      </categories>
-      <tags>
-        <tag>Image Processing</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>时序卫星遥感揭示加沙地带战争损毁持续攀升</title>
     <url>/2024/09/09/remote-sensing/%E6%97%B6%E5%BA%8F%E5%8D%AB%E6%98%9F%E9%81%A5%E6%84%9F%E6%8F%AD%E7%A4%BA%E5%8A%A0%E6%B2%99%E5%9C%B0%E5%B8%A6%E6%88%98%E4%BA%89%E6%8D%9F%E6%AF%81%E6%8C%81%E7%BB%AD%E6%94%80%E5%8D%87/</url>
     <content><![CDATA[]]></content>
@@ -431,8 +362,31 @@
       </tags>
   </entry>
   <entry>
-    <title>Masked Autoencoders Are Scalable Vision Learners</title>
-    <url>/2025/06/20/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/2021-Masked_Autoencoders_Are_Scalable_Vision_Learners/</url>
+    <title>vscode插件开发</title>
+    <url>/2024/06/28/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>vscode插件开发</category>
+      </categories>
+      <tags>
+        <tag>vscode插件开发, javascript, TypeScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSDI:Conditional Score-based Diffusion Models for Probabilistic Time Series Imputation</title>
+    <url>/2024/11/25/diffusion/2021-NeauralPS-CSDI/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>diffusion</category>
+      </categories>
+      <tags>
+        <tag>Sequence Processing</tag>
+        <tag>diffusion</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Context Encoders:Feature Learning by Inpainting</title>
+    <url>/2024/10/28/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/2015-context-encoder/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>图像处理</category>
@@ -450,6 +404,52 @@
       </categories>
       <tags>
         <tag>Image Processing</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Masked Autoencoders Are Scalable Vision Learners</title>
+    <url>/2025/06/20/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/2021-Masked_Autoencoders_Are_Scalable_Vision_Learners/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>图像处理</category>
+      </categories>
+      <tags>
+        <tag>Image Processing</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CDAM-Net:Channel shuffle dual attention based multi-scale CNN for efficient glaucoma detection using fundus images</title>
+    <url>/2024/10/28/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/2024-EAAI-CDAM-Net/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>图像处理</category>
+      </categories>
+      <tags>
+        <tag>Image Processing</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>入学材料</title>
+    <url>/2024/08/29/%E5%85%A5%E5%AD%A6%E6%9D%90%E6%96%99/%E5%85%A5%E5%AD%A6%E6%9D%90%E6%96%99/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>入学材料</category>
+      </categories>
+      <tags>
+        <tag>入学材料</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSDI代码解释</title>
+    <url>/2024/11/24/diffusion/CSDI%E4%BB%A3%E7%A0%81/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>diffusion</category>
+      </categories>
+      <tags>
+        <tag>Sequence Processing</tag>
+        <tag>diffusion</tag>
+        <tag>code</tag>
       </tags>
   </entry>
   <entry>
@@ -475,38 +475,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CDAM-Net:Channel shuffle dual attention based multi-scale CNN for efficient glaucoma detection using fundus images</title>
-    <url>/2024/10/28/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/2024-EAAI-CDAM-Net/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>图像处理</category>
-      </categories>
-      <tags>
-        <tag>Image Processing</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/2024/10/24/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95%EF%BC%88Genetic%20Algorithm%EF%BC%89%E8%AF%A6%E8%A7%A3%E4%B8%8E%E5%AE%9E%E7%8E%B0-CSDN%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>入学材料</title>
-    <url>/2024/08/29/%E5%85%A5%E5%AD%A6%E6%9D%90%E6%96%99/%E5%85%A5%E5%AD%A6%E6%9D%90%E6%96%99/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>入学材料</category>
-      </categories>
-      <tags>
-        <tag>入学材料</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/2024/10/04/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/n%20%E9%98%B6%E5%B9%BB%E6%96%B9%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title></title>
     <url>/2025/05/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%8E%A2%E7%A7%98Transformer%E7%B3%BB%E5%88%97%E4%B9%8B%EF%BC%8814%EF%BC%89---%20%E6%AE%8B%E5%B7%AE%E7%BD%91%E7%BB%9C%E5%92%8C%E5%BD%92%E4%B8%80%E5%8C%96_%E5%89%AF%E6%9C%AC/</url>
     <content><![CDATA[]]></content>
@@ -515,17 +483,6 @@
     <title></title>
     <url>/2024/12/12/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%A4%9A%E4%B8%AAloss%E5%A6%82%E4%BD%95%E5%B9%B3%E8%A1%A1%EF%BC%9F/</url>
     <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Docker快速入门</title>
-    <url>/2024/08/23/%E8%B5%84%E6%96%99/Docker%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>资料</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-      </tags>
   </entry>
   <entry>
     <title>git</title>
@@ -539,14 +496,14 @@
       </tags>
   </entry>
   <entry>
-    <title>k8s</title>
-    <url>/2024/09/17/%E8%B5%84%E6%96%99/k8s/</url>
+    <title>Docker快速入门</title>
+    <url>/2024/08/23/%E8%B5%84%E6%96%99/Docker%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>资料</category>
       </categories>
       <tags>
-        <tag>k8s,Kubernetes</tag>
+        <tag>docker</tag>
       </tags>
   </entry>
   <entry>
@@ -572,14 +529,14 @@
       </tags>
   </entry>
   <entry>
-    <title>ROS通信机制</title>
-    <url>/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/ros%E9%80%9A%E4%BF%A1%E6%9C%BA%E5%88%B6/ROS%20%E9%80%9A%E4%BF%A1%E6%9C%BA%E5%88%B6/</url>
+    <title>k8s</title>
+    <url>/2024/09/17/%E8%B5%84%E6%96%99/k8s/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>Ros机器人相关</category>
+        <category>资料</category>
       </categories>
       <tags>
-        <tag>Ros机器人</tag>
+        <tag>k8s,Kubernetes</tag>
       </tags>
   </entry>
   <entry>
@@ -616,6 +573,11 @@
       </tags>
   </entry>
   <entry>
+    <title></title>
+    <url>/2024/10/24/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95%EF%BC%88Genetic%20Algorithm%EF%BC%89%E8%AF%A6%E8%A7%A3%E4%B8%8E%E5%AE%9E%E7%8E%B0-CSDN%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>命令2</title>
     <url>/2024/11/08/%E8%B5%84%E6%96%99/%E5%91%BD%E4%BB%A42/</url>
     <content><![CDATA[]]></content>
@@ -627,8 +589,35 @@
       </tags>
   </entry>
   <entry>
-    <title>Learning Symbolic Representations for Planning with Parameterized Skills</title>
-    <url>/2024/08/23/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/LearningSymbolicRepresentationsforPlanningwithParameterizedSkills/</url>
+    <title>Generalized Out-of-Distribution Detection: A Survey</title>
+    <url>/2025/10/10/classification/2024-Generalized_Out-of-Distribution_Detection_A_Survey/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>classification</category>
+      </categories>
+      <tags>
+        <tag>classification</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2024/10/04/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/n%20%E9%98%B6%E5%B9%BB%E6%96%B9%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>A BASELINE FOR DETECTING MISCLASSIFIED AND OUT-OF-DISTRIBUTION EXAMPLES IN NEURAL NETWORKS</title>
+    <url>/2025/09/09/classification/2018-ICLR-A-BASELINE-FOR-DETECTING-MISCLASSIFIED-AND-OUT-OF-DISTRIBUTION-EXAMPLES-IN-NEURAL-NETWORKS/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>classification</category>
+      </categories>
+      <tags>
+        <tag>classification</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ROS通信机制</title>
+    <url>/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/ros%E9%80%9A%E4%BF%A1%E6%9C%BA%E5%88%B6/ROS%20%E9%80%9A%E4%BF%A1%E6%9C%BA%E5%88%B6/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>Ros机器人相关</category>
@@ -638,8 +627,8 @@
       </tags>
   </entry>
   <entry>
-    <title>STAP: Sequencing Task-Agnostic Policies</title>
-    <url>/2024/08/23/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/STAPSequencingTask-AgnosticPolicies/</url>
+    <title>Generative Skill Chaining: Long-Horizon Skill Planning with Diffusion Models</title>
+    <url>/2024/08/23/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>Ros机器人相关</category>
@@ -671,16 +660,8 @@
       </tags>
   </entry>
   <entry>
-    <title>云机器人</title>
-    <url>/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E4%BA%91%E6%9C%BA%E5%99%A8%E4%BA%BA/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Ros机器人相关</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Generative Skill Chaining: Long-Horizon Skill Planning with Diffusion Models</title>
-    <url>/2024/08/23/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/GenerativeSkillChainingLong-HorizonSkillPlanningwithDiffusionModels/</url>
+    <title>Learning Symbolic Representations for Planning with Parameterized Skills</title>
+    <url>/2024/08/23/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/LearningSymbolicRepresentationsforPlanningwithParameterizedSkills/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>Ros机器人相关</category>
@@ -690,8 +671,27 @@
       </tags>
   </entry>
   <entry>
-    <title>Boosting crop classification by hierarchically fusing satellite, rotational, and contextual data</title>
-    <url>/2024/09/03/crop_classification/2024-rse-papers-for-crop-classification/rse-2024-Boosting-crop-classification-by-hierarchically-fusing-satellite-rotational-and-contextual-data/</url>
+    <title>STAP: Sequencing Task-Agnostic Policies</title>
+    <url>/2024/08/23/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/STAPSequencingTask-AgnosticPolicies/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Ros机器人相关</category>
+      </categories>
+      <tags>
+        <tag>Ros机器人</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>云机器人</title>
+    <url>/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E4%BA%91%E6%9C%BA%E5%99%A8%E4%BA%BA/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Ros机器人相关</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Enhancing food crop classification in agriculture through dipper throat optimization and deep learning with remote sensing</title>
+    <url>/2024/08/27/crop_classification/2024-rse-papers-for-crop-classification/Enhancing-crop-classification-in-agriculture-through-dipper-throat-optimization-and-deep-learning/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -701,8 +701,8 @@
       </tags>
   </entry>
   <entry>
-    <title>Enhancing food crop classification in agriculture through dipper throat optimization and deep learning with remote sensing</title>
-    <url>/2024/08/27/crop_classification/2024-rse-papers-for-crop-classification/Enhancing-crop-classification-in-agriculture-through-dipper-throat-optimization-and-deep-learning/</url>
+    <title>Boosting crop classification by hierarchically fusing satellite, rotational, and contextual data</title>
+    <url>/2024/09/03/crop_classification/2024-rse-papers-for-crop-classification/rse-2024-Boosting-crop-classification-by-hierarchically-fusing-satellite-rotational-and-contextual-data/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -723,17 +723,6 @@
       </tags>
   </entry>
   <entry>
-    <title>巴基斯坦</title>
-    <url>/2024/11/04/crop_classification/%E5%B7%B4%E5%9F%BA%E6%96%AF%E5%9D%A6%E4%BB%8B%E7%BB%8D/%E5%B7%B4%E5%9F%BA%E6%96%AF%E5%9D%A6/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>crop_classification</category>
-      </categories>
-      <tags>
-        <tag>crop classification</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Reconstructing NDVI time series in cloud-prone regions: A fusion-and-fit approach with deep learning residual constraint</title>
     <url>/2024/10/13/crop_classification/Cloud_Removal/ISPRS-2024-Reconstructing-NDVI-time/</url>
     <content><![CDATA[]]></content>
@@ -746,33 +735,20 @@
       </tags>
   </entry>
   <entry>
+    <title>巴基斯坦</title>
+    <url>/2024/11/04/crop_classification/%E5%B7%B4%E5%9F%BA%E6%96%AF%E5%9D%A6%E4%BB%8B%E7%BB%8D/%E5%B7%B4%E5%9F%BA%E6%96%AF%E5%9D%A6/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+      </tags>
+  </entry>
+  <entry>
     <title></title>
     <url>/2024/10/25/crop_classification/%E4%BB%A3%E7%A0%81%E7%9B%B8%E5%85%B3/%E5%86%9C%E4%BD%9C%E7%89%A9%E5%88%B6%E5%9B%BE/</url>
     <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>周报10月12日</title>
-    <url>/2024/10/14/crop_classification/Crop%20classification/10%E6%9C%8812%E6%97%A5%E5%91%A8%E6%8A%A5/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>crop_classification</category>
-      </categories>
-      <tags>
-        <tag>crop classification</tag>
-        <tag>研究生周报</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>周报10月20日</title>
-    <url>/2024/10/27/crop_classification/Crop%20classification/10%E6%9C%8820%E6%97%A5%E5%91%A8%E6%8A%A5/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>crop_classification</category>
-      </categories>
-      <tags>
-        <tag>crop classification</tag>
-        <tag>研究生周报</tag>
-      </tags>
   </entry>
   <entry>
     <title>周报10月27日</title>
@@ -811,32 +787,8 @@
       </tags>
   </entry>
   <entry>
-    <title>周报12月12日</title>
-    <url>/2024/12/15/crop_classification/Crop%20classification/12%E6%9C%8812%E6%97%A5%E5%91%A8%E6%8A%A5/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>crop_classification</category>
-      </categories>
-      <tags>
-        <tag>crop classification</tag>
-        <tag>研究生周报</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>周报11月3日</title>
-    <url>/2025/01/03/crop_classification/Crop%20classification/11%E6%9C%883%E6%97%A5%E5%91%A8%E6%8A%A5/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>crop_classification</category>
-      </categories>
-      <tags>
-        <tag>crop classification</tag>
-        <tag>研究生周报</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>周报12月23日(组会)</title>
-    <url>/2024/12/23/crop_classification/Crop%20classification/12%E6%9C%8823%E6%97%A5%E5%91%A8%E6%8A%A5(%E7%BB%84%E4%BC%9A)/</url>
+    <title>周报10月12日</title>
+    <url>/2024/10/14/crop_classification/Crop%20classification/10%E6%9C%8812%E6%97%A5%E5%91%A8%E6%8A%A5/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -859,8 +811,8 @@
       </tags>
   </entry>
   <entry>
-    <title>周报12月3日</title>
-    <url>/2024/12/28/crop_classification/Crop%20classification/12%E6%9C%8827%E6%97%A5%E5%91%A8%E6%8A%A5/</url>
+    <title>周报11月3日</title>
+    <url>/2025/01/03/crop_classification/Crop%20classification/11%E6%9C%883%E6%97%A5%E5%91%A8%E6%8A%A5/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -883,8 +835,20 @@
       </tags>
   </entry>
   <entry>
-    <title>周报12月3日</title>
-    <url>/2024/12/27/crop_classification/Crop%20classification/12%E6%9C%883%E6%97%A5%E5%91%A8%E6%8A%A5/</url>
+    <title>周报10月20日</title>
+    <url>/2024/10/27/crop_classification/Crop%20classification/10%E6%9C%8820%E6%97%A5%E5%91%A8%E6%8A%A5/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+        <tag>研究生周报</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>周报12月12日</title>
+    <url>/2024/12/15/crop_classification/Crop%20classification/12%E6%9C%8812%E6%97%A5%E5%91%A8%E6%8A%A5/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -907,8 +871,43 @@
       </tags>
   </entry>
   <entry>
+    <title>周报12月23日(组会)</title>
+    <url>/2024/12/23/crop_classification/Crop%20classification/12%E6%9C%8823%E6%97%A5%E5%91%A8%E6%8A%A5(%E7%BB%84%E4%BC%9A)/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+        <tag>研究生周报</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>周报12月16日</title>
+    <url>/2024/12/16/crop_classification/Crop%20classification/12%E6%9C%8816%E6%97%A5%E5%91%A8%E6%8A%A5(%E7%BB%84%E4%BC%9A)/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>周报2025年1月20日</title>
     <url>/2025/01/21/crop_classification/Crop%20classification/1%E6%9C%8820%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+        <tag>研究生周报</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>周报12月3日</title>
+    <url>/2024/12/28/crop_classification/Crop%20classification/12%E6%9C%8827%E6%97%A5%E5%91%A8%E6%8A%A5/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -931,13 +930,25 @@
       </tags>
   </entry>
   <entry>
+    <title>周报12月3日</title>
+    <url>/2024/12/27/crop_classification/Crop%20classification/12%E6%9C%883%E6%97%A5%E5%91%A8%E6%8A%A5/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+        <tag>研究生周报</tag>
+      </tags>
+  </entry>
+  <entry>
     <title></title>
     <url>/2024/12/02/crop_classification/Crop%20classification/12%E6%9C%882%E6%97%A5%E5%91%A8%E6%8A%A5/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>周报12月16日</title>
-    <url>/2024/12/16/crop_classification/Crop%20classification/12%E6%9C%8816%E6%97%A5%E5%91%A8%E6%8A%A5(%E7%BB%84%E4%BC%9A)/</url>
+    <title>Crop type mapping without field-level labels: Random forest transfer and unsupervised clustering techniques</title>
+    <url>/2024/09/03/crop_classification/Crop%20classification/2019-RSE-Crop-type-mapping-without-field-level-labels-Random-forest-transfer-and/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -949,28 +960,6 @@
   <entry>
     <title>Sentinel-2 cropland mapping using pixel-based and object-based timeweighted dynamic time warping analysis</title>
     <url>/2025/02/20/crop_classification/Crop%20classification/2018-TWDTW/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>crop_classification</category>
-      </categories>
-      <tags>
-        <tag>crop classification</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Crop Classification Under Varying Cloud Cover With Neural Ordinary Differential Equations</title>
-    <url>/2025/02/28/crop_classification/Crop%20classification/2021-IEEE-IF_7.5-NODE-RNN/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>crop_classification</category>
-      </categories>
-      <tags>
-        <tag>crop classification</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Crop type mapping without field-level labels: Random forest transfer and unsupervised clustering techniques</title>
-    <url>/2024/09/03/crop_classification/Crop%20classification/2019-RSE-Crop-type-mapping-without-field-level-labels-Random-forest-transfer-and/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -992,12 +981,15 @@
       </tags>
   </entry>
   <entry>
-    <title>Assessing the impacts of tropical cyclones on rice production in Bangladesh, Myanmar, Philippines, and Vietnam</title>
-    <url>/2024/12/17/crop_classification/Crop%20classification/2016-tropical-cyclone/</url>
+    <title>Crop Classification Under Varying Cloud Cover With Neural Ordinary Differential Equations</title>
+    <url>/2025/02/28/crop_classification/Crop%20classification/2021-IEEE-IF_7.5-NODE-RNN/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
       </categories>
+      <tags>
+        <tag>crop classification</tag>
+      </tags>
   </entry>
   <entry>
     <title>Evaluation of Five Deep Learning Models for Crop Type Mapping Using Sentinel-2 Time Series Images with Missing Information</title>
@@ -1009,6 +1001,14 @@
       <tags>
         <tag>crop classification</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Assessing the impacts of tropical cyclones on rice production in Bangladesh, Myanmar, Philippines, and Vietnam</title>
+    <url>/2024/12/17/crop_classification/Crop%20classification/2016-tropical-cyclone/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
   </entry>
   <entry>
     <title>DCM————DeepCropMapping: A multi-temporal deep learning approach with improved spatial generalizability for dynamic corn and soybean mapping</title>
@@ -1057,17 +1057,6 @@
       </tags>
   </entry>
   <entry>
-    <title>End-to-end learned early classification of time series for in-season crop type mapping</title>
-    <url>/2025/02/28/crop_classification/Crop%20classification/2023-ISPRS-IF_10.6-ELECTS/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>crop_classification</category>
-      </categories>
-      <tags>
-        <tag>crop classification</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MMST-ViT: Climate Change-aware Crop Yield Prediction via Multi-Modal  Spatial-Temporal Vision Transformer</title>
     <url>/2025/02/04/crop_classification/Crop%20classification/2023-MMST-ViT/</url>
     <content><![CDATA[]]></content>
@@ -1090,6 +1079,17 @@
       </tags>
   </entry>
   <entry>
+    <title>End-to-end learned early classification of time series for in-season crop type mapping</title>
+    <url>/2025/02/28/crop_classification/Crop%20classification/2023-ISPRS-IF_10.6-ELECTS/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Demonstration of large area land cover classification with a one dimensional convolutional neural network applied to single pixel temporal metric percentiles</title>
     <url>/2025/03/04/crop_classification/Crop%20classification/2023-rse-Demonstration_of_large_area_land_cover_classification_with%20_one_dimensional_convolutional_neural_network_applied_to_single_pixel_temporal_metric_percentiles/</url>
     <content><![CDATA[]]></content>
@@ -1101,8 +1101,8 @@
       </tags>
   </entry>
   <entry>
-    <title>Linearly interpolating missing values in time series helps little for land cover classification using recurrent or attention networks</title>
-    <url>/2025/03/01/crop_classification/Crop%20classification/2024-ISPRS-Linearly_interpolating_missing_values_in_time_series_helps_little_for_land_cover_classification_using_recurrent_or_attention_networks/</url>
+    <title>CROMA: Remote Sensing Representations with Contrastive Radar-Optical Masked Autoencoders</title>
+    <url>/2025/03/09/crop_classification/Crop%20classification/2024-NeauIps-CROMA/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -1123,8 +1123,8 @@
       </tags>
   </entry>
   <entry>
-    <title>CROMA: Remote Sensing Representations with Contrastive Radar-Optical Masked Autoencoders</title>
-    <url>/2025/03/09/crop_classification/Crop%20classification/2024-NeauIps-CROMA/</url>
+    <title>Linearly interpolating missing values in time series helps little for land cover classification using recurrent or attention networks</title>
+    <url>/2025/03/01/crop_classification/Crop%20classification/2024-ISPRS-Linearly_interpolating_missing_values_in_time_series_helps_little_for_land_cover_classification_using_recurrent_or_attention_networks/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -1156,6 +1156,17 @@
       </tags>
   </entry>
   <entry>
+    <title>Subfield-level crop yield mapping without ground truth data: A scale transfer framework</title>
+    <url>/2024/10/10/crop_classification/Crop%20classification/2024-RSE-Subfield-level-crop-yield-mapping-without-ground-truth-dataA-scale-transfer-framework/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Filling GRACE data gap using an innovative transformer-based deep learning approach</title>
     <url>/2024/12/27/crop_classification/Crop%20classification/2024-RSE-Filling_Grace_data_gap/</url>
     <content><![CDATA[]]></content>
@@ -1169,17 +1180,6 @@
   <entry>
     <title>利用基于Transformer的深度学习方法填补GRACE数据空白</title>
     <url>/2024/12/16/crop_classification/Crop%20classification/2024-rse-Transformer-based-Grace/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>crop_classification</category>
-      </categories>
-      <tags>
-        <tag>crop classification</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Subfield-level crop yield mapping without ground truth data: A scale transfer framework</title>
-    <url>/2024/10/10/crop_classification/Crop%20classification/2024-RSE-Subfield-level-crop-yield-mapping-without-ground-truth-dataA-scale-transfer-framework/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -1211,30 +1211,19 @@
       </tags>
   </entry>
   <entry>
+    <title>The 20 m Africa rice distribution map of 2023</title>
+    <url>/2025/06/04/crop_classification/Crop%20classification/2025-IF_11.2-ESSD-20m_Africa_Rice_distribution_map_of_2023/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Embedded physical constraints in machine learning to enhance vegetation phenology prediction</title>
     <url>/2025/02/04/crop_classification/Crop%20classification/2024_PCNNs/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>crop_classification</category>
-      </categories>
-      <tags>
-        <tag>crop classification</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>RESTORE-DiT: Reliable satellite image time series reconstruction by multimodal sequential diffusion transformer</title>
-    <url>/2025/07/15/crop_classification/Crop%20classification/2025-IF11.4-RSE-RESTORE-DiT/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>crop_classification</category>
-      </categories>
-      <tags>
-        <tag>crop classification</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Robust and timely within-season conterminous United States crop type mapping using Landsat Sentinel-2 time series and the transformer architecture</title>
-    <url>/2025/08/09/crop_classification/Crop%20classification/2025-rse-11.4-Robust-and-timely-within-season/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -1255,30 +1244,41 @@
       </tags>
   </entry>
   <entry>
-    <title>8 月 28 总结</title>
-    <url>/2024/09/09/crop_classification/Crop%20classification/8%E6%9C%8828/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>crop_classification</category>
-      </categories>
-      <tags>
-        <tag>crop classification</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>The 20 m Africa rice distribution map of 2023</title>
-    <url>/2025/06/04/crop_classification/Crop%20classification/2025-IF_11.2-ESSD-20m_Africa_Rice_distribution_map_of_2023/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>crop_classification</category>
-      </categories>
-      <tags>
-        <tag>crop classification</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Enhancing Crop Type Mapping in Data-Scarce Regions Through Transfer Learning: A Case Study of the Hexi Corridor</title>
     <url>/2025/04/26/crop_classification/Crop%20classification/2025-IF_4.2_Remote-sensing-Transfer_Learning_Hexi_Corridor/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Robust and timely within-season conterminous United States crop type mapping using Landsat Sentinel-2 time series and the transformer architecture</title>
+    <url>/2025/08/09/crop_classification/Crop%20classification/2025-rse-11.4-Robust-and-timely-within-season/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>RESTORE-DiT: Reliable satellite image time series reconstruction by multimodal sequential diffusion transformer</title>
+    <url>/2025/07/15/crop_classification/Crop%20classification/2025-IF11.4-RSE-RESTORE-DiT/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>8 月 28 总结</title>
+    <url>/2024/09/09/crop_classification/Crop%20classification/8%E6%9C%8828/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -1301,25 +1301,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Amphan_水稻受损面积说明</title>
-    <url>/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>crop_classification</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Spatiotemporal masked pre-training for advancing crop mapping on satellite image time series with limited labels</title>
-    <url>/2025/03/05/crop_classification/Crop%20classification/2025-IF_7.4_Spatiotemporal_masked_pre-training_for_advancing_crop_mapping_on_satellite_image_time_series_with_limited_labels/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>crop_classification</category>
-      </categories>
-      <tags>
-        <tag>crop classification</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>In-season crop progress in unsurveyed regions using networks trained on synthetic data</title>
     <url>/2025/11/16/crop_classification/Crop%20classification/IF11.3-RSE-In-season_crop_progress_in_unsurveyed_regions_using_networks_trained_on_synthetic_data/</url>
     <content><![CDATA[]]></content>
@@ -1331,8 +1312,8 @@
       </tags>
   </entry>
   <entry>
-    <title>巴基斯坦</title>
-    <url>/2024/11/18/crop_classification/Crop%20classification/%E5%93%A8%E5%85%B5%E4%BA%8C%E5%8F%B7%E5%8D%AB%E6%98%9F%E4%BB%8B%E7%BB%8D/</url>
+    <title>Spatiotemporal masked pre-training for advancing crop mapping on satellite image time series with limited labels</title>
+    <url>/2025/03/05/crop_classification/Crop%20classification/2025-IF_7.4_Spatiotemporal_masked_pre-training_for_advancing_crop_mapping_on_satellite_image_time_series_with_limited_labels/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -1353,8 +1334,8 @@
       </tags>
   </entry>
   <entry>
-    <title>寻找云少的区域</title>
-    <url>/2024/12/04/crop_classification/Crop%20classification/%E5%AF%BB%E6%89%BE%E4%BA%91%E5%B0%91%E7%9A%84%E5%8C%BA%E5%9F%9F/</url>
+    <title>巴基斯坦</title>
+    <url>/2024/11/18/crop_classification/Crop%20classification/%E5%93%A8%E5%85%B5%E4%BA%8C%E5%8F%B7%E5%8D%AB%E6%98%9F%E4%BB%8B%E7%BB%8D/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -1366,22 +1347,6 @@
   <entry>
     <title>Satellite Image Time Series Classification with Pixel-Set Encoders and Temporal Self-Attention</title>
     <url>/2024/08/28/crop_classification/Crop%20classification/SatelliteImageTimeSeriesClassificationwithPixel-SetEncodersandTemporalSelf-Attention/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>crop_classification</category>
-      </categories>
-      <tags>
-        <tag>crop classification</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/2025/07/24/crop_classification/Crop%20classification/%E6%89%B6%E6%B2%9F%E5%8E%BF%E7%8E%89%E7%B1%B3%E9%9D%A2%E7%A7%AF%E7%BB%9F%E8%AE%A1%20copy/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>记录CACM设置下游代理任务代码的过程</title>
-    <url>/2025/02/04/crop_classification/Crop%20classification/%E8%AE%B0%E5%BD%95CACM%E8%AE%BE%E7%BD%AE%E4%B8%8B%E6%B8%B8%E4%BB%A3%E7%A0%81%E4%BB%BB%E5%8A%A1%E7%9A%84%E8%BF%87%E7%A8%8B/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -1414,8 +1379,32 @@
       </tags>
   </entry>
   <entry>
-    <title>周报2025年10月26日</title>
-    <url>/2025/10/26/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/10%E6%9C%8826%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
+    <title>寻找云少的区域</title>
+    <url>/2024/12/04/crop_classification/Crop%20classification/%E5%AF%BB%E6%89%BE%E4%BA%91%E5%B0%91%E7%9A%84%E5%8C%BA%E5%9F%9F/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2025/07/21/crop_classification/Crop%20classification/%E6%89%B6%E6%B2%9F%E5%8E%BF%E7%8E%89%E7%B1%B3%E9%9D%A2%E7%A7%AF%E7%BB%9F%E8%AE%A1/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Amphan_水稻受损面积说明</title>
+    <url>/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>周报2025年10月12日</title>
+    <url>/2025/10/13/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/10%E6%9C%8812%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -1426,8 +1415,24 @@
       </tags>
   </entry>
   <entry>
-    <title>周报2025年11月1日</title>
-    <url>/2025/11/01/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/11%E6%9C%881%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
+    <title>记录CACM设置下游代理任务代码的过程</title>
+    <url>/2025/02/04/crop_classification/Crop%20classification/%E8%AE%B0%E5%BD%95CACM%E8%AE%BE%E7%BD%AE%E4%B8%8B%E6%B8%B8%E4%BB%A3%E7%A0%81%E4%BB%BB%E5%8A%A1%E7%9A%84%E8%BF%87%E7%A8%8B/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2025/07/24/crop_classification/Crop%20classification/%E6%89%B6%E6%B2%9F%E5%8E%BF%E7%8E%89%E7%B1%B3%E9%9D%A2%E7%A7%AF%E7%BB%9F%E8%AE%A1%20copy/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>周报2025年10月26日</title>
+    <url>/2025/10/26/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/10%E6%9C%8826%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -1450,25 +1455,8 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2025/07/21/crop_classification/Crop%20classification/%E6%89%B6%E6%B2%9F%E5%8E%BF%E7%8E%89%E7%B1%B3%E9%9D%A2%E7%A7%AF%E7%BB%9F%E8%AE%A1/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>周报2025年11月30日</title>
-    <url>/2025/11/30/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/11%E6%9C%8830%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>crop_classification</category>
-      </categories>
-      <tags>
-        <tag>crop classification</tag>
-        <tag>研究生周报</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>周报2025年10月12日</title>
-    <url>/2025/10/13/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/10%E6%9C%8812%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
+    <title>周报2025年11月1日</title>
+    <url>/2025/11/01/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/11%E6%9C%881%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -1515,18 +1503,6 @@
       </tags>
   </entry>
   <entry>
-    <title>周报2025年3月16日</title>
-    <url>/2025/03/17/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/3%E6%9C%8816%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>crop_classification</category>
-      </categories>
-      <tags>
-        <tag>crop classification</tag>
-        <tag>研究生周报</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>周报2025年2月9日</title>
     <url>/2025/02/09/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/2%E6%9C%889%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
     <content><![CDATA[]]></content>
@@ -1551,8 +1527,8 @@
       </tags>
   </entry>
   <entry>
-    <title>周报2025年3月22日</title>
-    <url>/2025/03/23/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/3%E6%9C%8822%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
+    <title>周报2025年3月16日</title>
+    <url>/2025/03/17/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/3%E6%9C%8816%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -1563,8 +1539,20 @@
       </tags>
   </entry>
   <entry>
-    <title>周报2025年3月1日</title>
-    <url>/2025/08/25/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/3%E6%9C%881%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
+    <title>周报2025年11月30日</title>
+    <url>/2025/11/30/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/11%E6%9C%8830%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+        <tag>研究生周报</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>周报2025年3月22日</title>
+    <url>/2025/03/23/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/3%E6%9C%8822%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -1587,8 +1575,8 @@
       </tags>
   </entry>
   <entry>
-    <title>周报2025年4月20日</title>
-    <url>/2025/04/14/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/4%E6%9C%8813%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
+    <title>周报2025年3月1日</title>
+    <url>/2025/08/25/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/3%E6%9C%881%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -1612,19 +1600,7 @@
   </entry>
   <entry>
     <title>周报2025年4月20日</title>
-    <url>/2025/04/21/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/4%E6%9C%8820%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>crop_classification</category>
-      </categories>
-      <tags>
-        <tag>crop classification</tag>
-        <tag>研究生周报</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>周报2025年4月28日</title>
-    <url>/2025/04/28/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/4%E6%9C%8828%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
+    <url>/2025/04/14/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/4%E6%9C%8813%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -1648,7 +1624,7 @@
   </entry>
   <entry>
     <title>周报2025年5月11日</title>
-    <url>/2025/05/11/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/5%E6%9C%8811%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
+    <url>/2025/05/11/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/5%E6%9C%8811%E6%97%A5%E5%91%A8%E6%8A%A5-2025-old/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -1671,8 +1647,44 @@
       </tags>
   </entry>
   <entry>
+    <title>周报2025年4月20日</title>
+    <url>/2025/04/21/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/4%E6%9C%8820%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+        <tag>研究生周报</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>周报2025年5月25日</title>
     <url>/2025/05/26/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/5%E6%9C%8825%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+        <tag>研究生周报</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>周报2025年4月28日</title>
+    <url>/2025/04/28/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/4%E6%9C%8828%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+        <tag>研究生周报</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>周报2025年5月11日</title>
+    <url>/2025/05/11/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/5%E6%9C%8811%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -1695,32 +1707,8 @@
       </tags>
   </entry>
   <entry>
-    <title>周报2025年5月11日</title>
-    <url>/2025/05/11/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/5%E6%9C%8811%E6%97%A5%E5%91%A8%E6%8A%A5-2025-old/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>crop_classification</category>
-      </categories>
-      <tags>
-        <tag>crop classification</tag>
-        <tag>研究生周报</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>周报2025年6月29日</title>
     <url>/2025/07/03/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/6%E6%9C%8829%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>crop_classification</category>
-      </categories>
-      <tags>
-        <tag>crop classification</tag>
-        <tag>研究生周报</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>周报2025年7月13日</title>
-    <url>/2025/07/14/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/7%E6%9C%8813%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -1743,8 +1731,44 @@
       </tags>
   </entry>
   <entry>
+    <title>周报2025年7月13日</title>
+    <url>/2025/07/14/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/7%E6%9C%8813%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+        <tag>研究生周报</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>周报2025年6月8日</title>
+    <url>/2025/06/10/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/6%E6%9C%888%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+        <tag>研究生周报</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>周报2025年8月17日</title>
     <url>/2025/08/18/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/8%E6%9C%8817%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+        <tag>研究生周报</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>周报2025年8月25日</title>
+    <url>/2025/08/25/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/8%E6%9C%8824%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -1803,56 +1827,8 @@
       </tags>
   </entry>
   <entry>
-    <title>周报2025年6月8日</title>
-    <url>/2025/06/10/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/6%E6%9C%888%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>crop_classification</category>
-      </categories>
-      <tags>
-        <tag>crop classification</tag>
-        <tag>研究生周报</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ai工具在数据分析中的应用</title>
-    <url>/2025/03/19/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/ai%20%E5%B7%A5%E5%85%B7%E5%9C%A8%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>crop_classification</category>
-      </categories>
-      <tags>
-        <tag>crop classification</tag>
-        <tag>研究生周报</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>周报2025年8月25日</title>
-    <url>/2025/08/25/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/8%E6%9C%8824%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>crop_classification</category>
-      </categories>
-      <tags>
-        <tag>crop classification</tag>
-        <tag>研究生周报</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>周报2025年7月6日</title>
-    <url>/2025/07/07/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/7%E6%9C%886%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>crop_classification</category>
-      </categories>
-      <tags>
-        <tag>crop classification</tag>
-        <tag>研究生周报</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ai工具在绘图方面的应用</title>
-    <url>/2025/04/01/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/ai%20%E5%B7%A5%E5%85%B7%E5%9C%A8%E7%BB%98%E5%9B%BE%E6%96%B9%E9%9D%A2%E7%9A%84%E5%BA%94%E7%94%A8/</url>
+    <title>周报2025年9月27日</title>
+    <url>/2025/09/27/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/9%E6%9C%8827%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -1875,8 +1851,8 @@
       </tags>
   </entry>
   <entry>
-    <title>周报2025年9月27日</title>
-    <url>/2025/09/27/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/9%E6%9C%8827%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
+    <title>ai工具在数据分析中的应用</title>
+    <url>/2025/03/19/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/ai%20%E5%B7%A5%E5%85%B7%E5%9C%A8%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
@@ -1887,14 +1863,39 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2025/08/25/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/%E9%87%8D%E6%96%B0%E5%A4%8D%E7%8E%B0CACM%20%E8%AE%B0%E5%BD%95/</url>
+    <title>周报2025年7月6日</title>
+    <url>/2025/07/07/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/7%E6%9C%886%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
       </categories>
       <tags>
         <tag>crop classification</tag>
+        <tag>研究生周报</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>周报2025年9月7日</title>
+    <url>/2025/09/07/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/9%E6%9C%887%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+        <tag>研究生周报</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ai工具在绘图方面的应用</title>
+    <url>/2025/04/01/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/ai%20%E5%B7%A5%E5%85%B7%E5%9C%A8%E7%BB%98%E5%9B%BE%E6%96%B9%E9%9D%A2%E7%9A%84%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+        <tag>研究生周报</tag>
       </tags>
   </entry>
   <entry>
@@ -1903,29 +1904,6 @@
     <content><![CDATA[]]></content>
       <categories>
         <category>remote-sensing</category>
-      </categories>
-      <tags>
-        <tag>Self-Supervise</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Learning the Optimal Stopping for Early Classification within Finite Horizons via Sequential Probability Ratio Test</title>
-    <url>/2025/09/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/2024-DINOv2/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>图像处理</tag>
-        <tag>自监督</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>A_Simple_Framework_for_Contrastive_Learning of_Visual_Representations</title>
-    <url>/2025/02/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%9B%91%E7%9D%A3/2020-SimCLR/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>机器学习</category>
       </categories>
       <tags>
         <tag>Self-Supervise</tag>
@@ -1943,37 +1921,37 @@
       </tags>
   </entry>
   <entry>
-    <title>Contrastive Multiview Coding</title>
-    <url>/2024/12/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%9B%91%E7%9D%A3/2020-ECCV2020-Contrastive-Multiview-Coding/</url>
+    <title>Learning the Optimal Stopping for Early Classification within Finite Horizons via Sequential Probability Ratio Test</title>
+    <url>/2025/09/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/2024-DINOv2/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>机器学习</category>
       </categories>
       <tags>
-        <tag>Self-Supervise</tag>
+        <tag>图像处理</tag>
+        <tag>自监督</tag>
       </tags>
   </entry>
   <entry>
-    <title>周报2025年9月7日</title>
-    <url>/2025/09/07/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/9%E6%9C%887%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</url>
+    <title></title>
+    <url>/2025/08/25/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/%E9%87%8D%E6%96%B0%E5%A4%8D%E7%8E%B0CACM%20%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>crop_classification</category>
       </categories>
       <tags>
         <tag>crop classification</tag>
-        <tag>研究生周报</tag>
       </tags>
   </entry>
   <entry>
-    <title>“A Practical Method for Constructing Equivariant Multilayer Perceptrons for Arbitrary Matrix Groups&quot;</title>
-    <url>/2024/12/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BE%A4%E7%AD%89%E5%8F%98/1/</url>
+    <title>LP-FT</title>
+    <url>/2025/11/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%9B%91%E7%9D%A3%E5%BE%AE%E8%B0%83/2024-ICLR-LP-FT/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>机器学习</category>
       </categories>
       <tags>
-        <tag>群等不变性</tag>
+        <tag>监督微调</tag>
       </tags>
   </entry>
   <entry>
@@ -1988,8 +1966,19 @@
       </tags>
   </entry>
   <entry>
-    <title>Supervised Contrastive Learning</title>
-    <url>/2024/12/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%9B%91%E7%9D%A3/2021-supervised-contrastive-learning/</url>
+    <title>“A Practical Method for Constructing Equivariant Multilayer Perceptrons for Arbitrary Matrix Groups&quot;</title>
+    <url>/2024/12/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%BE%A4%E7%AD%89%E5%8F%98/1/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>群等不变性</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>A_Simple_Framework_for_Contrastive_Learning of_Visual_Representations</title>
+    <url>/2025/02/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%9B%91%E7%9D%A3/2020-SimCLR/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>机器学习</category>
@@ -2010,8 +1999,8 @@
       </tags>
   </entry>
   <entry>
-    <title>TimesURL:Self-supervised Contrastive Learning for Universal Time Series Representation Learning</title>
-    <url>/2024/11/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%9B%91%E7%9D%A3/2024-AAAI2024-TimesURL/</url>
+    <title>Contrastive Multiview Coding</title>
+    <url>/2024/12/02/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%9B%91%E7%9D%A3/2020-ECCV2020-Contrastive-Multiview-Coding/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>机器学习</category>
@@ -2021,53 +2010,14 @@
       </tags>
   </entry>
   <entry>
-    <title>大模型技术原理第一章</title>
-    <url>/2025/02/10/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E7%AC%AC%E4%B8%80%E7%AB%A0/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>资料</category>
-      </categories>
-      <tags>
-        <tag>资料</tag>
-        <tag>大模型</tag>
-        <tag>LLM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>大模型技术原理第五章</title>
-    <url>/2025/03/10/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E7%AC%AC%E4%BA%94%E7%AB%A0/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>资料</category>
-      </categories>
-      <tags>
-        <tag>资料</tag>
-        <tag>大模型</tag>
-        <tag>LLM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>大模型技术原理第四章</title>
-    <url>/2025/02/12/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E7%AC%AC%E5%9B%9B%E7%AB%A0/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>资料</category>
-      </categories>
-      <tags>
-        <tag>资料</tag>
-        <tag>大模型</tag>
-        <tag>LLM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LP-FT</title>
-    <url>/2025/11/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%9B%91%E7%9D%A3%E5%BE%AE%E8%B0%83/2024-ICLR-LP-FT/</url>
+    <title>Supervised Contrastive Learning</title>
+    <url>/2024/12/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%9B%91%E7%9D%A3/2021-supervised-contrastive-learning/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>机器学习</category>
       </categories>
       <tags>
-        <tag>监督微调</tag>
+        <tag>Self-Supervise</tag>
       </tags>
   </entry>
   <entry>
@@ -2079,18 +2029,6 @@
       </categories>
       <tags>
         <tag>Self-Supervise</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>DeepSeek发展史</title>
-    <url>/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>资料</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-        <tag>大模型</tag>
       </tags>
   </entry>
   <entry>
@@ -2120,8 +2058,58 @@
       </tags>
   </entry>
   <entry>
+    <title>TimesURL:Self-supervised Contrastive Learning for Universal Time Series Representation Learning</title>
+    <url>/2024/11/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%9B%91%E7%9D%A3/2024-AAAI2024-TimesURL/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>Self-Supervise</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大模型技术原理第五章</title>
+    <url>/2025/03/10/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E7%AC%AC%E4%BA%94%E7%AB%A0/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>资料</category>
+      </categories>
+      <tags>
+        <tag>资料</tag>
+        <tag>大模型</tag>
+        <tag>LLM</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>大模型技术原理第六章</title>
     <url>/2025/03/25/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E7%AC%AC%E5%85%AD%E7%AB%A0/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>资料</category>
+      </categories>
+      <tags>
+        <tag>资料</tag>
+        <tag>大模型</tag>
+        <tag>LLM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大模型技术原理第四章</title>
+    <url>/2025/02/12/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E7%AC%AC%E5%9B%9B%E7%AB%A0/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>资料</category>
+      </categories>
+      <tags>
+        <tag>资料</tag>
+        <tag>大模型</tag>
+        <tag>LLM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大模型技术原理第一章</title>
+    <url>/2025/02/10/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/%E7%AC%AC%E4%B8%80%E7%AB%A0/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>资料</category>
@@ -2144,25 +2132,15 @@
       </tags>
   </entry>
   <entry>
-    <title>9月21日总结</title>
-    <url>/2024/09/21/crop_classification/Crop%20classification/9%E6%9C%8821%E6%97%A5/9%E6%9C%8821%E6%97%A5%E5%91%A8%E6%8A%A5/</url>
+    <title>DeepSeek发展史</title>
+    <url>/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>crop_classification</category>
+        <category>资料</category>
       </categories>
       <tags>
-        <tag>crop classification</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ros通信机制-话题通信</title>
-    <url>/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/ros%E9%80%9A%E4%BF%A1%E6%9C%BA%E5%88%B6/2.1%E8%AF%9D%E9%A2%98%E9%80%9A%E4%BF%A1/00%20%E6%A6%82%E5%BF%B5/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Ros机器人相关</category>
-      </categories>
-      <tags>
-        <tag>Ros机器人</tag>
+        <tag>机器学习</tag>
+        <tag>大模型</tag>
       </tags>
   </entry>
   <entry>
@@ -2177,6 +2155,17 @@
       </tags>
   </entry>
   <entry>
+    <title>Ros通信机制-话题通信</title>
+    <url>/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/ros%E9%80%9A%E4%BF%A1%E6%9C%BA%E5%88%B6/2.1%E8%AF%9D%E9%A2%98%E9%80%9A%E4%BF%A1/00%20%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Ros机器人相关</category>
+      </categories>
+      <tags>
+        <tag>Ros机器人</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ros通信机制-话题通信2</title>
     <url>/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/ros%E9%80%9A%E4%BF%A1%E6%9C%BA%E5%88%B6/2.1%E8%AF%9D%E9%A2%98%E9%80%9A%E4%BF%A1/01.base%20example/</url>
     <content><![CDATA[]]></content>
@@ -2185,6 +2174,17 @@
       </categories>
       <tags>
         <tag>Ros机器人</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>9月21日总结</title>
+    <url>/2024/09/21/crop_classification/Crop%20classification/9%E6%9C%8821%E6%97%A5/9%E6%9C%8821%E6%97%A5%E5%91%A8%E6%8A%A5/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
       </tags>
   </entry>
   <entry>

@@ -285,11 +285,6 @@ mjx-container[display="true"] + br {
     <div class="widget">
       <h3 class="widget-title">分类</h3>
       <div class="category-box">
-            <a class="category-link" href="/categories/Front-end/">
-                Front-end
-                <div class="category-count">1</div>
-            </a>
-        
             <a class="category-link" href="/categories/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/">
                 Ros机器人相关
                 <div class="category-count">11</div>
@@ -300,9 +295,9 @@ mjx-container[display="true"] + br {
                 <div class="category-count">1</div>
             </a>
         
-            <a class="category-link" href="/categories/diffusion/">
-                diffusion
-                <div class="category-count">2</div>
+            <a class="category-link" href="/categories/mac%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
+                mac常见问题
+                <div class="category-count">1</div>
             </a>
         
             <a class="category-link" href="/categories/crop-classification/">
@@ -310,14 +305,9 @@ mjx-container[display="true"] + br {
                 <div class="category-count">121</div>
             </a>
         
-            <a class="category-link" href="/categories/mac%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
-                mac常见问题
+            <a class="category-link" href="/categories/Front-end/">
+                Front-end
                 <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/classification/">
-                classification
-                <div class="category-count">2</div>
             </a>
         
             <a class="category-link" href="/categories/sequence-processing/">
@@ -325,9 +315,9 @@ mjx-container[display="true"] + br {
                 <div class="category-count">10</div>
             </a>
         
-            <a class="category-link" href="/categories/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/">
-                vscode插件开发
-                <div class="category-count">1</div>
+            <a class="category-link" href="/categories/remote-sensing/">
+                remote-sensing
+                <div class="category-count">2</div>
             </a>
         
             <a class="category-link" href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">
@@ -335,9 +325,19 @@ mjx-container[display="true"] + br {
                 <div class="category-count">5</div>
             </a>
         
-            <a class="category-link" href="/categories/remote-sensing/">
-                remote-sensing
+            <a class="category-link" href="/categories/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/">
+                vscode插件开发
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/diffusion/">
+                diffusion
                 <div class="category-count">2</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E5%85%A5%E5%AD%A6%E6%9D%90%E6%96%99/">
+                入学材料
+                <div class="category-count">1</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%A6%82%E7%8E%87%E8%AE%BA/">
@@ -350,11 +350,6 @@ mjx-container[display="true"] + br {
                 <div class="category-count">1</div>
             </a>
         
-            <a class="category-link" href="/categories/%E5%85%A5%E5%AD%A6%E6%9D%90%E6%96%99/">
-                入学材料
-                <div class="category-count">1</div>
-            </a>
-        
             <a class="category-link" href="/categories/%E8%B5%84%E6%96%99/">
                 资料
                 <div class="category-count">16</div>
@@ -363,6 +358,11 @@ mjx-container[display="true"] + br {
             <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
                 机器学习
                 <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/classification/">
+                classification
+                <div class="category-count">2</div>
             </a>
         
             <a class="category-link" href="/categories/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/">
@@ -550,7 +550,7 @@ mjx-container[display="true"] + br {
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img" rel="gallery_cmjn1uys3002w71f97eyrbrwn">
+      <a class="article-gallery-img" rel="gallery_cmjn2fzch001gnrf97f2g4inh">
         <img src="/stickers_images/sticker74.gif" itemprop="image">
       </a>
     
@@ -896,5 +896,34 @@ mjx-container[display="true"] + br {
   
   <script src="/js/copy-code.js"></script>
   <script src="/js/light-dark-switch.js"></script>
+  <style>
+    .copy-btn {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      background: var(--card-background);
+      border: 1px solid var(--border-color);
+      color: var(--article-text);
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 4px;
+      transition: all 0.2s;
+      z-index: 10;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+    .copy-btn:hover {
+      opacity: 1;
+      color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+    .copy-btn.copied {
+      color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+    .code-container {
+      position: relative;
+    }
+  </style>
 </body>
 </html>
