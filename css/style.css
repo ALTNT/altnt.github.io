@@ -2669,9 +2669,9 @@ pre .javascript .function {
   position: absolute;
   top: 6px;
   right: 6px;
-  background: transparent;
-  border: none;
-  color: var(--article-meta);
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  color: var(--article-text);
   cursor: pointer;
   padding: 6px;
   border-radius: 4px;
@@ -2681,13 +2681,16 @@ pre .javascript .function {
   transition: all 0.2s;
   z-index: 10;
   font-size: 14px;
+  opacity: 0.8;
 }
 .copy-btn:hover {
-  background: rgba(255,255,255,0.1);
+  opacity: 1;
   color: var(--primary-color);
+  border-color: var(--primary-color);
 }
 .copy-btn.copied {
   color: var(--primary-color);
+  border-color: var(--primary-color);
 }
 .back-to-top-wrapper {
   width: 60px;
