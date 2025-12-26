@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="false" > 
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>数据库系统概论笔记 | ALTNT&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="第一章 绪论 数据库的基本概念:   1709192231163    1709373973669  DBMS（数据库管理系统）中并发控制的基本单位是事务（Transaction）。事务是一系列操作，这些操作要么全部执行，要么全部不执行，它是一个不可分割的工作单位。数据库系统利用事务来保证即使在多个用户并发访问数据库时，也能保持数据的一致性和完整性。 ... 为了管理并发事务，数据库系统实施了一系">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库系统概论笔记">
+<meta property="og:url" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="ALTNT&#39;s Blog">
+<meta property="og:description" content="第一章 绪论 数据库的基本概念:   1709192231163    1709373973669  DBMS（数据库管理系统）中并发控制的基本单位是事务（Transaction）。事务是一系列操作，这些操作要么全部执行，要么全部不执行，它是一个不可分割的工作单位。数据库系统利用事务来保证即使在多个用户并发访问数据库时，也能保持数据的一致性和完整性。 ... 为了管理并发事务，数据库系统实施了一系">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709192231163.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709373973669.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709192443703.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709192644572.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709192750475.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709192830204.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709192888356.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709192927587.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709192974692.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709193209241.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709193267259.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709193525132.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709193598668.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709193680933.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709193714822.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709193811869.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709193915646.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709193936586.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709194042660.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709194175473.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709194292464.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709205362159.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709194371963.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709205393754.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709205550069.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709217824252.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709217962410.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709218391867.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709218602123.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709218708398.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709218756695.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709219001375.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709219036501.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709219084981.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709219168961.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709219434462.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709219559958.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709221091870.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709221129551.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709221221976.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709221247537.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709221289424.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709221493593.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709221637128.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709221755899.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709221856052.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709222056980.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709222013468.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709222074470.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709222103230.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709222168965.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709283025712.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709283369064.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709283450122.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709283607957.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709283642952.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709283998262.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709284090419.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709284275372.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709284309119.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709284379840.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709284530245.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709284595459.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709284684736.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709286428246.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709286473762.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709286532534.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709286676576.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709286642724.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709286840054.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709286895831.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709286985061.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709287017773.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709287094288.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709287467752.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709287520765.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709287611871.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709287707658.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709287805418.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709287740202.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709287892951.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709287999215.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709288040534.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709307135152.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709307680069.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709307727839.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709307813475.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709307858823.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709307944924.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709308046794.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709308084050.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709308142720.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709308318657.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709308294418.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709374505309.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709308385823.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709367567687.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709367641208.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709367760946.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709368003231.png">
+<meta property="og:image" content="https://file+.vscode-resource.vscode-cdn.net/Users/altnt/Library/Mobile%20Documents/com~apple~CloudDocs/%E8%AF%BE%E4%BB%B6%E5%8F%8A%E4%BD%9C%E4%B8%9A/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/image/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709368087134.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709368179878.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709368113661.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709368382948.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709368456565.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709368475541.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709368710453.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709368999281.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709369071755.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709371887681.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709371939010.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709372044781.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709372208357.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709372528103.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709372895473.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709388861988.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709388861988.png">
+<meta property="article:published_time" content="2024-06-05T15:46:23.990Z">
+<meta property="article:modified_time" content="2024-06-05T15:46:23.990Z">
+<meta property="article:author" content="ALTNT">
+<meta property="article:tag" content="数据库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.705553939.xyz/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709192231163.png">
+  
+    <link rel="alternate" href="/atom.xml" title="ALTNT's Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  
+   
+  <div id="main-grid" class="  ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>ALTNT's Blog </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">ALTNT </div>
+      <div class="dot"></div>
+      <div class="subtitle">守得云开见月明 </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://x.com/mi_liao39455" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://store.steampowered.com" title="Steam"><i class="fa-brands fa-steam"></i></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/ALTNT" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Cross-phenological-region/" rel="tag">Cross-phenological-region</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/GIS/" rel="tag">GIS</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Image-Processing/" rel="tag">Image Processing</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/LLM/" rel="tag">LLM</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Mac-Macos/" rel="tag">Mac Macos</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA/" rel="tag">Ros机器人</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Self-Supervise/" rel="tag">Self-Supervise</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Self-supervised-learning/" rel="tag">Self-supervised learning</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Sequence-Processing/" rel="tag">Sequence Processing</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/classification/" rel="tag">classification</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/cloud-removal/" rel="tag">cloud removal</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/cloud-removal/" rel="tag">cloud_removal</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/code/" rel="tag">code</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/crop-classification/" rel="tag">crop classification</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/crop-classification-remote-sensing/" rel="tag">crop classification, remote sensing</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/diffusion/" rel="tag">diffusion</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/k8s-Kubernetes/" rel="tag">k8s,Kubernetes</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/markdown-md/" rel="tag">markdown, md</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/remote-sensing/" rel="tag">remote sensing</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91-javascript-TypeScript/" rel="tag">vscode插件开发, javascript, TypeScript</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E4%BA%91%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">云操作系统</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%85%A5%E5%AD%A6%E6%9D%90%E6%96%99/" rel="tag">入学材料</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" rel="tag">图像处理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag">大模型</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" rel="tag">强化学习</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%97%A9%E6%9C%9F%E5%88%86%E7%B1%BB/" rel="tag">早期分类</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%88%86%E7%B1%BB/" rel="tag">时间序列分类</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%9B%91%E7%9D%A3%E5%BE%AE%E8%B0%83/" rel="tag">监督微调</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/" rel="tag">研究生周报</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BE%A4%E7%AD%89%E4%B8%8D%E5%8F%98%E6%80%A7/" rel="tag">群等不变性</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%87%AA%E7%9B%91%E7%9D%A3/" rel="tag">自监督</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%A1%A8%E5%BE%81%E5%AD%A6%E4%B9%A0/" rel="tag">表征学习</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%B5%84%E6%96%99/" rel="tag">资料</a></li></ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+
+<article id="post-数据库系统原理/数据库系统概论笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        数据库系统概论笔记
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-06-05T15:46:23.990Z" itemprop="datePublished">2024-06-05</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    未分类 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            8.1k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h1 id="第一章-绪论">第一章 绪论</h1>
+<p>数据库的基本概念:</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709192231163.png" alt="1709192231163">
+<figcaption aria-hidden="true">1709192231163</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709373973669.png" alt="1709373973669">
+<figcaption aria-hidden="true">1709373973669</figcaption>
+</figure>
+<p><em>DBMS（数据库管理系统）中并发控制的基本单位</em>是事务（Transaction）。事务是一系列操作，这些操作要么全部执行，要么全部不执行，它是一个不可分割的工作单位。数据库系统利用事务来保证即使在多个用户并发访问数据库时，也能保持数据的一致性和完整性。</p>
+<p>...</p>
+<p>为了管理并发事务，数据库系统实施了一系列并发控制机制，这些机制确保事务的隔离性，即事务的执行不会被其他事务的操作所干扰。隔离性是ACID原则中的一个重要组成部分，ACID代表原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）和持久性（Durability），这是事务必须遵守的四个特性。</p>
+<p>并发控制通常通过锁定机制（如共享锁和排它锁）、乐观并发控制、时间戳排序、多版本并发控制（MVCC）等技术来实现。这些机制可以防止并发事务之间发生冲突，例如更新丢失、脏读、不可重复读和幻读等问题。通过这些并发控制技术，DBMS能够在维护数据一致性的同时，提高系统的并发性能。</p>
+<p>数据库的发展阶段</p>
+<p>数据库的发展阶段以及独立性</p>
+<p>独立性即用户应用程序与数据库的数据相互独立</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709192443703.png" alt="1709192443703">
+<figcaption aria-hidden="true">1709192443703</figcaption>
+</figure>
+<p>数据模型</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709192644572.png" alt="1709192644572">
+<figcaption aria-hidden="true">1709192644572</figcaption>
+</figure>
+<p>ER图</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709192750475.png" alt="1709192750475">
+<figcaption aria-hidden="true">1709192750475</figcaption>
+</figure>
+<p>常见的数据模型+层次模型</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709192830204.png" alt="1709192830204">
+<figcaption aria-hidden="true">1709192830204</figcaption>
+</figure>
+<p>网状模型</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709192888356.png" alt="1709192888356">
+<figcaption aria-hidden="true">1709192888356</figcaption>
+</figure>
+<p>关系模型</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709192927587.png" alt="1709192927587">
+<figcaption aria-hidden="true">1709192927587</figcaption>
+</figure>
+<p>关系、元组、属性、码、域、分量</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709192974692.png" alt="1709192974692">
+<figcaption aria-hidden="true">1709192974692</figcaption>
+</figure>
+<p>数据库系统的结构</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709193209241.png" alt="1709193209241">
+<figcaption aria-hidden="true">1709193209241</figcaption>
+</figure>
+<p>三级模式结构</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709193267259.png" alt="1709193267259">
+<figcaption aria-hidden="true">1709193267259</figcaption>
+</figure>
+<h1 id="第二章-关系型数据库">第二章 关系型数据库</h1>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709193525132.png" alt="1709193525132">
+<figcaption aria-hidden="true">1709193525132</figcaption>
+</figure>
+<p>关系模式</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709193598668.png" alt="1709193598668">
+<figcaption aria-hidden="true">1709193598668</figcaption>
+</figure>
+<p>关系操作</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709193680933.png" alt="1709193680933">
+<figcaption aria-hidden="true">1709193680933</figcaption>
+</figure>
+<p>关系语言的分类</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709193714822.png" alt="1709193714822">
+<figcaption aria-hidden="true">1709193714822</figcaption>
+</figure>
+<p>(1)关系代数语言</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709193811869.png" alt="1709193811869">
+<figcaption aria-hidden="true">1709193811869</figcaption>
+</figure>
+<p>交</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709193915646.png" alt="1709193915646">
+<figcaption aria-hidden="true">1709193915646</figcaption>
+</figure>
+<p>并 差</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709193936586.png" alt="1709193936586">
+<figcaption aria-hidden="true">1709193936586</figcaption>
+</figure>
+<p>笛卡尔积</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709194042660.png" alt="1709194042660">
+<figcaption aria-hidden="true">1709194042660</figcaption>
+</figure>
+<p>选择、象集、条件表达式</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709194175473.png" alt="1709194175473">
+<figcaption aria-hidden="true">1709194175473</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709194292464.png" alt="1709194292464">
+<figcaption aria-hidden="true">1709194292464</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709205362159.png" alt="1709205362159">
+<figcaption aria-hidden="true">1709205362159</figcaption>
+</figure>
+<p>选择</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709194371963.png" alt="1709194371963">
+<figcaption aria-hidden="true">1709194371963</figcaption>
+</figure>
+<p>投影</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709205393754.png" alt="1709205393754">
+<figcaption aria-hidden="true">1709205393754</figcaption>
+</figure>
+<p>选择和投影的结合</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709205550069.png" alt="1709205550069">
+<figcaption aria-hidden="true">1709205550069</figcaption>
+</figure>
+<p>连接:</p>
+<p>分为</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709217824252.png" alt="1709217824252">
+<figcaption aria-hidden="true">1709217824252</figcaption>
+</figure>
+<p>自然连接和悬浮元组</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709217962410.png" alt="1709217962410">
+<figcaption aria-hidden="true">1709217962410</figcaption>
+</figure>
+<p>外连接、左外连接、右外连接(跟上面的自然连接
+比起来就是不再舍弃悬浮元组)</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709218391867.png" alt="1709218391867">
+<figcaption aria-hidden="true">1709218391867</figcaption>
+</figure>
+<p>除 (很简单)</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709218602123.png" alt="1709218602123">
+<figcaption aria-hidden="true">1709218602123</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709218708398.png" alt="1709218708398">
+<figcaption aria-hidden="true">1709218708398</figcaption>
+</figure>
+<p>关系的完整性(实体完整性、参照完整性、用户定义完整性)</p>
+<p>数据库的数据完整性是指数据的准确性和可靠性。它确保了数据库中的数据是正确的、一致的，并且符合定义的规则和约束。数据完整性是数据库管理的一个重要部分，它包括以下几个方面：</p>
+<ol type="1">
+<li><strong>实体完整性</strong>：确保每个表都有一个唯一的主键，不允许有重复的记录，也不允许主键的值为空。</li>
+<li><strong>参照完整性</strong>：确保外键值的一致性，即表中的外键必须对应于另一表的主键，或者是完全为空，以维护不同表之间的数据一致性。</li>
+<li><strong>域完整性</strong>：确保表中的每个字段值都必须在一个特定的域（数据类型、数据范围）内，例如，一个年龄字段应该只包含正整数。</li>
+<li><strong>用户定义的完整性</strong>：指的是根据业务规则为数据库设置的特定的规则和约束，例如，一个员工的工资不应该低于最低工资标准。</li>
+</ol>
+<p>通过强制执行这些完整性约束，数据库管理系统（DBMS）能够防止无效数据的输入，减少数据错误，并确保数据的质量。数据完整性对于保证信息系统的准确性和可信赖性至关重要。</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709218756695.png" alt="1709218756695">
+<figcaption aria-hidden="true">1709218756695</figcaption>
+</figure>
+<h1 id="第三章-sql语言">第三章 SQL语言</h1>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709219001375.png" alt="1709219001375">
+<figcaption aria-hidden="true">1709219001375</figcaption>
+</figure>
+<p>基本概念</p>
+<p>这个也考</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709219036501.png" alt="1709219036501">
+<figcaption aria-hidden="true">1709219036501</figcaption>
+</figure>
+<p>数据定义语言DDL、数据查询语言DQL、数据操纵语言DML、数据控制语言DCL</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709219084981.png" alt="1709219084981">
+<figcaption aria-hidden="true">1709219084981</figcaption>
+</figure>
+<p>SQL语言的特点</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709219168961.png" alt="1709219168961">
+<figcaption aria-hidden="true">1709219168961</figcaption>
+</figure>
+<p>SQL的基本语法:</p>
+<h2 id="变量类型">(1)变量类型</h2>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709219434462.png" alt="1709219434462">
+<figcaption aria-hidden="true">1709219434462</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709219559958.png" alt="1709219559958">
+<figcaption aria-hidden="true">1709219559958</figcaption>
+</figure>
+<h2 id="模式定义">模式定义</h2>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709221091870.png" alt="1709221091870">
+<figcaption aria-hidden="true">1709221091870</figcaption>
+</figure>
+<p>模式定义+视图</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709221129551.png" alt="1709221129551">
+<figcaption aria-hidden="true">1709221129551</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709221221976.png" alt="1709221221976">
+<figcaption aria-hidden="true">1709221221976</figcaption>
+</figure>
+<p>模式删除</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709221247537.png" alt="1709221247537">
+<figcaption aria-hidden="true">1709221247537</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709221289424.png" alt="1709221289424">
+<figcaption aria-hidden="true">1709221289424</figcaption>
+</figure>
+<h2 id="表的-定义和删除修改">表的 定义和删除、修改</h2>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709221493593.png" alt="1709221493593">
+<figcaption aria-hidden="true">1709221493593</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709221637128.png" alt="1709221637128">
+<figcaption aria-hidden="true">1709221637128</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709221755899.png" alt="1709221755899">
+<figcaption aria-hidden="true">1709221755899</figcaption>
+</figure>
+<h2 id="索引的建立删除和修改">索引的建立、删除和修改</h2>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709221856052.png" alt="1709221856052">
+<figcaption aria-hidden="true">1709221856052</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709222056980.png" alt="1709222056980">
+<figcaption aria-hidden="true">1709222056980</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709222013468.png" alt="1709222013468">
+<figcaption aria-hidden="true">1709222013468</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709222074470.png" alt="1709222074470">
+<figcaption aria-hidden="true">1709222074470</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709222103230.png" alt="1709222103230">
+<figcaption aria-hidden="true">1709222103230</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709222168965.png" alt="1709222168965">
+<figcaption aria-hidden="true">1709222168965</figcaption>
+</figure>
+<h2 id="查询">查询</h2>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709283025712.png" alt="1709283025712">
+<figcaption aria-hidden="true">1709283025712</figcaption>
+</figure>
+<h3 id="别名">别名</h3>
+<p>(如下面是给username起了别名“姓名",这里as可以省略)</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709283369064.png" alt="1709283369064">
+<figcaption aria-hidden="true">1709283369064</figcaption>
+</figure>
+<p>下面是给表user起别名u</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709283450122.png" alt="1709283450122">
+<figcaption aria-hidden="true">1709283450122</figcaption>
+</figure>
+<h3 id="结果去重distinct">结果去重(distinct)</h3>
+<p>如下面的查询语句查询的结果有重复的</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709283607957.png" alt="1709283607957">
+<figcaption aria-hidden="true">1709283607957</figcaption>
+</figure>
+<p>可以 加上distinct来去重</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709283642952.png" alt="1709283642952">
+<figcaption aria-hidden="true">1709283642952</figcaption>
+</figure>
+<h3 id="查询结果加条件where">查询结果加条件where</h3>
+<p>可适用的查询条件</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709283998262.png" alt="1709283998262">
+<figcaption aria-hidden="true">1709283998262</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709284090419.png" alt="1709284090419">
+<figcaption aria-hidden="true">1709284090419</figcaption>
+</figure>
+<p>between and</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709284275372.png" alt="1709284275372">
+<figcaption aria-hidden="true">1709284275372</figcaption>
+</figure>
+<p>in</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709284309119.png" alt="1709284309119">
+<figcaption aria-hidden="true">1709284309119</figcaption>
+</figure>
+<p>like</p>
+<p>(%表示前面可任意个字符、_表一个、</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709284379840.png" alt="1709284379840">
+<figcaption aria-hidden="true">1709284379840</figcaption>
+</figure>
+<p>is null</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709284530245.png" alt="1709284530245">
+<figcaption aria-hidden="true">1709284530245</figcaption>
+</figure>
+<p>多个附加条件 and or</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709284595459.png" alt="1709284595459">
+<figcaption aria-hidden="true">1709284595459</figcaption>
+</figure>
+<h3 id="聚集函数">聚集函数</h3>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709284684736.png" alt="1709284684736">
+<figcaption aria-hidden="true">1709284684736</figcaption>
+</figure>
+<p>count(*))</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709286428246.png" alt="1709286428246">
+<figcaption aria-hidden="true">1709286428246</figcaption>
+</figure>
+<p>count(DISTINCT title)</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709286473762.png" alt="1709286473762">
+<figcaption aria-hidden="true">1709286473762</figcaption>
+</figure>
+<h3 id="分组查询group-by-和having">分组查询(group by 和having)</h3>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709286532534.png" alt="1709286532534">
+<figcaption aria-hidden="true">1709286532534</figcaption>
+</figure>
+<p>注意group by后不能加where,如下面:</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709286676576.png" alt="1709286676576">
+<figcaption aria-hidden="true">1709286676576</figcaption>
+</figure>
+<p>解决方式是加having</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709286642724.png" alt="1709286642724">
+<figcaption aria-hidden="true">1709286642724</figcaption>
+</figure>
+<h3 id="连接">连接</h3>
+<h4 id="两个表连接笛卡尔积">两个表连接(笛卡尔积)</h4>
+<p>这样写是两张表直接笛卡尔积</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709286840054.png" alt="1709286840054">
+<figcaption aria-hidden="true">1709286840054</figcaption>
+</figure>
+<p>以where做关键字</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709286895831.png" alt="1709286895831">
+<figcaption aria-hidden="true">1709286895831</figcaption>
+</figure>
+<h4 id="自身连接">自身连接</h4>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709286985061.png" alt="1709286985061">
+<figcaption aria-hidden="true">1709286985061</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709287017773.png" alt="1709287017773">
+<figcaption aria-hidden="true">1709287017773</figcaption>
+</figure>
+<h4 id="外连接">外连接</h4>
+<p>左外连接</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709287094288.png" alt="1709287094288">
+<figcaption aria-hidden="true">1709287094288</figcaption>
+</figure>
+<h3 id="嵌套查询">嵌套查询</h3>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709287467752.png" alt="1709287467752">
+<figcaption aria-hidden="true">1709287467752</figcaption>
+</figure>
+<h3 id="带any-all的子查询">带any all的子查询</h3>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709287520765.png" alt="1709287520765">
+<figcaption aria-hidden="true">1709287520765</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709287611871.png" alt="1709287611871">
+<figcaption aria-hidden="true">1709287611871</figcaption>
+</figure>
+<p>带exists的子查询</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709287707658.png" alt="1709287707658">
+<figcaption aria-hidden="true">1709287707658</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709287805418.png" alt="1709287805418">
+<figcaption aria-hidden="true">1709287805418</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709287740202.png" alt="1709287740202">
+<figcaption aria-hidden="true">1709287740202</figcaption>
+</figure>
+<h3 id="集合的查询">集合的查询</h3>
+<p>并 union。交 intersect ,差except</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709287892951.png" alt="1709287892951">
+<figcaption aria-hidden="true">1709287892951</figcaption>
+</figure>
+<p>差except</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709287999215.png" alt="1709287999215">
+<figcaption aria-hidden="true">1709287999215</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709288040534.png" alt="1709288040534">
+<figcaption aria-hidden="true">1709288040534</figcaption>
+</figure>
+<h2 id="表的修改">表的修改</h2>
+<h3 id="插入">插入</h3>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709307135152.png" alt="1709307135152">
+<figcaption aria-hidden="true">1709307135152</figcaption>
+</figure>
+<h3 id="修改">修改</h3>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709307680069.png" alt="1709307680069">
+<figcaption aria-hidden="true">1709307680069</figcaption>
+</figure>
+<h3 id="删除">删除</h3>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709307727839.png" alt="1709307727839">
+<figcaption aria-hidden="true">1709307727839</figcaption>
+</figure>
+<h2 id="视图">视图</h2>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709307813475.png" alt="1709307813475">
+<figcaption aria-hidden="true">1709307813475</figcaption>
+</figure>
+<h3 id="创建视图">创建视图</h3>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709307858823.png" alt="1709307858823">
+<figcaption aria-hidden="true">1709307858823</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709307944924.png" alt="1709307944924">
+<figcaption aria-hidden="true">1709307944924</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709308046794.png" alt="1709308046794">
+<figcaption aria-hidden="true">1709308046794</figcaption>
+</figure>
+<h3 id="删除视图">删除视图</h3>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709308084050.png" alt="1709308084050">
+<figcaption aria-hidden="true">1709308084050</figcaption>
+</figure>
+<h3 id="查询视图">查询视图</h3>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709308142720.png" alt="1709308142720">
+<figcaption aria-hidden="true">1709308142720</figcaption>
+</figure>
+<h3 id="更新视图">更新视图</h3>
+<p>注意:要先更新视图、再修改原表</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709308318657.png" alt="1709308318657">
+<figcaption aria-hidden="true">1709308318657</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709308294418.png" alt="1709308294418">
+<figcaption aria-hidden="true">1709308294418</figcaption>
+</figure>
+<h2 id="游标">游标</h2>
+<p>游标是SQL 的一种数据访问机制
+，游标是一种处理数据的方法。众所周知，使用SQL的select查询操作返回的结果是一个包含一行或者是多行的数据集，如果我们要对查询的结果再进行查询，比如（查看结果的第一行、下一行、最后一行、前十行等等操作）简单的通过select语句是无法完成的，因为这时候索要查询的结果不是数据表，而是已经查询出来的结果集。游标就是针对这种情况而出现的。</p>
+<p>我们可以将“ 游标
+”简单的看成是结果集的一个指针，可以根据需要在结果集上面来回滚动，浏览我需要的数据。</p>
+<p><strong>声明游标—&gt;打开游标—&gt;读取数据—&gt;关闭游标—&gt;删除游标</strong></p>
+<h3 id="声明游标">声明游标</h3>
+<p>语法如下：</p>
+<p>declare cursor_name Corsor [ LOCAL | GLOBAL] [ FORWARD_ONLY | SCROLL
+] [ STATIC | KEYSET | DYNAMIC | FAST_FORWARD ] [ READ_ONLY |
+SCROLL_LOCKS | OPTIMISTIC ] [ TYPE_WARNING ]</p>
+<p>for</p>
+<p>Slect查询的相关语句</p>
+<p>上面的彩色字体表示的是，声明游标时的选项，不是必须提供的，每一个都代表游标的相关选项和特性</p>
+<p>（1）LOCAL：对于在其中创建批处理、存储过程或触发器来说，该游标的作用域是局部的。GLOBAL：指定该游标的作用域是全局的</p>
+<p>（2）FORWARD_ONLY:指定游标只能从第一行滚动到最后一行。否则默认为FORWARD_ONLY。SCROLL表示游标可以来回滚动</p>
+<p>（3）STATIC：定义一个游标，以创建将又该游标使用的数据临时复本，对游标的所有请求都从tempdb中的这以临时表中不得到应答；因此，在对该游标进行提取操作时返回的数据中不反映对基表所做的修改，并且该游标不允许修改。</p>
+<p>KEYSET:指定当游标打开时，游标重的行的成员身份和顺序已经固定。对行进行唯一标识的键值内置在tempdb内一个称为keyset的表中。</p>
+<pre><code>DYNAMIC:定义一个游标，以反映在滚动游标时对结果集内的各行所做的所有数据更改。行的数据值、顺序和成员身份在每次提取时都会更改，动态游标不支持ABSOLUTE提取选项。
+
+FAST_FORWARD：指定启动了性能优化的FORWARD_ONLY、READ_ONLY游标。如果指定了SCROLL或FOR_UPDATE,则不能指定FAST_FORWARD。
+
+
+SCROLL_LOCKS：指定通过游标进行的定位更新或删除一定会成功。将行读入游标时SQL Server将锁定这些行，以确保随后可对它们进行修改，如果还指定了FAST_FORWARD或STATIC，则不能指定SCROLL_LOCKS。</code></pre>
+<p>OPTIMISTIC：指定如果行自读入游标以来已得到更新，则通过游标进行的定位更新或定位删除不成功。当将行读入游标时，SQL
+Server不锁定行，它改用timestamp列值比较结果来确定行读入游标后是否发生了修改，如果表不包含timestamp列，它改用校验和值进行确定，如果以修改该行，则尝试进行的定位更新或删除将失败，如果还指定了FAST_FORWARD，则不能指定OPTIMISTIC。</p>
+<p>TYPE_WARNING:指定游标从所请求的类型隐式转换为另一种类型时，向客户端发送警告消息。</p>
+<p>2、打开游标——Open Cursorname</p>
+<p>3、取出数据——Fetch.........From</p>
+<p>Fetch <span class="citation" data-cites="nvar">[ NEXT | PRIOR | FIRST
+| LAST | ABSOLUTE { n | @nvar } | RELATIVE { n | @nvar }]</span> FROM
+Cursorname</p>
+<p><span class="citation" data-cites="variable_name">[ INTO
+@variable_name [ ,...n ] ]</span></p>
+<p>NEXT:紧跟当前行返回结果行，并且当前行递增为返回行，如果FETCH
+NEXT为对游标的第一次提取操作，则返回结果集中的第一行。NEXT为默认的游标提取选项。</p>
+<p>PRIOR：返回紧邻当前行前面的结果行，并且当前行递减为返回行，如果FETCH
+PRIOR为对游标的第一次提取操作，则没有行返回并且游标置于第一行之前。</p>
+<p>FIRST：返回游标中的第一行并将其作为当前行。</p>
+<p>LAST:返回游标中的最后一行并将其作为当前行。</p>
+<p>ABSOLUTE { n | <span class="citation" data-cites="nvar">@nvar</span>
+}：如果n或@nvar为正，则返回从游标头开始向后n行的第n行，并将返回行变成新的当前行。如果n或@nvar为负，则返回从游标末尾开始向前的n行的第n行，并将返回行变成新的当前行。如果n或@nvar为0，则不返回行。n必须是整数常量，并且@nvar的数据类型必须为int、tinyint或smallint.</p>
+<p>RELATIVE { n | <span class="citation" data-cites="nvar">@nvar</span>
+}：如果n或@nvar为正，则返回从当前行开始向后的第n行。如果n或@nvar为负，则返回从当前行开始向前的第n行。如果n或@nvar为0，则返回当前行,对游标第一次提取时，如果在将n或@nvar设置为负数或0的情况下指定FETCH
+RELATIVE,则不返回行，n必须是整数常量，<span class="citation" data-cites="nvar的数据类型必须是int">@nvar的数据类型必须是int</span>、tinyint或smallint.</p>
+<p>GLOBAL：指定cursor_name是全局游标。</p>
+<p>cursor_name：已声明的游标的名称。如果全局游标和局部游标都使用cursor_name作为其名称，那么如果指定了GLOBAL，则cursor_name指的是全局游标，否则cursor_name指的是局部游标。</p>
+<p><span class="citation" data-cites="cursor_variable_name">@cursor_variable_name</span>：游标变量名，引用要从中进行提取操作的打开的游标。</p>
+<p>INTO <span class="citation" data-cites="variable_name">@variable_name
+[ ,...n
+]</span>：允许将提取操作的列数据放到局部变量中。列表中的各个变量从左到右与游标结果集中的相应列相关联。各变量的数据类型必须与相应的结果集列的数据类型相匹配，或是结果集列数据类型所支持的隐士转换。变量的数目必须与游标选择列表中的列数一致。</p>
+<p><strong>4、关闭游标——Close Cursorname</strong></p>
+<p><strong>5、删除游标——Deallocate Cursorname </strong></p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709374505309.png" alt="1709374505309">
+<figcaption aria-hidden="true">1709374505309</figcaption>
+</figure>
+<h1 id="第四章-数据库的安全性">第四章 数据库的安全性</h1>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709308385823.png" alt="1709308385823">
+<figcaption aria-hidden="true">1709308385823</figcaption>
+</figure>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709367567687.png" alt="1709367567687">
+<figcaption aria-hidden="true">1709367567687</figcaption>
+</figure>
+<h2 id="安全性控制">安全性控制</h2>
+<p>用户身份鉴别、存取控制、自主存取控制方法(重点)</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709367641208.png" alt="1709367641208">
+<figcaption aria-hidden="true">1709367641208</figcaption>
+</figure>
+<p>主要的操作权限有下面:</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709367760946.png" alt="1709367760946">
+<figcaption aria-hidden="true">1709367760946</figcaption>
+</figure>
+<p>上面的References表示是否允许创建外键权限</p>
+<h3 id="授权grant">授权grant</h3>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709368003231.png" alt="1709368003231">
+<figcaption aria-hidden="true">1709368003231</figcaption>
+</figure>
+<figure>
+<img src="https://file+.vscode-resource.vscode-cdn.net/Users/altnt/Library/Mobile%20Documents/com~apple~CloudDocs/%E8%AF%BE%E4%BB%B6%E5%8F%8A%E4%BD%9C%E4%B8%9A/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/image/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709368087134.png" alt="1709368087134">
+<figcaption aria-hidden="true">1709368087134</figcaption>
+</figure>
+<h3 id="回收权限revoke">回收权限revoke</h3>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709368179878.png" alt="1709368179878">
+<figcaption aria-hidden="true">1709368179878</figcaption>
+</figure>
+<p>这里的cascade表示子用户赋予的权限一并回收</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709368113661.png" alt="1709368113661">
+<figcaption aria-hidden="true">1709368113661</figcaption>
+</figure>
+<h3 id="数据库的角色">数据库的角色</h3>
+<p>用于给一类人授权</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709368382948.png" alt="1709368382948">
+<figcaption aria-hidden="true">1709368382948</figcaption>
+</figure>
+<h2 id="视图机制">视图机制</h2>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709368456565.png" alt="1709368456565">
+<figcaption aria-hidden="true">1709368456565</figcaption>
+</figure>
+<h2 id="审计和数据加密简单了解即可">审计和数据加密(简单了解即可)</h2>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709368475541.png" alt="1709368475541">
+<figcaption aria-hidden="true">1709368475541</figcaption>
+</figure>
+<h1 id="第五章-数据库的完整性">第五章 数据库的完整性</h1>
+<h2 id="正确性相容性维护完整性">正确性、相容性、维护完整性</h2>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709368710453.png" alt="1709368710453">
+<figcaption aria-hidden="true">1709368710453</figcaption>
+</figure>
+<h2 id="三大完整性">三大完整性</h2>
+<h3 id="实体完整性">实体完整性</h3>
+<p>主键定义使用primary key的两种方式</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709368999281.png" alt="1709368999281">
+<figcaption aria-hidden="true">1709368999281</figcaption>
+</figure>
+<h3 id="参照完整性">参照完整性</h3>
+<p>定义外键foreign key+references</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709369071755.png" alt="1709369071755">
+<figcaption aria-hidden="true">1709369071755</figcaption>
+</figure>
+<h3 id="用户定义完整性">用户定义完整性</h3>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709371887681.png" alt="1709371887681">
+<figcaption aria-hidden="true">1709371887681</figcaption>
+</figure>
+<h2 id="断言">断言</h2>
+<p>assertion</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709371939010.png" alt="1709371939010">
+<figcaption aria-hidden="true">1709371939010</figcaption>
+</figure>
+<h2 id="触发器">触发器</h2>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709372044781.png" alt="1709372044781">
+<figcaption aria-hidden="true">1709372044781</figcaption>
+</figure>
+<p>for each row</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709372208357.png" alt="1709372208357">
+<figcaption aria-hidden="true">1709372208357</figcaption>
+</figure>
+<p>for each statement表示语句执行完了</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709372528103.png" alt="1709372528103">
+<figcaption aria-hidden="true">1709372528103</figcaption>
+</figure>
+<p>删除触发器</p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709372895473.png" alt="1709372895473">
+<figcaption aria-hidden="true">1709372895473</figcaption>
+</figure>
+<h1 id="数据库范式">数据库范式</h1>
+<p><strong>1、数据库范式的作用</strong></p>
+<p>数据库范式主要是为解决关系数据库中数据冗余、更新异常、插入异常、删除异常问题而引入的设计理念。简单来说，数据库范式可以避免数据冗余，减少数据库的存储空间，并且减轻维护数据完整性的成本。是关系数据库核心的技术之一，也是从事数据库开发人员必备知识。</p>
+<p><strong>2、数据库范式分类介绍</strong></p>
+<p>范式是评价数据库模式规范化程度从低到高主要有：1NF、2NF、3Nf、BCNF、4NF、5NF。</p>
+<p>范式通常分为几个不同的级别，每个级别对应一组特定的规则，这些规则定义了表结构应该如何组织以避免不同类型的数据冗余和更新异常。以下是一些基本的数据库范式：</p>
+<ol type="1">
+<li><strong>第一范式（1NF）</strong>：</li>
+</ol>
+<p>**
+**表的每个列都是不可分割的基本数据项，同一列中的值都是同一类型的，每个列都有唯一的名称，且每个表中的每个记录都需要能够被唯一地识别（通常通过主键实现）。</p>
+<ol start="2" type="1">
+<li><strong>第二范式（2NF）</strong>：</li>
+</ol>
+<p>**
+**在第一范式的基础上，表必须没有部分依赖，即表中的非主属性必须完全依赖于主键。</p>
+<ol start="3" type="1">
+<li><strong>第三范式（3NF）</strong>：</li>
+</ol>
+<p>**
+**在第二范式的基础上，表中的所有非主属性不仅完全依赖于主键，而且还必须直接依赖于主键，没有传递依赖。</p>
+<ol start="4" type="1">
+<li><strong>BCNF（Boyce-Codd Normal Form）</strong>：</li>
+</ol>
+<p>** **是第三范式的加强版，要求表中的每个决定因素都是候选键。</p>
+<ol start="5" type="1">
+<li><strong>第四范式（4NF）</strong>：</li>
+</ol>
+<p>**
+**在BCNF的基础上，表必须没有多值依赖，即表中的一个属性不能依赖于另一个属性的多个值。</p>
+<ol start="6" type="1">
+<li><strong>第五范式（5NF）</strong>：</li>
+</ol>
+<p>**
+**在第四范式的基础上，表必须没有潜在的连接依赖，即表的任何非平凡的连接依赖都必须是由候选键推导出来的。</p>
+<ol start="7" type="1">
+<li><strong>第六范式（6NF）</strong>：</li>
+</ol>
+<p>** **是进一步的范式，通常涉及到复杂的时间相关的数据。</p>
+<p>数据库设计者通常会根据实际需求，平衡范式化和性能之间的关系。过度范式化可能会导致查询性能下降，因为它可能需要多个表的连接操作。在实践中，设计者往往会在第三范式或BCNF停止，并在必要时对数据库模式进行适当的反范式化以优化性能。</p>
+<p><strong>2.1 1NF 第一范式</strong></p>
+<p>强调属性的原子性约束，要求属性具有原子性，不可再分解。</p>
+<p>举例：</p>
+<p>学生表(学号、姓名、年龄、性别、地址)。地址可以细分为国家、省份、城市、市区、街道，那么该模式就没有达到第一范式。</p>
+<p>第一范式存在问题：冗余度大、会引起修改操作的不一致性、数据插入异常、数据删除异常。</p>
+<p><strong>2.2 2NF 第二范式</strong></p>
+<p>第二范式，强调记录的唯一性约束，数据表必须有一个主键，并且没有包含在主键中的列必须完全依赖于主键，而不能只依赖于主键的一部分。</p>
+<p>举例：</p>
+<p>版本表(版本编码，版本名称，产品编码，产品名称)，其中主键是(版本编码，产品编码)，这个场景中，数据库设计并不符合第二范式，因为产品名称只依赖于产品编码。存在部分依赖。所以，为了使其满足第二范式，可以改造成两个表：版本表(版本编码，产品编码)和产品表(产品编码，产品名称)</p>
+<p><strong>2.3 3NF 第三范式</strong></p>
+<p>第三范式，强调数据属性冗余性的约束，也就是非主键列必须直接依赖于主键。也就是消除了非主属性对码的传递函数依赖。</p>
+<p>举例：</p>
+<p>订单表(订单编码，顾客编码，顾客名称)，其中主键是(订单编码)，这个场景中，顾客编码、顾客名称都完全依赖于主键，因此符合第二范式，但顾客名称依赖于顾客编码，从而间接依赖于主键，所以不能满足第三范式。如果要满足第三范式，需要拆分为两个表：订单表(订单编码，顾客编码)和顾客表(顾客编码，顾客名称)。</p>
+<p>说明：3NF的模式肯定满足2NF。产生冗余和异常的两个重要原因是部分依赖和传递依赖。3NF模式中不存在非主属性对码的部分函数依赖和传递函数依赖，性能较好。1NF、2NF一般不适合作为数据库模式，通常需要转换为3NF或者更高级别的范式，这种变换过程称为关系模式规范化处理。</p>
+<p><strong>2.4 BCNF(Bovce Codd Normal Form 巴克斯范式)</strong></p>
+<p>属于修正的第三范式，是防止主键的某一列会依赖于主键的其他列。当3NF消除了主属性对码的部分函数依赖和传递函数依赖称为BCNF。</p>
+<p>特性：</p>
+<p>1、所有主属性对每一个码都是完全函数依赖</p>
+<p>2、所有主属性对每一个不包含它的码，也是完全函数依赖</p>
+<p>3、没有任何属性完全函数依赖与非码的任何一组属性</p>
+<p>举例：库存表(仓库名，管理员名，商品名，数量)，主键为(仓库名，管理员名，商品名)，这是满足前面三个范式的，但是仓库名和管理员名之间存在依赖关系，因此删除某一个仓库，会导致管理员也被删除，这样就不满足BCNF。</p>
+<p><strong>2.5 4NF 第四范式</strong></p>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709388861988.png" alt="1709388861988">
+<figcaption aria-hidden="true">1709388861988</figcaption>
+</figure>
+<p>非主属性不应该有多值。如果有多值就违反了第四范式。4NF是限制关系模式的属性间不允许有非平凡且非函数依赖的多值依赖。</p>
+<p>举例：用户联系方式表(用户id，固定电话，移动电话)，其中用户id是主键，这个满足了BCNF,但是一个用户有可能会有多个固定电话或者多个移动电话，那么这种设计就不合理，应该改为(用户id，联系方式类型，电话号码)。</p>
+<p>说明：如果只考虑函数依赖，关系模式规范化程度最高的范式是BCNF;如果考虑多值依赖则是4NF。</p>
+<p><strong>2.6 5NF 第五范式</strong></p>
+<p>第五范式属于最终范式，消除了4NF中的连接依赖，第五范式需要满足以下要求：</p>
+<p>1、必须满足第四范式</p>
+<p>2、表必须可以分解为较小的表，除非那些表在逻辑上拥有与原始表相同的主键。</p>
+<p>一般实际应用中不必考虑第五范式。</p>
+<h1 id="关系理论">关系理论</h1>
+<figure>
+<img src="/2024/06/05/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%AE%BA%E7%AC%94%E8%AE%B0/1709388861988.png" alt="1709388861988">
+<figcaption aria-hidden="true">1709388861988</figcaption>
+</figure>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2024/06/28/hello-world/"
+      title="Hello World"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        Hello World
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/"
+      title="模仿学习"
+     >
+
+    <p class="title-text">
+      
+        模仿学习
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+
+
+
+
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+    &copy; 2025 ALTNT<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>

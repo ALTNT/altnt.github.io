@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="false" > 
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>AN IMAGE IS WORTH 16X16 WORDS——TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE | ALTNT&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="Here&#39;s something encrypted, password is required to continue reading.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AN IMAGE IS WORTH 16X16 WORDS——TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE">
+<meta property="og:url" content="http://blog.705553939.xyz/2025/02/04/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/2021-vit-visiontransformer/index.html">
+<meta property="og:site_name" content="ALTNT&#39;s Blog">
+<meta property="og:description" content="Here&#39;s something encrypted, password is required to continue reading.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-02-04T10:02:15.150Z">
+<meta property="article:modified_time" content="2025-02-28T13:18:27.590Z">
+<meta property="article:author" content="ALTNT">
+<meta property="article:tag" content="Image Processing">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="ALTNT's Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.2.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+<body>
+  
+   
+  <div id="main-grid" class="  ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>ALTNT's Blog </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">ALTNT </div>
+      <div class="dot"></div>
+      <div class="subtitle">守得云开见月明 </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://x.com/mi_liao39455" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://store.steampowered.com" title="Steam"><i class="fa-brands fa-steam"></i></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/ALTNT" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Cross-phenological-region/" rel="tag">Cross-phenological-region</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/GIS/" rel="tag">GIS</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Image-Processing/" rel="tag">Image Processing</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/LLM/" rel="tag">LLM</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Mac-Macos/" rel="tag">Mac Macos</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA/" rel="tag">Ros机器人</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Self-Supervise/" rel="tag">Self-Supervise</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Self-supervised-learning/" rel="tag">Self-supervised learning</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Sequence-Processing/" rel="tag">Sequence Processing</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/classification/" rel="tag">classification</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/cloud-removal/" rel="tag">cloud removal</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/cloud-removal/" rel="tag">cloud_removal</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/code/" rel="tag">code</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/crop-classification/" rel="tag">crop classification</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/crop-classification-remote-sensing/" rel="tag">crop classification, remote sensing</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/diffusion/" rel="tag">diffusion</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/k8s-Kubernetes/" rel="tag">k8s,Kubernetes</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/markdown-md/" rel="tag">markdown, md</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/remote-sensing/" rel="tag">remote sensing</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91-javascript-TypeScript/" rel="tag">vscode插件开发, javascript, TypeScript</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E4%BA%91%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">云操作系统</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%85%A5%E5%AD%A6%E6%9D%90%E6%96%99/" rel="tag">入学材料</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" rel="tag">图像处理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag">大模型</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" rel="tag">强化学习</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%97%A9%E6%9C%9F%E5%88%86%E7%B1%BB/" rel="tag">早期分类</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%88%86%E7%B1%BB/" rel="tag">时间序列分类</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%9B%91%E7%9D%A3%E5%BE%AE%E8%B0%83/" rel="tag">监督微调</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/" rel="tag">研究生周报</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BE%A4%E7%AD%89%E4%B8%8D%E5%8F%98%E6%80%A7/" rel="tag">群等不变性</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%87%AA%E7%9B%91%E7%9D%A3/" rel="tag">自监督</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%A1%A8%E5%BE%81%E5%AD%A6%E4%B9%A0/" rel="tag">表征学习</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%B5%84%E6%96%99/" rel="tag">资料</a></li></ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+
+<article id="post-图像处理/2021-vit-visiontransformer" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        AN IMAGE IS WORTH 16X16 WORDS——TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-02-04T10:02:15.150Z" itemprop="datePublished">2025-02-04</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    未分类 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            838 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Image-Processing/" rel="tag">Image Processing</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="8f7a91a9e40f02cbe8882d81b6ba71822dbd5b0e674e3300bbdec92cbdff4366">854efd16088ec0a2949395f17c9b60f9386aedb0ff5a819cd0390912c2b2702d827e14ba04a92038747cb3394896c3694e61b3cea2922bed4d09e02c8f9022b52a2930a57620d22015802793080fa456de03c8bb7dde4d5724639874122f80e1dff1d3297dbebd9928cb440cb61b4555b09723e7608cdb32664fa03de535f0306de39a3de660d0a0ee548be8f35932d1216236559a87da7bf5ce902789bff2e18be87ce7ff11e0a8c2a1b0b29c455a78c2747331173bdf4ae2681e1d8f69c8b7696c99c741e11cfa323deedf7581bdc5a4b2048f939169a4e5f6ea60e47135fcf1c87ad24af32627249e938536f57ff56cc28b0884b9ab7eb712b46c4d62cc2b1582f3b1e3ee1c933994fe4653c3e3bd8867c78edf308a1067fa35cc2e49881fe904f66602203dc12fee567d687d2243b2188807186c629088d45ab35489c0977dda6365ddae4aa812b3dfd9ca2cfd801f7297bfad3e84ee7697dd101f4fd029c21684d7b81055a4a6e7f70f004d5c6f81606d4161455d9aa61a8f0ee1e9f796090404426dc50b5eb9ef608faa2cc3335c91611a5a33fb9bc93b289f42f0b6b2f98b4f51e893073721db4a933153c07d41d82cee40949385e767c5a91be5f1b899d57c8f79e78653d4832f5febd7f542b0324502995dbb7a64a8ef21acd0c28778657e8ab4586b7be6f711fbce7aab8dd5413641422a0dd246f1acbd0e5d66fd6c92db3d339b4b46b5c4e2cf80ba1c5c6431f48bb1f7eff760265ce46db505590e951d0aeff7d46937fe4df015b781dc80c11070afbf5b2a5806f3a598f03149267a2e93c45dec00102e17596900e5aa5a482d0c20e11814d38422730df4d8ab8465a14c997536f8697d6ab0233238e84dcaef6c79ffe21ad838c9d573a5dbcc78998813247419055a83f0f66fdf6585dd9a54128596c470c5d0f8d2a4a1c3fd333ad837f264df83bcf9668cc5ae57c841ba3797986fe93505fdeabd36b0249863d64669d6887ab7f3b461b4f18768bace396b5a4bc3065ec1d256acda519079c25e8b949389829c466e862d748ac88f19a2e6ac882484416b2d8dd968c3b843338db76e0eaddb4a25b09718cf1800f53c8f3e2699ccdbeb70cd5ea3b901c7dad5cdf1942c528094a341dd963e9b59402b5fdccc060dc0b47f2cfc11ff591d1326a34571a7688496d0e7fbd0b52847cccce26f7e8c5185f98c9add9c249c2dc822b980c9511d323ae85670d207387476f457d4d1a5fbad472bc95292354b89ffc6f3db132abc357716e8721f887630f597ee1cb3db257b8d215f7844e0737979fc22d5952d67d328ea81cbf50e3fe6e0c533595025e3b7ed7c4138654f0c198abe861eddf455c7b62f8143e5da9c6a6a156b37051e3dc978fbe47eebdc79ba4709fbb35ef961f5c0f8d3b4d3b33421db56ab4e836f891cfcf363ab1aea12ecf1146b81f65d93aecc218802e0f414de79901e9f8c5b75042b934256e27143f793625030dfb7022c05fc1f6004d32f1d1b98bfabbbfb9fe68b8bd13252d4fec6e0360a60cc270e0f3ab21fce7d10dd8d727cd4dc51b52d7ee0d7a723ead94e63129af61000e737e934a1bde734e1bc6187d925c4d0b71efb43935935022fc0e21e5c060742ba6edc412a80e929796c4efdacddacd43bfc7794fd7d7275de6491ff673fc2864a75a2c56562c2234c6feed9b11e51922ed1439b0d9bab9ce2f998bc8fae88f38f79c2e9e09ef335b856262eb6b7b0b818990506198ef7112a35f48e9482c94758840e980da0772988fcb7d9dbbb052e7a8d770d80f5d83479d59f62ff16df8a7acf6ee680e64e2cf75c048ae095a186e5cc3e0100666bc393ac570eb7631f347b74048e626987b02062cba920485ac486cc1d1a3bd7e790bc0bcabee9645f13299fa411248587136649d4c1c1166ae9da3625eb1b4cca8e702eccf66ceab006574452640d7e1251bdd4f4140982d3a5eb172ece7324b74a3a4821a948f08a73aa1fd78eaed3f2581702c3551c6333ef160557957c4b0ecc711576e23d52f0dca1663295fbabd0a33bb8772635d7f82b62794d4ca6b99a7e956f0d7c7d4e3d7b487ca40fdee81a2ab4f7b82f70976bf585fd09ae9c93c65540474e12becba468a45492e109aa19ed025d3401821b08c35aa109353b1f75778e66c317ae4faf20ec7f57a6c63a38a3713533b19149217aaa0e02f20e5231243d9ca0806b1fd114ba93f6c16e304cffff2c280ea46b85b1512c4b02e0576ae106bf839c27a498845ff087624b00508cd5d88a11e73d3a7bd9e587e60960e15d7d330e6b3aac861513dfacc45b8286f4880f6ea43a07c6eac8e6242943b65a666d45b616880b3f5a8f25c69af31b2cdf97da8c67199c6adeb07b76b7ba0db81a7fe1349cc2fd3f05d320ac5a3ca24b113fa179be7352623545dea77b87b15b8e525bfabc6f6b02b4981ce9f4a7e28609edbb823a3ab1ccaa708ce1d2a1eb3bf23e544287048dce8508bf08c7fdd5ca92d6ea8a15dcea8f772e12e09024742247b31af746314b709b08a407a204aa99160ace2ab5fc851ac6c137a5b09429010d193c471bebc17d8d119010008c1bfdbdcb6c1bb90a810d64832279fcadd779ecee36a9c3eda5a0a12225846ef9869732c259988804a656a734f6b1a847f93e8cc40f9488b6506097fe660899bc72b179a0365e13d78d588c847a220dbf8748e430ce5d83ec641104852215b0eb970973ef62e3a14ea4a91f81f80acebc6b59f8bbc9c4fecdb1a83d07d7c1a70d29d7235d44776189de2d85753d9753e4658ecd1d6dbbbcb06c4a200c3fb116aa22f0b90b0ab25c958d5a0841e46f8a1224fae6cb4ac3d8a222f12ee8621cdee447fcb92e7f608b96f13cf33a10b232f7f2a5f4c278f267bea9dd1149cd1156c539ab9eff0c74f01cbd20cd37e307db5022d09aef071f03145e5784792eb3d9acec2ce52842d8b8df7815b9b44d49407a68c7bb3e8546861d94721fb333fe5af486b439dc470f04b8a5914e33300982b01c3c244e8d34c829726516c24a7ace9e5aba44f3aefe4ccd941c8d73c3872fe768452ee406b15a4120838a2e7bab5256ffb480d8e979a8b2e723303b645bc9b992ae9f2a640f6aacbbedca8c2ec5e7945020facce062a19913fd201213468c510dfdd8c0461203f2ba7ffe0c18eb800a9d0a4d40aae1c17455ec53a000dd311732d264b72aa1a5b909f5bf4590ff933c9108f6d3830551662f03fd30066b7997a7f813213c91746e9957ff30757007d292dd68756c25fe8effff89b4e9a34d8b216b5decf7850640439d6e2b0bffaa7702e78285b2c914bb6417048dbf261cb5f3b1cabbb9b7c1bba903a9f3697e3dd0381e2ef5bf2f83b3e86ee9eb653bba0535ae7a2ec0f9f82d7dac35c9379365cfbdf30f641c31d62b512063e27047e04f31f9b4be2908134dc73ea19e7ee5a0b2ceee545970f3dc4d2abda7a4c409ce58239876211237c9096aa106ab75870bef76d2f7be5e12488f808a795646a87eea53f6ccc6a2bed558817fc11e62856be2f729ef3d40f7d76ea21b1782004881e7ca47a7de8560aec2e8a85a8b7171b9565461b54bbb2a782ef8ba68cfcb8a95238b6eeb779326d69da2b29ea5d43a7e4c23521b4472fe6f789f3dfa17de67ac01a384bc256d8ea6000aa72b4ff43efa38ffd054f7fa5c30f77399edd609ecebb52d479c2e1656f35f8434972aec66716d70fc3c7a07ce0cb1c2f0ce6cec1272887d900db6e0a54cfe90f28cc09ae2db4b42546421904fd26cb2df01dc68af397236f21f40be40198e9f3f03ad552919ca3388b18adbae92137ca1c4793418001533323a7d4227eb1fd208ae65fa080658f0976460a21497a5f858e507c506e1e428adeea76382aaec7c3e4e0ec81b25e8b949abd43d73d3adb177eeba4dc2c5edeb945cbbb360e97a3bdc3ef1e562cfc6766072b2d5f46558ca190a85fddfe26af606a4ad4fbc31698ac352b2ff8606992bed31fd384cbbc1ff1db2bbbba854dbe2fffbfca4a54fba8838f3b2c59bb7c6cf093cd614e7927a41c213dcf21887c5548040afaa27f8a2f5d34a8c153f2f2cb89400f7182ae333418042625d085ae66bfaccc48fa276233f526d10af6527809517252bd1b9221663b8178c0d75fba8d22bbab43da1a59fc1b86327c329b19c21bb7627ba4658e5c791a3a5c0d4041b763124e27688a3e67e5bd96b8c322a261a86abc16ce8c7ac874f9c16f55bee513d461a0f46f1caa61a3e2fb7194ddedf300c28604be3605fc150a66b4bde1a4241377eb61fc982ab87b26fc84b39c20b5965d3ed7e9aa082cb661702d9184155c57d1a038907358ee04ae622fe4906086e05a4483dedb456a9a1639a6d3c63d88efeaae3de5c217f7ba87d082659e81029cf4361faa7db280a6391a874f275a8b400f0776cb8816db22c6beaf12809daa1189a5769fcddbe2a8ab4819a39ae0c81f3c1f89cf1fc497303898170becbeb1f1cff82b9fffe4dd74ecfed90de9946618e089b51ca01339c3f1b5a39a17c2b05012e33410355f7939a8b63f1d06590b5e92e87413315f2f2ea61704150d224c0c099ff30c61d8d93df48c577708673bf6e4a94215cfeac71d37120ca7a08fcd0bf353d14cb19b463c0dd422670f4b305514a06fc3f391d674ef8da755bbbe517cf429b33ef74e5e2fc21147a50b514ee6437828b728372d8916348d2bbf1fd27eb0da7454e8cea053e4b9dadf55907203c2a823e7a92cde8683f46eb5ac8c4c278180d482b27c87d33d92ccfb2d0d268a86e44e1e33d1618f83b7119bebf8915eef257b6c84d690d1f9da72b18fc8a07439b65feb7e8265ef938904d17a40529e792b7c6c86c4dcd0b54e9f24e0e72d2898fb8918667523eb4e292cfd75b5020fb1a0ae0fb93c784e6e7064222a008bae17015edb23c49115a78a2514c932c1adbd59d1985c097988b154ac2795411bbedb9fa1938bfdd7dc9779f98663c9d496c8bfb9b0ed9bba1a372204d40e21b22cc1437b794d1193686e8706d21088d4b0d2429c06403a02aa2efecd33f06825e85a5543c43b85e7b0f7253bb650de5a941763f4d36a53ae0170fec2852eae0526fcac493ae61a6315ab86289980c938d87aa852d7751f5cb532faceeed27d4a03f29da25b58f0477e3730ae0348242278cf57df2b10a041b563351160ca8374cde0dc5c35c220f0aac9a6ed5e221ef7dad0338b1c17e893b7b0acf35eea3d1d065deb910306b35ab5d953dc77f4e2f3774dc1c7737aec7a06868202dadb68e2071d74a3e549c6499fa8c0f73ceffa8b5601ea0f2182945813457cecafb33796762426f4b14e32388e4476cc320ee88fe32af2eb6a81ad2b28365fa1532cd114331765629843675ff84126afe6ae7fd89191c815ef85cc852e4fc57829632213b3f7dcedd44bb9a8073c5c64c453e9b233ee0e0b6cfab15f61c2186fcf975a4a3b51a9a9fcb54f00cf7c9a810da506d5945d1dd824abfe5266dc60c47e1aa21727a015f90f438c3c8033241b55e87f11da6b5e651d8285e90213cf8c032e60513f0bfda32cf381d56db0d5cc2a3544f71e7aea07c8899e3885ce6362a6e3db37a5af9590b875ca2ea701f82b7cc96482f113f692d1d50da5ce6b60d6c106233b6f498036193efe5f81bddee26d753c456c28ffd57b5f2706089ed6b5b5811c1b952b2faccbd8e5e0f827f0abf1902e894e5015a9cdc1ff95de7220668ac3dd84c5014abc96c485fe99122d4bf20a3fd33830e2ef3995f281e656dd778741e044cb1d92c9bf3dd0ef6895518528faebd826ece33c8d848cd40daef2ea3375831126163666c496c3cbffb199a1e04b85842289d500ba9d515a5b760567ec3506ae304f06073f183c9f9ef71e8d66ee4095bc81f0169cdc2bb4e202555b81af0044e63b435533f6e788bca559e10d3c2767dc3aa55afe07ac8fdc39d3d421091a2ca343024c16b8b887329e07abe70d98b0e48c467beca8d05a58ee0ba12d2a88bb06680df615bbd2267894d2e4315455182819409b326448b16cb1ab3f2ef6966f27bf14e041f9c2260403d0ad74d22f49dd62b22c6144c88d53ca6e062dbb0bda69ccf335f2c127b7271334b232ce090e92762666b449149faa293cd30a5e16cd976821d3d8d69e9598b4acff0ba9c7bb151ef045399cdb2bcb49527e27a2bf4c2fc01afdec9873ea5b4f57e4843da94a0e7f7f2d39627bd01830df80a23bacb0e96e5cd6c178bdc1269eba4189b3b3e005047b7c886865adb61a04e0759b2617c5d4b1e05cfa13f75787e23ae0b5d08ced694e005c9d3f383706595775de847398c41637af3ef929090159e909d9a9e5bf812fe92624a8998712eabf4e71be405b3f1ac2d14350aa86f62d0ecf72ce197778d8ce0bb022ecf9503ca672f9339d71ac0b42887bb769034f09ce9694985c0d819fa66267315e606f6c07e394e3c054a6ba560d6fca7ca92d91dd308e77e4ec3807f1d582b5bd81b7a049c3b5c01c1f8550dbc93e75798a90d4bb89deca4ecf7c62141bc8ea296a7efaee46e0bc2c522def18246716d2060160b91c97836160859c7d6f693</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2025/02/04/%E6%A6%82%E7%8E%87%E8%AE%BA/%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B%E4%B8%8E%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86%E7%9A%84%E7%90%86%E8%A7%A3/"
+      title="大数定律与中心极限定理的理解"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        大数定律与中心极限定理的理解
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2025/01/21/crop_classification/Crop%20classification/1%E6%9C%8820%E6%97%A5%E5%91%A8%E6%8A%A5-2025/"
+      title="周报2025年1月20日"
+     >
+
+    <p class="title-text">
+      
+        周报2025年1月20日
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+
+
+
+
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+    &copy; 2025 ALTNT<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>

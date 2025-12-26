@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="false" > 
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>DeepSeek发展史 | ALTNT&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="1741930284684  DeepSeek系列论文发布时间线的图表。时间线分为三个阶段：  2024年1月至4月 ，发布了DeepSeek LLM、DeepSeek MoE、DeepSeek Coder、DeepSeek Math和DeepSeek VL等论文。 2024年5月至8月，发布了DeepSeek-V2、DeepSeek-Coder-V2以及关于MoE的ALF负载均衡相关论文。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DeepSeek发展史">
+<meta property="og:url" content="http://blog.705553939.xyz/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/index.html">
+<meta property="og:site_name" content="ALTNT&#39;s Blog">
+<meta property="og:description" content="1741930284684  DeepSeek系列论文发布时间线的图表。时间线分为三个阶段：  2024年1月至4月 ，发布了DeepSeek LLM、DeepSeek MoE、DeepSeek Coder、DeepSeek Math和DeepSeek VL等论文。 2024年5月至8月，发布了DeepSeek-V2、DeepSeek-Coder-V2以及关于MoE的ALF负载均衡相关论文。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.705553939.xyz/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741930284684.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741930307926.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741930317102.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741930425145.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741931681548.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741932100733.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741932501390.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741933638349.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741933679091.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741934072567.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741934208657.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741934386552.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741934607810.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741934868242.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741935148477.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741935333251.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741935459209.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741935480869.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741935634522.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741935811469.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741935836656.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741935869663.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741935887892.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741936057057.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741936069203.png">
+<meta property="article:published_time" content="2025-03-14T05:29:18.548Z">
+<meta property="article:modified_time" content="2025-03-14T07:07:51.142Z">
+<meta property="article:author" content="ALTNT">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="大模型">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.705553939.xyz/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741930284684.png">
+  
+    <link rel="alternate" href="/atom.xml" title="ALTNT's Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  
+   
+  <div id="main-grid" class="  ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>ALTNT's Blog </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">ALTNT </div>
+      <div class="dot"></div>
+      <div class="subtitle">守得云开见月明 </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://x.com/mi_liao39455" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://store.steampowered.com" title="Steam"><i class="fa-brands fa-steam"></i></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/ALTNT" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Cross-phenological-region/" rel="tag">Cross-phenological-region</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/GIS/" rel="tag">GIS</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Image-Processing/" rel="tag">Image Processing</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/LLM/" rel="tag">LLM</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Mac-Macos/" rel="tag">Mac Macos</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA/" rel="tag">Ros机器人</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Self-Supervise/" rel="tag">Self-Supervise</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Self-supervised-learning/" rel="tag">Self-supervised learning</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Sequence-Processing/" rel="tag">Sequence Processing</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/classification/" rel="tag">classification</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/cloud-removal/" rel="tag">cloud removal</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/cloud-removal/" rel="tag">cloud_removal</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/code/" rel="tag">code</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/crop-classification/" rel="tag">crop classification</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/crop-classification-remote-sensing/" rel="tag">crop classification, remote sensing</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/diffusion/" rel="tag">diffusion</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/k8s-Kubernetes/" rel="tag">k8s,Kubernetes</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/markdown-md/" rel="tag">markdown, md</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/remote-sensing/" rel="tag">remote sensing</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91-javascript-TypeScript/" rel="tag">vscode插件开发, javascript, TypeScript</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E4%BA%91%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">云操作系统</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%85%A5%E5%AD%A6%E6%9D%90%E6%96%99/" rel="tag">入学材料</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" rel="tag">图像处理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag">大模型</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" rel="tag">强化学习</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%97%A9%E6%9C%9F%E5%88%86%E7%B1%BB/" rel="tag">早期分类</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%88%86%E7%B1%BB/" rel="tag">时间序列分类</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%9B%91%E7%9D%A3%E5%BE%AE%E8%B0%83/" rel="tag">监督微调</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/" rel="tag">研究生周报</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BE%A4%E7%AD%89%E4%B8%8D%E5%8F%98%E6%80%A7/" rel="tag">群等不变性</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%87%AA%E7%9B%91%E7%9D%A3/" rel="tag">自监督</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%A1%A8%E5%BE%81%E5%AD%A6%E4%B9%A0/" rel="tag">表征学习</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%B5%84%E6%96%99/" rel="tag">资料</a></li></ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+
+<article id="post-资料/大模型/DeepSeek发展史" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        DeepSeek发展史
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-03-14T05:29:18.548Z" itemprop="datePublished">2025-03-14</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    未分类 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            16k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag">大模型</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <figure>
+<img src="/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741930284684.png" alt="1741930284684">
+<figcaption aria-hidden="true">1741930284684</figcaption>
+</figure>
+<p>DeepSeek系列论文发布时间线的图表。时间线分为三个阶段：</p>
+<ul>
+<li>2024年1月至4月 ，发布了DeepSeek LLM、DeepSeek MoE、DeepSeek
+Coder、DeepSeek Math和DeepSeek VL等论文。</li>
+<li>2024年5月至8月，发布了DeepSeek-V2、DeepSeek-Coder-V2以及关于MoE的ALF负载均衡相关论文。</li>
+<li>2024年12月至2025年1月，发布了DeepSeek-V3、DeepSeek-R1和DeepSeek-VL2等论文
+。</li>
+</ul>
+<figure>
+<img src="/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741930307926.png" alt="1741930307926">
+<figcaption aria-hidden="true">1741930307926</figcaption>
+</figure>
+<figure>
+<img src="/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741930317102.png" alt="1741930317102">
+<figcaption aria-hidden="true">1741930317102</figcaption>
+</figure>
+<figure>
+<img src="/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741930425145.png" alt="1741930425145">
+<figcaption aria-hidden="true">1741930425145</figcaption>
+</figure>
+<p>这张图片介绍了DeepSeek LLM预训练的相关信息：</p>
+<ul>
+<li><strong>模型参数</strong>：有7B和67B两个版本。7B版本包含30层，模型维度4096，32个注意力头，kv头数32，上下文长度4096，序列批量大小2304，学习率4.2e-4，处理token数量2.0T
+；67B版本有95层，模型维度8192，64个注意力头，kv头数8，上下文长度4096，序列批量大小4608，学习率3.2e-4
+，处理token数量同样是2.0T。</li>
+<li><strong>架构与相关技术</strong>：架构与LLaMA
+67B基本一致，分词器采用字节级字节对编码（Byte-level Byte-pair
+Encoding），词汇量100K，位置嵌入使用RoPE（旋转位置嵌入），注意力机制采用Grouped-Query
+Attention ，语料库规模为2T双语token。</li>
+</ul>
+<hr>
+<p>DeepSeek LLM处理token数量2.0T是什么意思？</p>
+<p>意味着该模型在训练过程中所使用的文本数据量经过 token 化处理后，包含 2
+万亿个 token。</p>
+<p>如何将文本数据转换为token？</p>
+<p>在DeepSeek模型体系中，将文本数据转换为token主要借助特定的分词器，即<strong>Byte-level
+Byte-pair
+Encoding（字节级字节对编码）</strong>来实现。这一过程较为复杂，且在整个模型训练与应用中起到了关键作用。</p>
+<ol type="1">
+<li><strong>Byte-level Byte-pair Encoding的原理</strong>：Byte-level
+Byte-pair
+Encoding是一种基于字节的分词方法。它<strong>将文本数据按字节进行切分，把出现频率较高的字节对合并成一个新的token</strong>。<strong>在处理大量文本时，一些常见的字节组合，像特定的单词前缀、后缀或常用词汇，会被识别并合并为单一token</strong>。这种方式能有效减少token的数量，提升模型处理效率。</li>
+<li><strong>具体转换步骤</strong>：文本数据会被读取并按字节划分成一个个单元。接着，统计每个字节对的出现频率。然后，依据频率高低，将最常出现的字节对合并为一个新的token。不断重复这个合并过程，直至达到预设的词汇量或满足其他停止条件。最终，文本数据就被成功转换为由这些合并后的token组成的序列。</li>
+<li><strong>在DeepSeek中的应用及优势</strong>：DeepSeek
+LLM采用该方法，<strong>词汇量达到100K</strong>。这使得模型在处理文本时，能把文本精准地拆分成合适的token，便于后续学习和处理。模型可以更高效地学习到词汇间的关联、语法结构等信息。而且，这种分词方式在处理不同语言文本时具有良好的通用性，能有效适应多语言的训练需求，例如其使用的2T双语token语料库。</li>
+</ol>
+<ul>
+<li><strong>上下文长度（4096）</strong>
+：上下文长度指模型在处理文本时能够考虑的前后文范围。较长的上下文长度可以让模型利用更多的前后文信息进行决策，对于理解长文本、处理连贯性和指代关系等任务非常重要。但上下文长度的增加会导致计算复杂度呈平方增长，因为注意力计算需要考虑所有位置之间的关系。</li>
+<li><strong>序列批量大小（2304）</strong>
+：批量大小是指在一次训练迭代中同时处理的样本数量。较大的批量大小可以利用并行计算的优势，加速训练过程，并且能够在计算梯度时更准确地反映数据的整体分布，使得训练更加稳定。但批量大小过大可能会导致内存不足，同时也需要更多的计算资源。</li>
+</ul>
+<p>在Transformer架构及基于此的语言模型（如DeepSeek系列）中，<span class="math inline">\(d_{model}\)</span>（模型维度）、<span class="math inline">\(n_{heads}\)</span>（注意力头数）、<span class="math inline">\(n_{kv \_
+heads}\)</span>（kv头数）之间存在关联，但没有固定的数学换算公式，它们的设置受多种因素影响。</p>
+<ul>
+<li><strong>从注意力机制计算角度来看</strong>：在多头注意力机制中，输入的特征向量维度为<span class="math inline">\(d_{model}\)</span>，会被投影到<span class="math inline">\(n_{heads}\)</span>个低维空间中进行并行计算，每个低维空间的维度为<span class="math inline">\(d_{model} \div
+n_{heads}\)</span>，这样的设计是为了让模型从不同子空间捕捉特征。而<span class="math inline">\(n_{kv \_
+heads}\)</span>决定了键值对计算的并行度。通常情况下，为了保证计算的一致性和效率，<span class="math inline">\(n_{heads}\)</span>和<span class="math inline">\(n_{kv \_
+heads}\)</span>会有一定的对应关系。在DeepSeek LLM的7B版本中，<span class="math inline">\(n_{heads}\)</span>和<span class="math inline">\(n_{kv \_
+heads}\)</span>均为32，这意味着每个注意力头都有独立对应的键值对来计算注意力分数，有助于模型更细致地捕捉信息。在其他模型中，也有<span class="math inline">\(n_{kv \_ heads}\)</span>小于<span class="math inline">\(n_{heads}\)</span>的情况，如DeepSeek
+LLM的67B版本，<span class="math inline">\(n_{heads}\)</span>为64，<span class="math inline">\(n_{kv \_
+heads}\)</span>为8，这种设置是在计算效率和信息捕捉能力之间进行权衡。因为减少<span class="math inline">\(n_{kv \_
+heads}\)</span>可以降低计算键值对的开销，同时通过巧妙的设计仍能满足模型对信息的捕捉需求。</li>
+<li><strong>从模型设计和性能优化角度来看</strong>：<span class="math inline">\(d_{model}\)</span>的大小影响模型的表达能力和计算复杂度。增加<span class="math inline">\(d_{model}\)</span>可以编码更多信息，但也会加大计算量。<span class="math inline">\(n_{heads}\)</span>增多能让模型从更多角度捕捉特征，提升对复杂信息的处理能力，但同样会增加计算负担。<span class="math inline">\(n_{kv \_
+heads}\)</span>的设置则主要影响键值对计算的资源消耗和信息传递效率。在设计模型时，需要综合考虑这些因素来确定合适的参数值。如果<span class="math inline">\(d_{model}\)</span>设置得较大，可能需要相应增加<span class="math inline">\(n_{heads}\)</span>来充分利用高维特征空间，而<span class="math inline">\(n_{kv \_
+heads}\)</span>的调整则要平衡计算效率和信息准确性。对于资源受限的场景，可能会适当减少<span class="math inline">\(n_{heads}\)</span>和<span class="math inline">\(n_{kv \_ heads}\)</span>，同时调整<span class="math inline">\(d_{model}\)</span>，以在保证一定性能的前提下降低计算成本。</li>
+</ul>
+<p>在选择合适的<span class="math inline">\(d_{model}\)</span>（模型维度）、<span class="math inline">\(n_{heads}\)</span>（注意力头数）和<span class="math inline">\(n_{kv \_
+heads}\)</span>（kv头数）时，需要综合考虑任务的性质和数据集的特点。这三个参数相互关联，共同影响模型的性能和计算效率。</p>
+<ol type="1">
+<li><strong>考虑任务复杂度与特性</strong>：若任务涉及复杂语义理解、长序列依赖捕捉，如机器翻译、长篇文本摘要，就需要较高的<span class="math inline">\(d_{model}\)</span>来编码丰富信息，更多的<span class="math inline">\(n_{heads}\)</span>从多视角捕捉特征。在翻译任务里，不同语言的语法结构、词汇含义差异大，高<span class="math inline">\(d_{model}\)</span>能承载复杂语言信息，多<span class="math inline">\(n_{heads}\)</span>可分别关注词汇、语法、语义关联。而文本分类等简单任务，较低<span class="math inline">\(d_{model}\)</span>和<span class="math inline">\(n_{heads}\)</span>就能满足需求，可降低计算成本。像情感分析，关注文本整体情感倾向，不需要过于复杂的信息捕捉。</li>
+<li><strong>结合数据集规模与多样性</strong>：大规模且多样的数据集，要求模型有更强的表达能力。此时可提高<span class="math inline">\(d_{model}\)</span>和<span class="math inline">\(n_{heads}\)</span>，让模型学习到更多模式。如训练数据包含多领域文本，高<span class="math inline">\(d_{model}\)</span>和多<span class="math inline">\(n_{heads}\)</span>能适应不同领域的语言特点。小规模数据集下，过高的<span class="math inline">\(d_{model}\)</span>和<span class="math inline">\(n_{heads}\)</span>易导致过拟合，应选择较小值，使模型专注于数据中的关键信息。</li>
+<li><strong>平衡计算资源与效率</strong>：<span class="math inline">\(d_{model}\)</span>、<span class="math inline">\(n_{heads}\)</span>和<span class="math inline">\(n_{kv \_
+heads}\)</span>的增加会提升计算复杂度和内存需求。若计算资源有限，需在保证性能前提下选择较小参数值。可通过实验对比不同参数组合的效果，在资源受限的应用场景中，选择既能满足任务精度要求又不会过度消耗资源的参数设置，以实现性能和效率的平衡。</li>
+<li><strong>参考模型架构与经验</strong>：不同模型架构对这三个参数的适应性不同。基于Transformer架构的模型中，有的默认设置在特定任务和数据集上表现良好，可作为参考。但也要根据实际情况调整，像DeepSeek系列模型在不同版本中会根据研究和实验结果优化这些参数。同时，也可参考相关领域的研究成果和经验，了解类似任务和数据集下的参数选择策略，再结合自身情况进行调整。</li>
+</ol>
+<p>序列批量大小为什么设置为2304这么一个奇怪的数</p>
+<p>在深度学习训练中，序列批量大小（Sequence Batch
+Size）设置为2304并非随意为之，而是综合考虑了计算资源、模型训练效率、内存管理以及硬件适配等多方面因素。从计算资源角度看，较大批量可利用并行计算优势提升效率；内存管理上，要避免因批量过大导致内存不足；硬件适配方面，需契合硬件架构特性，像GPU的计算能力和显存带宽等。下面将从这些关键因素深入剖析设置为2304的原因。</p>
+<ol type="1">
+<li><strong>计算资源与效率平衡</strong>：在训练模型时，使用较大的批量大小能更好地利用硬件的并行计算能力，提高计算资源的利用率。以GPU集群为例，当批量大小为2304时，并行计算单元可以同时处理更多样本，从而加快模型的训练速度。而且，较大的批量在计算梯度时，能更准确地反映数据的整体分布情况，使训练过程更加稳定，有助于模型更快地收敛到最优解附近。从计算效率的角度出发，通过大量实验和实际测试，发现2304这个数值在当前的模型架构和硬件环境下，能够在计算资源的利用和训练时间之间达到一个较好的平衡，既充分利用了硬件性能，又不会因为批量过大而导致训练时间过长。</li>
+<li><strong>内存管理与硬件适配</strong>：深度学习训练对内存的需求很大，批量大小的设置必须考虑内存的承载能力。如果批量过大，可能会导致内存不足，使训练无法正常进行。在DeepSeek
+LLM的训练环境中，2304这个批量大小经过精心调整，确保在模型参数、中间计算结果以及其他相关数据存储时，不会超出硬件内存的限制。硬件的架构特性也会影响批量大小的选择。不同的硬件设备，如特定型号的GPU，其计算能力、显存带宽等参数都有差异。2304这个值是根据所使用硬件的这些特性进行适配的，能够充分发挥硬件的性能优势，保证数据在内存和计算单元之间的传输效率，进而提高训练效率。</li>
+<li><strong>模型训练特性与数据特性</strong>：模型自身的结构和训练算法也会影响批量大小的选择。DeepSeek
+LLM的架构和训练算法在处理批量数据时，对于2304这个批量大小有较好的适应性。模型中的一些组件，如注意力机制、前馈神经网络等，在处理这个规模的批量数据时，能够有效地进行信息传递和特征提取，不会因为批量过大或过小而出现性能下降的情况。训练数据的特性也不容忽视。如果数据的分布较为均匀，且样本之间的关联性相对稳定，较大的批量大小可以更好地捕捉数据的整体特征。在DeepSeek
+LLM的训练数据集中，经过分析和测试，发现2304的批量大小能够很好地适应数据的这些特点，有助于模型学习到更准确的语言模式和语义关系。</li>
+</ol>
+<hr>
+<figure>
+<img src="/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741931681548.png" alt="1741931681548">
+<figcaption aria-hidden="true">1741931681548</figcaption>
+</figure>
+<p>这张图片介绍了DeepSeek
+LLM的缩放定律，对比了传统缩放定律和DeepSeek的新发现：</p>
+<ul>
+<li><strong>传统缩放定律</strong>：包含<strong>计算最优缩放定律</strong>（<span class="math inline">\(C =
+6ND\)</span>）和<strong>数据最优缩放定律</strong>（<span class="math inline">\(C = MD\)</span>）。其中，<span class="math inline">\(C\)</span>代表计算预算，<span class="math inline">\(N\)</span>代表模型规模，<span class="math inline">\(D\)</span>代表数据规模，<span class="math inline">\(M\)</span>代表每个token的非嵌入浮点运算次数。</li>
+<li><strong>DeepSeek的新发现</strong>：一是<strong>超参数缩放定律</strong>，<strong>最优学习率</strong>公式为<span class="math inline">\(\eta_{opt}=0.3118\times
+C^{-0.125}\)</span>，<strong>最优批量大小</strong>公式为<span class="math inline">\(B_{opt}=0.2920\times C^{0.3271}\)</span>
+；二是<strong>模型与数据缩放定律</strong>，<strong>最优模型规模公式</strong>为<span class="math inline">\(M_{opt}=0.1715\times
+C^{0.5243}\)</span>，<strong>最优数据规模公式</strong>为<span class="math inline">\(D_{opt}=5.8316\times
+C^{0.4757}\)</span>。并指出<strong>计算预算增加时，最优学习率降低，最优批量大小增加，且通过测试得出了最优的模型规模和数据规模，用于指导后续训练。</strong></li>
+</ul>
+<figure>
+<img src="/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741932100733.png" alt="1741932100733">
+<figcaption aria-hidden="true">1741932100733</figcaption>
+</figure>
+<p>这张图片展示了DeepSeek LLM的对齐与实验相关内容：</p>
+<ul>
+<li><strong>模型训练过程</strong>：
+在<strong>SFT（监督微调）阶段</strong>，使用150万个指令数据实例，7B模型训练4轮，67B模型训练2轮，基于HAI
+- LLM框架进行训练。
+之后通过<strong>DPO（直接偏好优化）来</strong>提升模型的有益性和无害性。</li>
+<li><strong>实验评估结果</strong>：在AlignBench评估中，对比了多个模型在中文推理和中文语言方面的表现，包括推理总分、数学、逻辑等细分维度。DeepSeek
+- 67B - Chat - DPO等模型有相应的评分和排名。在MT -
+Bench评估中，对比了不同模型在STEM、人文、推理等多个领域的表现，DeepSeek
+LLM 67B Chat和DeepSeek LLM 67B Chat DPO也有对应的成绩。
+标注*的结果引用自Ivison等人（2023）的报告。</li>
+</ul>
+<hr>
+<p>HAI - LLM框架是由High -
+flyer开发的一款高效且轻量的大模型训练工具，在DeepSeek系列模型的训练过程中发挥了关键作用。</p>
+<p><a target="_blank" rel="noopener" href="https://www.high-flyer.cn/en/blog/hai-llm">https://www.high-flyer.cn/en/blog/hai-llm</a></p>
+<ol type="1">
+<li><strong>助力模型训练</strong>：DeepSeek
+LLM在进行SFT（监督微调）时，7B模型训练4轮、67B模型训练2轮，均是在HAI -
+LLM框架上完成的。在DeepSeek
+V2的预训练和对齐实验环节，其<strong>2310亿参数模型（每个token有210亿参数）</strong>的训练同样基于该框架。这表明HAI
+-
+LLM框架为不同规模参数的模型训练提供了稳定的基础环境，能够满足多样化的训练需求。</li>
+<li><strong>提升训练效率</strong>：从“高效且轻量”的特性可以推断，HAI -
+LLM框架通过优化训练算法、资源分配等方式，提高了训练效率。在处理大规模模型和海量数据时，能在保证训练质量的前提下，减少训练时间和计算资源的消耗，让模型训练过程更加高效。这一优势使得DeepSeek系列模型在有限的资源和时间内，能够完成复杂的训练任务，快速迭代优化。</li>
+<li><strong>适配多种模型架构</strong>：DeepSeek系列模型具有不同的架构，如DeepSeek
+LLM与LLaMA 67B基本一致的架构，以及DeepSeek
+V2融合MoE、MLA、GRPO的混合专家模型架构等。HAI -
+LLM框架能够支持这些不同架构模型的训练，说明它具有良好的兼容性和扩展性，可灵活适配多种模型结构，为模型研发者提供了广阔的创新空间。</li>
+</ol>
+<p>DPO（直接偏好优化）是什么</p>
+<p>DPO（Direct Preference
+Optimization，直接偏好优化）是一种用于优化语言模型的技术，由R.
+Rafailov、A. Sharma等人在2023年提出。
+它基于这样一个理念：<strong>语言模型本身可以被看作是一个奖励模型，通过利用人类的偏好数据直接对语言模型进行优化，从而提升模型的表现</strong>。
+在DeepSeek
+LLM的训练中，DPO被<strong>用于增强模型的helpfulness（有益性）和harmlessness（无害性</strong>）。</p>
+<ol type="1">
+<li><strong>DPO的原理</strong>：DPO的核心原理是利用人类对不同模型输出的偏好信息来优化模型。传统的强化学习方法在优化语言模型时，<strong>通常需要设计复杂的奖励函数</strong>，而DPO则直接从人类的偏好数据中学习，使得模型更符合人类的期望。具体来说，<strong>DPO通过比较模型生成的不同输出，根据人类的偏好确定哪些输出更优，然后利用这些偏好信息调整模型的参数，使模型在未来的生成中更倾向于产生那些被认为更好的输出。</strong></li>
+<li><strong>DPO在DeepSeek LLM中的应用</strong>：在DeepSeek
+LLM的<strong>训练过程中，DPO被应用于对齐实验环节</strong>。
+在完成SFT（监督微调）之后，使用DPO<strong>进一步优化模型</strong>。
+通过150万指令数据实例进行训练，DPO帮助模型更好地理解和满足用户的需求，增强模型回答的有益性和无害性。在处理用户的问题时，经过DPO优化的模型能够更准确地提供有用的信息，同时避免产生有害或不适当的回答。</li>
+<li><strong>DPO的优势</strong>：与其他优化方法相比，DPO具有一些显著的优势。它<strong>避免了复杂奖励函数的设计，直接利用人类偏好进行优化，使得模型的优化过程更加直观和有效</strong>。
+DPO<strong>能够充分利用大规模的偏好数据，这些数据可以包含丰富的信息，帮助模型学习到更广泛的语言模式和用户需求</strong>。
+通过DPO优化的模型在性能表现上有明显提升。在AlignBench评估中，经过DPO优化的DeepSeek
+- 67B - Chat -
+DPO模型在总分以及多个细分维度上的表现优于未经过DPO优化的DeepSeek - 67B -
+Chat模型，证明了DPO在提升模型质量方面的有效性。</li>
+</ol>
+<p>大规模的偏好数据是什么意思？</p>
+<p>大规模的偏好数据是指数量庞大、涵盖多种类型和来源，能反映用户广泛需求和喜好倾向的数据集。在语言模型优化场景下，这些数据包含丰富的用户对模型输出的反馈信息，对提升模型性能、增强用户体验起着关键作用。</p>
+<ol type="1">
+<li><strong>数据规模庞大</strong>：数据量通常达到海量级别，包含众多用户对模型输出的评价和选择。在DeepSeek
+LLM的训练中，通过大量用户对模型不同回答的反馈，积累了大规模的偏好数据。这些数据可能来自于不同领域、不同背景用户的提问和对相应回答的评价，数据量的充足使得模型能够学习到更全面的语言模式和用户需求。</li>
+<li><strong>数据类型多样</strong>：涵盖了各种与模型输出相关的评价维度，包括回答的准确性、有用性、逻辑性、语言流畅性、安全性等。不同用户可能从不同角度关注模型的输出，有的注重回答是否准确解决问题，有的关注回答是否符合逻辑，大规模偏好数据能够综合这些多样的评价，为模型优化提供多维度的参考。在评估模型回答时，有的用户可能因为回答的专业性和准确性给予好评，有的用户则可能因为回答的表述通俗易懂而更倾向于选择，这些不同类型的反馈共同构成了丰富的偏好数据。</li>
+<li><strong>反映用户广泛需求</strong>：能够体现不同用户群体、不同应用场景下的多样化需求。不同行业的用户可能对模型有不同的期望，科研人员可能希望模型提供严谨的学术知识和深入的分析，普通大众可能更关注生活常识和娱乐相关的回答。大规模偏好数据可以覆盖这些广泛的需求，使模型在优化过程中能够更好地适应不同用户的要求。在处理医学、金融、生活等不同领域的问题时，模型可以根据大规模偏好数据学习到不同领域用户对回答的偏好特点，从而提供更符合用户期望的输出。</li>
+</ol>
+<p>大规模的偏好数据是怎么积累起来的？</p>
+<p>大规模偏好数据的积累是一个复杂且系统的过程，涉及多种方法和大量工作，对提升语言模型性能意义重大。结合文档内容，主要通过用户反馈收集、多样化数据来源整合、模型生成与筛选以及人工标注与审核等方式来实现。</p>
+<ol type="1">
+<li><strong>用户反馈收集</strong>：<strong>最直接的方式</strong>是收集用户在与模型交互过程中的反馈。当用户使用DeepSeek模型时，他们对模型生成内容的评价、选择和建议等信息会被记录下来。用户可能会对模型给出的答案进行打分，或者指出回答中存在的问题，这些反馈能直接反映用户对模型输出的偏好。可以在模型的应用界面设置反馈按钮，方便用户提交意见，长期积累下来就能形成大规模的偏好数据。</li>
+<li><strong>多样化数据来源整合</strong>：从多种不同的数据源获取数据，以丰富偏好数据的类型和内容。可以收集不同领域的文本数据，如新闻、学术论文、小说等，分析其中的语言模式和用户可能的偏好倾向。社交媒体平台上的讨论、问答社区中的问题与回答等，也能为偏好数据提供丰富的素材。将这些来自不同渠道的数据整合起来，能够涵盖更广泛的用户需求和偏好，使模型学习到多样化的语言表达方式和知识。</li>
+<li><strong>模型生成与筛选</strong>：利用模型自身生成数据，然后通过一定的筛选机制获取偏好数据。DeepSeek
+-
+R1的训练过程中，会用上一步获得的检查点（ckpt）生成更多基于规则之外的推理数据，再用DeepSeek
+-
+V3对这些数据进行判断和筛选。通过这种方式，可以从大量模型生成的数据中挑选出符合要求的部分，这些数据反映了模型在不同训练阶段的输出情况以及被筛选后的偏好结果，进一步扩充了偏好数据的规模。</li>
+<li><strong>人工标注与审核</strong>：人工标注是积累高质量偏好数据的重要手段。对于一些特定的数据，如DeepSeek
+- V3训练中的推理数据，会使用“internal DeepSeek -
+R1”生成并进行人工清洗，非推理数据则使用DeepSeek -
+V2.5生成并人工标注。人工标注者根据一定的标准，如回答的准确性、有用性、安全性等，对模型生成的内容进行标注和审核。这样能够确保数据的质量，并且标注后的结果可以作为偏好数据用于模型的训练和优化。</li>
+</ol>
+<hr>
+<figure>
+<img src="/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741932501390.png" alt="1741932501390">
+<figcaption aria-hidden="true">1741932501390</figcaption>
+</figure>
+<figure>
+<img src="/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741933638349.png" alt="1741933638349">
+<figcaption aria-hidden="true">1741933638349</figcaption>
+</figure>
+<figure>
+<img src="/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741933679091.png" alt="1741933679091">
+<figcaption aria-hidden="true">1741933679091</figcaption>
+</figure>
+<figure>
+<img src="/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741934072567.png" alt="1741934072567">
+<figcaption aria-hidden="true">1741934072567</figcaption>
+</figure>
+<p>这张图片主要介绍了DeepSeek V2中的多头潜在注意力（Multi-head Latent
+Attention，MLA）机制，并与其他注意力机制进行了对比，还展示了相关计算过程和优势。</p>
+<ol type="1">
+<li><strong>注意力机制对比</strong>：图中展示了四种注意力机制，分别是多头注意力（Multi-Head
+Attention，MHA）、分组查询注意力（Grouped-Query
+Attention，GQA）、多查询注意力（Multi-Query
+Attention，MQA）和多头潜在注意力（Multi-Head Latent Attention，MLA）。
+通过竖条图形示意了不同注意力机制中查询（Queries）、键（Keys）和值（Values）之间的关系。MHA中每个查询对应多个键值对；GQA对查询进行分组，每组查询对应一组键值对；MQA中所有查询共享一个键值对；MLA则引入了压缩的潜在键值（Compressed
+Latent KV），并在推理时缓存相关信息。</li>
+<li><strong>计算过程</strong>： 左侧给出了传统注意力机制的计算式，<span class="math inline">\(q_t = W^Qh_t\)</span> 、<span class="math inline">\(k_t = W^Kh_t\)</span> 、<span class="math inline">\(v_t =
+W^Vh_t\)</span>，表示在每个时间步计算查询、键和值向量，并且每个时间步需要缓存
+<span class="math inline">\(k_t\)</span> 和 <span class="math inline">\(v_t\)</span>，其维度为 <span class="math inline">\(\mathbb{R}^{d_h n_h}\)</span> 。
+右侧是MLA的计算式，<span class="math inline">\(c_t^{KV} =
+W^{DKV}h_t\)</span> 、<span class="math inline">\(k_t^C =
+W^{UK}c_t^{KV}\)</span> 、<span class="math inline">\(v_t^C =
+W^{UV}c_t^{KV}\)</span>，即<strong>先计算压缩的潜在键值 <span class="math inline">\(c_t^{KV}\)</span>，再得到压缩后的键 <span class="math inline">\(k_t^C\)</span> 和值 <span class="math inline">\(v_t^C\)</span> ，每个时间步仅需缓存 <span class="math inline">\(c_t^{KV}\)</span>，其维度 <span class="math inline">\(d_c\)</span> 远小于 <span class="math inline">\(d_h n_h\)</span> </strong>。</li>
+<li><strong>MLA优势</strong>：图中文字说明根据 <span class="math inline">\(q_t^T k_j = (W^Qh_t)^T(W^{UK}c_t^{KV}) =
+h_t^T((W^Q)^TW^{UK})c_t^{KV}\)</span>
+，在推理时MLA可以进一步减少计算量，同时降低了缓存需求，提高了推理效率。</li>
+</ol>
+<figure>
+<img src="/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741934208657.png" alt="1741934208657">
+<figcaption aria-hidden="true">1741934208657</figcaption>
+</figure>
+<p>这张图片介绍了DeepSeek V2中的<strong>解耦旋转位置嵌入（Decoupled
+RoPE）技术</strong>，主要内容包括技术背景、实现方式和计算过程：</p>
+<ul>
+<li><strong>技术背景</strong>：指出对压缩后的键<span class="math inline">\(k_t^C\)</span>施加传统的RoPE（旋转位置嵌入）会出现问题，即无法提前将<span class="math inline">\(W^{UK}\)</span>吸收到<span class="math inline">\(W^Q\)</span>中，因为<span class="math inline">\(W_Q^T RoPE(W_{UK}c_t^{KV}) \neq RoPE(W_Q^T
+W_{UK}c_t^{KV})\)</span> ，这说明直接对<span class="math inline">\(k_t^C\)</span>使用RoPE会影响计算的有效性。</li>
+<li><strong>实现方式</strong>：为解决上述问题，DeepSeek V2采用Decoupled
+RoPE，给查询<span class="math inline">\(q\)</span>和键<span class="math inline">\(k\)</span>添加额外的维度<span class="math inline">\(q_t^R, k_t^R \in
+\mathbb{R}^{d_h^R}\)</span>，用于承载RoPE位置信息，通过这种解耦的方式重新构建位置嵌入的计算。</li>
+<li><strong>计算过程</strong>：给出了具体的计算公式，如<span class="math inline">\([\mathbf{q}_t^R; \mathbf{q}_{t,2}^R; \cdots;
+\mathbf{q}_{t,n_h}^R] = \mathbf{q}_t^R = RoPE(W^{QR}c_t^Q)\)</span>
+，表示对特定计算后的向量施加RoPE得到查询的位置嵌入向量；<span class="math inline">\(\mathbf{k}_t^R = RoPE(W^{KR}h_t)\)</span>
+是键的位置嵌入计算；<span class="math inline">\(\mathbf{q}_{t,i} =
+[\mathbf{q}_{t,i}^C; \mathbf{q}_{t,i}^R]\)</span> 和<span class="math inline">\(\mathbf{k}_{t,i} = [\mathbf{k}_{t,i}^C;
+\mathbf{k}_t^R]\)</span> 是将压缩部分和位置嵌入部分进行拼接；<span class="math inline">\(\mathbf{o}_{t,i} = \sum_{j = 1}^{t}
+\text{Softmax}_j(\frac{\mathbf{q}_{t,i}^T \mathbf{k}_{j,i}}{\sqrt{d_h +
+d_h^R}})\mathbf{v}_{j,i}^C\)</span> 计算注意力输出；最后<span class="math inline">\(\mathbf{u}_t = W^O[\mathbf{o}_{t,1};
+\mathbf{o}_{t,2}; \cdots; \mathbf{o}_{t,n_h}]\)</span>
+得到最终结果。</li>
+<li></li>
+</ul>
+<figure>
+<img src="/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741934386552.png" alt="1741934386552">
+<figcaption aria-hidden="true">1741934386552</figcaption>
+</figure>
+<p>这张图片介绍了DeepSeek V2中的混合专家（Mixture of
+Experts，MoE）技术，主要内容如下：</p>
+<ul>
+<li><strong>常规MoE与DeepSeekMoE对比</strong>：
+<strong>常规MoE</strong>是将Transformer模块中某几层的前馈神经网络（FFN）替换为MoE层。
+<strong>而DeepSeekMoE是在常规MoE基础上，对fine-grained
+expert（细粒度专家）和shared expert
+isolation（共享专家隔离）进行了改进，并且引入了辅助负载均衡损失，包括专家级别、设备级别和通信级别的负载均衡</strong>。</li>
+<li><strong>fine-grained expert（细粒度专家）</strong>：
+图中中间部分公式展示了其计算方式。
+相<strong>比常规MoE，它扩大了专家选择范围（从<span class="math inline">\(N\)</span>到<span class="math inline">\(mN\)</span>）</strong>，通过计算输入与专家向量的相似度分数$
+s_{i,t}$ ，并根据Top - k选择机制（$ s_{i,t} ({s_{j,t}|1 j mN},mK)$
+）决定哪些专家参与计算，最终得到输出$ _t^l$ 。
+这样的改进能让模型更灵活地选择合适的专家处理输入，提升模型对复杂信息的处理能力。</li>
+<li><strong>shared expert isolation（共享专家隔离）</strong>：
+最右侧公式体现其原理，在fine-grained
+expert基础上，<strong>将专家分为共享专家（前<span class="math inline">\(K_s\)</span>个）和非共享专家</strong>。
+共享专家部分直接进行FFN计算，非共享专家部分则按fine-grained
+expert方式选择和计算，最后将两部分结果与输入残差相加得到输出。
+这种方式可隔离共享专家的作用，使模型在利用共享知识的同时，发挥非共享专家的独特优势，提升模型性能。</li>
+</ul>
+<figure>
+<img src="/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741934607810.png" alt="1741934607810">
+<figcaption aria-hidden="true">1741934607810</figcaption>
+</figure>
+<p>这张图展示了DeepSeek
+V2的架构，主要包含<strong>Transformer模块</strong>、<strong>DeepSeekMoE（混合专家</strong>）以及<strong>多头潜在注意力（MLA）</strong>三个关键部分：</p>
+<ol type="1">
+<li><strong>Transformer模块</strong>：
+图左侧用蓝色虚线框出了Transformer模块（Transformer Block ×
+L），每个模块内依次包含<strong>前馈神经网络（Feed - Forward
+Network）</strong>、<strong>RMS归一化（RMS
+Norm）</strong>、注意力机制（Attention）和又一次RMS归一化。 RMS
+Norm用于对输入数据进行归一化处理，帮助模型更好地学习；
+前馈神经网络负责对特征进行进一步的非线性变换；
+注意力机制则用于捕捉输入序列中不同位置之间的依赖关系。
+多个Transformer模块堆叠在一起，构成了模型的主体结构，用于对输入数据进行逐层处理和特征提取。</li>
+<li><strong>DeepSeekMoE（混合专家）</strong>：
+右上方展示了DeepSeekMoE结构。 输入隐藏层（Input Hidden <span class="math inline">\(u_t\)</span>）的数据会经过一个路由（Router），<strong>根据一定的规则（如Top
+- <span class="math inline">\(K_r\)</span>
+机制），将数据分配到不同的专家</strong>（包括<strong>路由专家Routed
+Expert</strong>和<strong>共享专家Shared Expert</strong> ）中进行处理。
+不同的专家擅长处理不同类型的信息，通过这种方式，模型可以更灵活地应对各种输入，提高处理复杂任务的能力。
+处理后的结果会被整合，得到输出隐藏层（Output Hidden <span class="math inline">\(h_t^l\)</span> ）。
+这种结构能够有效增加模型的参数效率和表达能力，同时通过负载均衡等策略，优化模型在多专家计算时的性能。</li>
+<li><strong>多头潜在注意力（MLA）</strong>： 右下方是MLA部分。
+输入隐藏层（Input Hidden <span class="math inline">\(h_t\)</span>）<strong>首先会被转换为潜在表示（Latent
+<span class="math inline">\(c_t^Q\)</span> 和Latent <span class="math inline">\(c_t^{KV}\)</span>
+）</strong>，然后分别对查询（Q）和键（K）应用<strong>旋转位置嵌入（RoPE）</strong>，并将处理后的结果进行拼接（concatenate）。
+接着，这些拼接后的向量进入<strong>多头注意力机制（Multi - Head
+Attention）进行计算</strong>，最终得到输出隐藏层（Output Hidden <span class="math inline">\(u_t\)</span>）。
+MLA通过引入压缩的潜在键值结构，<strong>在推理时减少了缓存需求和计算量，提升了模型的推理效率</strong>。</li>
+</ol>
+<figure>
+<img src="/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741934868242.png" alt="1741934868242">
+<figcaption aria-hidden="true">1741934868242</figcaption>
+</figure>
+<p>这张图介绍了DeepSeek的<strong>GRPO（Grouped Regularized Proximal
+Policy
+Optimization，分组正则化近端策略优化）</strong>，并与<strong>PPO（近端策略优化）</strong>进行了对比，主要内容如下：</p>
+<h3 id="ppo部分">PPO部分</h3>
+<ul>
+<li><strong>原理概述</strong>：PPO旨在<strong>最大化替代目标函数（surrogate
+objective），通过采样数据来优化策略模型（Policy
+Model）</strong>。输入为<span class="math inline">\(q\)</span>（可能代表查询或状态），策略模型生成输出<span class="math inline">\(o\)</span>（可能代表动作或响应）。</li>
+<li><strong>计算流程</strong>： 输出<span class="math inline">\(o\)</span>会分别进入<strong>参考模型（Reference
+Model）、奖励模型（Reward Model）和价值模型（Value Model）</strong>。
+<strong>参考模型与策略模型</strong>输出进行对比计算，<strong>奖励模型</strong>计算奖励值<span class="math inline">\(r\)</span>，<strong>价值模型</strong>计算价值<span class="math inline">\(v\)</span>。
+之后，利用<strong>广义优势估计（GAE）</strong>计算优势函数<span class="math inline">\(A\)</span>，这些计算结果用于更新策略模型的参数，使策略逐渐优化。</li>
+<li><strong>目标函数</strong>：图中上方给出了<strong>PPO的目标函数<span class="math inline">\(J_{PPO}(\theta)\)</span>，该函数通过对采样数据的计算，来最小化新旧策略之间的差异，同时最大化奖励，其中涉及到重要性采样权重以及剪裁操作（clip），以确保策略更新的稳定性。</strong></li>
+</ul>
+<h3 id="grpo部分">GRPO部分</h3>
+<ul>
+<li><strong>原理概述</strong>：
+GRPO是对PPO的改进，主要通过<strong>分组计算的方式进行优化</strong>。
+与PPO类似，<strong>输入<span class="math inline">\(q\)</span>经过策略模型生成多个输出<span class="math inline">\(o_1, o_2, \cdots,
+o_G\)</span>（表示分组输出）。</strong></li>
+<li><strong>计算流程</strong>：
+每个分组输出分别进入参考模型和奖励模型，计算出对应的奖励值<span class="math inline">\(r_1, r_2, \cdots, r_G\)</span>。
+接着，<strong>通过分组计算（Group
+Computation）得到每组的优势函数</strong><span class="math inline">\(A_1,
+A_2, \cdots, A_G\)</span>。
+相比PPO，GRPO考虑了分组的情况，能够更好地处理复杂任务和数据结构。</li>
+<li><strong>目标函数</strong>： 图下方给出了GRPO的目标函数<span class="math inline">\(J_{GRPO}(\theta)\)</span>，该函数不仅<strong>包含了与PPO类似的重要性采样和剪裁操作</strong>，还引入了<strong>正则化项</strong>（基于KL散度<span class="math inline">\(D_{KL}\)</span>），<strong>用于约束策略与参考策略之间的差异</strong>，从而提高模型的稳定性和泛化能力。</li>
+</ul>
+<h3 id="其他元素">其他元素</h3>
+<p>图中右侧标注的“Trained Models”和“Frozen
+Models”，分别表示<strong>训练中的模型和冻结的模型</strong>，用于说明在优化过程中不同模型的状态。
+图中的各种公式和箭头展示了数据的流向和计算过程，帮助理解两种优化方法的具体实现机制。</p>
+<figure>
+<img src="/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741935148477.png" alt="1741935148477">
+<figcaption aria-hidden="true">1741935148477</figcaption>
+</figure>
+<p>这张图直观展示了<strong>DeepSeek
+GRPO（分组正则化近端策略优化）</strong>
+的工作流程，主要涉及从输入到计算目标函数的各个环节：</p>
+<ol type="1">
+<li><strong>输入部分</strong>：
+图最左侧是输入的提示（prompts，以粉色方块表示），模型基于这些提示生成完成内容（completions，以绿色方块表示）
+。 这模拟了实际应用中用户输入信息，模型给出回应的过程。</li>
+<li><strong>奖励与优势计算</strong>：
+生成的完成内容<strong>进入奖励模型（RM），得到奖励值（rewards，以蓝色方块表示）</strong>。
+对奖励值进行标准化处理（计算方式为<span class="math inline">\(\frac{r -
+mean}{std}\)</span>），得到优势值（advantages，以紫色方块表示），公式为<span class="math inline">\(\hat{A}_{i,t}=\widetilde{r}_i = \frac{r_i -
+mean(r)}{std(r)}\)</span>。
+这种标准化有助于更准确地评估模型输出的优劣。</li>
+<li><strong>策略对比</strong>：
+图下方展示了当前策略（Policy，深绿色方块）和参考策略（Ref
+policy，浅绿色方块），通过计算它们之间的KL散度（<span class="math inline">\(D_{KL}\)</span>，以橙色方块表示）
+，衡量两个策略的差异程度。</li>
+<li><strong>目标函数计算</strong>：
+结合优势值和策略间的KL散度，按照图中给出的目标函数<span class="math inline">\(J_{GRPO}(\theta)\)</span>进行计算。
+该目标函数综合考虑了优势估计、重要性采样比例的剪裁以及策略间的差异约束，最终得到目标值（objective）。</li>
+<li><strong>监督方式</strong>： 图右上方标注了“Outcome Supervision or
+Process
+Supervision”，<strong>表示在这个过程中，可以采用结果监督或过程监督的方式，对模型的训练和优化进行指导</strong>。</li>
+<li></li>
+</ol>
+<figure>
+<img src="/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741935333251.png" alt="1741935333251">
+<figcaption aria-hidden="true">1741935333251</figcaption>
+</figure>
+<p>这张图展示了基于DeepSeek
+GRPO（分组正则化近端策略优化）的迭代强化学习（Iterative
+RL）算法流程，以及对该方法改进效果的分析，具体如下：</p>
+<h3 id="算法部分">算法部分</h3>
+<ol type="1">
+<li><strong>输入与初始化</strong>：
+算法输入<strong>初始</strong>策略模型<span class="math inline">\(\pi_{\theta_{init}}\)</span>、奖励模型<span class="math inline">\(r_{\varphi}\)</span>、任务提示集合<span class="math inline">\(\mathcal{D}\)</span>以及超参数<span class="math inline">\(\varepsilon\)</span>、<span class="math inline">\(\beta\)</span>、<span class="math inline">\(\mu\)</span>。 首先将当前策略模型<span class="math inline">\(\pi_{\theta}\)</span>初始化为<span class="math inline">\(\pi_{\theta_{init}}\)</span> 。</li>
+<li><strong>外层迭代</strong>：
+进入外层循环，每次迭代中，先将当前策略模型<span class="math inline">\(\pi_{\theta}\)</span>赋值给参考模型<span class="math inline">\(\pi_{ref}\)</span> 。
+接着进入内层步骤循环，从任务提示集合<span class="math inline">\(\mathcal{D}\)</span>中采样一批数据<span class="math inline">\(\mathcal{D}_b\)</span> ，更新旧策略模型<span class="math inline">\(\pi_{\theta_{old}}\)</span>为当前策略模型<span class="math inline">\(\pi_{\theta}\)</span> 。</li>
+<li><strong>采样与计算</strong>： 对于采样数据<span class="math inline">\(\mathcal{D}_b\)</span>中的每个问题<span class="math inline">\(q\)</span>，从旧策略模型<span class="math inline">\(\pi_{\theta_{old}}\)</span>中采样<span class="math inline">\(G\)</span>个输出<span class="math inline">\(\{o_i\}_{i = 1}^{G}\)</span>
+，然后通过奖励模型<span class="math inline">\(r_{\varphi}\)</span>计算每个输出<span class="math inline">\(o_i\)</span>对应的奖励<span class="math inline">\(\{r_i\}_{i = 1}^{G}\)</span>
+，并通过分组相对优势估计计算每个输出<span class="math inline">\(o_i\)</span>中第<span class="math inline">\(t\)</span>个token的优势值<span class="math inline">\(\hat{A}_{i,t}\)</span> 。</li>
+<li><strong>内层迭代与更新</strong>：
+进入GRPO内层迭代，通过最大化GRPO目标函数（Equation
+21）来更新策略模型<span class="math inline">\(\pi_{\theta}\)</span>
+。外层循环结束前，使用重放机制持续训练奖励模型<span class="math inline">\(r_{\varphi}\)</span> 。
+最终输出优化后的策略模型<span class="math inline">\(\pi_{\theta}\)</span> 。</li>
+</ol>
+<h3 id="效果分析部分">效果分析部分</h3>
+<p>图右下角文字指出，DeepSeek GRPO的改进似乎是源于提升了从Top -
+K中选择正确响应的能力，而不是基础能力的增强 。
+这表明该方法在筛选和选择合适输出方面有较好的效果，但在提升模型本质的基础性能上可能不是主要的改进方向。</p>
+<figure>
+<img src="/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741935459209.png" alt="1741935459209">
+<figcaption aria-hidden="true">1741935459209</figcaption>
+</figure>
+<figure>
+<img src="/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741935480869.png" alt="1741935480869">
+<figcaption aria-hidden="true">1741935480869</figcaption>
+</figure>
+<p>这张图介绍了DeepSeek
+V3，内容涵盖<strong>模型架构</strong>和<strong>基础设施</strong>两部分：</p>
+<ul>
+<li><strong>模型架构</strong>：
+<ul>
+<li><strong>DeepSeekMoE 改进</strong>：
+采用<strong>无辅助损失的负载均衡（Auxiliary-Loss-Free Load
+Balancing）技术</strong>，优化负载分配，避免额外损失。
+新增<strong>互补序列辅助损失（Complementary Sequence-Wise Auxiliary
+Loss）</strong>，增强模型学习效果。
+还运用<strong>节点限制路由（Node-Limited
+Routing）</strong>，提升路由效率，且<strong>不进行token丢弃（No
+Token-Dropping），保留信息完整性</strong>。</li>
+<li><strong>多token预测（Multi-Token Prediction）</strong> ：
+在主模型基础上添加D层MTP Module。每个时间步t，第k层MTP Module将k -
+1层的隐向量与<span class="math inline">\(Emb(t_{i +
+k})\)</span>拼接，投影后送入Transformer block 。
+每个token的梯度由主模型和MTP
+Modules的交叉熵损失（CE）平均得到，加快生成速度。</li>
+</ul></li>
+<li><strong>基础设施</strong>：
+<ul>
+<li><strong>训练优化</strong>：使用<strong>流水线并行和专家并行（Pipeline
++ Expert
+Parallelism）</strong>，提高训练并行度；采用<strong>FP8混合精度训练（FP8
+Mixed-Precision Training）</strong> ，减少内存占用，加速训练。</li>
+<li><strong>推理部署</strong>：包括<strong>预填充（prefilling）和解码（decoding）</strong>过程，优化推理过程，提升响应速度。</li>
+</ul></li>
+</ul>
+<p>1 <img src="/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741935634522.png" alt="1741935634522"></p>
+<p>这张图介绍了DeepSeek
+V3的预训练和训练后处理相关信息，以及模型在多个评估基准上的性能对比：</p>
+<ul>
+<li><strong>预训练（Pretrain）</strong>： 预训练模型为DeepSeek
+V3-Base，通过扩展语料库中数学与代码的样本，提升模型在相关领域的能力。语料库规模达14.8T，词汇量为128K。模型总参数为6710亿，每个token对应370亿参数。</li>
+<li><strong>监督微调（SFT）与强化学习（RL）</strong>：
+使用150万个指令数据实例进行训练。推理数据使用“internal
+DeepSeek-R1”生成并人工清洗；非推理数据则由DeepSeek-V2.5生成，再经人工标注。</li>
+<li><strong>性能对比</strong>： 右侧柱状图展示了DeepSeek
+V3与其他模型（如DeepSeek-V2、Qwen2.5-72B-Inst等）在多个评估基准（如MMLU-Pro、GPAO-Diamond等）上的准确率对比。DeepSeek
+V3在MATH 500、AIME
+2024等基准测试中表现突出，显示出其在数学推理等任务上的优势 。</li>
+</ul>
+<figure>
+<img src="/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741935811469.png" alt="1741935811469">
+<figcaption aria-hidden="true">1741935811469</figcaption>
+</figure>
+<figure>
+<img src="/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741935836656.png" alt="1741935836656">
+<figcaption aria-hidden="true">1741935836656</figcaption>
+</figure>
+<figure>
+<img src="/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741935869663.png" alt="1741935869663">
+<figcaption aria-hidden="true">1741935869663</figcaption>
+</figure>
+<figure>
+<img src="/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741935887892.png" alt="1741935887892">
+<figcaption aria-hidden="true">1741935887892</figcaption>
+</figure>
+<p>这张图围绕DeepSeek R1-Zero的“顿悟时刻（Aha
+Moment）”展开，包含对这一概念的阐述和具体示例：</p>
+<ul>
+<li><strong>概念阐述</strong>：
+左侧文本指出，“顿悟时刻”不仅是模型的重要时刻，也是研究人员观察模型行为的关键节点。它凸显了强化学习的强大之处，即无需明确教导模型如何解决问题，只需给予正确激励，模型就能自主形成先进的解题策略。这一时刻提醒人们强化学习在解锁人工智能系统新智能水平方面的潜力，为未来更自主、自适应的模型发展奠定基础。</li>
+<li><strong>示例分析</strong>： 右侧展示了一道数学题及DeepSeek
+R1-Zero中间版本模型的解答过程。题目是在<span class="math inline">\(a&gt;1\)</span>的条件下，求方程<span class="math inline">\(\sqrt{a - \sqrt{a + x}} =
+x\)</span>的实数解之和。模型在解答过程中，进行到某一步时出现了“顿悟时刻”，即模型意识到需要重新评估解题步骤，以确定是否能得出正确的解之和。这一过程体现了模型能够以拟人化的语气反思，展示了强化学习赋予模型的自主思考能力
+。</li>
+</ul>
+<figure>
+<img src="/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741936057057.png" alt="1741936057057">
+<figcaption aria-hidden="true">1741936057057</figcaption>
+</figure>
+<figure>
+<img src="/2025/03/14/%E8%B5%84%E6%96%99/%E5%A4%A7%E6%A8%A1%E5%9E%8B/DeepSeek%E5%8F%91%E5%B1%95%E5%8F%B2/1741936069203.png" alt="1741936069203">
+<figcaption aria-hidden="true">1741936069203</figcaption>
+</figure>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2025/03/17/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/3%E6%9C%8816%E6%97%A5%E5%91%A8%E6%8A%A5-2025/"
+      title="周报2025年3月16日"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        周报2025年3月16日
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2025/03/12/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/ai%20%E5%B7%A5%E5%85%B7%E5%9C%A8%E6%95%B0%E6%8D%AE%E8%8E%B7%E5%8F%96%E6%96%B9%E9%9D%A2%E7%9A%84%E5%BA%94%E7%94%A8/"
+      title="ai工具在数据获取中的应用"
+     >
+
+    <p class="title-text">
+      
+        ai工具在数据获取中的应用
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+
+
+
+
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+    &copy; 2025 ALTNT<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>

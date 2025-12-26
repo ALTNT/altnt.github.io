@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="false" > 
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>Amphan_水稻受损面积说明 | ALTNT&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="Amphan_水稻受损面积说明 1、生成的文件及结果说明 30m空间分辨率的 mDVDI图： 2020_mDVCI_11_win_BGD_19_21_7_rice.tif 细像元（30m)的受损率分布图（每个像素点为该像素点的受损率（0-1) \(P_{fine}\))： P_fine.tif 水稻像素点（细像元 30m)的受损率分布图(每个像素点的值大于 0表示 该像素点为水稻，且值为水稻的受损">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Amphan_水稻受损面积说明">
+<meta property="og:url" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/index.html">
+<meta property="og:site_name" content="ALTNT&#39;s Blog">
+<meta property="og:description" content="Amphan_水稻受损面积说明 1、生成的文件及结果说明 30m空间分辨率的 mDVDI图： 2020_mDVCI_11_win_BGD_19_21_7_rice.tif 细像元（30m)的受损率分布图（每个像素点为该像素点的受损率（0-1) \(P_{fine}\))： P_fine.tif 水稻像素点（细像元 30m)的受损率分布图(每个像素点的值大于 0表示 该像素点为水稻，且值为水稻的受损">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734510969835.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734509450779.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734511227465.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734509450779.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1733986929385.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1733987455819.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1733986997194.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1733986977608.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734327986369.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1733987130502.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1733987354835.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1733987253611.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1733987714607.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1733987809482.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1733987761452.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1733987845188.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1733988068181.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734089716820.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734089845654.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734072591562.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734072660369.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734504726588.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734072631054.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734072522419.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734072952826.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734073594803.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734075632244.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734075574167.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734075971499.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734090613744.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734076141314.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734076206900.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734090923322.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734078463827.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734078738878.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734078805400.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734078858429.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734078926882.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734078970465.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734079032451.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734079063929.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734079102828.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734328075454.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734092126181.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734093085370.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734093255677.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734093754287.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734094019740.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734094068634.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734094445273.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734512348388.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734184652087.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734184652087.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734187473680.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734187200261.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734187685558.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734233548268.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734188320253.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734187943008.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734188364005.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734187986273.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734188394892.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734188050813.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734188424789.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734188105548.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734188458711.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734188135536.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734188494071.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734188188935.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734188526647.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734188234502.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734326396657.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735009066739.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735009358027.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735009434986.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735009557266.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735009605531.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735010036709.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735010059491.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735010242026.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735010203801.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735010314724.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735010425125.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735010482449.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735010551777.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735010597565.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735010652652.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735010716579.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735010757614.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735011177664.png">
+<meta property="article:published_time" content="2024-12-18T06:07:40.068Z">
+<meta property="article:modified_time" content="2024-12-24T04:16:47.166Z">
+<meta property="article:author" content="ALTNT">
+<meta property="article:tag" content="技术博客,编程,程序员,机器学习,人工智能,操作系统,生活随笔">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.705553939.xyz/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734510969835.png">
+  
+    <link rel="alternate" href="/atom.xml" title="ALTNT's Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  
+   
+  <div id="main-grid" class="  ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>ALTNT's Blog </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">ALTNT </div>
+      <div class="dot"></div>
+      <div class="subtitle">守得云开见月明 </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://x.com/mi_liao39455" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://store.steampowered.com" title="Steam"><i class="fa-brands fa-steam"></i></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/ALTNT" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Cross-phenological-region/" rel="tag">Cross-phenological-region</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/GIS/" rel="tag">GIS</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Image-Processing/" rel="tag">Image Processing</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/LLM/" rel="tag">LLM</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Mac-Macos/" rel="tag">Mac Macos</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA/" rel="tag">Ros机器人</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Self-Supervise/" rel="tag">Self-Supervise</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Self-supervised-learning/" rel="tag">Self-supervised learning</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Sequence-Processing/" rel="tag">Sequence Processing</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/classification/" rel="tag">classification</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/cloud-removal/" rel="tag">cloud removal</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/cloud-removal/" rel="tag">cloud_removal</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/code/" rel="tag">code</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/crop-classification/" rel="tag">crop classification</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/crop-classification-remote-sensing/" rel="tag">crop classification, remote sensing</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/diffusion/" rel="tag">diffusion</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/k8s-Kubernetes/" rel="tag">k8s,Kubernetes</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/markdown-md/" rel="tag">markdown, md</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/remote-sensing/" rel="tag">remote sensing</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91-javascript-TypeScript/" rel="tag">vscode插件开发, javascript, TypeScript</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E4%BA%91%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">云操作系统</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%85%A5%E5%AD%A6%E6%9D%90%E6%96%99/" rel="tag">入学材料</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" rel="tag">图像处理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag">大模型</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" rel="tag">强化学习</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%97%A9%E6%9C%9F%E5%88%86%E7%B1%BB/" rel="tag">早期分类</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%88%86%E7%B1%BB/" rel="tag">时间序列分类</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%9B%91%E7%9D%A3%E5%BE%AE%E8%B0%83/" rel="tag">监督微调</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/" rel="tag">研究生周报</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BE%A4%E7%AD%89%E4%B8%8D%E5%8F%98%E6%80%A7/" rel="tag">群等不变性</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%87%AA%E7%9B%91%E7%9D%A3/" rel="tag">自监督</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%A1%A8%E5%BE%81%E5%AD%A6%E4%B9%A0/" rel="tag">表征学习</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%B5%84%E6%96%99/" rel="tag">资料</a></li></ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+
+<article id="post-crop_classification/Crop classification/Amphan_水稻受损面积说明" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        Amphan_水稻受损面积说明
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-12-18T06:07:40.068Z" itemprop="datePublished">2024-12-18</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    未分类 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            5.9k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h1 id="amphan_水稻受损面积说明">Amphan_水稻受损面积说明</h1>
+<h2 id="生成的文件及结果说明">1、生成的文件及结果说明</h2>
+<p>30m空间分辨率的 mDVDI图：</p>
+<p>2020_mDVCI_11_win_BGD_19_21_7_rice.tif</p>
+<p>细像元（30m)的受损率分布图（每个像素点为该像素点的受损率（0-1) <span class="math inline">\(P_{fine}\)</span>)：</p>
+<p>P_fine.tif</p>
+<p>水稻像素点（细像元 30m)的受损率分布图(每个像素点的值大于 0表示
+该像素点为水稻，且值为水稻的受损率（0-1))：</p>
+<p>2020_rice_influence_by_fragility_bgd.tif</p>
+<p>水稻像素点（细像元
+30m)的受损率分布图经过Albers等面积投影投影变换后生成的图：</p>
+<p>2020_projected_rice_influence_by_fragility_bgd.tif</p>
+<p>统计图鉴上受影响的几个地区的矢量边界图，并经过了Albers等面积投影投影变换</p>
+<p>gadm41_BGD_2_projected.shp</p>
+<p>统计结果汇总表：</p>
+<p>summary.xlsx</p>
+<h3 id="统计结果">统计结果</h3>
+<h4 id="水稻总面积对比汇总结果如下">水稻总面积对比汇总结果如下：</h4>
+<p>散点图绘制使用的是第二行和第三行的数据，左边这张图是去掉 Jhalokathi
+地区的散点图（R2 为 0.91)，右边是去掉 Jhalokathi 和 Pabna
+这两个地区的散点图（R2 为 0.92)</p>
+<p>（注意这里未使用 Jhalokathi
+地区的数据，因为该地区属于沿海地区，分类效果不太好，评估出来的面积与官方数据相差较大；取消
+Pabna 是因为官方的统计损失数据感觉有问题，太少了)</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734510969835.png" alt="1734510969835">
+<figcaption aria-hidden="true">1734510969835</figcaption>
+</figure>
+<p>说明，</p>
+<p>第一行是统计年鉴中4.2.3节的图表中的 Area Under
+Crops(Acre)这一项的数据（即下面绿色的这一列)</p>
+<p>第二行是统计年鉴第3 章预估产量和面积我汇总后的数据</p>
+<p>第三行使用2020_BGD_PRED_rice_CUT_mix.tif经过投影变换后统计出来的各地区的水稻种植面积</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734509450779.png" alt="1734509450779">
+<figcaption aria-hidden="true">1734509450779</figcaption>
+</figure>
+<p>注意目前看上去第一行和第二行的数据有较大的差异，且第一行的数据看起来问题很大，所以选用第二行的官方统计面积数据进行评价。</p>
+<h4 id="水稻受损面积汇总结果">水稻受损面积汇总结果：</h4>
+<p>左边这张图是去掉 Jhalokathi 地区的散点图（R2 为 0.7965)，右边是去掉
+Jhalokathi 和 Pabna 这两个地区的散点图（R2 为 0.8622)</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734511227465.png" alt="1734511227465">
+<figcaption aria-hidden="true">1734511227465</figcaption>
+</figure>
+<p>说明，</p>
+<p>第一行是统计年鉴中4.2.3节的图表中的 Partially
+damage(Acre)这一项的数据（即下面红色的这一列)</p>
+<p>第二行是经过预估后的各地区受损面积（Acre)</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734509450779.png" alt="1734509450779">
+<figcaption aria-hidden="true">1734509450779</figcaption>
+</figure>
+<h2 id="计算过程">2、计算过程</h2>
+<p>计算水稻受损面积</p>
+<h3 id="根据-dvdi-生成-30m-mdvdi">根据 DVDI 生成 30m mDVDI</h3>
+<p>输入是</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1733986929385.png" alt="1733986929385">
+<figcaption aria-hidden="true">1733986929385</figcaption>
+</figure>
+<p>空间分辨率</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1733987455819.png" alt="1733987455819">
+<figcaption aria-hidden="true">1733987455819</figcaption>
+</figure>
+<p>公式如下：</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1733986997194.png" alt="1733986997194">
+<figcaption aria-hidden="true">1733986997194</figcaption>
+</figure>
+<p>使用 python 代码进行计算的代码如下（使用 qgis 无法使用 exp
+函数，所以用 python 代码处理了)：</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1733986977608.png" alt="1733986977608">
+<figcaption aria-hidden="true">1733986977608</figcaption>
+</figure>
+<p>紧接着计算高分辨率像素的受损率 <span class="math inline">\(P_{fine}\)</span></p>
+<p>高分辨率像素的受损率 <span class="math inline">\(P_{fine}\)</span>的计算公式如下：</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734327986369.png" alt="1734327986369">
+<figcaption aria-hidden="true">1734327986369</figcaption>
+</figure>
+<h3 id="生成粗像元农田盖度图">生成粗像元农田盖度图</h3>
+<p>在地理坐标系下粗像素元的分辨率定为0.00898315284230767272度（大概
+一个像素点是1km)</p>
+<p><strong>农田盖度</strong>是指农田中植物（如作物）的覆盖面积占总地表面积的比例。它是一个重要的农业生态指标，用于评估农田的生态效益、土壤保持能力以及作物生长状况。</p>
+<p>单位</p>
+<p>农田盖度的单位通常是百分比（%）。例如，如果一个农田区域的盖度为70%，这意味着该区域的70%被植物覆盖，其余30%为裸地或其他非植被覆盖区域。</p>
+<p>输入图层为 30m 左右的水稻分布图：</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1733987130502.png" alt="1733987130502">
+<figcaption aria-hidden="true">1733987130502</figcaption>
+</figure>
+<p>空间分辨率是：0.0002694945851924635（30m)</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1733987354835.png" alt="1733987354835">
+<figcaption aria-hidden="true">1733987354835</figcaption>
+</figure>
+<p>其中 1 表示水稻（白色像素)，0 表示非水稻（黑色像素)：<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1733987253611.png" alt="1733987253611"></p>
+<p>生成 1km
+粗像元水稻盖度图只需要直接重投影即可即可，并且设置重采样方法设置为<strong>平均</strong>即可（取平均的话，每个粗像元像素的值恰好就是农作物的盖度)，并设置好输出分辨率：</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1733987714607.png" alt="1733987714607">
+<figcaption aria-hidden="true">1733987714607</figcaption>
+</figure>
+<p>生成的（水稻)农田盖度图如下：</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1733987809482.png" alt="1733987809482">
+<figcaption aria-hidden="true">1733987809482</figcaption>
+</figure>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1733987761452.png" alt="1733987761452">
+<figcaption aria-hidden="true">1733987761452</figcaption>
+</figure>
+<p>栅格直方图统计结果如下：</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1733987845188.png" alt="1733987845188">
+<figcaption aria-hidden="true">1733987845188</figcaption>
+</figure>
+<h3 id="生成细像元的农田盖度图">生成细像元的农田盖度图</h3>
+<p>因为细像元的空间分辨率就是0.0002694945852404068143度（30 m)</p>
+<p>所以直接使用即可（无需重新生成)</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1733988068181.png" alt="1733988068181">
+<figcaption aria-hidden="true">1733988068181</figcaption>
+</figure>
+<h3 id="计算细像元的受损率-p_fine">计算细像元的受损率 <span class="math inline">\(P_{fine}\)</span></h3>
+<p>公式为： <img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734089716820.png" alt="1734089716820"></p>
+<p>本来这里还需要再除以一个粗像元的作物盖度，但是发现前面计算<span class="math inline">\(P_{coarse}\)</span>的时候没乘这个，所以这里看起来不除似乎也不会有问题</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734089845654.png" alt="1734089845654">
+<figcaption aria-hidden="true">1734089845654</figcaption>
+</figure>
+<p>主要代码如下（主要思想是先计算出每个粗像元的 mDVDI
+加权和和农田盖度总和，即<span class="math inline">\(P_{fine}\)</span>公式中两个累加的部分，然后计算细像元的受损率<span class="math inline">\(P_{fine}\)</span>)：</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734072591562.png" alt="1734072591562">
+<figcaption aria-hidden="true">1734072591562</figcaption>
+</figure>
+<p>生成的细像元的受损率结果图P_fine.tif：</p>
+<p>0 为黑色的，1 为白色，可能看不太清楚，下面有 0 为白色的图，1
+为黑色的图</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734072660369.png" alt="1734072660369">
+<figcaption aria-hidden="true">1734072660369</figcaption>
+</figure>
+<p>对比下粗像元受损率的图(fragility_curve_bgd_1km.tif)如下：</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734504726588.png" alt="1734504726588">
+<figcaption aria-hidden="true">1734504726588</figcaption>
+</figure>
+<p>0 为白色的图，1 为黑色的图</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734072631054.png" alt="1734072631054">
+<figcaption aria-hidden="true">1734072631054</figcaption>
+</figure>
+<h3 id="计算水稻损失栅格细像元"><strong>计算水稻损失栅格（细像元)</strong></h3>
+<p>因为已经有了水稻的分布图层（细像元)，1 表示有水稻，0
+表示非水稻，同时也有了细像元的受损概率栅格图（细像元)，值为 0-1
+的数，表示该像元的受损概率，对应像素相乘就是水稻的损失栅格图</p>
+<ul>
+<li>使用 <code>栅格计算器</code> 工具，输入表达式
+<code>("rice_layer" * "damage_probability_layer")</code>，生成一个新的水稻损失栅格图层。这个图层的每个像素值表示该像素点的水稻损失概率。
+计算结果如下（2020_rice_influence_by_fragility_bgd.tif)：</li>
+</ul>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734072522419.png" alt="1734072522419">
+<figcaption aria-hidden="true">1734072522419</figcaption>
+</figure>
+<h3 id="裁剪受影响的几个地区的栅格边界数据"><strong>裁剪受影响的几个地区的栅格边界数据</strong></h3>
+<p>使用 <code>栅格</code> &gt; <code>提取</code> &gt;
+<code>裁剪栅格</code>
+工具，将水稻分布栅格和作物受损概率栅格裁剪到各省份的边界范围内</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734072952826.png" alt="1734072952826">
+<figcaption aria-hidden="true">1734072952826</figcaption>
+</figure>
+<p>步骤</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734073594803.png" alt="1734073594803">
+<figcaption aria-hidden="true">1734073594803</figcaption>
+</figure>
+<h4 id="使用albers等面积投影进行投影变换"><strong>使用Albers等面积投影进行投影变换</strong></h4>
+<p>选择适当的等面积投影坐标系（这里选Albers等面积投影）</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734075632244.png" alt="1734075632244">
+<figcaption aria-hidden="true">1734075632244</figcaption>
+</figure>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734075574167.png" alt="1734075574167">
+<figcaption aria-hidden="true">1734075574167</figcaption>
+</figure>
+<p>算了这里直接将整个孟加拉国的水稻损失栅格都进行投影变换了</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734075971499.png" alt="1734075971499">
+<figcaption aria-hidden="true">1734075971499</figcaption>
+</figure>
+<p>然后生成要使用的地区的矢量文件并做投影变换</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734090613744.png" alt="1734090613744">
+<figcaption aria-hidden="true">1734090613744</figcaption>
+</figure>
+<h3 id="计算每个省份水稻损失总面积">计算每个省份水稻损失总面积：</h3>
+<p>步骤如下，思路主要是先统计选中的各个地区的矢量边界图层中的各个地区的所有像素点的和（即总的水稻损失概率)，然后乘以每个像素点的面积即为受损的水稻面积</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734076141314.png" alt="1734076141314">
+<figcaption aria-hidden="true">1734076141314</figcaption>
+</figure>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734076206900.png" alt="1734076206900">
+<figcaption aria-hidden="true">1734076206900</figcaption>
+</figure>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734090923322.png" alt="1734090923322">
+<figcaption aria-hidden="true">1734090923322</figcaption>
+</figure>
+<h4 id="各省份水稻受损率总和注意还没乘面积">各省份水稻受损率总和（注意还没乘面积)：</h4>
+<p>Jhalokati:3290.155333611402 Rajbari:26800.093430639397
+Chuadanga:48730.667508211176 Jhenaidah: 46816.21448709527
+Kustia:72339.49813155603 Narail:22613.452791931308 Pabna:
+66233.13581311288 Dinajpur:49931.87775322891</p>
+<p>在Albers等面积投影下，一个像素点的面积是 27.8376mx30.0661m,而 1
+英亩=4046.8648平方米</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734078463827.png" alt="1734078463827">
+<figcaption aria-hidden="true">1734078463827</figcaption>
+</figure>
+<h4 id="水稻受损面积计算结果">水稻受损面积计算结果:</h4>
+<p>Jhalokati:</p>
+<p>3290.155333611402
+x27.837x30.0661/4046.8648=<strong>680.4515908273128</strong></p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734078738878.png" alt="1734078738878">
+<figcaption aria-hidden="true">1734078738878</figcaption>
+</figure>
+<p>Rajbari:</p>
+<p>26800.093430639397x27.837x30.0661/4046.8648=<strong>5542.645972639374</strong></p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734078805400.png" alt="1734078805400">
+<figcaption aria-hidden="true">1734078805400</figcaption>
+</figure>
+<p>Chuadanga:</p>
+<p>48730.667508211176
+x27.837x30.0661/4046.8648=<strong>10078.20508937573</strong></p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734078858429.png" alt="1734078858429">
+<figcaption aria-hidden="true">1734078858429</figcaption>
+</figure>
+<p>Jhenaidah:</p>
+<p>46816.21448709527x27.837x30.0661/4046.8648=<strong>9682.268584349815</strong></p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734078926882.png" alt="1734078926882">
+<figcaption aria-hidden="true">1734078926882</figcaption>
+</figure>
+<p>Kustia:</p>
+<p>72339.49813155603x27.837x30.0661/4046.8648=<strong>14960.851872375602</strong></p>
+<p><img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734078970465.png" alt="1734078970465">
+Narail:</p>
+<p>22613.452791931308x27.837x30.0661/4046.8648=<strong>4676.788286915996</strong></p>
+<p><img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734079032451.png" alt="1734079032451">
+Pabna:</p>
+<p>66233.13581311288x27.837x30.0661/4046.8648=<strong>13697.968047011705</strong></p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734079063929.png" alt="1734079063929">
+<figcaption aria-hidden="true">1734079063929</figcaption>
+</figure>
+<p>Dinajpur:</p>
+<p>49931.87775322891x27.837x30.0661/4046.8648=<strong>10326.632698185073</strong></p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734079102828.png" alt="1734079102828">
+<figcaption aria-hidden="true">1734079102828</figcaption>
+</figure>
+<h3 id="水稻受损面积分析">水稻受损面积分析</h3>
+<p>首先年鉴中的受损面积如下，这里选择第 3 列作为数据来源，但是去掉了
+Pabna 地区的数据（感觉不太真实) <img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734328075454.png" alt="1734328075454"></p>
+<p>汇总的原始受损数据和预估的受损面积数据如下：</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734092126181.png" alt="1734092126181">
+<figcaption aria-hidden="true">1734092126181</figcaption>
+</figure>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734093085370.png" alt="1734093085370">
+<figcaption aria-hidden="true">1734093085370</figcaption>
+</figure>
+<h3 id="统计水稻种植面积">统计水稻种植面积</h3>
+<p>还是使用分区统计工具进行计算</p>
+<p>矢量边界选择要统计几个地区的矢量图形并进行投影变换</p>
+<p>栅格图层使用水稻分布图（1 表示水稻，0 表示非水稻)，并记得投影</p>
+<p>还是使用总和作为统计信息</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734093255677.png" alt="1734093255677">
+<figcaption aria-hidden="true">1734093255677</figcaption>
+</figure>
+<p>计算结果如下：</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734093754287.png" alt="1734093754287">
+<figcaption aria-hidden="true">1734093754287</figcaption>
+</figure>
+<p>与前面一样以英亩为单位进行转化：</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734094019740.png" alt="1734094019740">
+<figcaption aria-hidden="true">1734094019740</figcaption>
+</figure>
+<p>年鉴中的数据如下：</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734094068634.png" alt="1734094068634">
+<figcaption aria-hidden="true">1734094068634</figcaption>
+</figure>
+<p>这个是年鉴中的作物面积和预估的作物面积（好像有点对不上，Pabna先不管）</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734094445273.png" alt="1734094445273">
+<figcaption aria-hidden="true">1734094445273</figcaption>
+</figure>
+<h3 id="数据校验">数据校验</h3>
+<h4 id="水稻品种问题">1、水稻品种问题</h4>
+<p>突然发现孟加拉国的水稻是有三个品种的，不过这三个品种的水稻的种植期是不一样的</p>
+<p><img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734512348388.png" alt="1734512348388"> <img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734184652087.png" alt="1734184652087"></p>
+<h4 id="再仔细统计一下2020-年年检中这几个地区的数据">3、再仔细统计一下2020
+年年检中这几个地区的数据：</h4>
+<p>先水稻有这三个品种，且三个品种还有两到三个品种</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734184652087.png" alt="1734184652087">
+<figcaption aria-hidden="true">1734184652087</figcaption>
+</figure>
+<p>这三个品种的日期如下：</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734187473680.png" alt="1734187473680">
+<figcaption aria-hidden="true">1734187473680</figcaption>
+</figure>
+<p>在农业统计中，像“2020-21”这样的时间段通常表示一个跨年度的农业年度或财政年度。具体到孟加拉国的数据，“2020-21”通常指的是从2020年7月1日到2021年6月30日的时间段</p>
+<p>所以我们选用 2019-2020 的数据</p>
+<h5 id="jhalokati">Jhalokati:</h5>
+<h6 id="aus26600英亩">Aus:26600英亩</h6>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734187200261.png" alt="1734187200261">
+<figcaption aria-hidden="true">1734187200261</figcaption>
+</figure>
+<h6 id="aman118050-英亩aman-应该用不到">Aman：118050 英亩（Aman
+应该用不到)</h6>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734187685558.png" alt="1734187685558">
+<figcaption aria-hidden="true">1734187685558</figcaption>
+</figure>
+<h6 id="boro22542-英亩">Boro：22542 英亩</h6>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734233548268.png" alt="1734233548268">
+<figcaption aria-hidden="true">1734233548268</figcaption>
+</figure>
+<h5 id="rajbari">Rajbari:</h5>
+<h6 id="aus4493-英亩">Aus：4493 英亩</h6>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734188320253.png" alt="1734188320253">
+<figcaption aria-hidden="true">1734188320253</figcaption>
+</figure>
+<h6 id="boro32406-英亩">Boro：32406 英亩</h6>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734187943008.png" alt="1734187943008">
+<figcaption aria-hidden="true">1734187943008</figcaption>
+</figure>
+<h5 id="chuadanga">Chuadanga:</h5>
+<h6 id="aus96922-英亩">Aus：96922 英亩</h6>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734188364005.png" alt="1734188364005">
+<figcaption aria-hidden="true">1734188364005</figcaption>
+</figure>
+<h6 id="boro77565-英亩">Boro：77565 英亩</h6>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734187986273.png" alt="1734187986273">
+<figcaption aria-hidden="true">1734187986273</figcaption>
+</figure>
+<h5 id="jhenaidah">Jhenaidah:</h5>
+<h6 id="aus75694-英亩">Aus：75694 英亩</h6>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734188394892.png" alt="1734188394892">
+<figcaption aria-hidden="true">1734188394892</figcaption>
+</figure>
+<h6 id="boro200233-英亩">Boro：200233 英亩</h6>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734188050813.png" alt="1734188050813">
+<figcaption aria-hidden="true">1734188050813</figcaption>
+</figure>
+<h5 id="kustia">Kustia:</h5>
+<h6 id="aus66222-英亩">Aus：66222 英亩</h6>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734188424789.png" alt="1734188424789">
+<figcaption aria-hidden="true">1734188424789</figcaption>
+</figure>
+<h6 id="boro84391-英亩">Boro：84391 英亩</h6>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734188105548.png" alt="1734188105548">
+<figcaption aria-hidden="true">1734188105548</figcaption>
+</figure>
+<h5 id="narail">Narail:</h5>
+<h6 id="aus15868-英亩">Aus：15868 英亩</h6>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734188458711.png" alt="1734188458711">
+<figcaption aria-hidden="true">1734188458711</figcaption>
+</figure>
+<h6 id="boro121723-英亩">Boro：121723 英亩</h6>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734188135536.png" alt="1734188135536">
+<figcaption aria-hidden="true">1734188135536</figcaption>
+</figure>
+<h5 id="pabna">Pabna:</h5>
+<h6 id="aus-46487英亩">Aus: 46487英亩</h6>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734188494071.png" alt="1734188494071">
+<figcaption aria-hidden="true">1734188494071</figcaption>
+</figure>
+<h6 id="boro128094-英亩">Boro：128094 英亩</h6>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734188188935.png" alt="1734188188935">
+<figcaption aria-hidden="true">1734188188935</figcaption>
+</figure>
+<h5 id="dinajpur">Dinajpur:</h5>
+<h6 id="aus17023-英亩">Aus：17023 英亩</h6>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734188526647.png" alt="1734188526647">
+<figcaption aria-hidden="true">1734188526647</figcaption>
+</figure>
+<h6 id="boro426619-英亩">Boro：426619 英亩</h6>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734188234502.png" alt="1734188234502">
+<figcaption aria-hidden="true">1734188234502</figcaption>
+</figure>
+<h5 id="整理数据如下">整理数据如下：</h5>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1734326396657.png" alt="1734326396657">
+<figcaption aria-hidden="true">1734326396657</figcaption>
+</figure>
+<p>突然发现代码写错了，计算 P_fine的时候括号放的地方放错了</p>
+<p>就下面红框这</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735009066739.png" alt="1735009066739">
+<figcaption aria-hidden="true">1735009066739</figcaption>
+</figure>
+<p>完蛋，得出来的受损率好像偏高了（0 是黑的，越亮表示受损率越高）</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735009358027.png" alt="1735009358027">
+<figcaption aria-hidden="true">1735009358027</figcaption>
+</figure>
+<p>对比下 P_coarse,大致趋势倒是还是有的</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735009434986.png" alt="1735009434986">
+<figcaption aria-hidden="true">1735009434986</figcaption>
+</figure>
+<p>现在来看看具体细节</p>
+<p>这个是水稻的分布，黑色代表水稻</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735009557266.png" alt="1735009557266">
+<figcaption aria-hidden="true">1735009557266</figcaption>
+</figure>
+<p>P_fine如下：</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735009605531.png" alt="1735009605531">
+<figcaption aria-hidden="true">1735009605531</figcaption>
+</figure>
+<p>仔细看下大部分地方是无水稻的地方变成了黑色，而有水稻的地方变为了浅灰色，但是还是有很多地方异常值</p>
+<p>上面有的像元是斜的，这是 mDVDI 引入的，DVDI 的计算使用的 modis
+数据集，重采样到 30m
+的时候需要加个影像投影和重采样的过程，这个是我之前写的代码https://code.earthengine.google.com/e870be706993fa650f75670aa70d13ce，参考的是https://blog.csdn.net/qq_35591253/article/details/127528788</p>
+<p>先来分析下异常的地方</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735010036709.png" alt="1735010036709">
+<figcaption aria-hidden="true">1735010036709</figcaption>
+</figure>
+<p>水稻分布如下：</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735010059491.png" alt="1735010059491">
+<figcaption aria-hidden="true">1735010059491</figcaption>
+</figure>
+<p>两者也对应不上，为什么会有这么个规则的块？</p>
+<p>如下面这个点，属于水稻种植区域</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735010242026.png" alt="1735010242026">
+<figcaption aria-hidden="true">1735010242026</figcaption>
+</figure>
+<p>P_fine为 0</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735010203801.png" alt="1735010203801">
+<figcaption aria-hidden="true">1735010203801</figcaption>
+</figure>
+<p>但是 mDVDI 确是 0，导致按公式这里是 0</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735010314724.png" alt="1735010314724">
+<figcaption aria-hidden="true">1735010314724</figcaption>
+</figure>
+<p>仔细看 mDVDI 的图，可以看到这里明显有上面的形状</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735010425125.png" alt="1735010425125">
+<figcaption aria-hidden="true">1735010425125</figcaption>
+</figure>
+<p>P_fine</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735010482449.png" alt="1735010482449">
+<figcaption aria-hidden="true">1735010482449</figcaption>
+</figure>
+<p>感觉 mDVDI 算的还是有问题，等学姐重新算下吧</p>
+<p>再来看看这个地方 p_fine为什么为 1</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735010551777.png" alt="1735010551777">
+<figcaption aria-hidden="true">1735010551777</figcaption>
+</figure>
+<p>这个地方是个水稻区域</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735010597565.png" alt="1735010597565">
+<figcaption aria-hidden="true">1735010597565</figcaption>
+</figure>
+<p>mDVDI 的值为 0.056 也不算大</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735010652652.png" alt="1735010652652">
+<figcaption aria-hidden="true">1735010652652</figcaption>
+</figure>
+<p>这个点的位置是（3251,4239）</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735010716579.png" alt="1735010716579">
+<figcaption aria-hidden="true">1735010716579</figcaption>
+</figure>
+<p>其实不用算也知道，这种情况应该是这个粗像元里水稻种植面积比较多，但是这个点的
+mDVDI 不是 0（稍微有点数就行，导致中间这个公式会得到一个很大的数，甚至
+远大于 1，导致 P_fine也远大于 1）</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735010757614.png" alt="1735010757614">
+<figcaption aria-hidden="true">1735010757614</figcaption>
+</figure>
+<p>这是 mDVDI</p>
+<figure>
+<img src="/2024/12/18/crop_classification/Crop%20classification/Amphan_%E6%B0%B4%E7%A8%BB%E5%8F%97%E6%8D%9F%E9%9D%A2%E7%A7%AF%E8%AF%B4%E6%98%8E/1735011177664.png" alt="1735011177664">
+<figcaption aria-hidden="true">1735011177664</figcaption>
+</figure>
+<p>感觉这个公式就很不合理</p>
+<p>算了，这个 mDVDI 本身就不合理，等重新生成试试</p>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2024/12/20/crop_classification/Crop%20classification/12%E6%9C%8820%E6%97%A5%E5%91%A8%E6%8A%A5/"
+      title=""
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        (No Title)
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2024/12/17/crop_classification/Crop%20classification/2016-tropical-cyclone/"
+      title="Assessing the impacts of tropical cyclones on rice production in Bangladesh, Myanmar, Philippines, and Vietnam"
+     >
+
+    <p class="title-text">
+      
+        Assessing the impacts of tropical cyclones on rice production in Bangladesh, Myanmar, Philippines, and Vietnam
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+
+
+
+
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+    &copy; 2025 ALTNT<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>

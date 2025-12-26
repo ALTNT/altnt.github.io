@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="false" > 
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>云机器人 | ALTNT&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="云机器人的概念与发展 在5G网络建设全面铺开的大背景下，未来云机器人在中国将会得到飞跃式发展。本文引自《智能制造概论》，作者李培根、高亮。 ** 传统工业机器人在面对复杂生产环境时该如何解决以下需求？** ** （1）大量数据存储与处理；（2）高计算能力；（3）强学习能力。** 传统机器人在执行即时定位和地图构建、物品抓取、定位导航等复杂任务时，大量数据的获取和处理会给机器人本身带来巨大的储存和计">
+<meta property="og:type" content="article">
+<meta property="og:title" content="云机器人">
+<meta property="og:url" content="http://blog.705553939.xyz/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E4%BA%91%E6%9C%BA%E5%99%A8%E4%BA%BA/index.html">
+<meta property="og:site_name" content="ALTNT&#39;s Blog">
+<meta property="og:description" content="云机器人的概念与发展 在5G网络建设全面铺开的大背景下，未来云机器人在中国将会得到飞跃式发展。本文引自《智能制造概论》，作者李培根、高亮。 ** 传统工业机器人在面对复杂生产环境时该如何解决以下需求？** ** （1）大量数据存储与处理；（2）高计算能力；（3）强学习能力。** 传统机器人在执行即时定位和地图构建、物品抓取、定位导航等复杂任务时，大量数据的获取和处理会给机器人本身带来巨大的储存和计">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-d513995adfa250d2aa4df85028b17ce2_720w.webp">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-b472ad56a8b86c051d75e3b840738fd2_720w.webp">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-8c57b7ecd7fc1ae0837a05b9ee08eadd_720w.webp">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-552161e0f2cc6d98d2ddb0e289a50de4_720w.webp">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E4%BA%91%E6%9C%BA%E5%99%A8%E4%BA%BA/1713141224451.png">
+<meta property="og:image" content="https://www.e-works.net.cn/articles/articleimage/20224/132954129612253403_new.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E4%BA%91%E6%9C%BA%E5%99%A8%E4%BA%BA/1713151093401.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E4%BA%91%E6%9C%BA%E5%99%A8%E4%BA%BA/1713153967646.png">
+<meta property="og:image" content="http://blog.705553939.xyz/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E4%BA%91%E6%9C%BA%E5%99%A8%E4%BA%BA/1714062694610.png">
+<meta property="article:published_time" content="2024-06-05T15:46:21.573Z">
+<meta property="article:modified_time" content="2024-06-05T15:46:21.573Z">
+<meta property="article:author" content="ALTNT">
+<meta property="article:tag" content="技术博客,编程,程序员,机器学习,人工智能,操作系统,生活随笔">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic3.zhimg.com/80/v2-d513995adfa250d2aa4df85028b17ce2_720w.webp">
+  
+    <link rel="alternate" href="/atom.xml" title="ALTNT's Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  
+   
+  <div id="main-grid" class="  ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>ALTNT's Blog </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">ALTNT </div>
+      <div class="dot"></div>
+      <div class="subtitle">守得云开见月明 </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://x.com/mi_liao39455" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://store.steampowered.com" title="Steam"><i class="fa-brands fa-steam"></i></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/ALTNT" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Cross-phenological-region/" rel="tag">Cross-phenological-region</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/GIS/" rel="tag">GIS</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Image-Processing/" rel="tag">Image Processing</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/LLM/" rel="tag">LLM</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Mac-Macos/" rel="tag">Mac Macos</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA/" rel="tag">Ros机器人</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Self-Supervise/" rel="tag">Self-Supervise</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Self-supervised-learning/" rel="tag">Self-supervised learning</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Sequence-Processing/" rel="tag">Sequence Processing</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/classification/" rel="tag">classification</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/cloud-removal/" rel="tag">cloud removal</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/cloud-removal/" rel="tag">cloud_removal</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/code/" rel="tag">code</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/crop-classification/" rel="tag">crop classification</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/crop-classification-remote-sensing/" rel="tag">crop classification, remote sensing</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/diffusion/" rel="tag">diffusion</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/k8s-Kubernetes/" rel="tag">k8s,Kubernetes</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/markdown-md/" rel="tag">markdown, md</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/remote-sensing/" rel="tag">remote sensing</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91-javascript-TypeScript/" rel="tag">vscode插件开发, javascript, TypeScript</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E4%BA%91%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">云操作系统</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%85%A5%E5%AD%A6%E6%9D%90%E6%96%99/" rel="tag">入学材料</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" rel="tag">图像处理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag">大模型</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" rel="tag">强化学习</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%97%A9%E6%9C%9F%E5%88%86%E7%B1%BB/" rel="tag">早期分类</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%88%86%E7%B1%BB/" rel="tag">时间序列分类</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%9B%91%E7%9D%A3%E5%BE%AE%E8%B0%83/" rel="tag">监督微调</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/" rel="tag">研究生周报</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BE%A4%E7%AD%89%E4%B8%8D%E5%8F%98%E6%80%A7/" rel="tag">群等不变性</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%87%AA%E7%9B%91%E7%9D%A3/" rel="tag">自监督</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%A1%A8%E5%BE%81%E5%AD%A6%E4%B9%A0/" rel="tag">表征学习</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%B5%84%E6%96%99/" rel="tag">资料</a></li></ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+
+<article id="post-Ros机器人相关/机器人相关论文/云机器人" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        云机器人
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-06-05T15:46:21.573Z" itemprop="datePublished">2024-06-05</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    未分类 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            9.9k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h2 id="云机器人的概念与发展-在5g网络建设全面铺开的大背景下未来云机器人在中国将会得到飞跃式发展本文引自智能制造概论作者李培根高亮"><strong>云机器人的概念与发展
+在5G网络建设全面铺开的大背景下，未来云机器人在中国将会得到飞跃式发展。本文引自《智能制造概论》，作者李培根、高亮。</strong></h2>
+<p>** 传统工业机器人在面对复杂生产环境时该如何解决以下需求？**</p>
+<p>** （1）大量数据存储与处理；（2）高计算能力；（3）强学习能力。**</p>
+<p>传统机器人在执行即时定位和地图构建、物品抓取、定位导航等复杂任务时，大量数据的获取和处理会给机器人本身带来巨大的储存和计算压力，即使能够完成任务，实时性也并不理想。云机器人借助于5G网络，云计算与人工智能技术，达到了
+<strong>感知智能层级</strong> 。</p>
+<p><strong>云机器人特点：</strong></p>
+<p><strong>知识共享、业务协同和人机协同</strong></p>
+<p><strong>知识共享：加速机器人智能化、协同化的发展，拓展智能机器人的应用边际。（机器人功能升级，机器人训练等）</strong></p>
+<p><strong>业务协同：多机器人群体协作</strong></p>
+<p><img src="https://pic3.zhimg.com/80/v2-d513995adfa250d2aa4df85028b17ce2_720w.webp"></p>
+<p><img src="https://pic3.zhimg.com/80/v2-b472ad56a8b86c051d75e3b840738fd2_720w.webp"></p>
+<p><img src="https://pic2.zhimg.com/80/v2-8c57b7ecd7fc1ae0837a05b9ee08eadd_720w.webp"></p>
+<p><img src="https://pic1.zhimg.com/80/v2-552161e0f2cc6d98d2ddb0e289a50de4_720w.webp"></p>
+<p>云机器人的基本特征是由云上的“大脑”进行控制。位于云端数据中心具有强大存储能力和运算能力的“大脑”，利用人工智能算法和其他先进的软件技术，通过5G通信网络来控制本地机器人，使云机器人能全面感知环境、相互学习、共享知识，不仅能够降低成本，还会帮助机器人提高自学能力、适应能力，推动其更快更大规模普及.</p>
+<p>云机器人是机器人借助云计算而发展起来的一种新兴技术，整体处于初级发展阶段，但很多国家和地区已对云机器人开展相关研究并取得了一定成果。</p>
+<p>在国外，2010年，卡耐基梅隆大学的James
+Kuffner教授首次将机器人与云计算相结合，<strong>提出了“云机器人”的概念</strong>。当时云机器人作为机器人学术领域的新概念，其意义在于利用互联网与云计算，<strong>采集大量云机器人运行数据，进行存储与分析，使云机器人能够快速学习与分享知识，提高智能化水平</strong>。</p>
+<p>同年，新加坡的ASORO实验室研究了<strong>在Hadoop 平台中运行Fast
+Slam算法的框架Davichi</strong>，结合<strong>机器人操作系统（ROS）</strong>作为<strong>机器人生态系统的消息传递框架</strong>，将平台作为机器人的<strong>“大脑”</strong>，利用云计算为服务机器人提供可扩展性和并行性，可视为云机器人服务平台的雏形。</p>
+<p>2011—2014年欧洲开展了<strong>RoboEarth项目</strong>，RoboEarth已经发展成为一个基于云的数据库，各种机器人可以在其中分享信息、相互学习。</p>
+<p>2013年，加州伯克利大学<strong>将机器人与云端谷歌目标识别引擎</strong>结合，<strong>完成机器人抓取任务</strong>。</p>
+<p>2014年美国康奈尔大学研制出了一款“机器人大脑”<strong>RoboBrain</strong>，使机器人能够学习解决从未遇到的问题。RoboBrain是机器人的“云大脑”，<strong>大量</strong>机器人通过高速无线网络技术链接这个“大脑”。RoboBrain可以向面临未知情况“迷茫”的机器人提供可以识别的命令和建议。</p>
+<p>2015年，Zeynep
+Dogmus<strong>将云计算与医疗机器人相结合</strong>，研制了一种<strong>模块化</strong>的云康复机器人系统。</p>
+<p>2018 年 Amazon向公众提供了一个<strong>ROS云机器人开发平台——AWS Robo
+Maker</strong>，能够协助用户轻松完成开发、测试和部署机器人应用程序的工作。</p>
+<figure>
+<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E4%BA%91%E6%9C%BA%E5%99%A8%E4%BA%BA/1713141224451.png" alt="1713141224451">
+<figcaption aria-hidden="true">1713141224451</figcaption>
+</figure>
+<p>在国内，2012年南开大学开始研究云计算与机器人系统的结合，历时多年研制出以家庭服务机器人“小南”为硬件平台的<strong>云架构家庭服务机器人系统</strong>，中国云机器人的发展也在逐步加快进程。</p>
+<p>2017年，中国企业<strong>达闼科技</strong>发布<strong>全球智能机器人云平台</strong>，并与中国移动、软银、华为无线应用场景实验室共同发布《GTI
+5G和云机器人白皮书》，分析了5G网络带给云机器人的巨大价值与商业机会。研究发展云机器人也得到了国家层面的支持，<strong>《“智能机器人”重点专项2017
+年度项目申报指南》</strong>中就明确提出<strong>要构建云机器人服务平台</strong>。在2020年5G网络建设全面铺开的大背景下，未来云机器人在中国将会得到飞跃式发展。</p>
+<h2 id="将机器人模型部署到云上通常涉及以下几个步骤">将机器人模型部署到云上通常涉及以下几个步骤：</h2>
+<ol type="1">
+<li><strong>选择云服务提供商</strong>
+：首先，需要选择一个云服务提供商，如Amazon Web Services (AWS), Google
+Cloud Platform (GCP), Microsoft Azure等。</li>
+<li><strong>设置云服务器</strong>
+：在云服务提供商处创建一个虚拟机或容器实例。选择合适的操作系统，配置网络和安全性设置。</li>
+<li><strong>安装依赖</strong> ：在云服务器上安装所需的软件和库，例如ROS
+(Robot Operating
+System)、Python、C++编译器等，以及任何特定的机器人模型需要的依赖。</li>
+<li><strong>上传机器人模型</strong>
+：将机器人模型文件和代码上传到云服务器上。可以使用FTP、SSH或者云服务提供商提供的文件传输服务。</li>
+<li><strong>配置环境</strong>
+：设置环境变量，配置机器人模型运行所需的参数。</li>
+<li><strong>测试运行</strong>
+：在云服务器上运行机器人模型，确保一切正常工作。</li>
+<li><strong>接口和API</strong>
+：如果需要远程控制或监控，可能需要开发或使用现有的API来与机器人模型通信。</li>
+<li><strong>安全性</strong>
+：确保所有通信都是加密的，实现适当的认证和授权机制，保护机器人模型不受未经授权的访问。</li>
+<li><strong>持续集成和部署</strong>
+：可以设置持续集成/持续部署（CI/CD）流程，以便机器人模型的更新可以自动部署到云服务器上。</li>
+<li><strong>监控和维护</strong>
+：一旦部署完成，需要监控云服务器和机器人模型的性能，并定期进行维护更新。</li>
+</ol>
+<p>此外，对于特定的机器人应用，可能还需要考虑实时性能、数据存储、分析和处理等其他因素。在实际操作中，可能还需要依据具体的机器人模型和应用场景做出更详细的计划和调整。</p>
+<h2 id="开发或使用现有的api来与机器人模型通信可以通过以下几个思路或例子来实现">开发或使用现有的API来与机器人模型通信可以通过以下几个思路或例子来实现：</h2>
+<ol type="1">
+<li><strong>使用RESTful API</strong> ：</li>
+</ol>
+<p>** **- 创建一个RESTful API，允许通过HTTP请求来控制机器人模型。</p>
+<p>** **- 使用标准的HTTP方法（GET, POST, PUT,
+DELETE）来查询状态、发送命令或更新配置。</p>
+<p>** <strong>- 例如，可以创建一个端点 </strong>/robot/move**
+来接受POST请求，从而控制机器人移动。</p>
+<ol start="2" type="1">
+<li><strong>使用WebSocket</strong> ：</li>
+</ol>
+<p>** **-
+对于需要实时通信的应用，WebSocket提供了一种在客户端和服务器之间建立持久连接的方法。</p>
+<p>** **- 可以通过WebSocket发送控制命令，并实时接收机器人的反馈。</p>
+<ol start="3" type="1">
+<li><strong>使用ROS桥接</strong> ：</li>
+</ol>
+<p>** <strong>-
+如果机器人模型是基于ROS的，可以使用如</strong>rosbridge_suite**来提供一个JSON
+API，允许非ROS程序通过WebSocket或其他网络协议与ROS通信。</p>
+<ol start="4" type="1">
+<li><strong>使用MQTT</strong> ：</li>
+</ol>
+<p>** **- MQTT是一个轻量级的消息协议，适用于物联网设备和机器人通信。</p>
+<p>** **-
+可以在机器人和云之间设置一个MQTT代理，实现命令的发布和状态的订阅。</p>
+<ol start="5" type="1">
+<li><strong>使用gRPC</strong> ：</li>
+</ol>
+<p>** **- gRPC是一个高性能、开源和通用的RPC框架，它可以跨语言运行。</p>
+<p>** **- 通过定义服务端和客户端的接口来实现与机器人模型的通信。</p>
+<p>具体例子：</p>
+<ul>
+<li>假设你有一个云端机器人模型需要接收移动命令，你可以定义一个RESTful
+API端点
+<strong>/api/move</strong>，客户端通过发送POST请求到这个端点，并在请求体中包含移动参数，如方向和距离。</li>
+<li>如果你的机器人需要执行复杂的任务序列，你可以使用gRPC来定义一个服务，其中包含一个
+<strong>ExecuteTaskSequence</strong>
+方法，该方法接受一系列任务并返回执行结果。</li>
+</ul>
+<p>在实现API时，需要考虑以下因素：</p>
+<ul>
+<li><strong>安全性</strong>
+：使用HTTPS、API密钥、OAuth等机制来保护API。</li>
+<li><strong>文档</strong>
+：提供清晰的API文档，方便开发者了解如何使用API。</li>
+<li><strong>版本控制</strong>
+：确保API的向后兼容性，或者在更新时提供版本控制。</li>
+<li><strong>错误处理</strong>
+：定义清晰的错误响应，以便客户端能够正确处理异常情况。</li>
+</ul>
+<p>通过这些方法和例子，你可以创建一个强大的API，允许开发者和服务有效地与你的机器人模型通信。</p>
+<h2 id="推荐的云服务提供商适合机器人模型">推荐的云服务提供商适合机器人模型</h2>
+<p>对于机器人模型的部署，选择一个云服务提供商会涉及到对实时性、计算能力、数据传输速度和成本效益的考量。以下是一些流行的云服务提供商，它们能够支持机器人模型的部署：</p>
+<ol type="1">
+<li><strong>Amazon Web Services (AWS)</strong> - AWS
+提供了广泛的服务，包括强大的计算能力、灵活的物联网(IoT)服务和机器学习平台。AWS
+RoboMaker 是特别为机器人应用设计的服务，提供了开发、测试和部署 ROS
+应用程序的全套工具。</li>
+<li><strong>Google Cloud Platform (GCP)</strong> - GCP
+以其高性能计算服务和强大的数据分析能力而闻名。Google
+的AI和机器学习工具对于处理复杂的机器人模型特别有帮助。</li>
+<li><strong>Microsoft Azure</strong> - Azure
+提供了一系列的机器人服务，包括 Azure Robotics 和 IoT
+工具，以及用于机器学习的 Azure AI。</li>
+<li><strong>IBM Cloud</strong> - IBM Cloud 结合了Watson
+AI以及强大的云计算服务，适合需要强大智能分析能力的机器人模型。</li>
+<li><strong>阿里云（Alibaba Cloud）</strong> -
+阿里云为机器人相关的应用提供了可靠的计算资源、物联网服务和人工智能能力，尤其是在亚太区域。</li>
+<li><strong>DigitalOcean</strong> -
+适合初创公司或者小型项目的服务商，提供了简易的部署方式与管理界面。</li>
+<li><strong>Oracle Cloud</strong> -
+提供了一整套的云服务，包括深度机</li>
+</ol>
+<h2 id="云机器人的特点与功能"><strong>云机器人的特点与功能</strong></h2>
+<p>**
+云机器人在云端管理与多机器人协作，自主运行能力，数据共享与分析方面有极大优势。**</p>
+<p>云机器人依靠云端计算机集群强大运算和存储能力，能够给机器人提供具有<strong>感知智能</strong>的“大脑”。将机器人与云计算相结合，可以增强单个机器人的能力，执行复杂功能任务和服务，同时，使得分布在世界各地、具有不同能力的机器人通过开展合作、共享信息资源，完成更大、更复杂的任务。这将广泛扩展机器人的应用领域，加速和简化机器人系统的开发过程，有效降低机器人的制造和使用成本。这对于家庭机器人、工业机器人和医疗机器人的大规模应用，具有极其深远的意义。比如，在云端可以建立机器人的“大脑”，包含增强学习、深度学习、视觉识别和语音识别、移动机器人未知环境导航（如街道点云数据3D重构、SLAM、路线导航）、大规模多机器人协作、复杂任务规划等功能。</p>
+<p><strong>1）云端管理与多机器人协作</strong></p>
+<pre><code>在工厂或仓库中使用大量工业机器人时，需要机器人具有多种拓展功能。为保障整个现场各设备的协同运行，需要利用统一的软件平台进行管理，需要与各种自动化设备通信，例如传送带、行吊、机床和扫描仪等。
+
+采用本地方式管理机器人和自动化设备可能需要更多的服务器，而云端技术能够提供更强大的处理能力而不需要在本地部署成本高昂的服务器。在云端面对海量机器人，都能实现数据的处理和调度管理。在工厂生产线上，机器人将与许多自动化设备进行协同工作，那么信息交互和共享将变得极为重要。不同的机器人与云端软件进行通信，云端“大脑”对环境信息进行分析，能更好地将任务分配给正确类型的机器人，系统实时掌握每一个机器人的工作状态，指定距离最近的机器人去执行任务。管理者不需要到现场进行监控，通过云端可以在远方进行操作和管理，提升工作效率。</code></pre>
+<p>** 2）自主运行的能力**</p>
+<pre><code>传统的机器人都是由管理者进行示教后，根据程序，完成指定的任务，但传统机器人在面对具有高数据密度的场景，如语音视觉识别、环境感知与运动规划时，由于搭载的处理器性能较低，无法有效应对复杂任务。因此，在工作过程中可能会遇到障碍而停机，甚至发生事故，破环生产计划。
+
+结合云端计算能力，机器人将可以拥有智能和自主性的同时有效降低机器人功耗与硬件要求，使云机器人更轻、更小、更便宜。一个很好的例子就是机器人的导航能力，移动机器人在仓库、物流中心和工厂生产线之间运输货物，他们可以避开人员、叉车和其他设备。通过安装在机器人上的激光雷达，可以对周围环境进行扫描，并将大量数据推送到云端进行处理和构建地图，规划线路，然后向下传输给本地机器人进行导航。同时这些地图和信息可以传输给其它的机器人，实现多机器人之间的协作，提高货物的搬运效率。</code></pre>
+<p>** 3）数据共享和分析**</p>
+<pre><code>大数据分析是云计算赋予机器人的额外能力，机器人在执行任务过程中会收集大量的运行数据，包括环境信息、机器的状态和生产需求等等，这些数据经过整理和分析，可以得出最佳的决策方案。
+
+机器人每天可能产生几十GB的数据，这些数据需要在云端进行存储和管理，机器人产生的数据存放在云端将非常有价值。因为，通过历史数据的分析，系统可以预先判断下一步会发生什么，并做出相应的响应处理。
+
+从存储到分析，再到任务的下发，对于机器人整个过程的控制有着巨大的意义。还有，云端可以实现人工智能的服务，包括语音指令，可以进一步拉近了人与机器的距离，实现更加便利的控制。
+
+云端的数据服务可以连接到每一个机器人和自动化设备，数据共享令机器之间更有默契。系统可以掌握机器设备的状态，给每个机器人下达不同的任务指令，让机器之间互相协作，高效地完成生产任务。</code></pre>
+<p>**
+总的来说，云端技术将让机器人效率更高、性能更好，人与机器之间的交互会更轻松。**</p>
+<h2 id="云机器人的关键技术"><strong>3. 云机器人的关键技术</strong></h2>
+<pre><code>云机器人不同于传统的机器人架构，其通过网络连接到云端的控制核心，获取了人工智能、大数据和超高计算能力的支持，降低了机器人本身的成本和功耗。与传统机器人相比：</code></pre>
+<p>**
+具有“感知”与“互联”能力的5G通信技术，能进行庞大“记忆”与“计算”的云计算技术以及能够自主“控制”、“识别”、“学习”的人工智能技术是云机器人的关键技术。**</p>
+<p>** 1）5G通信技术**</p>
+<pre><code>云端机器人的架构来源于人类多层级控制结构，人类大脑发出指令，通过脊髓传导至肢体肌肉，驱动骨骼进行运动，平均信息延迟在100ms以上。5G通信技术作为下一代移动通信技术，如图1所示5G具有灵活、可移动、高带宽、低时延和高可靠的特点。其峰值速度将超过10G/s，端对端的延迟将低于1毫秒，并允许每平方公里超过100万台机器人终端设备进行网络连接和处理要求。</code></pre>
+<figure>
+<img src="https://www.e-works.net.cn/articles/articleimage/20224/132954129612253403_new.png" alt="5G机器人控制">
+<figcaption aria-hidden="true">5G机器人控制</figcaption>
+</figure>
+<p>图1 5G机器人控制</p>
+<pre><code>eMBB（3D/超高清视频等大流量移动宽带业务）、mMTC（大规模物联网业务）、和 URLLC（如无人驾驶、工业自动化等需要低时延、高可靠连接的业务）是5G网络的三大主要应用场景。以上三大应用场景使5G通信网络成为云机器人理想的数据通道，是云机器人实用化的关键。5G网络强大的网络性能能够从容应对机器人对带宽和时延的挑战，而5G网络切片和MEC能够为机器人应用提供端到端定制化的支持。
+
+未来5G网络将成为一个无所不在的虚拟化基础设施，可以通过云端的超强处理和监控能力，将大量的云机器人整合在一起，从而深度渗透进工业、商业、家庭的每个角落，全方位改变社会的面貌。5G技术将不断为机器人赋能，使其具备真正的认知和行动能力。</code></pre>
+<p>** 2）云计算技术**</p>
+<pre><code>云计算是一种计算模型，可以随时随地的按需访问共享的、可配置的计算资源池（如网络、服务器、存储、应用程序和服务），只需最少的管理工作就可以快速配置和分发。云计算将硬件资源虚拟化、动态地扩展，并在 Internet 上作为服务提供，它还允许提供者为用户提供几乎无限资源的访问。它汇集了所有技术（Web服务、虚拟化、面向服务的架构、网格计算等）和用于提供 IT 功能（软件、平台、硬件）的可扩展、弹性的业务模型作为服务请求。云计算为高性能算法的部署提供了物质基础。
+
+2007 年，Google在其内部网络数据规模十分强大的基础上，提出一整套基于分布式、并行集群方式的云计算架构。随着网络的快速发展，使得所有主要的行业参与者都积极提供云解决方案，特别是 Amazon EC2、Microsoft Azure、谷歌应用程序和 IBM blue cloud。国内的浪潮、阿里、腾讯和华为等企业也开始提供相应的云计算服务。云计算为用户提供三种级别的效劳：基础设施即服务（IaaS）是以虚拟机的形式为客户提供硬件资源，客户自己维护应用程序、数据库和服务器软件，而供应商维护云虚拟化、硬件服务器、存储和网络。平台即服务（PaaS）把开发环境作为一种服务来提供给用户，用户在平台上开发自己的应用程序并开源给其他用户。软件即服务（SaaS）是用户可以远程地接入网络即可使用服务提供商在云上部署的服务，包括 B/S 或 C/S 两种架构。</code></pre>
+<p>** 3）人工智能技术**</p>
+<pre><code>基于云计算的超强运算能力和5G的强大通信能力，使得人工智能技术在机器人上的应用成为可能。机器学习，尤其是深度学习，可以更广泛的应用于各个领域，云机器人将比传统机器人更有能力、更加智能。
+
+通过5G通信网络和云计算平台可实现多台机器人联网，逐步应用蚁群算法、免疫算法等多种智能算法，使机器人不断进行学习，以适应生产环境的多样性，组成高度和谐的复杂生产系统，一体化生产解决方案将成为可能。人工智能的算法和数据在人工介入下，将得到不断自我增强和优化，实现人机协同的增益模式。机器人本身甚至还可以通过自我学习，成为活跃的移动大数据收集器，用以储存信息，并将数据上传到服务器端，从而不断强化云端的数据库，方便其他机器人使用学习。人工智能技术使得云机器人具备在陌生环境下识别周围环境和事物并实现自主运行的能力。目前计算机视觉、图像识别等技术已相对成熟，随着深度学习算法和物联网的发展和应用，云端智能技术将在所有智能机器人的应用领域不断提升。</code></pre>
+<h2 id="云机器人在智能制造中的应用">` 4. 云机器人在智能制造中的应用</h2>
+<p>云机器人在汽车工厂的应用</p>
+<p>图2 云机器人在汽车工厂的应用</p>
+<pre><code>如图2所示，云机器人作为智能工厂中感知与执行层，直接关系智能制造的高效、高品质、低能耗和安全性。云机器人在智能制造中有如下应用：
+
+（1）通过敏捷物联网网管与周边各种自动化设备以及其他机器人互联协同；
+
+（2）通过IoT平台以及多种传感器完成数据收集，上传云端平台；
+
+（3）在后台云计算的支持下，适应复杂环境，支持复杂行为，完成作业任务的敏捷切换与管控；
+
+（4）借助云平台的大数据分析功能，实现智能维护与故障预诊断功能，同时具备进化功能。
+
+目前云机器人开始逐步应用于智能工厂，尤其是汽车制造领域。如宝马公司基于微软的Azure云计算服务研发的物联网平台，目前连接了3000多台机器、云机器人和自动传输系统。云机器人通过云计算平台与各类设备深度协同，提高工厂生产效率与品质。世界最大的汽车制造商大众汽车（Volkswagen）也表示，它将利用亚马逊网络服务（AWS）的计算机和IoT技术来采集与分析大量云机器人数据，来高效管理其制造工厂中的各类机器人，甚至优化整个产品供应链。`</code></pre>
+<h2 id="云机器人未来发展趋势">** 5. 云机器人未来发展趋势**</h2>
+<pre><code>通过关键技术的不断迭代，提升云机器人的智能化、信息化水平，使云机器人接近认知智能层级。不断增强机器人的拟人化和交互沟通能力，学会推理决策，最终实现人机共融，扩大应用范围是未来重要的发展趋势。总体来看在第四次工业革命浪潮的推动下，人机共融将成为新一代机器人的发力点，也是世界机器人领域研发创新的主要方向。
+
+一方面，云机器人必须具备内部进化能力，而单一的计算平台是不可能实现的，其需要机器人在云端的计算平台之间交互。云机器人上传采集的环境信息，由云端“大脑”进行存储和分析，借助新一代移动通信网络和云计算技术，实现机器人间的相互学习与知识共享；另一方面云机器人还要具备外部进化的交互。在智能制造中，需要机器助人、工厂要人、智能学人。人同时操控多个机器人协同工作，可以提高效率、增加灵活性。人与机器人协调互动，不仅将提高机器人的工作效率和质量，还能增强机器人的自学习功能提升认知能力，逐步实现人机共融。云机器人的大规模应用，最终会实现人与机器人的关系从“主仆关系”到“伙伴关系”的转换。</code></pre>
+<h1 id="论文cloud-robotics-model">论文:CLOUD ROBOTICS MODEL</h1>
+<p>https://hrcak.srce.hr/133677</p>
+<p>https://hrcak.srce.hr/file/197338</p>
+<p>机器人学校和云机器人 机器人学校与云机器人相辅相成。
+越来越多拥有最新知识的机器人将成为人类真正的帮手。
+云机器人技术是利用云计算通过互联网在机器人之间共享资源和学习[6]。
+机器人云需要机器人学校提供标准的编码体系、知识结构和资源，以及机器人可以在各个领域服务的认证方法[7,
+8]。
+机器人学校是具有高级智能的机器人的数据池、资源池和服务集群的集合，它也有机器人的知识编码标准和认证标准。</p>
+<p>机器人学校是基于机器人云的概念； 它也是构建机器人云的关键要素。
+机器人学校的概念主要包括三个方面： • 准入， • 教学、学习、 •
+测试和毕业。 硬件功能必须满足特定活动领域的硬件要求
+无需在软件中进行太多编码。 机器人学校的模型如图 2 所示。</p>
+<figure>
+<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E4%BA%91%E6%9C%BA%E5%99%A8%E4%BA%BA/1713151093401.png" alt="1713151093401">
+<figcaption aria-hidden="true">1713151093401</figcaption>
+</figure>
+<p>ROBOT WEB TOOLS</p>
+<p>Robot Web Tools 旨在使 Web
+开发人员、机器人专家甚至学生能够快速开始构建机器人 Web 应用程序 [9-13]。
+有多种途径可用于构建机器人 Web 应用程序。 一个常见的途径是在
+现有的机器人框架。</p>
+<p>机器人操作系统（ROS）是最流行的机器人中间件之一。
+当前可用的教程包括用于四旋翼飞行器导航的界面（图 3）。</p>
+<p>ROS（机器人操作系统）提供库和工具来帮助软件开发人员创建机器人应用程序。
+它提供硬件抽象、设备驱动程序、库、可视化工具、消息传递、包管理等。 ROS
+根据开源 BSD 许可证获得许可 [9-10]。</p>
+<p>四旋翼GPS导航</p>
+<p>四旋翼飞行机器人——四旋翼是四旋翼直升机。
+四旋翼直升机通过改变旋翼速度来控制，从而改变升力。
+它是一种欠驱动动态车辆，具有四个输入力和六个输出坐标。
+使用多旋翼直升机的优点之一是增加有效负载能力。
+四旋翼飞行器具有高度机动性，可以垂直起飞/着陆，以及飞入难以到达的区域[14-17]。
+四旋翼安装有 GPS 传感器，用于检测当前位置。
+要求四旋翼飞行器以令人满意的精度跟踪特定点（j =
+1，...，n）之间的强制轨迹，并保持所需的飞行姿态和高度。 四旋翼飞行器使用
+GPS 传感器和/或电子罗盘检查当前位置（X 和 Y）。
+通过GPS坐标可以引入四旋翼飞行轨迹， 例如 PGPS(j)如图4所示。</p>
+<p>四旋翼飞行器使用 GPS 传感器和/或电子罗盘检查当前位置（X 和 Y）。
+此外，高度是通过气压传感器测量的。
+机载微控制器计算与由连续GPS位置PGPS(j)给出的强加轨迹的实际位置偏差。
+它相对于最近的轨迹段进行自身定位（通过计算距离 δ1 或 δ2）。
+使用陀螺仪，四旋翼确定所需的飞行方位角 α（图 4）并保持所需的飞行方向。
+飞行高度也受到控制，以能够执行规定的任务（任务）。 利用相应的 Google
+Earth 地图来提供四旋翼飞行轨迹的相应 GPS 坐标，如图 5 所示。 GPS
+坐标：经度、纬度和高度，在地图中定义并在图 6
+中给出，用于计算四旋翼飞行轨迹。 转子在地球坐标系中的轨迹。</p>
+<p>云机器人项目 最后讨论了一些云机器人项目。 借助 RoboEarth
+数据库及其云引擎，RoboEarth 提供了一个开源云机器人框架，允许机器人通过
+www 式数据库共享知识并访问强大的机器人云服务 [5]。 源代码和文档可通过
+RoboEarth 的软件组件页面获取。</p>
+<p>https://www.roboearth.ethz.ch/software-components/index.html</p>
+<figure>
+<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E4%BA%91%E6%9C%BA%E5%99%A8%E4%BA%BA/1713153967646.png" alt="1713153967646">
+<figcaption aria-hidden="true">1713153967646</figcaption>
+</figure>
+<p>Rosbridge 专注于在机器人和云中的单个 ROS 环境之间架起通信桥梁。
+可通过 [18] 开源。</p>
+<p>https://github.com/RobotWebTools/rosbridge_suite</p>
+<p>RosJava 库允许在 Android 手机上运行 ROS。
+虽然严格来说不是一个云机器人项目，但它允许 ROS 开发人员使用 Android
+设备连接到（人类）云服务，例如 Google Goggles。 可通过 [19] 开源。</p>
+<p>DAvinCi 项目通过使用 Hadoop 集群并行化 SLAM 算法，展示了云计算的优势
+[20]。
+基于云的机器人抓取项目使用谷歌的对象识别引擎来识别和抓取常见的家用物品。</p>
+<p><strong>GostaiNet
+可以在云中的兼容机器人上执行视觉和语音算法等机器人行为。 GostaiNet
+使用网络浏览器从世界任何地方提供对任何机器人的无缝控制。 Gostai 可以在
+GostaiNet 机器人云上托管服务 [21-23]。</strong></p>
+<h2 id="development-of-cloud-autonomous-system-for-enhancing-the-performance-of-robots-path">Development
+of Cloud Autonomous System for Enhancing the Performance of Robots’
+Path</h2>
+<figure>
+<img src="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E4%BA%91%E6%9C%BA%E5%99%A8%E4%BA%BA/1714062694610.png" alt="1714062694610">
+<figcaption aria-hidden="true">1714062694610</figcaption>
+</figure>
+<p>https://arxiv.org/abs/2303.06614</p>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3%E8%AE%BA%E6%96%87/%E6%8E%A5%E4%B8%8B%E6%9D%A5%E5%8F%AF%E8%83%BD%E7%9C%8B%E7%9A%84%E8%AE%BA%E6%96%87/"
+      title="接下来可能看的论文"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        接下来可能看的论文
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2024/06/05/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/%E4%BA%91%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"
+      title="云操作系统"
+     >
+
+    <p class="title-text">
+      
+        云操作系统
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+
+
+
+
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+    &copy; 2025 ALTNT<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>
