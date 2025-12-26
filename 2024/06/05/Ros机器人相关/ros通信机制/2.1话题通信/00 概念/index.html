@@ -390,7 +390,8 @@
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <p>话题通信是ROS中使用频率最高的一种通信模式，话题通信是基于<strong>发布订阅</strong>模式的，也即:一个节点发布消息，另一个节点订阅该消息。话题通信的应用场景也极其广泛，比如下面一个常见场景:</p>
+          
+            <p>话题通信是ROS中使用频率最高的一种通信模式，话题通信是基于<strong>发布订阅</strong>模式的，也即:一个节点发布消息，另一个节点订阅该消息。话题通信的应用场景也极其广泛，比如下面一个常见场景:</p>
 <blockquote>
 <p>机器人在执行导航功能，使用的传感器是激光雷达，机器人会采集激光雷达感知到的信息并计算，然后生成运动控制信息驱动机器人底盘运动。</p>
 </blockquote>
@@ -442,6 +443,7 @@ Listener 发送 Talker 的 RPC 地址信息。</p>
 <p>Talker 接收到 Listener 的请求后，也是通过 RPC 向 Listener
 确认连接信息，并发送自身的 TCP 地址信息。</p>
 
+          
         
       </div>
 
