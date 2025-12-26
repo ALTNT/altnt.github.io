@@ -23,7 +23,7 @@
   <meta name="description" content="遗传算法与深度学习实战（4）——遗传算法（Genetic Algorithm）详解与实现   0. 前言 1. 遗传算法简介  1.1 遗传学和减数分裂 1.2 类比达尔文进化论  2. 遗传算法的基本流程  2.1 创建初始种群 2.2 计算适应度 2.3 选择、交叉和变异 2.4算法终止条件  3. 使用 Python 实现遗传算法  3.1 构建种群 3.2 评估适应度 3.3 应用选择 3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ALTNT&#39;s Blog">
-<meta property="og:url" content="http://blog.705553939.xyz/2024/10/24/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95%EF%BC%88Genetic%20Algorithm%EF%BC%89%E8%AF%A6%E8%A7%A3%E4%B8%8E%E5%AE%9E%E7%8E%B0-CSDN%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:url" content="http://blog.alyy.de/2024/10/24/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95%EF%BC%88Genetic%20Algorithm%EF%BC%89%E8%AF%A6%E8%A7%A3%E4%B8%8E%E5%AE%9E%E7%8E%B0-CSDN%E5%8D%9A%E5%AE%A2/index.html">
 <meta property="og:site_name" content="ALTNT&#39;s Blog">
 <meta property="og:description" content="遗传算法与深度学习实战（4）——遗传算法（Genetic Algorithm）详解与实现   0. 前言 1. 遗传算法简介  1.1 遗传学和减数分裂 1.2 类比达尔文进化论  2. 遗传算法的基本流程  2.1 创建初始种群 2.2 计算适应度 2.3 选择、交叉和变异 2.4算法终止条件  3. 使用 Python 实现遗传算法  3.1 构建种群 3.2 评估适应度 3.3 应用选择 3">
 <meta property="og:locale" content="zh_CN">
@@ -118,7 +118,7 @@
       </a>
     
     
-      <a id="nav-search-btn" class="nav-icon" title="搜索">
+      <a id="nav-search-modal-btn" class="nav-icon" href="javascript:void(0);" title="搜索">
         <i class="fas fa-search"></i>
       </a>
     
@@ -202,8 +202,13 @@
                 <div class="category-count">121</div>
             </a>
         
-            <a class="category-link" href="/categories/classification/">
-                classification
+            <a class="category-link" href="/categories/Youtube%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/">
+                Youtube英语学习
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/diffusion/">
+                diffusion
                 <div class="category-count">2</div>
             </a>
         
@@ -217,8 +222,8 @@
                 <div class="category-count">2</div>
             </a>
         
-            <a class="category-link" href="/categories/Youtube%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/">
-                Youtube英语学习
+            <a class="category-link" href="/categories/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/">
+                vscode插件开发
                 <div class="category-count">1</div>
             </a>
         
@@ -227,13 +232,8 @@
                 <div class="category-count">10</div>
             </a>
         
-            <a class="category-link" href="/categories/diffusion/">
-                diffusion
-                <div class="category-count">2</div>
-            </a>
-        
-            <a class="category-link" href="/categories/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/">
-                vscode插件开发
+            <a class="category-link" href="/categories/%E5%85%A5%E5%AD%A6%E6%9D%90%E6%96%99/">
+                入学材料
                 <div class="category-count">1</div>
             </a>
         
@@ -242,14 +242,19 @@
                 <div class="category-count">5</div>
             </a>
         
+            <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/">
+                数据库系统原理
+                <div class="category-count">1</div>
+            </a>
+        
             <a class="category-link" href="/categories/%E6%A6%82%E7%8E%87%E8%AE%BA/">
                 概率论
                 <div class="category-count">1</div>
             </a>
         
-            <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/">
-                数据库系统原理
-                <div class="category-count">1</div>
+            <a class="category-link" href="/categories/%E8%B5%84%E6%96%99/">
+                资料
+                <div class="category-count">16</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
@@ -257,14 +262,9 @@
                 <div class="category-count">13</div>
             </a>
         
-            <a class="category-link" href="/categories/%E5%85%A5%E5%AD%A6%E6%9D%90%E6%96%99/">
-                入学材料
-                <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/%E8%B5%84%E6%96%99/">
-                资料
-                <div class="category-count">16</div>
+            <a class="category-link" href="/categories/classification/">
+                classification
+                <div class="category-count">2</div>
             </a>
         
             <a class="category-link" href="/categories/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/">
@@ -895,7 +895,7 @@ Algorithm）详解与实现</h4>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    var searchBtn = document.getElementById('nav-search-btn');
+    var searchBtn = document.getElementById('nav-search-modal-btn');
     var searchMask = document.getElementById('search-mask');
     var searchDialog = document.getElementById('search-dialog');
     var searchClose = document.getElementById('search-close-icon');
@@ -928,7 +928,12 @@ Algorithm）详解与实现</h4>
       searchDialog.classList.add('hidden');
     }
 
-    if (searchBtn) searchBtn.addEventListener('click', openSearch);
+    if (searchBtn) {
+      searchBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        openSearch();
+      });
+    }
     if (searchClose) searchClose.addEventListener('click', closeSearch);
     if (searchMask) searchMask.addEventListener('click', closeSearch);
 

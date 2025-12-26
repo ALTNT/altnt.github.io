@@ -3,11 +3,11 @@
   <title>ALTNT&#39;s Blog</title>
   
   <subtitle>守得云开见月明</subtitle>
-  <link href="http://blog.705553939.xyz/atom.xml" rel="self"/>
+  <link href="http://blog.alyy.de/atom.xml" rel="self"/>
   
-  <link href="http://blog.705553939.xyz/"/>
+  <link href="http://blog.alyy.de/"/>
   <updated>2025-12-26T14:00:03.340Z</updated>
-  <id>http://blog.705553939.xyz/</id>
+  <id>http://blog.alyy.de/</id>
   
   <author>
     <name>ALTNT</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>周报2025年12月7日</title>
-    <link href="http://blog.705553939.xyz/2025/12/08/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/12%E6%9C%887%E6%97%A5%E5%91%A8%E6%8A%A5-2025/"/>
-    <id>http://blog.705553939.xyz/2025/12/08/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/12%E6%9C%887%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</id>
+    <link href="http://blog.alyy.de/2025/12/08/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/12%E6%9C%887%E6%97%A5%E5%91%A8%E6%8A%A5-2025/"/>
+    <id>http://blog.alyy.de/2025/12/08/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/12%E6%9C%887%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</id>
     <published>2025-12-08T03:31:52.337Z</published>
     <updated>2025-12-26T14:00:03.340Z</updated>
     
@@ -30,19 +30,19 @@
     
     
     
-    <category term="crop_classification" scheme="http://blog.705553939.xyz/categories/crop-classification/"/>
+    <category term="crop_classification" scheme="http://blog.alyy.de/categories/crop-classification/"/>
     
     
-    <category term="crop classification" scheme="http://blog.705553939.xyz/tags/crop-classification/"/>
+    <category term="crop classification" scheme="http://blog.alyy.de/tags/crop-classification/"/>
     
-    <category term="研究生周报" scheme="http://blog.705553939.xyz/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/"/>
+    <category term="研究生周报" scheme="http://blog.alyy.de/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/"/>
     
   </entry>
   
   <entry>
     <title>周报2025年11月30日</title>
-    <link href="http://blog.705553939.xyz/2025/11/30/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/11%E6%9C%8830%E6%97%A5%E5%91%A8%E6%8A%A5-2025/"/>
-    <id>http://blog.705553939.xyz/2025/11/30/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/11%E6%9C%8830%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</id>
+    <link href="http://blog.alyy.de/2025/11/30/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/11%E6%9C%8830%E6%97%A5%E5%91%A8%E6%8A%A5-2025/"/>
+    <id>http://blog.alyy.de/2025/11/30/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/11%E6%9C%8830%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</id>
     <published>2025-11-30T14:03:48.174Z</published>
     <updated>2025-12-26T14:00:03.333Z</updated>
     
@@ -53,19 +53,19 @@
     
     
     
-    <category term="crop_classification" scheme="http://blog.705553939.xyz/categories/crop-classification/"/>
+    <category term="crop_classification" scheme="http://blog.alyy.de/categories/crop-classification/"/>
     
     
-    <category term="crop classification" scheme="http://blog.705553939.xyz/tags/crop-classification/"/>
+    <category term="crop classification" scheme="http://blog.alyy.de/tags/crop-classification/"/>
     
-    <category term="研究生周报" scheme="http://blog.705553939.xyz/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/"/>
+    <category term="研究生周报" scheme="http://blog.alyy.de/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/"/>
     
   </entry>
   
   <entry>
     <title>LP-FT</title>
-    <link href="http://blog.705553939.xyz/2025/11/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%9B%91%E7%9D%A3%E5%BE%AE%E8%B0%83/2024-ICLR-LP-FT/"/>
-    <id>http://blog.705553939.xyz/2025/11/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%9B%91%E7%9D%A3%E5%BE%AE%E8%B0%83/2024-ICLR-LP-FT/</id>
+    <link href="http://blog.alyy.de/2025/11/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%9B%91%E7%9D%A3%E5%BE%AE%E8%B0%83/2024-ICLR-LP-FT/"/>
+    <id>http://blog.alyy.de/2025/11/23/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%9B%91%E7%9D%A3%E5%BE%AE%E8%B0%83/2024-ICLR-LP-FT/</id>
     <published>2025-11-23T12:01:25.150Z</published>
     <updated>2025-12-26T14:00:03.606Z</updated>
     
@@ -76,17 +76,17 @@
     
     
     
-    <category term="机器学习" scheme="http://blog.705553939.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    <category term="机器学习" scheme="http://blog.alyy.de/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="监督微调" scheme="http://blog.705553939.xyz/tags/%E7%9B%91%E7%9D%A3%E5%BE%AE%E8%B0%83/"/>
+    <category term="监督微调" scheme="http://blog.alyy.de/tags/%E7%9B%91%E7%9D%A3%E5%BE%AE%E8%B0%83/"/>
     
   </entry>
   
   <entry>
     <title>周报2025年11月22日</title>
-    <link href="http://blog.705553939.xyz/2025/11/22/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/11%E6%9C%8822%E6%97%A5%E5%91%A8%E6%8A%A5-2025/"/>
-    <id>http://blog.705553939.xyz/2025/11/22/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/11%E6%9C%8822%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</id>
+    <link href="http://blog.alyy.de/2025/11/22/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/11%E6%9C%8822%E6%97%A5%E5%91%A8%E6%8A%A5-2025/"/>
+    <id>http://blog.alyy.de/2025/11/22/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/11%E6%9C%8822%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</id>
     <published>2025-11-22T15:29:55.427Z</published>
     <updated>2025-12-26T14:00:03.332Z</updated>
     
@@ -97,19 +97,19 @@
     
     
     
-    <category term="crop_classification" scheme="http://blog.705553939.xyz/categories/crop-classification/"/>
+    <category term="crop_classification" scheme="http://blog.alyy.de/categories/crop-classification/"/>
     
     
-    <category term="crop classification" scheme="http://blog.705553939.xyz/tags/crop-classification/"/>
+    <category term="crop classification" scheme="http://blog.alyy.de/tags/crop-classification/"/>
     
-    <category term="研究生周报" scheme="http://blog.705553939.xyz/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/"/>
+    <category term="研究生周报" scheme="http://blog.alyy.de/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/"/>
     
   </entry>
   
   <entry>
     <title>In-season crop progress in unsurveyed regions using networks trained on synthetic data</title>
-    <link href="http://blog.705553939.xyz/2025/11/16/crop_classification/Crop%20classification/IF11.3-RSE-In-season_crop_progress_in_unsurveyed_regions_using_networks_trained_on_synthetic_data/"/>
-    <id>http://blog.705553939.xyz/2025/11/16/crop_classification/Crop%20classification/IF11.3-RSE-In-season_crop_progress_in_unsurveyed_regions_using_networks_trained_on_synthetic_data/</id>
+    <link href="http://blog.alyy.de/2025/11/16/crop_classification/Crop%20classification/IF11.3-RSE-In-season_crop_progress_in_unsurveyed_regions_using_networks_trained_on_synthetic_data/"/>
+    <id>http://blog.alyy.de/2025/11/16/crop_classification/Crop%20classification/IF11.3-RSE-In-season_crop_progress_in_unsurveyed_regions_using_networks_trained_on_synthetic_data/</id>
     <published>2025-11-16T06:53:32.423Z</published>
     <updated>2025-12-26T14:00:03.208Z</updated>
     
@@ -120,17 +120,17 @@
     
     
     
-    <category term="crop_classification" scheme="http://blog.705553939.xyz/categories/crop-classification/"/>
+    <category term="crop_classification" scheme="http://blog.alyy.de/categories/crop-classification/"/>
     
     
-    <category term="crop classification" scheme="http://blog.705553939.xyz/tags/crop-classification/"/>
+    <category term="crop classification" scheme="http://blog.alyy.de/tags/crop-classification/"/>
     
   </entry>
   
   <entry>
     <title>周报2025年11月9日</title>
-    <link href="http://blog.705553939.xyz/2025/11/09/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/11%E6%9C%889%E6%97%A5%E5%91%A8%E6%8A%A5-2025/"/>
-    <id>http://blog.705553939.xyz/2025/11/09/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/11%E6%9C%889%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</id>
+    <link href="http://blog.alyy.de/2025/11/09/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/11%E6%9C%889%E6%97%A5%E5%91%A8%E6%8A%A5-2025/"/>
+    <id>http://blog.alyy.de/2025/11/09/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/11%E6%9C%889%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</id>
     <published>2025-11-09T12:07:15.624Z</published>
     <updated>2025-12-26T14:00:03.334Z</updated>
     
@@ -141,19 +141,19 @@
     
     
     
-    <category term="crop_classification" scheme="http://blog.705553939.xyz/categories/crop-classification/"/>
+    <category term="crop_classification" scheme="http://blog.alyy.de/categories/crop-classification/"/>
     
     
-    <category term="crop classification" scheme="http://blog.705553939.xyz/tags/crop-classification/"/>
+    <category term="crop classification" scheme="http://blog.alyy.de/tags/crop-classification/"/>
     
-    <category term="研究生周报" scheme="http://blog.705553939.xyz/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/"/>
+    <category term="研究生周报" scheme="http://blog.alyy.de/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/"/>
     
   </entry>
   
   <entry>
     <title>Auxiliary data-driven imputation of incomplete remote-sensing time series for unknown crop types mapping</title>
-    <link href="http://blog.705553939.xyz/2025/11/06/crop_classification/Crop%20classification/2025-ELSEVIER-IF8.9-Auxiliary_data-driven_imputation_of_incomplete_remote-sensing_time_series/"/>
-    <id>http://blog.705553939.xyz/2025/11/06/crop_classification/Crop%20classification/2025-ELSEVIER-IF8.9-Auxiliary_data-driven_imputation_of_incomplete_remote-sensing_time_series/</id>
+    <link href="http://blog.alyy.de/2025/11/06/crop_classification/Crop%20classification/2025-ELSEVIER-IF8.9-Auxiliary_data-driven_imputation_of_incomplete_remote-sensing_time_series/"/>
+    <id>http://blog.alyy.de/2025/11/06/crop_classification/Crop%20classification/2025-ELSEVIER-IF8.9-Auxiliary_data-driven_imputation_of_incomplete_remote-sensing_time_series/</id>
     <published>2025-11-06T12:18:09.113Z</published>
     <updated>2025-12-26T14:00:03.182Z</updated>
     
@@ -164,17 +164,17 @@
     
     
     
-    <category term="crop_classification" scheme="http://blog.705553939.xyz/categories/crop-classification/"/>
+    <category term="crop_classification" scheme="http://blog.alyy.de/categories/crop-classification/"/>
     
     
-    <category term="crop classification" scheme="http://blog.705553939.xyz/tags/crop-classification/"/>
+    <category term="crop classification" scheme="http://blog.alyy.de/tags/crop-classification/"/>
     
   </entry>
   
   <entry>
     <title>周报2025年11月1日</title>
-    <link href="http://blog.705553939.xyz/2025/11/01/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/11%E6%9C%881%E6%97%A5%E5%91%A8%E6%8A%A5-2025/"/>
-    <id>http://blog.705553939.xyz/2025/11/01/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/11%E6%9C%881%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</id>
+    <link href="http://blog.alyy.de/2025/11/01/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/11%E6%9C%881%E6%97%A5%E5%91%A8%E6%8A%A5-2025/"/>
+    <id>http://blog.alyy.de/2025/11/01/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/11%E6%9C%881%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</id>
     <published>2025-11-01T10:07:47.755Z</published>
     <updated>2025-12-26T14:00:03.326Z</updated>
     
@@ -185,19 +185,19 @@
     
     
     
-    <category term="crop_classification" scheme="http://blog.705553939.xyz/categories/crop-classification/"/>
+    <category term="crop_classification" scheme="http://blog.alyy.de/categories/crop-classification/"/>
     
     
-    <category term="crop classification" scheme="http://blog.705553939.xyz/tags/crop-classification/"/>
+    <category term="crop classification" scheme="http://blog.alyy.de/tags/crop-classification/"/>
     
-    <category term="研究生周报" scheme="http://blog.705553939.xyz/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/"/>
+    <category term="研究生周报" scheme="http://blog.alyy.de/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/"/>
     
   </entry>
   
   <entry>
     <title>周报2025年10月26日</title>
-    <link href="http://blog.705553939.xyz/2025/10/26/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/10%E6%9C%8826%E6%97%A5%E5%91%A8%E6%8A%A5-2025/"/>
-    <id>http://blog.705553939.xyz/2025/10/26/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/10%E6%9C%8826%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</id>
+    <link href="http://blog.alyy.de/2025/10/26/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/10%E6%9C%8826%E6%97%A5%E5%91%A8%E6%8A%A5-2025/"/>
+    <id>http://blog.alyy.de/2025/10/26/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/10%E6%9C%8826%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</id>
     <published>2025-10-26T10:06:06.332Z</published>
     <updated>2025-12-26T14:00:03.286Z</updated>
     
@@ -208,19 +208,19 @@
     
     
     
-    <category term="crop_classification" scheme="http://blog.705553939.xyz/categories/crop-classification/"/>
+    <category term="crop_classification" scheme="http://blog.alyy.de/categories/crop-classification/"/>
     
     
-    <category term="crop classification" scheme="http://blog.705553939.xyz/tags/crop-classification/"/>
+    <category term="crop classification" scheme="http://blog.alyy.de/tags/crop-classification/"/>
     
-    <category term="研究生周报" scheme="http://blog.705553939.xyz/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/"/>
+    <category term="研究生周报" scheme="http://blog.alyy.de/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/"/>
     
   </entry>
   
   <entry>
     <title>周报2025年10月12日</title>
-    <link href="http://blog.705553939.xyz/2025/10/13/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/10%E6%9C%8812%E6%97%A5%E5%91%A8%E6%8A%A5-2025/"/>
-    <id>http://blog.705553939.xyz/2025/10/13/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/10%E6%9C%8812%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</id>
+    <link href="http://blog.alyy.de/2025/10/13/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/10%E6%9C%8812%E6%97%A5%E5%91%A8%E6%8A%A5-2025/"/>
+    <id>http://blog.alyy.de/2025/10/13/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/10%E6%9C%8812%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</id>
     <published>2025-10-13T04:42:17.874Z</published>
     <updated>2025-12-26T14:00:03.283Z</updated>
     
@@ -231,19 +231,19 @@
     
     
     
-    <category term="crop_classification" scheme="http://blog.705553939.xyz/categories/crop-classification/"/>
+    <category term="crop_classification" scheme="http://blog.alyy.de/categories/crop-classification/"/>
     
     
-    <category term="crop classification" scheme="http://blog.705553939.xyz/tags/crop-classification/"/>
+    <category term="crop classification" scheme="http://blog.alyy.de/tags/crop-classification/"/>
     
-    <category term="研究生周报" scheme="http://blog.705553939.xyz/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/"/>
+    <category term="研究生周报" scheme="http://blog.alyy.de/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/"/>
     
   </entry>
   
   <entry>
     <title>Generalized Out-of-Distribution Detection: A Survey</title>
-    <link href="http://blog.705553939.xyz/2025/10/10/classification/2024-Generalized_Out-of-Distribution_Detection_A_Survey/"/>
-    <id>http://blog.705553939.xyz/2025/10/10/classification/2024-Generalized_Out-of-Distribution_Detection_A_Survey/</id>
+    <link href="http://blog.alyy.de/2025/10/10/classification/2024-Generalized_Out-of-Distribution_Detection_A_Survey/"/>
+    <id>http://blog.alyy.de/2025/10/10/classification/2024-Generalized_Out-of-Distribution_Detection_A_Survey/</id>
     <published>2025-10-10T08:02:03.330Z</published>
     <updated>2025-12-26T14:00:02.988Z</updated>
     
@@ -254,17 +254,17 @@
     
     
     
-    <category term="classification" scheme="http://blog.705553939.xyz/categories/classification/"/>
+    <category term="classification" scheme="http://blog.alyy.de/categories/classification/"/>
     
     
-    <category term="classification" scheme="http://blog.705553939.xyz/tags/classification/"/>
+    <category term="classification" scheme="http://blog.alyy.de/tags/classification/"/>
     
   </entry>
   
   <entry>
     <title>周报2025年9月27日</title>
-    <link href="http://blog.705553939.xyz/2025/09/27/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/9%E6%9C%8827%E6%97%A5%E5%91%A8%E6%8A%A5-2025/"/>
-    <id>http://blog.705553939.xyz/2025/09/27/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/9%E6%9C%8827%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</id>
+    <link href="http://blog.alyy.de/2025/09/27/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/9%E6%9C%8827%E6%97%A5%E5%91%A8%E6%8A%A5-2025/"/>
+    <id>http://blog.alyy.de/2025/09/27/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/9%E6%9C%8827%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</id>
     <published>2025-09-27T12:14:04.522Z</published>
     <updated>2025-12-26T14:00:03.426Z</updated>
     
@@ -275,19 +275,19 @@
     
     
     
-    <category term="crop_classification" scheme="http://blog.705553939.xyz/categories/crop-classification/"/>
+    <category term="crop_classification" scheme="http://blog.alyy.de/categories/crop-classification/"/>
     
     
-    <category term="crop classification" scheme="http://blog.705553939.xyz/tags/crop-classification/"/>
+    <category term="crop classification" scheme="http://blog.alyy.de/tags/crop-classification/"/>
     
-    <category term="研究生周报" scheme="http://blog.705553939.xyz/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/"/>
+    <category term="研究生周报" scheme="http://blog.alyy.de/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/"/>
     
   </entry>
   
   <entry>
     <title>周报2025年9月21日</title>
-    <link href="http://blog.705553939.xyz/2025/09/21/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/9%E6%9C%8821%E6%97%A5%E5%91%A8%E6%8A%A5-2025/"/>
-    <id>http://blog.705553939.xyz/2025/09/21/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/9%E6%9C%8821%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</id>
+    <link href="http://blog.alyy.de/2025/09/21/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/9%E6%9C%8821%E6%97%A5%E5%91%A8%E6%8A%A5-2025/"/>
+    <id>http://blog.alyy.de/2025/09/21/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/9%E6%9C%8821%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</id>
     <published>2025-09-21T10:53:45.932Z</published>
     <updated>2025-12-26T14:00:03.424Z</updated>
     
@@ -298,19 +298,19 @@
     
     
     
-    <category term="crop_classification" scheme="http://blog.705553939.xyz/categories/crop-classification/"/>
+    <category term="crop_classification" scheme="http://blog.alyy.de/categories/crop-classification/"/>
     
     
-    <category term="crop classification" scheme="http://blog.705553939.xyz/tags/crop-classification/"/>
+    <category term="crop classification" scheme="http://blog.alyy.de/tags/crop-classification/"/>
     
-    <category term="研究生周报" scheme="http://blog.705553939.xyz/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/"/>
+    <category term="研究生周报" scheme="http://blog.alyy.de/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/"/>
     
   </entry>
   
   <entry>
     <title>Deep learning with multi-scale temporal hybrid structure for robust crop mapping</title>
-    <link href="http://blog.705553939.xyz/2025/09/16/crop_classification/2024-IF12.2-ISPRS-Multi-scale-Temporal-Transformer-Conv/"/>
-    <id>http://blog.705553939.xyz/2025/09/16/crop_classification/2024-IF12.2-ISPRS-Multi-scale-Temporal-Transformer-Conv/</id>
+    <link href="http://blog.alyy.de/2025/09/16/crop_classification/2024-IF12.2-ISPRS-Multi-scale-Temporal-Transformer-Conv/"/>
+    <id>http://blog.alyy.de/2025/09/16/crop_classification/2024-IF12.2-ISPRS-Multi-scale-Temporal-Transformer-Conv/</id>
     <published>2025-09-16T07:21:45.951Z</published>
     <updated>2025-12-26T14:00:02.997Z</updated>
     
@@ -321,17 +321,17 @@
     
     
     
-    <category term="crop_classification" scheme="http://blog.705553939.xyz/categories/crop-classification/"/>
+    <category term="crop_classification" scheme="http://blog.alyy.de/categories/crop-classification/"/>
     
     
-    <category term="crop classification" scheme="http://blog.705553939.xyz/tags/crop-classification/"/>
+    <category term="crop classification" scheme="http://blog.alyy.de/tags/crop-classification/"/>
     
   </entry>
   
   <entry>
     <title>Learning the Optimal Stopping for Early Classification within Finite Horizons via Sequential Probability Ratio Test</title>
-    <link href="http://blog.705553939.xyz/2025/09/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/2024-DINOv2/"/>
-    <id>http://blog.705553939.xyz/2025/09/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/2024-DINOv2/</id>
+    <link href="http://blog.alyy.de/2025/09/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/2024-DINOv2/"/>
+    <id>http://blog.alyy.de/2025/09/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/2024-DINOv2/</id>
     <published>2025-09-15T02:57:03.979Z</published>
     <updated>2025-12-26T14:00:03.546Z</updated>
     
@@ -342,19 +342,19 @@
     
     
     
-    <category term="机器学习" scheme="http://blog.705553939.xyz/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    <category term="机器学习" scheme="http://blog.alyy.de/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="图像处理" scheme="http://blog.705553939.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    <category term="图像处理" scheme="http://blog.alyy.de/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
-    <category term="自监督" scheme="http://blog.705553939.xyz/tags/%E8%87%AA%E7%9B%91%E7%9D%A3/"/>
+    <category term="自监督" scheme="http://blog.alyy.de/tags/%E8%87%AA%E7%9B%91%E7%9D%A3/"/>
     
   </entry>
   
   <entry>
     <title>周报2025年9月14日</title>
-    <link href="http://blog.705553939.xyz/2025/09/14/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/9%E6%9C%8814%E6%97%A5%E5%91%A8%E6%8A%A5-2025/"/>
-    <id>http://blog.705553939.xyz/2025/09/14/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/9%E6%9C%8814%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</id>
+    <link href="http://blog.alyy.de/2025/09/14/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/9%E6%9C%8814%E6%97%A5%E5%91%A8%E6%8A%A5-2025/"/>
+    <id>http://blog.alyy.de/2025/09/14/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/9%E6%9C%8814%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</id>
     <published>2025-09-14T10:59:37.495Z</published>
     <updated>2025-12-26T14:00:03.422Z</updated>
     
@@ -365,19 +365,19 @@
     
     
     
-    <category term="crop_classification" scheme="http://blog.705553939.xyz/categories/crop-classification/"/>
+    <category term="crop_classification" scheme="http://blog.alyy.de/categories/crop-classification/"/>
     
     
-    <category term="crop classification" scheme="http://blog.705553939.xyz/tags/crop-classification/"/>
+    <category term="crop classification" scheme="http://blog.alyy.de/tags/crop-classification/"/>
     
-    <category term="研究生周报" scheme="http://blog.705553939.xyz/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/"/>
+    <category term="研究生周报" scheme="http://blog.alyy.de/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/"/>
     
   </entry>
   
   <entry>
     <title>A BASELINE FOR DETECTING MISCLASSIFIED AND OUT-OF-DISTRIBUTION EXAMPLES IN NEURAL NETWORKS</title>
-    <link href="http://blog.705553939.xyz/2025/09/09/classification/2018-ICLR-A-BASELINE-FOR-DETECTING-MISCLASSIFIED-AND-OUT-OF-DISTRIBUTION-EXAMPLES-IN-NEURAL-NETWORKS/"/>
-    <id>http://blog.705553939.xyz/2025/09/09/classification/2018-ICLR-A-BASELINE-FOR-DETECTING-MISCLASSIFIED-AND-OUT-OF-DISTRIBUTION-EXAMPLES-IN-NEURAL-NETWORKS/</id>
+    <link href="http://blog.alyy.de/2025/09/09/classification/2018-ICLR-A-BASELINE-FOR-DETECTING-MISCLASSIFIED-AND-OUT-OF-DISTRIBUTION-EXAMPLES-IN-NEURAL-NETWORKS/"/>
+    <id>http://blog.alyy.de/2025/09/09/classification/2018-ICLR-A-BASELINE-FOR-DETECTING-MISCLASSIFIED-AND-OUT-OF-DISTRIBUTION-EXAMPLES-IN-NEURAL-NETWORKS/</id>
     <published>2025-09-09T09:06:20.541Z</published>
     <updated>2025-12-26T14:00:02.986Z</updated>
     
@@ -388,17 +388,17 @@
     
     
     
-    <category term="classification" scheme="http://blog.705553939.xyz/categories/classification/"/>
+    <category term="classification" scheme="http://blog.alyy.de/categories/classification/"/>
     
     
-    <category term="classification" scheme="http://blog.705553939.xyz/tags/classification/"/>
+    <category term="classification" scheme="http://blog.alyy.de/tags/classification/"/>
     
   </entry>
   
   <entry>
     <title>周报2025年9月7日</title>
-    <link href="http://blog.705553939.xyz/2025/09/07/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/9%E6%9C%887%E6%97%A5%E5%91%A8%E6%8A%A5-2025/"/>
-    <id>http://blog.705553939.xyz/2025/09/07/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/9%E6%9C%887%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</id>
+    <link href="http://blog.alyy.de/2025/09/07/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/9%E6%9C%887%E6%97%A5%E5%91%A8%E6%8A%A5-2025/"/>
+    <id>http://blog.alyy.de/2025/09/07/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/9%E6%9C%887%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</id>
     <published>2025-09-07T14:14:37.077Z</published>
     <updated>2025-12-26T14:00:03.428Z</updated>
     
@@ -409,19 +409,19 @@
     
     
     
-    <category term="crop_classification" scheme="http://blog.705553939.xyz/categories/crop-classification/"/>
+    <category term="crop_classification" scheme="http://blog.alyy.de/categories/crop-classification/"/>
     
     
-    <category term="crop classification" scheme="http://blog.705553939.xyz/tags/crop-classification/"/>
+    <category term="crop classification" scheme="http://blog.alyy.de/tags/crop-classification/"/>
     
-    <category term="研究生周报" scheme="http://blog.705553939.xyz/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/"/>
+    <category term="研究生周报" scheme="http://blog.alyy.de/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/"/>
     
   </entry>
   
   <entry>
     <title>Does Negative Sampling Matter? A Review with Insights into its Theory and Applications</title>
-    <link href="http://blog.705553939.xyz/2025/09/01/sequence-processing/2024-NegativeSampling/"/>
-    <id>http://blog.705553939.xyz/2025/09/01/sequence-processing/2024-NegativeSampling/</id>
+    <link href="http://blog.alyy.de/2025/09/01/sequence-processing/2024-NegativeSampling/"/>
+    <id>http://blog.alyy.de/2025/09/01/sequence-processing/2024-NegativeSampling/</id>
     <published>2025-09-01T07:59:13.163Z</published>
     <updated>2025-12-26T14:00:03.525Z</updated>
     
@@ -432,17 +432,17 @@
     
     
     
-    <category term="sequence-processing" scheme="http://blog.705553939.xyz/categories/sequence-processing/"/>
+    <category term="sequence-processing" scheme="http://blog.alyy.de/categories/sequence-processing/"/>
     
     
-    <category term="Sequence Processing" scheme="http://blog.705553939.xyz/tags/Sequence-Processing/"/>
+    <category term="Sequence Processing" scheme="http://blog.alyy.de/tags/Sequence-Processing/"/>
     
   </entry>
   
   <entry>
     <title>周报2025年8月31日</title>
-    <link href="http://blog.705553939.xyz/2025/08/31/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/8%E6%9C%8831%E6%97%A5%E5%91%A8%E6%8A%A5-2025/"/>
-    <id>http://blog.705553939.xyz/2025/08/31/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/8%E6%9C%8831%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</id>
+    <link href="http://blog.alyy.de/2025/08/31/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/8%E6%9C%8831%E6%97%A5%E5%91%A8%E6%8A%A5-2025/"/>
+    <id>http://blog.alyy.de/2025/08/31/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/8%E6%9C%8831%E6%97%A5%E5%91%A8%E6%8A%A5-2025/</id>
     <published>2025-08-31T13:48:52.273Z</published>
     <updated>2025-12-26T14:00:03.419Z</updated>
     
@@ -453,12 +453,12 @@
     
     
     
-    <category term="crop_classification" scheme="http://blog.705553939.xyz/categories/crop-classification/"/>
+    <category term="crop_classification" scheme="http://blog.alyy.de/categories/crop-classification/"/>
     
     
-    <category term="crop classification" scheme="http://blog.705553939.xyz/tags/crop-classification/"/>
+    <category term="crop classification" scheme="http://blog.alyy.de/tags/crop-classification/"/>
     
-    <category term="研究生周报" scheme="http://blog.705553939.xyz/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/"/>
+    <category term="研究生周报" scheme="http://blog.alyy.de/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/"/>
     
   </entry>
   
