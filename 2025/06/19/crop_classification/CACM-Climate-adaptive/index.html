@@ -263,7 +263,7 @@ mjx-container[display="true"] + br {
     <div class="info">
       <div class="username">ALTNT </div>
       <div class="dot"></div>
-      <div class="subtitle">守得云开见月明 </div>
+      <div class="subtitle">修身且修心，从而知行合一，念头通达 </div>
       <div class="link-list">
         
           <a class="link-btn" target="_blank" rel="noopener" href="https://x.com/mi_liao39455" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
@@ -275,6 +275,50 @@ mjx-container[display="true"] + br {
   </div>
 </div>
 
+  
+    <div class="widget-wrap">
+  <div class="widget-title"><span>每日一言</span></div>
+  <div class="widget">
+    <div class="hitokoto-card" style="padding: 15px; text-align: center; cursor: pointer;">
+      <div id="hitokoto_text" style="font-size: 1.1em; font-weight: bold; margin-bottom: 10px; min-height: 50px;">
+        <i class="fas fa-spinner fa-spin"></i> Loading...
+      </div>
+      <div id="hitokoto_author" style="font-size: 0.9em; opacity: 0.8; text-align: right;"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function fetchHitokoto() {
+    var textElement = document.getElementById('hitokoto_text');
+    var authorElement = document.getElementById('hitokoto_author');
+    
+    // Add fade out effect
+    textElement.style.opacity = 0;
+    authorElement.style.opacity = 0;
+
+    setTimeout(function() {
+      fetch('https://v1.hitokoto.cn')
+        .then(response => response.json())
+        .then(data => {
+          textElement.innerText = data.hitokoto;
+          authorElement.innerText = '—— ' + (data.from_who || '') + '「' + data.from + '」';
+          
+          // Fade in
+          textElement.style.transition = 'opacity 0.5s';
+          authorElement.style.transition = 'opacity 0.5s';
+          textElement.style.opacity = 1;
+          authorElement.style.opacity = 1;
+        })
+        .catch(console.error);
+    }, 200);
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    fetchHitokoto();
+    document.querySelector('.hitokoto-card').addEventListener('click', fetchHitokoto);
+  });
+</script>
   
   <div class="sticky">
     
@@ -290,9 +334,14 @@ mjx-container[display="true"] + br {
                 <div class="category-count">1</div>
             </a>
         
-            <a class="category-link" href="/categories/Youtube%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/">
-                Youtube英语学习
-                <div class="category-count">1</div>
+            <a class="category-link" href="/categories/classification/">
+                classification
+                <div class="category-count">2</div>
+            </a>
+        
+            <a class="category-link" href="/categories/diffusion/">
+                diffusion
+                <div class="category-count">2</div>
             </a>
         
             <a class="category-link" href="/categories/crop-classification/">
@@ -300,9 +349,9 @@ mjx-container[display="true"] + br {
                 <div class="category-count">121</div>
             </a>
         
-            <a class="category-link" href="/categories/classification/">
-                classification
-                <div class="category-count">2</div>
+            <a class="category-link" href="/categories/sequence-processing/">
+                sequence-processing
+                <div class="category-count">10</div>
             </a>
         
             <a class="category-link" href="/categories/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/">
@@ -315,24 +364,9 @@ mjx-container[display="true"] + br {
                 <div class="category-count">2</div>
             </a>
         
-            <a class="category-link" href="/categories/mac%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
-                mac常见问题
+            <a class="category-link" href="/categories/%E5%85%A5%E5%AD%A6%E6%9D%90%E6%96%99/">
+                入学材料
                 <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/diffusion/">
-                diffusion
-                <div class="category-count">2</div>
-            </a>
-        
-            <a class="category-link" href="/categories/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/">
-                vscode插件开发
-                <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/sequence-processing/">
-                sequence-processing
-                <div class="category-count">10</div>
             </a>
         
             <a class="category-link" href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">
@@ -340,8 +374,8 @@ mjx-container[display="true"] + br {
                 <div class="category-count">5</div>
             </a>
         
-            <a class="category-link" href="/categories/%E5%85%A5%E5%AD%A6%E6%9D%90%E6%96%99/">
-                入学材料
+            <a class="category-link" href="/categories/mac%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
+                mac常见问题
                 <div class="category-count">1</div>
             </a>
         
@@ -350,8 +384,13 @@ mjx-container[display="true"] + br {
                 <div class="category-count">1</div>
             </a>
         
-            <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/">
-                数据库系统原理
+            <a class="category-link" href="/categories/Youtube%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/">
+                Youtube英语学习
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/">
+                vscode插件开发
                 <div class="category-count">1</div>
             </a>
         
@@ -363,6 +402,11 @@ mjx-container[display="true"] + br {
             <a class="category-link" href="/categories/%E8%B5%84%E6%96%99/">
                 资料
                 <div class="category-count">16</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/">
+                数据库系统原理
+                <div class="category-count">1</div>
             </a>
         
             <a class="category-link" href="/categories/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/">
@@ -550,7 +594,7 @@ mjx-container[display="true"] + br {
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img" rel="gallery_cmjo0bq8f000d25f99c6bfxx2">
+      <a class="article-gallery-img" rel="gallery_cmjo368xk000vjpf93qnb446g">
         <img src="/stickers_images/sticker43.gif" itemprop="image">
       </a>
     
@@ -824,8 +868,6 @@ mjx-container[display="true"] + br {
 </style>
 
 
-<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
-
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
@@ -843,8 +885,18 @@ mjx-container[display="true"] + br {
       searchInput.focus();
       if (!searchData) {
         
-          const client = algoliasearch('HNQFQ9M2AT', 'aa7f568e59219ff4cfd51075eecb88c8');
-          searchData = client.initIndex('my_blog_search');
+          fetch('/search.xml')
+            .then(response => response.text())
+            .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+            .then(data => {
+              searchData = Array.from(data.querySelectorAll('entry')).map(entry => {
+                return {
+                  title: entry.querySelector('title').textContent,
+                  content: entry.querySelector('content') ? entry.querySelector('content').textContent : '',
+                  url: entry.querySelector('url').textContent
+                };
+              });
+            });
         
       }
     }
@@ -870,20 +922,22 @@ mjx-container[display="true"] + br {
         if (keyword.length <= 0 || !searchData) return;
 
         
-          searchData.search(keyword).then(({ hits }) => {
-            if (hits.length === 0) {
-              searchResults.innerHTML = '<div class="search-empty">No results found</div>';
-              return;
-            }
-            var html = '<ul class="search-result-list">';
-            hits.forEach(item => {
-              var url = item.permalink || item.path || item.url;
-              var title = item._highlightResult && item._highlightResult.title ? item._highlightResult.title.value : item.title;
-              html += '<li><a href="' + url + '" class="search-result-title">' + title + '</a></li>';
-            });
-            html += '</ul>';
-            searchResults.innerHTML = html;
+          keyword = keyword.toLowerCase();
+          var matches = searchData.filter(item => 
+            item.title.toLowerCase().includes(keyword)
+          );
+
+          if (matches.length === 0) {
+            searchResults.innerHTML = '<div class="search-empty">No results found</div>';
+            return;
+          }
+
+          var html = '<ul class="search-result-list">';
+          matches.forEach(item => {
+            html += '<li><a href="' + item.url + '" class="search-result-title">' + item.title + '</a></li>';
           });
+          html += '</ul>';
+          searchResults.innerHTML = html;
         
       });
     }
