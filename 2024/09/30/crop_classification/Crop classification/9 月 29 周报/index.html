@@ -202,9 +202,19 @@
     <div class="widget">
       <h3 class="widget-title">分类</h3>
       <div class="category-box">
+            <a class="category-link" href="/categories/Front-end/">
+                Front-end
+                <div class="category-count">1</div>
+            </a>
+        
             <a class="category-link" href="/categories/Youtube%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/">
                 Youtube英语学习
                 <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/crop-classification/">
+                crop_classification
+                <div class="category-count">121</div>
             </a>
         
             <a class="category-link" href="/categories/classification/">
@@ -212,9 +222,14 @@
                 <div class="category-count">2</div>
             </a>
         
-            <a class="category-link" href="/categories/Front-end/">
-                Front-end
-                <div class="category-count">1</div>
+            <a class="category-link" href="/categories/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/">
+                Ros机器人相关
+                <div class="category-count">11</div>
+            </a>
+        
+            <a class="category-link" href="/categories/remote-sensing/">
+                remote-sensing
+                <div class="category-count">2</div>
             </a>
         
             <a class="category-link" href="/categories/mac%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
@@ -227,38 +242,8 @@
                 <div class="category-count">2</div>
             </a>
         
-            <a class="category-link" href="/categories/remote-sensing/">
-                remote-sensing
-                <div class="category-count">2</div>
-            </a>
-        
-            <a class="category-link" href="/categories/crop-classification/">
-                crop_classification
-                <div class="category-count">121</div>
-            </a>
-        
-            <a class="category-link" href="/categories/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/">
-                Ros机器人相关
-                <div class="category-count">11</div>
-            </a>
-        
             <a class="category-link" href="/categories/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/">
                 vscode插件开发
-                <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/%E5%85%A5%E5%AD%A6%E6%9D%90%E6%96%99/">
-                入学材料
-                <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">
-                图像处理
-                <div class="category-count">5</div>
-            </a>
-        
-            <a class="category-link" href="/categories/%E6%A6%82%E7%8E%87%E8%AE%BA/">
-                概率论
                 <div class="category-count">1</div>
             </a>
         
@@ -267,9 +252,19 @@
                 <div class="category-count">10</div>
             </a>
         
-            <a class="category-link" href="/categories/%E8%B5%84%E6%96%99/">
-                资料
-                <div class="category-count">16</div>
+            <a class="category-link" href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">
+                图像处理
+                <div class="category-count">5</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E5%85%A5%E5%AD%A6%E6%9D%90%E6%96%99/">
+                入学材料
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%A6%82%E7%8E%87%E8%AE%BA/">
+                概率论
+                <div class="category-count">1</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/">
@@ -280,6 +275,11 @@
             <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
                 机器学习
                 <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%B5%84%E6%96%99/">
+                资料
+                <div class="category-count">16</div>
             </a>
         
             <a class="category-link" href="/categories/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/">
@@ -873,6 +873,10 @@ network（TSNet)</h5>
   }
 </style>
 
+
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     var searchBtn = document.getElementById('nav-search-modal-btn');
@@ -888,18 +892,10 @@ network（TSNet)</h5>
       searchDialog.classList.remove('hidden');
       searchInput.focus();
       if (!searchData) {
-        fetch('/search.xml')
-          .then(response => response.text())
-          .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
-          .then(data => {
-            searchData = Array.from(data.querySelectorAll('entry')).map(entry => {
-              return {
-                title: entry.querySelector('title').textContent,
-                content: entry.querySelector('content') ? entry.querySelector('content').textContent : '',
-                url: entry.querySelector('url').textContent
-              };
-            });
-          });
+        
+          const client = algoliasearch('HNQFQ9M2AT', 'aa7f568e59219ff4cfd51075eecb88c8');
+          searchData = client.initIndex('my_blog_search');
+        
       }
     }
 
@@ -919,25 +915,26 @@ network（TSNet)</h5>
 
     if (searchInput) {
       searchInput.addEventListener('input', function() {
-        var keyword = this.value.trim().toLowerCase();
+        var keyword = this.value.trim();
         searchResults.innerHTML = '';
         if (keyword.length <= 0 || !searchData) return;
 
-        var matches = searchData.filter(item => 
-          item.title.toLowerCase().includes(keyword)
-        );
-
-        if (matches.length === 0) {
-          searchResults.innerHTML = '<div class="search-empty">No results found</div>';
-          return;
-        }
-
-        var html = '<ul class="search-result-list">';
-        matches.forEach(item => {
-          html += '<li><a href="' + item.url + '" class="search-result-title">' + item.title + '</a></li>';
-        });
-        html += '</ul>';
-        searchResults.innerHTML = html;
+        
+          searchData.search(keyword).then(({ hits }) => {
+            if (hits.length === 0) {
+              searchResults.innerHTML = '<div class="search-empty">No results found</div>';
+              return;
+            }
+            var html = '<ul class="search-result-list">';
+            hits.forEach(item => {
+              var url = item.permalink || item.path || item.url;
+              var title = item._highlightResult && item._highlightResult.title ? item._highlightResult.title.value : item.title;
+              html += '<li><a href="' + url + '" class="search-result-title">' + title + '</a></li>';
+            });
+            html += '</ul>';
+            searchResults.innerHTML = html;
+          });
+        
       });
     }
   });
