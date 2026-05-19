@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+
+
+<html theme="light" showBanner="true" hasBanner="true" > 
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet">
+<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>ALTNT&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="1772264353600  CEOS WGCV 土地覆盖地图精度评估与面积估算良好实践协议（2025版）总结 一、文档基本信息  文档名称：《Land Cover and Change Map Accuracy Assessment and Area Estimation Good Practices Protocol》（土地覆盖与变化地图精度评估及面积估算良好实践协议） 版本：1.0（20">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ALTNT&#39;s Blog">
+<meta property="og:url" content="http://blog.alyy.de/2026/02/04/crop_classification/Crop%20classification/2025-CEOS_WGCV_LPV_land_cover_protocol/index.html">
+<meta property="og:site_name" content="ALTNT&#39;s Blog">
+<meta property="og:description" content="1772264353600  CEOS WGCV 土地覆盖地图精度评估与面积估算良好实践协议（2025版）总结 一、文档基本信息  文档名称：《Land Cover and Change Map Accuracy Assessment and Area Estimation Good Practices Protocol》（土地覆盖与变化地图精度评估及面积估算良好实践协议） 版本：1.0（20">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.alyy.de/2026/02/04/crop_classification/Crop%20classification/2025-CEOS_WGCV_LPV_land_cover_protocol/1772264353600.png">
+<meta property="article:published_time" content="2026-02-04T12:54:05.696Z">
+<meta property="article:modified_time" content="2026-02-28T07:55:04.636Z">
+<meta property="article:author" content="ALTNT">
+<meta property="article:tag" content="技术博客,编程,程序员,机器学习,人工智能,操作系统,生活随笔">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.alyy.de/2026/02/04/crop_classification/Crop%20classification/2025-CEOS_WGCV_LPV_land_cover_protocol/1772264353600.png">
+  
+    <link rel="alternate" href="/atom.xml" title="ALTNT's Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.net/waline/3.0.0-alpha.9/waline.css"
+    />
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/demo-banner.webp" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="  has-toc  ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>ALTNT's Blog </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives/">Archives</a>
+    
+      <a class="main-nav-link" href="/tags/">Tags</a>
+    
+      <a class="main-nav-link" href="/categories/">Categories</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    
+      <a id="nav-search-modal-btn" class="nav-icon" href="javascript:void(0);" title="搜索">
+        <i class="fas fa-search"></i>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives/">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/tags/">Tags</a>
+    
+      <a class="nav-dropdown-link" href="/categories/">Categories</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/altnt.jpeg></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">ALTNT </div>
+      <div class="dot"></div>
+      <div class="subtitle">修身且修心，从而知行合一，念头通达 </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://x.com/mi_liao39455" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/ALTNT" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://space.bilibili.com/405080252" title="bilibili"><i class="fa-brands fa-bilibili"></i></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://t.me/Antocarr" title="Telegram"><i class="fa-brands fa-telegram"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <div class="widget-title"><span>每日一言</span></div>
+  <div class="widget">
+    <div class="hitokoto-card" style="padding: 15px; text-align: center; cursor: pointer;">
+      <div id="hitokoto_text" style="font-size: 1.1em; font-weight: bold; margin-bottom: 10px; min-height: 50px;">
+        <i class="fas fa-spinner fa-spin"></i> Loading...
+      </div>
+      <div id="hitokoto_author" style="font-size: 0.9em; opacity: 0.8; text-align: right;"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function fetchHitokoto() {
+    var textElement = document.getElementById('hitokoto_text');
+    var authorElement = document.getElementById('hitokoto_author');
+    
+    // Add fade out effect
+    textElement.style.opacity = 0;
+    authorElement.style.opacity = 0;
+
+    setTimeout(function() {
+      fetch('https://v1.hitokoto.cn')
+        .then(response => response.json())
+        .then(data => {
+          textElement.innerText = data.hitokoto;
+          authorElement.innerText = '—— ' + (data.from_who || '') + '「' + data.from + '」';
+          
+          // Fade in
+          textElement.style.transition = 'opacity 0.5s';
+          authorElement.style.transition = 'opacity 0.5s';
+          textElement.style.opacity = 1;
+          authorElement.style.opacity = 1;
+        })
+        .catch(console.error);
+    }, 200);
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    fetchHitokoto();
+    document.querySelector('.hitokoto-card').addEventListener('click', fetchHitokoto);
+  });
+</script>
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/Front-end/">
+                Front-end
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9B%B8%E5%85%B3/">
+                Ros机器人相关
+                <div class="category-count">11</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Youtube%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/">
+                Youtube英语学习
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/debug/">
+                debug
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/classification/">
+                classification
+                <div class="category-count">2</div>
+            </a>
+        
+            <a class="category-link" href="/categories/crop-classification/">
+                crop_classification
+                <div class="category-count">137</div>
+            </a>
+        
+            <a class="category-link" href="/categories/mac%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
+                mac常见问题
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/diffusion/">
+                diffusion
+                <div class="category-count">2</div>
+            </a>
+        
+            <a class="category-link" href="/categories/remote-sensing/">
+                remote-sensing
+                <div class="category-count">2</div>
+            </a>
+        
+            <a class="category-link" href="/categories/sequence-processing/">
+                sequence-processing
+                <div class="category-count">10</div>
+            </a>
+        
+            <a class="category-link" href="/categories/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/">
+                vscode插件开发
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">
+                图像处理
+                <div class="category-count">6</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E5%85%A5%E5%AD%A6%E6%9D%90%E6%96%99/">
+                入学材料
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%A6%82%E7%8E%87%E8%AE%BA/">
+                概率论
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%B5%84%E6%96%99/">
+                资料
+                <div class="category-count">19</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/">
+                数据库系统原理
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                机器学习
+                <div class="category-count">16</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3/">
+                项目相关
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E5%86%9C%E7%94%B0%E5%9C%B0%E5%9D%97%E6%8F%90%E5%8F%96/">
+                农田地块提取
+                <div class="category-count">1</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Cross-phenological-region/" rel="tag">Cross-phenological-region</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Foo/" rel="tag">Foo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/GIS/" rel="tag">GIS</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Image-Processing/" rel="tag">Image Processing</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/LLM/" rel="tag">LLM</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Mac-Macos/" rel="tag">Mac Macos</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Ros%E6%9C%BA%E5%99%A8%E4%BA%BA/" rel="tag">Ros机器人</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Self-Supervise/" rel="tag">Self-Supervise</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Self-supervised-learning/" rel="tag">Self-supervised learning</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Sequence-Processing/" rel="tag">Sequence Processing</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/TypeScript/" rel="tag">TypeScript</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/classification/" rel="tag">classification</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/cloud-removal/" rel="tag">cloud removal</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/cloud-removal/" rel="tag">cloud_removal</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/code/" rel="tag">code</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/crop-classification/" rel="tag">crop classification</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/debug/" rel="tag">debug</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/diffusion/" rel="tag">diffusion</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/k8s-Kubernetes/" rel="tag">k8s,Kubernetes</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/markdown-md/" rel="tag">markdown, md</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/remote-sensing/" rel="tag">remote sensing</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/vscode/" rel="tag">vscode</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/vscode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" rel="tag">vscode插件开发</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E4%BA%91%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">云操作系统</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%85%A5%E5%AD%A6%E6%9D%90%E6%96%99/" rel="tag">入学材料</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" rel="tag">图像处理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" rel="tag">大模型</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" rel="tag">强化学习</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%97%A9%E6%9C%9F%E5%88%86%E7%B1%BB/" rel="tag">早期分类</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%88%86%E7%B1%BB/" rel="tag">时间序列分类</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%9B%91%E7%9D%A3%E5%BE%AE%E8%B0%83/" rel="tag">监督微调</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/" rel="tag">研究生周报</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BE%A4%E7%AD%89%E4%B8%8D%E5%8F%98%E6%80%A7/" rel="tag">群等不变性</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%87%AA%E7%9B%91%E7%9D%A3/" rel="tag">自监督</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%A1%A8%E5%BE%81%E5%AD%A6%E4%B9%A0/" rel="tag">表征学习</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%B5%84%E6%96%99/" rel="tag">资料</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">归档</h3>
+      
+      
+        <a class="archive-link" href="/archives/2026/05 ">
+          五月 2026 
+          <div class="archive-count">6 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2026/04 ">
+          四月 2026 
+          <div class="archive-count">6 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2026/03 ">
+          三月 2026 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2026/02 ">
+          二月 2026 
+          <div class="archive-count">3 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2026/01 ">
+          一月 2026 
+          <div class="archive-count">9 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2025/12 ">
+          十二月 2025 
+          <div class="archive-count">3 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2025/11 ">
+          十一月 2025 
+          <div class="archive-count">7 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2025/10 ">
+          十月 2025 
+          <div class="archive-count">3 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2025/09 ">
+          九月 2025 
+          <div class="archive-count">8 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2025/08 ">
+          八月 2025 
+          <div class="archive-count">5 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2025/07 ">
+          七月 2025 
+          <div class="archive-count">8 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2025/06 ">
+          六月 2025 
+          <div class="archive-count">10 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2025/05 ">
+          五月 2025 
+          <div class="archive-count">7 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2025/04 ">
+          四月 2025 
+          <div class="archive-count">11 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2025/03 ">
+          三月 2025 
+          <div class="archive-count">15 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2025/02 ">
+          二月 2025 
+          <div class="archive-count">25 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2025/01 ">
+          一月 2025 
+          <div class="archive-count">6 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2024/12 ">
+          十二月 2024 
+          <div class="archive-count">21 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2024/11 ">
+          十一月 2024 
+          <div class="archive-count">16 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2024/10 ">
+          十月 2024 
+          <div class="archive-count">16 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2024/09 ">
+          九月 2024 
+          <div class="archive-count">13 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2024/08 ">
+          八月 2024 
+          <div class="archive-count">15 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2024/07 ">
+          七月 2024 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2024/06 ">
+          六月 2024 
+          <div class="archive-count">10 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2024/05 ">
+          五月 2024 
+          <div class="archive-count">1 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">最新文章</h3>
+      <ul>
+        
+          <a class="recent-link" href="/2026/05/19/%E5%86%9C%E7%94%B0%E5%9C%B0%E5%9D%97%E7%9F%A2%E9%87%8F%E6%8F%90%E5%8F%96/2026-IF12.2-ISPRS-IAPVec/" title="Towards individual agricultural parcel vectorization from VHR imagery: A coarse-to-fine and multi-task learning methodg" >
+            <div class="recent-link-text">
+              Towards individual agricultural parcel vectorization from VHR imagery: A coarse-to-fine and multi-task learning methodg
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2026/05/14/%E8%B5%84%E6%96%99/curl/" title="curl" >
+            <div class="recent-link-text">
+              curl
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2026/05/14/crop_classification/Crop%20classification/2026-AnyDisasterMapping/" title="Earth Observation for Disaster Mapping: Benchmarks, Methods, Challenges and Future Perspectives" >
+            <div class="recent-link-text">
+              Earth Observation for Disaster Mapping: Benchmarks, Methods, Challenges and Future Perspectives
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2026/05/13/crop_classification/Crop%20classification/2026_AAAS_IF_12.5_flood_loss_/" title="Underestimated agricultural losses due to flooding" >
+            <div class="recent-link-text">
+              Underestimated agricultural losses due to flooding
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2026/05/10/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/5%E6%9C%8810%E6%97%A5%E5%91%A8%E6%8A%A5-2026/" title="周报2026年5月10日" >
+            <div class="recent-link-text">
+              周报2026年5月10日
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+
+<article id="post-crop_classification/Crop classification/2025-CEOS_WGCV_LPV_land_cover_protocol" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        无标题
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2026-02-04T12:54:05.696Z" itemprop="datePublished">2026-02-04</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    未分类 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            3.1k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          
+            <figure>
+<img src="/2026/02/04/crop_classification/Crop%20classification/2025-CEOS_WGCV_LPV_land_cover_protocol/1772264353600.png" alt="1772264353600">
+<figcaption aria-hidden="true">1772264353600</figcaption>
+</figure>
+<h1 id="ceos-wgcv-土地覆盖地图精度评估与面积估算良好实践协议2025版总结">CEOS
+WGCV 土地覆盖地图精度评估与面积估算良好实践协议（2025版）总结</h1>
+<h2 id="一文档基本信息">一、文档基本信息</h2>
+<ul>
+<li><strong>文档名称</strong>：《Land Cover and Change Map Accuracy
+Assessment and Area Estimation Good Practices
+Protocol》（土地覆盖与变化地图精度评估及面积估算良好实践协议）</li>
+<li><strong>版本</strong>：1.0（2025年9月发布）</li>
+<li><strong>编制主体</strong>：地球观测卫星委员会（CEOS）校准与验证工作组（WGCV）土地产品验证小组（LPV）土地覆盖焦点领域</li>
+<li><strong>核心目标</strong>：为地图生产者提供规范的精度评估与面积估算方法，帮助地图使用者正确解读精度信息，推动全球/大陆尺度土地覆盖地图验证的标准化与规范化</li>
+</ul>
+<h2 id="二核心框架与关键原则">二、核心框架与关键原则</h2>
+<h3 id="核心框架">1. 核心框架</h3>
+<p>文档围绕精度评估的三大核心组件展开，形成完整技术体系：</p>
+<ul>
+<li><strong>抽样设计</strong>：确定评估位置与样本数量（第3章）</li>
+<li><strong>响应设计</strong>：定义参考数据标注规则与质量控制（第4章）</li>
+<li><strong>分析方法</strong>：精度指标计算与面积估算（第5章）</li>
+</ul>
+<h3 id="关键原则">2. 关键原则</h3>
+<ul>
+<li>精度评估应在地图制作前规划，需分配至少30%的项目预算</li>
+<li>推荐采用<strong>基于设计的推理框架</strong>，依赖概率抽样获取参考数据</li>
+<li>参考数据需独立于地图训练数据，质量（而非数量）优先于数量</li>
+<li>精度评估需适配地图类型（如分类地图vs连续场地图）与评估目的</li>
+<li>应公开详细的元数据（抽样设计、响应设计、分析方法），确保可重复性</li>
+</ul>
+<h2 id="三核心技术内容总结">三、核心技术内容总结</h2>
+<h3 id="定义与基础概念">1. 定义与基础概念</h3>
+<ul>
+<li><strong>核心术语</strong>：
+<ul>
+<li>精度评估（Validation）：通过独立参考样本量化地图误差的过程</li>
+<li>概率抽样：样本纳入概率已知且大于零的抽样方法（含简单随机、分层随机、系统抽样等）</li>
+<li>关键指标：总体精度（Overall Accuracy）、用户精度（User's
+Accuracy，Commission误差互补）、生产者精度（Producer's
+Accuracy，Omission误差互补）</li>
+</ul></li>
+<li><strong>地图分类</strong>：
+<ul>
+<li>分类地图（Categorical Maps）：离散类别标注（如森林、耕地）</li>
+<li>连续场地图（Continuous Fields）：像素级比例表征（如森林覆盖率）</li>
+<li>土地覆盖变化地图：直接映射变化或通过多期地图对比推导</li>
+</ul></li>
+</ul>
+<h3 id="抽样设计第3章">2. 抽样设计（第3章）</h3>
+<ul>
+<li><strong>抽样单元</strong>：可选择像素、固定大小多边形或点，需与地图空间单元适配</li>
+<li><strong>常见抽样设计</strong>：
+<ul>
+<li>分层随机抽样：推荐的通用设计，按地图类别或地理区域分层，提升稀有类别的样本代表性</li>
+<li>系统抽样：空间分布均衡，但需注意避免与误差周期性冲突</li>
+<li>集群抽样：降低数据采集成本，适用于大范围评估（分单阶段/两阶段）</li>
+</ul></li>
+<li><strong>样本量规划</strong>：
+<ul>
+<li>取决于目标精度（如95%置信区间、误差容忍度）与类别稀有程度</li>
+<li>稀有类别需分配更多样本，单类别最小样本量建议不低于50个</li>
+</ul></li>
+</ul>
+<h3 id="响应设计第4章">3. 响应设计（第4章）</h3>
+<ul>
+<li><strong>参考数据标注协议</strong>：
+<ul>
+<li>明确评估单元（如像素）与空间支持单元（如最小制图单元MMU）的对应关系</li>
+<li>混合像素标注需采用点抽样、网格分区或不规则多边形法估算类别比例</li>
+</ul></li>
+<li><strong>参考数据质量控制</strong>：
+<ul>
+<li>需通过专家共识、多 interpreter 交叉验证等方式降低标注误差</li>
+<li>参考数据应优于地图数据质量（如更高分辨率影像、更精准标注方法）</li>
+</ul></li>
+<li><strong>误差处理</strong>：需量化参考数据的主题误差（如标注错误）与地理定位误差，必要时进行校正</li>
+</ul>
+<h3 id="分析方法第5章">4. 分析方法（第5章）</h3>
+<ul>
+<li><strong>精度估算</strong>：
+<ul>
+<li>混淆矩阵：需以面积比例呈现（而非样本计数），避免分层抽样导致的偏差</li>
+<li>核心指标：总体精度、用户精度、生产者精度，需同时报告标准误差与置信区间</li>
+<li>不推荐使用Kappa系数（存在冗余性与假设缺陷）</li>
+</ul></li>
+<li><strong>面积估算</strong>：
+<ul>
+<li>推荐基于参考样本的面积估算（而非地图像素计数），可校正分类误差导致的偏差</li>
+<li>支持模型辅助估算（如逻辑回归、线性回归），提升估算精度</li>
+</ul></li>
+</ul>
+<h3 id="参考数据来源第6章">5. 参考数据来源（第6章）</h3>
+<ul>
+<li>中高分辨率光学时序数据（Landsat、Sentinel-2、HLS融合数据集）</li>
+<li>星载/机载激光雷达（LiDAR）数据：适用于三维植被结构验证</li>
+<li>无人机（UAV）数据：灵活获取局部高分辨率参考数据，适用于异质景观</li>
+<li>地面调查与众包数据：需注意质量控制与代表性（如Geo-Wiki、Collect
+Earth工具）</li>
+</ul>
+<h2 id="四验证阶段与应用场景">四、验证阶段与应用场景</h2>
+<h3 id="ceos-lpv验证阶段">1. CEOS LPV验证阶段</h3>
+<table>
+<colgroup>
+<col style="width: 5%">
+<col style="width: 53%">
+<col style="width: 41%">
+</colgroup>
+<thead>
+<tr>
+<th>阶段</th>
+<th>核心特征</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>小样本（&lt;30个），非概率抽样，无需同行评审</td>
+<td>初步误差定位</td>
+</tr>
+<tr>
+<td>2</td>
+<td>大样本（&gt;30个），概率抽样，需同行评审</td>
+<td>多数公开发表的地图产品</td>
+</tr>
+<tr>
+<td>3</td>
+<td>量化误差结构，提供标准误差/置信区间</td>
+<td>推荐的"黄金标准"验证</td>
+</tr>
+<tr>
+<td>4</td>
+<td>针对地图更新的动态验证更新</td>
+<td>业务化监测产品（如年度更新地图）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="典型应用场景">2. 典型应用场景</h3>
+<ul>
+<li>全球/大陆尺度土地覆盖地图验证（如Copernicus GLS-LC100、UMD
+GLAD产品）</li>
+<li>土地覆盖变化监测（如森林砍伐、耕地扩张）的精度评估</li>
+<li>多地图对比验证（基准测试）：通过统一参考样本调和不同地图的差异</li>
+<li>气候变量（ECV）相关土地覆盖产品验证：满足GCOS数据质量要求</li>
+</ul>
+<h2 id="五挑战与未来方向第7章">五、挑战与未来方向（第7章）</h2>
+<ul>
+<li>业务化验证更新：建立动态抽样与参考数据更新机制</li>
+<li>近实时地图验证：需平衡时效性与精度，量化检测延迟（Time Lag）</li>
+<li>标准化参考数据集：推动跨机构、跨区域的参考数据共享（如EU
+LUCAS数据集）</li>
+<li>局部地图质量指标：补充传统总体/类别精度，满足用户对空间异质性的需求</li>
+</ul>
+<h2 id="六关键建议">六、关键建议</h2>
+<ol type="1">
+<li>地图生产者应优先采用分层随机抽样，确保稀有类别与变化区域的样本覆盖</li>
+<li>参考数据需公开元数据，包括标注规则、interpreter资质、质量控制流程</li>
+<li>面积估算应基于参考样本，避免直接使用地图像素计数</li>
+<li>验证结果需同时报告精度指标、标准误差及置信区间，避免单一指标误导</li>
+<li>针对区域尺度应用，建议对全球地图进行局部精度评估，验证其适用性</li>
+</ol>
+<h2 id="响应设计原则">2.2.3 响应设计原则</h2>
+<p>响应设计的本质是 “给样本贴可靠‘真实标签’”</p>
+<p>响应设计是验证流程中
+“给抽样选中的单元（如像素、地块）分配‘真实地表标签’”
+的操作规范。其原则围绕 “标签独立性、高质量、可追溯”
+三大核心，直接决定参考数据是否能作为判断地图对错的 “标尺”。</p>
+<h3 id="参考数据独立性避免-自证清白">（1）参考数据独立性（避免
+“自证清白”）</h3>
+<p>验证用的参考数据必须与地图 “训练数据”
+完全分离，且最好由不同团队生成，参考数据标注者不能知晓样本对应的地图标签。</p>
+<p><strong>实践要点</strong></p>
+<p>即使训练数据是概率样本，也不建议拆分部分作为参考数据；理想情况是：地图制作者负责制图，另一团队独立采集
+/ 标注参考数据。</p>
+<h3 id="参考样本标签质量标尺-必须比-地图-准">（2）参考样本标签质量（“标尺”
+必须比 “地图” 准）</h3>
+<ul>
+<li>数据源更优：用更高分辨率数据验证低分辨率地图（如用 10m Sentinel-2
+数据验证 30m Landsat 地图）；</li>
+<li>标注方法更优：若用同分辨率数据（如均为
+Landsat），参考标签需用<strong>人工解译</strong>（比地图的自动分类更精准）。</li>
+</ul>
+<h3 id="参考数据质量评估承认-标尺-也有误差">（3）参考数据质量评估（承认
+“标尺” 也有误差）</h3>
+<p>必须评估参考数据自身的误差，并在精度估算中体现。</p>
+<ul>
+<li><strong>误差来源</strong> ：标注者主观偏差（如不同专家对 “草地 /
+灌木”
+的判断分歧）、地理定位偏差（样本位置与地图像素不匹配）、时序偏差（参考数据与地图的时间不重合，如地图是
+2020 年，参考数据是 2021 年）。</li>
+<li><strong>实践意义</strong> ：参考数据不是
+“绝对真理”，需通过多专家共识（如 2
+位专家独立标注，分歧部分集体讨论）、黄金标准子集（用更高质量数据验证 10%
+参考样本）等方式，量化并降低误差影响。</li>
+</ul>
+<h3 id="参考数据透明度让-标尺-可检验">（4）参考数据透明度（让 “标尺”
+可检验）</h3>
+<ul>
+<li><strong>核心要求</strong>
+：需公开样本级别的参考数据（如每个样本的标签、标注依据），若因隐私 /
+知识产权无法公开位置，需提供去定位信息的标签或影像预览。</li>
+</ul>
+<h3 id="偏差记录不隐瞒-操作漏洞">（5）偏差记录（不隐瞒 “操作漏洞”）</h3>
+<ul>
+<li><strong>核心要求</strong>
+：需详细记录所有偏离计划的情况（如部分样本无法实地考察、改用低质量参考数据）。</li>
+<li><strong>实践意义</strong>
+：偏差会影响评估结果的代表性（如偏远地区样本缺失可能导致
+“偏远区域精度未被评估”），记录偏差能让使用者明确评估结果的局限性（如
+“该精度仅适用于交通便利区域”）。</li>
+</ul>
+
+          
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2026/02/08/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/2%E6%9C%888%E6%97%A5%E5%91%A8%E6%8A%A5-2026/"
+      title="周报2026年2月8日"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        周报2026年2月8日
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2026/02/01/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/2%E6%9C%881%E6%97%A5%E5%91%A8%E6%8A%A5-2026/"
+      title="周报2026年2月1日"
+     >
+
+    <p class="title-text">
+      
+        周报2026年2月1日
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+
+
+
+
+  <div id="wl-comment-card" class="wl-comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">留言 </div>
+    </div>
+    <div id="waline"></div>
+  </div>
+  <script type="module">
+    import { init } from 'https://cdn.staticfile.net/waline/3.0.0-alpha.9/waline.js';
+
+    init({
+      el: '#waline',
+      serverURL: 'https://waline-ivory-omega.vercel.app/',
+      dark: 'html[theme="dark"]',
+    });
+  </script>
+
+    </div>
+    
+      <div id="toc-wrapper">
+        <div class="sticky">
+          
+  
+  <div class="widget-wrap" id="toc-widget-wrap" style="display: none">
+    <div class="widget-title"><span>文章目录</span></div>
+    <div class="widget" id="toc-widget-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ceos-wgcv-%E5%9C%9F%E5%9C%B0%E8%A6%86%E7%9B%96%E5%9C%B0%E5%9B%BE%E7%B2%BE%E5%BA%A6%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%9D%A2%E7%A7%AF%E4%BC%B0%E7%AE%97%E8%89%AF%E5%A5%BD%E5%AE%9E%E8%B7%B5%E5%8D%8F%E8%AE%AE2025%E7%89%88%E6%80%BB%E7%BB%93"><span class="toc-number">1.</span> <span class="toc-text">CEOS
+WGCV 土地覆盖地图精度评估与面积估算良好实践协议（2025版）总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E6%96%87%E6%A1%A3%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="toc-number">1.1.</span> <span class="toc-text">一、文档基本信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E6%A0%B8%E5%BF%83%E6%A1%86%E6%9E%B6%E4%B8%8E%E5%85%B3%E9%94%AE%E5%8E%9F%E5%88%99"><span class="toc-number">1.2.</span> <span class="toc-text">二、核心框架与关键原则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%A1%86%E6%9E%B6"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. 核心框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%8E%9F%E5%88%99"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. 关键原则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%86%85%E5%AE%B9%E6%80%BB%E7%BB%93"><span class="toc-number">1.3.</span> <span class="toc-text">三、核心技术内容总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="toc-number">1.3.1.</span> <span class="toc-text">1. 定义与基础概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%BD%E6%A0%B7%E8%AE%BE%E8%AE%A1%E7%AC%AC3%E7%AB%A0"><span class="toc-number">1.3.2.</span> <span class="toc-text">2. 抽样设计（第3章）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E8%AE%BE%E8%AE%A1%E7%AC%AC4%E7%AB%A0"><span class="toc-number">1.3.3.</span> <span class="toc-text">3. 响应设计（第4章）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%E7%AC%AC5%E7%AB%A0"><span class="toc-number">1.3.4.</span> <span class="toc-text">4. 分析方法（第5章）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%95%B0%E6%8D%AE%E6%9D%A5%E6%BA%90%E7%AC%AC6%E7%AB%A0"><span class="toc-number">1.3.5.</span> <span class="toc-text">5. 参考数据来源（第6章）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E9%AA%8C%E8%AF%81%E9%98%B6%E6%AE%B5%E4%B8%8E%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">1.4.</span> <span class="toc-text">四、验证阶段与应用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ceos-lpv%E9%AA%8C%E8%AF%81%E9%98%B6%E6%AE%B5"><span class="toc-number">1.4.1.</span> <span class="toc-text">1. CEOS LPV验证阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B8%E5%9E%8B%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">1.4.2.</span> <span class="toc-text">2. 典型应用场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E6%8C%91%E6%88%98%E4%B8%8E%E6%9C%AA%E6%9D%A5%E6%96%B9%E5%90%91%E7%AC%AC7%E7%AB%A0"><span class="toc-number">1.5.</span> <span class="toc-text">五、挑战与未来方向（第7章）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E5%85%B3%E9%94%AE%E5%BB%BA%E8%AE%AE"><span class="toc-number">1.6.</span> <span class="toc-text">六、关键建议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="toc-number">1.7.</span> <span class="toc-text">2.2.3 响应设计原则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%95%B0%E6%8D%AE%E7%8B%AC%E7%AB%8B%E6%80%A7%E9%81%BF%E5%85%8D-%E8%87%AA%E8%AF%81%E6%B8%85%E7%99%BD"><span class="toc-number">1.7.1.</span> <span class="toc-text">（1）参考数据独立性（避免
+“自证清白”）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%A0%B7%E6%9C%AC%E6%A0%87%E7%AD%BE%E8%B4%A8%E9%87%8F%E6%A0%87%E5%B0%BA-%E5%BF%85%E9%A1%BB%E6%AF%94-%E5%9C%B0%E5%9B%BE-%E5%87%86"><span class="toc-number">1.7.2.</span> <span class="toc-text">（2）参考样本标签质量（“标尺”
+必须比 “地图” 准）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%95%B0%E6%8D%AE%E8%B4%A8%E9%87%8F%E8%AF%84%E4%BC%B0%E6%89%BF%E8%AE%A4-%E6%A0%87%E5%B0%BA-%E4%B9%9F%E6%9C%89%E8%AF%AF%E5%B7%AE"><span class="toc-number">1.7.3.</span> <span class="toc-text">（3）参考数据质量评估（承认
+“标尺” 也有误差）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%95%B0%E6%8D%AE%E9%80%8F%E6%98%8E%E5%BA%A6%E8%AE%A9-%E6%A0%87%E5%B0%BA-%E5%8F%AF%E6%A3%80%E9%AA%8C"><span class="toc-number">1.7.4.</span> <span class="toc-text">（4）参考数据透明度（让 “标尺”
+可检验）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%8F%E5%B7%AE%E8%AE%B0%E5%BD%95%E4%B8%8D%E9%9A%90%E7%9E%92-%E6%93%8D%E4%BD%9C%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.7.5.</span> <span class="toc-text">（5）偏差记录（不隐瞒 “操作漏洞”）</span></a></li></ol></li></ol></li></ol>
+      
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const tocWrap = document.getElementById('toc-widget-wrap');
+      const tocContent = document.getElementById('toc-widget-content');
+      const contentBody = document.getElementById('content-body');
+      
+      // Check if content is encrypted
+      const isEncrypted = document.getElementById('hexo-blog-encrypt') || document.querySelector('.hbe-container');
+
+      // Check if server-side TOC is available and valid
+      const hasServerTOC = tocContent.querySelectorAll('li').length > 0;
+
+      if (hasServerTOC) {
+        tocWrap.style.display = 'block';
+        initScrollSpy();
+        // If not encrypted, we are done. If encrypted, server TOC might be wrong/empty (but check says >0 li), 
+        // usually encrypted posts have empty server TOC.
+        if (!isEncrypted) return; 
+      }
+
+      // Client-side TOC generation
+      function generateTOC() {
+        if (!contentBody || !tocContent) return;
+
+        // Get headers and filter out "Preview" or empty ones
+        const headers = Array.from(contentBody.querySelectorAll('h1, h2, h3, h4, h5, h6'))
+          .filter(header => {
+            const text = header.innerText.trim();
+            return text.length > 0 && !text.includes('预览') && !text.includes('Preview');
+          });
+
+        if (headers.length === 0) return;
+
+        let tocHtml = '<ol class="toc">';
+        let prevLevel = 0;
+        let rootLevel = 0;
+
+        headers.forEach((header, index) => {
+          if (!header.id) {
+            header.id = 'toc-header-' + index;
+          }
+          
+          const level = parseInt(header.tagName.substring(1));
+          if (index === 0) rootLevel = level;
+          
+          const displayLevel = level - rootLevel + 1;
+
+          if (prevLevel === 0) {
+            // First item
+          } else if (displayLevel > prevLevel) {
+            tocHtml += '<ol class="toc-child">'.repeat(displayLevel - prevLevel);
+          } else if (displayLevel < prevLevel) {
+            tocHtml += '</li>' + '</ol></li>'.repeat(prevLevel - displayLevel);
+          } else {
+            tocHtml += '</li>';
+          }
+
+          tocHtml += `<li class="toc-item toc-level-${level}">`;
+          tocHtml += `<a class="toc-link" href="#${header.id}"><span class="toc-number"></span> <span class="toc-text">${header.innerText}</span></a>`;
+          
+          prevLevel = displayLevel;
+        });
+
+        if (prevLevel > 0) {
+           tocHtml += '</li>' + '</ol></li>'.repeat(prevLevel - 1);
+        }
+        tocHtml += '</ol>';
+
+        tocContent.innerHTML = tocHtml;
+        tocWrap.style.display = 'block';
+        
+        initScrollSpy();
+      }
+
+      function initScrollSpy() {
+        const tocLinks = document.querySelectorAll('.toc-link');
+        const sections = [];
+        
+        tocLinks.forEach(link => {
+          try {
+            const href = link.getAttribute('href');
+            if (!href || href.startsWith('#') === false) return;
+            const id = decodeURIComponent(href.substring(1));
+            const section = document.getElementById(id);
+            if (section) {
+              sections.push({link: link, section: section});
+            }
+          } catch (e) {}
+        });
+
+        function setActive() {
+          const scrollPos = window.scrollY + 100;
+          let activeItem = null;
+          sections.forEach(item => {
+            if (item.section.offsetTop <= scrollPos) activeItem = item;
+          });
+          tocLinks.forEach(link => link.classList.remove('active'));
+          if (activeItem) activeItem.link.classList.add('active');
+        }
+
+        window.removeEventListener('scroll', setActive);
+        window.addEventListener('scroll', setActive);
+        setActive();
+      }
+
+      // Initial generation attempt (for non-encrypted or already decrypted content)
+      if (!hasServerTOC) {
+        generateTOC();
+      }
+
+      // Handling for encrypted posts
+      if (isEncrypted || !hasServerTOC) {
+        // 1. Listen for decryption event
+        window.addEventListener('hexo-blog-decrypt', function() {
+          setTimeout(generateTOC, 500);
+        });
+
+        // 2. Polling fallback (every 1s for 60s)
+        let checkCount = 0;
+        const interval = setInterval(() => {
+          // Check if headers exist now
+          const headers = contentBody.querySelectorAll('h1, h2, h3, h4, h5, h6');
+          if (headers.length > 0) {
+            generateTOC();
+            // If we successfully generated TOC, stop polling
+             const tocItems = tocContent.querySelectorAll('li');
+             if (tocItems.length > 0) clearInterval(interval);
+          }
+          checkCount++;
+          if (checkCount > 60) clearInterval(interval);
+        }, 1000);
+
+        // 3. MutationObserver for DOM changes
+        const observer = new MutationObserver((mutations) => {
+           const headers = contentBody.querySelectorAll('h1, h2, h3, h4, h5, h6');
+           if (headers.length > 0) {
+             generateTOC();
+             // If valid TOC generated, disconnect
+             const tocItems = tocContent.querySelectorAll('li');
+             if (tocItems.length > 0) {
+               observer.disconnect(); 
+               clearInterval(interval);
+             }
+           }
+        });
+        observer.observe(contentBody, { childList: true, subtree: true });
+      }
+    });
+  </script>
+
+
+
+        </div>
+      </div>
+    
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+    &copy; 2026 ALTNT<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  
+    <div id="search-mask" class="hidden"></div>
+<div id="search-dialog" class="hidden">
+  <div class="search-header">
+    <div class="search-input-wrapper">
+      <input id="search-input" type="text" placeholder="搜索...">
+    </div>
+    <div id="search-close-icon" class="search-icon">
+      <i class="fa-solid fa-xmark"></i>
+    </div>
+  </div>
+  <div id="search-results"></div>
+</div>
+
+<style>
+  #search-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(2px);
+    transition: all 0.2s;
+  }
+  #search-mask.hidden {
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  #search-dialog {
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 600px;
+    background: var(--card-background, #fff);
+    border-radius: 12px;
+    z-index: 1001;
+    padding: 20px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.2s;
+  }
+  #search-dialog.hidden {
+    display: none;
+    transform: translateX(-50%) translateY(-20px);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .search-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color, #eee);
+  }
+
+  .search-input-wrapper {
+    flex: 1;
+  }
+  
+  .search-input-wrapper input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    font-size: 1.1em;
+    color: var(--article-text, #333);
+    outline: none;
+  }
+  
+  .search-icon {
+    cursor: pointer;
+    color: var(--article-meta, #999);
+  }
+  
+  #search-results {
+    overflow-y: auto;
+    flex: 1;
+  }
+  
+  .search-result-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .search-result-list li {
+    margin-bottom: 10px;
+  }
+  
+  .search-result-list li a {
+    display: block;
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: var(--article-text, #333);
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  
+  .search-result-list li a:hover {
+    background: var(--link-hover-bg, #f5f5f5);
+    color: var(--primary-color, #007bff);
+  }
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var searchBtn = document.getElementById('nav-search-modal-btn');
+    var searchMask = document.getElementById('search-mask');
+    var searchDialog = document.getElementById('search-dialog');
+    var searchClose = document.getElementById('search-close-icon');
+    var searchInput = document.getElementById('search-input');
+    var searchResults = document.getElementById('search-results');
+    var searchData = null;
+
+    function openSearch() {
+      searchMask.classList.remove('hidden');
+      searchDialog.classList.remove('hidden');
+      searchInput.focus();
+      if (!searchData) {
+        
+          const client = algoliasearch('HNQFQ9M2AT', 'aa7f568e59219ff4cfd51075eecb88c8');
+          searchData = client.initIndex('my_blog_search');
+        
+      }
+    }
+
+    function closeSearch() {
+      searchMask.classList.add('hidden');
+      searchDialog.classList.add('hidden');
+    }
+
+    if (searchBtn) {
+      searchBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        openSearch();
+      });
+    }
+    if (searchClose) searchClose.addEventListener('click', closeSearch);
+    if (searchMask) searchMask.addEventListener('click', closeSearch);
+
+    if (searchInput) {
+      searchInput.addEventListener('input', function() {
+        var keyword = this.value.trim();
+        searchResults.innerHTML = '';
+        if (keyword.length <= 0 || !searchData) return;
+
+        
+          searchData.search(keyword).then(({ hits }) => {
+            if (hits.length === 0) {
+              searchResults.innerHTML = '<div class="search-empty">No results found</div>';
+              return;
+            }
+            var html = '<ul class="search-result-list">';
+            hits.forEach(item => {
+              var url = item.permalink || item.path || item.url;
+              var title = item._highlightResult && item._highlightResult.title ? item._highlightResult.title.value : item.title;
+              html += '<li><a href="' + url + '" class="search-result-title">' + title + '</a></li>';
+            });
+            html += '</ul>';
+            searchResults.innerHTML = html;
+          });
+        
+      });
+    }
+  });
+</script>
+
+  
+  <script src="/js/copy-code.js"></script>
+  <script src="/js/light-dark-switch.js"></script>
+  <style>
+    .copy-btn {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      background: var(--card-background);
+      border: 1px solid var(--border-color);
+      color: var(--article-text);
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 4px;
+      transition: all 0.2s;
+      z-index: 10;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+    .copy-btn:hover {
+      opacity: 1;
+      color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+    .copy-btn.copied {
+      color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+    .code-container {
+      position: relative;
+    }
+  </style>
+</body>
+</html>

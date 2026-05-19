@@ -1268,17 +1268,6 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2025/08/25/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/%E9%87%8D%E6%96%B0%E5%A4%8D%E7%8E%B0CACM%20%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>crop_classification</category>
-      </categories>
-      <tags>
-        <tag>crop classification</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ai工具在绘图方面的应用</title>
     <url>/2025/04/01/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/ai%20%E5%B7%A5%E5%85%B7%E5%9C%A8%E7%BB%98%E5%9B%BE%E6%96%B9%E9%9D%A2%E7%9A%84%E5%BA%94%E7%94%A8/</url>
     <content><![CDATA[]]></content>
@@ -2331,6 +2320,196 @@
         <tag>机器学习</tag>
         <tag>Self-Supervise</tag>
         <tag>自监督</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Towards individual agricultural parcel vectorization from VHR imagery: A coarse-to-fine and multi-task learning methodg</title>
+    <url>/2026/05/19/%E5%86%9C%E7%94%B0%E5%9C%B0%E5%9D%97%E7%9F%A2%E9%87%8F%E6%8F%90%E5%8F%96/2026-IF12.2-ISPRS-IAPVec/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>农田地块提取</category>
+      </categories>
+      <tags>
+        <tag>Image Processing</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>XCiT: Cross-Covariance Image Transformers</title>
+    <url>/2026/04/10/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/2021-Nips-XCiT/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>图像处理</category>
+      </categories>
+      <tags>
+        <tag>Image Processing</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>curl</title>
+    <url>/2026/05/14/%E8%B5%84%E6%96%99/curl/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>资料</category>
+      </categories>
+      <tags>
+        <tag>资料</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2026/02/04/crop_classification/Crop%20classification/2025-CEOS_WGCV_LPV_land_cover_protocol/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Underestimated agricultural losses due to flooding</title>
+    <url>/2026/05/13/crop_classification/Crop%20classification/2026_AAAS_IF_12.5_flood_loss_/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>周报2026年2月1日</title>
+    <url>/2026/02/01/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/2%E6%9C%881%E6%97%A5%E5%91%A8%E6%8A%A5-2026/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+        <tag>研究生周报</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Earth Observation for Disaster Mapping: Benchmarks, Methods, Challenges and Future Perspectives</title>
+    <url>/2026/05/14/crop_classification/Crop%20classification/2026-AnyDisasterMapping/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>周报2026年2月8日</title>
+    <url>/2026/02/08/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/2%E6%9C%888%E6%97%A5%E5%91%A8%E6%8A%A5-2026/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+        <tag>研究生周报</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>周报2026年3月21日</title>
+    <url>/2026/03/22/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/3%E6%9C%8821%E6%97%A5%E5%91%A8%E6%8A%A5-2026/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+        <tag>研究生周报</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>周报2026年3月8日</title>
+    <url>/2026/03/02/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/3%E6%9C%888%E6%97%A5%E5%91%A8%E6%8A%A5-2026/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+        <tag>研究生周报</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>周报2026年4月19日</title>
+    <url>/2026/04/19/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/4%E6%9C%8819%E6%97%A5%E5%91%A8%E6%8A%A5-2026/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+        <tag>研究生周报</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>周报2026年4月12日</title>
+    <url>/2026/04/12/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/4%E6%9C%8812%E6%97%A5%E5%91%A8%E6%8A%A5-2026/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+        <tag>研究生周报</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>周报2026年4月4日</title>
+    <url>/2026/04/04/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/4%E6%9C%884%E6%97%A5%E5%91%A8%E6%8A%A5-2026/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+        <tag>研究生周报</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>周报2026年5月10日</title>
+    <url>/2026/05/10/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/5%E6%9C%8810%E6%97%A5%E5%91%A8%E6%8A%A5-2026/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+        <tag>研究生周报</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Last-ViT</title>
+    <url>/2026/04/18/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%9B%91%E7%9D%A3/2026-CVPR-last-ViT/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>Self-Supervise</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>周报2026年5月2日</title>
+    <url>/2026/05/02/crop_classification/%E7%A0%94%E7%A9%B6%E7%94%9F%E5%91%A8%E6%8A%A5/5%E6%9C%882%E6%97%A5%E5%91%A8%E6%8A%A5-2026/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>crop_classification</category>
+      </categories>
+      <tags>
+        <tag>crop classification</tag>
+        <tag>研究生周报</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DINO自蒸馏训练（Self-Distillation with NO labels）</title>
+    <url>/2026/04/17/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E8%87%AA%E7%9B%91%E7%9D%A3/DINO/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>Self-Supervise</tag>
       </tags>
   </entry>
 </search>
